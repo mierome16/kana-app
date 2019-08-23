@@ -1,0 +1,33 @@
+{
+  "name": "tinder-food",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "client": "cd client && yarn start",
+    "server": "cd server && yarn start",
+    "start": "concurrently \"yarn run client\" \"yarn run server\"",
+    "client:build": "cd client && yarn run build",
+    "build": "yarn run client:build && mv client/build/* server/public"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pc-summer-2019/boilerplate/issues"
+  },
+  "homepage": "https://github.com/pc-summer-2019/boilerplate#readme",
+  "dependencies": {
+    "concurrently": "^4.1.1"
+  },
+  "boilerplate": {
+    "name": "boilerplate",
+    "version": "1.0.0",
+    "description": "",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/pc-summer-2019/boilerplate.git"
+    },
+    "author": "",
+    "license": "ISC"
+  }
+}
