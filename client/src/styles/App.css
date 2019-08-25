@@ -1,2 +1,6 @@
 html {box-sizing:border-box;}
 *, *::before, *::after {box-sizing:inherit;}
+
+.ui.inverted.segment, .ui.primary.inverted.segment {
+  background: rgba(235, 101, 53, 1)
+}
