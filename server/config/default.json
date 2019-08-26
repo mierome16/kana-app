@@ -4,5 +4,7 @@
     "user": "kana-admin",
     "password": "+V:=0g`k>rzY}9u",
     "database": "Kana"
-  }
+  },
+  "salt": "]*?l367=Eaag+{j",
+  "secret": "(9:P0gy7m3T!lI"
 }
