@@ -1,9 +1,9 @@
 {
   "db": {
-    "host": "localhost",
-    "user": "kana-admin",
-    "password": "+V:=0g`k>rzY}9u",
-    "database": "Kana"
+    "host": "https://remotemysql.com",
+    "user": "KC4dxfOldu",
+    "password": "Ux2tkLaFup",
+    "database": "KC4dxfOldu"
   },
   "salt": "]*?l367=Eaag+{j",
   "secret": "(9:P0gy7m3T!lI"
