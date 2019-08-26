@@ -237,14 +237,14 @@ INSERT INTO `Restaurants` (`id`, `name`, `address`, `zipcode`, `city`, `state`, 
 VALUES
 	(1,'Besta','1114 S Casino Center Blvd','89104','Las Vegas','NV','06:00:00','16:00:00','Mon Tues Wed Thurs Fri Sat','Coffee Breakfast Lunch Brunch',5),
 	(2,'Lornish Patty','10 E Charleston Blvd','89104','Las Vegas','NV','11:00:00','23:00:00','Mon Tues Wed Thurs Fri Sat Sun','Brunch Appetizers Lunch Dinner',5),
-	(3,'Lesther\'s','1130 S Casino Center Blvd','89104','Las Vegas','NV','11:00:00','23:00:00','Mon Tues Wed Thurs Fri Sat Sun','Brunch Lunch Dinner',NULL),
-	(4,'Casa Don Jose','1204 S Main St','89104','Las Vegas','NV','07:00:00','22:00:00','Mon Tues Wed Thurs Fri Sat Sun','Breakfast Brunch Lunch Dinner',NULL),
-	(5,'Setters & Founders','120 S Main St #110','89104','Las Vegas','NV','07:00:00','21:00:00','Mon Tues Wed Thurs Fri Sat Sun','Coffee Breakfast Brunch Lunch Dinner',NULL),
-	(6,'C O Thai','1108 S 3rd St','89104','Las Vegas','NV','11:00:00','21:00:00','Mon Tues Wed Thurs Fri Sat Sun','Lunch Dinner',NULL),
-	(7,'VegeState','616 Carson Ave #120','89101','Las Vegas','NV','08:00:00','21:00:00','Mon Tues Wed Thurs Fri Sat Sun','Breakfast Brunch Lunch Dinner',NULL),
-	(8,'The Greatwhich','900 S Las Vegas Blvd','89101','Las Vegas','NV','10:00:00','17:00:00','Mon Tues Wed Thurs Fri Sat','Lunch',NULL),
-	(9,'Great Pie','725 S Las Vegas Blvd #140','89101','Las Vegas','NV','11:00:00','21:00:00','Mon Tues Wed Thurs Fri Sat Sun','Lunch Dinner',NULL),
-	(10,'Jake’s Rollin Smoke BBQ','725 S Las Vegas Blvd','89101','Las Vegas','NV','10:00:00','22:00:00','Mon Tues Wed Thurs Fri Sat Sun','Lunch Dinner',NULL);
+	(3,'Lesther\'s','1130 S Casino Center Blvd','89104','Las Vegas','NV','11:00:00','23:00:00','Mon Tues Wed Thurs Fri Sat Sun','Brunch Lunch Dinner',5),
+	(4,'Casa Don Jose','1204 S Main St','89104','Las Vegas','NV','07:00:00','22:00:00','Mon Tues Wed Thurs Fri Sat Sun','Breakfast Brunch Lunch Dinner',4),
+	(5,'Setters & Founders','120 S Main St #110','89104','Las Vegas','NV','07:00:00','21:00:00','Mon Tues Wed Thurs Fri Sat Sun','Coffee Breakfast Brunch Lunch Dinner',4),
+	(6,'C O Thai','1108 S 3rd St','89104','Las Vegas','NV','11:00:00','21:00:00','Mon Tues Wed Thurs Fri Sat Sun','Lunch Dinner',4),
+	(7,'VegeState','616 Carson Ave #120','89101','Las Vegas','NV','08:00:00','21:00:00','Mon Tues Wed Thurs Fri Sat Sun','Breakfast Brunch Lunch Dinner',5),
+	(8,'The Greatwhich','900 S Las Vegas Blvd','89101','Las Vegas','NV','10:00:00','17:00:00','Mon Tues Wed Thurs Fri Sat','Lunch',5),
+	(9,'Great Pie','725 S Las Vegas Blvd #140','89101','Las Vegas','NV','11:00:00','21:00:00','Mon Tues Wed Thurs Fri Sat Sun','Lunch Dinner',5),
+	(10,'Jake’s Rollin Smoke BBQ','725 S Las Vegas Blvd','89101','Las Vegas','NV','10:00:00','22:00:00','Mon Tues Wed Thurs Fri Sat Sun','Lunch Dinner',4);
 
 /*!40000 ALTER TABLE `Restaurants` ENABLE KEYS */;
 UNLOCK TABLES;
