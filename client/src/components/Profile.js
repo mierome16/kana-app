@@ -1,9 +1,19 @@
 import React from 'react'
 import {Link} from "react-router-dom"
-import { Input} from 'semantic-ui-react'
+import { Input, Button } from 'semantic-ui-react'
 
 
 export default props => {
+  const [active, setActive] = UseActive({})
+
+  function handleClick() {
+    setActive({
+      ...active, 
+    })
+  }
+
+
+
   return (
     <div className="Profile">
       <div>
@@ -17,12 +27,12 @@ export default props => {
       </div>
 
       <div className='diet'>
-        <button>
+        <Button toggle active={active} onClick={handleClick}>
           Gluten Free
-        </button>
-        <button>
+        </Button >
+        <Button toggle active={active} onClick={handleClick}>
           Vegetarian
-        </button>
+        </Button>
         <button>
           Vegan
         </button>
