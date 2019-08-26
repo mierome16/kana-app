@@ -1,8 +1,8 @@
 import { createStore, combineReducers } from 'redux'
-import { reducer as formReducer } from "./reducers/form.reducer";
+import { authreducer } from "./reducers/auth.reducers";
 
 const rootReducer = combineReducers({
-  orderForm: formReducer
+  authreducer: authreducer
 });
 
 const store = createStore(rootReducer)

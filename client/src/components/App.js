@@ -11,6 +11,7 @@ import OrderForm from './OrderForm'
 import Login from './Login'
 import Registration from './Registration'
 import { from } from 'rxjs';
+import EatOptions from './EatOptions'
 
 
 export default props => {
@@ -26,6 +27,7 @@ export default props => {
           <Route path="/reservation" component={ReservationForm} />
           <Route path = "/login" component={Login} />
           <Route path="/register" component={Registration}/>
+          <Route path="/options" component={EatOptions} />
         </div>
       </Router>
     </Provider>
