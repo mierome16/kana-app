@@ -5,6 +5,39 @@ html {box-sizing:border-box;}
   background: rgba(235, 101, 53, 1)
 }
 
+/**********EatOptions Styling*********/
+.EatOptions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: auto;
+  background-color: rgba(235, 101, 53, 1)
+}
+
+.EatOptions div {
+  margin-top: 30px;
+}
+
+.EatOptions div h1 {
+  font-weight: lighter;
+  color: white;
+}
+
+.EatOptions button {
+  width: 200px;
+}
+
+.EatOptions div h6 {
+  margin: 0px;
+  color: white;
+  text-align: center;
+  font-style: italic;
+  font-weight: lighter;
+}
+
+/**********FoodMain Styling*********/
 .foodmainheader {
     display: flex;
     justify-content: space-between;
@@ -24,3 +57,59 @@ html {box-sizing:border-box;}
     margin-bottom: 25px;
     width: 400px;
 }
+
+
+/**********Profile Styling*********/
+.Profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100vh;
+  background: rgba(235, 101, 53, 1)
+}
+
+.Profile div {
+  margin: 15px;
+}
+
+.location input {
+  width: 200px;
+}
+
+.diet {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.diet button {
+  width: 100px;
+  height: 100px;
+  margin: 5px;
+  background: white;
+  border: none;
+  border-radius: 15%;
+  border-style: none;
+  outline: none;
+}
+
+.save {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.save a {
+  margin: auto;
+}
+
+.save a button {
+  width: 100px;
+  height: 30px;
+  background: green;
+  color: white;
+  border-radius: 10px;
+  border-style: none;
+  outline: none;
+}
+
