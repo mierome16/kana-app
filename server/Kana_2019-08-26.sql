@@ -5,9 +5,9 @@
 # http://www.sequelpro.com/
 # https://github.com/sequelpro/sequelpro
 #
-# Host: localhost (MySQL 5.7.27)
-# Database: Kana
-# Generation Time: 2019-08-26 17:12:54 +0000
+# Host: localhost (MySQL 5.7.25)
+# Database: kana
+# Generation Time: 2019-08-26 21:15:01 +0000
 # ************************************************************
 
 
@@ -35,7 +35,7 @@ CREATE TABLE `menu_items` (
   `price` int(11) DEFAULT NULL,
   `popular` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8;
 
 LOCK TABLES `menu_items` WRITE;
 /*!40000 ALTER TABLE `menu_items` DISABLE KEYS */;
@@ -111,7 +111,37 @@ VALUES
 	(67,'The Fancy Cheeseboard','Starter','seasonal, locally made, artisan cheese (by @virgincheese) curated with seasonal fruits, nuts and dips',7,'Peanuts',10,'false'),
 	(68,'Pho-King-Delicious','Dinner Lunch','vietnamese style pho with a mushroom broth, seasonal vegetables, tofu, and rice noodles',7,'Gluten-free',13,'true'),
 	(69,'Chicken Pot Pie Gnocchi','Dinner Lunch','house made creamy herb sauce with chicken, peas, carrots, and mushrooms. topped with pie crust crumbles and herbs',7,'Vegan',13,'false'),
-	(70,'Pamela Anderson Raw Power Tacos','Lunch Dinner','walnuts, sunflower seeds, sun-dried tomato, raw veggies, avocado, tahini, fresh lime',7,'Vegan Gluten-free Peanuts Oil-free',13,'false');
+	(70,'Pamela Anderson Raw Power Tacos','Lunch Dinner','walnuts, sunflower seeds, sun-dried tomato, raw veggies, avocado, tahini, fresh lime',7,'Vegan Gluten-free Peanuts Oil-free',13,'false'),
+	(71,'R.U. Chicken Sandwich','Lunch','crispy breast, yellow buffalo, sweet pepper slaw, pepperjack; built on white, wheat, marbled rye or “make it urban” (on greens)',8,NULL,10,'true'),
+	(72,'Fluff N\' Nut','Lunch Dessert','burnt house fluff, nutella, GW crunch; built on white, wheat, marbled rye or “make it urban” (on greens)',8,NULL,4,'0'),
+	(73,'Falafel','Lunch','green pea falafel, chick pea puree, kale slaw, cucumber; built on white, wheat, marbled rye or “make it urban” (on greens)',8,NULL,9,'0'),
+	(74,'Kale Salad','Lunch','cous cous, root jive, apple, cranberry rosemary vin, feta, papadum',8,NULL,10,'1'),
+	(75,'Pig O’ The Week','Lunch','Belly and Butt with grits and pickled onion, curry vinegar chips (Changes each week)',8,NULL,10,'1'),
+	(76,'Cold Brown','Lunch','roast turkey, bacon, tomato, gruyere fondue, parsley',8,NULL,10,'0'),
+	(77,'Reuben-ish','Lunch','bently ranch corned beef, swiss, fennel kraut, 1000; built on white, wheat, marbled rye or “make it urban” (on greens)',8,NULL,11,'1'),
+	(78,'Patty','Lunch','bently ranch ground beef, smoked cream cheese onion pepperjack; built on white, wheat, marbled rye or “make it urban” (on greens)',8,NULL,9,'1'),
+	(79,'Urban Side Seed Salad','Lunch','onion, seeds, balsamic, avo, toms, pecorino',8,NULL,9,'0'),
+	(80,'Cheese Bomb','Lunch','provolone, pjack, cheddar, aioli, arbol; built on white, wheat, marbled rye or “make it urban” (on greens)',8,NULL,8,'0'),
+	(81,'Good White','Lunch Dinner','Garlic oil, pecorino, oregano, motz, fresh motz, ricotta; available as Grandma- 16 inch thin and crispy square, Brooklyn- Round 18 inch pie, Detroit Style- Thick square 10x14 inch, or Gluten Free',9,'Gluten-free',24,'1'),
+	(82,'Good Supreme','Lunch Dinner','Mozzarella, fresh mozzarella, shaved red onion, mushrooms, green peppers, sausage, pepperoni, parm & parsley; available as Grandma- 16 inch thin and crispy square, Brooklyn- Round 18 inch pie, Detroit Style- Thick square 10x14 inch, or Gluten Free',9,'Gluten-free',28,'0'),
+	(83,'That\'s Dat Good $hit','Lunch Dinner','Mozzarella, fresh mozzarella, pecorino, wild mushrooms, caramelized onions, finished with Urbani porcini mushroom and truffle thrills, whipped ricotta cheese, shaved parm, fresh parsley & Urbani organic truffle oil; available as Grandma- 16 inch thin and crispy square, Brooklyn- Round 18 inch pie, Detroit Style- Thick square 10x14 inch, or Gluten Free',9,'Gluten-free',29,'1'),
+	(84,'A Good Time','Lunch Dinner','Sauce, mozzarella, fresh mozzarella, pecorino, Italian sausage, shaved red onion, chili flakes, finished with mikes hot honey, shaved parm & parsley; available as Grandma- 16 inch thin and crispy square, Brooklyn- Round 18 inch pie, Detroit Style- Thick square 10x14 inch, or Gluten Free',9,'Gluten-free',25,'0'),
+	(85,'Good Cheese','Lunch Dinner','Sauce, motz, fresh motz, pecorino, basil & parm; available as Grandma- 16 inch thin and crispy square, Brooklyn- Round 18 inch pie, Detroit Style- Thick square 10x14 inch, or Gluten Free',9,'Gluten-free',20,'0'),
+	(86,'Johnny Be Good','Lunch Dinner','ohn Arena’s favorite pie with sauce, pecorino, fresh garlic, mozzarella, fresh mozzarella, caramelized onions, roasted mushrooms, Italian sausage, finished with shaved grana padano & fresh basil; available as Grandma- 16 inch thin and crispy square, Brooklyn- Round 18 inch pie, Detroit Style- Thick square 10x14 inch, or Gluten Free',9,'Gluten-free',27,'1'),
+	(87,'Good Shrooms','Lunch Dinner','Motz, fresh motz, pecorino, garlic oil, caramelized onions, mushrooms, parm, parsley; available as Grandma- 16 inch thin and crispy square, Brooklyn- Round 18 inch pie, Detroit Style- Thick square 10x14 inch, or Gluten Free',9,'Gluten-free',25,'0'),
+	(88,'Good Pep','Lunch Dinner','Sauce, motz, fresh motz, pecorino, cup n char pepperoni, parm; available as Grandma- 16 inch thin and crispy square, Brooklyn- Round 18 inch pie, Detroit Style- Thick square 10x14 inch, or Gluten Free',9,'Gluten-free',22,'1'),
+	(89,'The Good Good','Lunch Dinner','Our signature pie with sauce, pecorino, mozzarella, fresh mozzarella, Italian sausage, artichoke hearts, finished with shaved parm & oregano; available as Grandma- 16 inch thin and crispy square, Brooklyn- Round 18 inch pie, Detroit Style- Thick square 10x14 inch, or Gluten Free',9,'Gluten-free',25,'1'),
+	(90,'Good Garlic Knots','Appetizer Lunch Dinner','5 per order. Roasted fresh garlic, garlic confit, garlic oil, and mozzarella. Finished with fresh grated grand padano and fresh parsley. Served with marinara sauce.',9,'Gluten-free',7,'1'),
+	(91,'Pulled Pork','Lunch Dinner','1/2 lb Sandwich',10,NULL,14,'1'),
+	(92,'Baby Back Ribs','Lunch Dinner','1/2 Rack',10,NULL,20,'1'),
+	(93,'Smoked Meat Loaf','Lunch Dinner','On a bed of mashed potatoes and sweet sauce and topped with pork rinds, Carolina vinegar sauce, and green onions',10,NULL,20,'1'),
+	(94,'Chopped Brisket','Lunch Dinner','*Available sliced upon request',10,NULL,14,'0'),
+	(95,'Burnt End Sliders','Lunch Dinner','Two sandwiches and a side of bacon potato salad',10,NULL,14,'0'),
+	(96,'Red Neck Nachos','Lunch Dinner','Corn chips smothered topped with brisket, beans, shredded cheese; Arkansauce, sour cream, and chives',10,NULL,11,'0'),
+	(97,'D\'licious Chicken Wings','Lunch Dinner','3 Smoked whole wings with glazed with our sweet BBQ sauce with side of ranch',10,NULL,11,'0'),
+	(98,'Jake\'s Smokin Skillet','Lunch Dinner','Hot link, burnt end brisket, pulled pork, pickles and cherry peppers',10,NULL,14,'1'),
+	(99,'Loaded Baked Potato','Lunch Dinner Appetizer Starter Side','Beans, bacon, cheese, sour cream, butter, green onion',10,NULL,8,'0'),
+	(100,'“Biggin” Brisket, Pork & Hotlink Sandwich','Lunch Dinner','BBQ Sandwich',10,NULL,16,'0');
 
 /*!40000 ALTER TABLE `menu_items` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -128,7 +158,7 @@ CREATE TABLE `pictures` (
   `menu_items_id` int(11) DEFAULT NULL,
   `url` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=utf8;
 
 LOCK TABLES `pictures` WRITE;
 /*!40000 ALTER TABLE `pictures` DISABLE KEYS */;
@@ -204,7 +234,37 @@ VALUES
 	(68,'cheeseboard',67,'https://images.happycow.net/venues/1024/57/54/hcmp57542_484305.jpeg'),
 	(69,'pho-king-delicious',68,'https://s3-media4.fl.yelpcdn.com/bphoto/pVJFX9wSN0DwrF_6VpUJgA/o.jpg'),
 	(70,'chicken-pot-pie-gnocchi',69,'https://s3-media4.fl.yelpcdn.com/bphoto/k90zQXXt67h5B3fqNp5Xag/o.jpg'),
-	(71,'raw-power-tacos',70,'https://s3-media1.fl.yelpcdn.com/bphoto/_rjC8e09zA0V5P-rdKeBog/o.jpg');
+	(71,'raw-power-tacos',70,'https://s3-media1.fl.yelpcdn.com/bphoto/_rjC8e09zA0V5P-rdKeBog/o.jpg'),
+	(72,'R.U. Chicken',71,'https://s3-media1.fl.yelpcdn.com/bphoto/D6P2Ig6RGAdLrS96V9QUCA/o.jpg'),
+	(73,'fluff-n-nut',72,'https://s3-media1.fl.yelpcdn.com/bphoto/-c1NHaT9Ev1qY2ZDkhlVnw/o.jpg'),
+	(74,'falafel',73,'https://s3-media1.fl.yelpcdn.com/bphoto/Ln35Ik11CV6k53Qh61P9MA/o.jpg'),
+	(75,'kale-salad',74,'https://s3-media1.fl.yelpcdn.com/bphoto/Ln35Ik11CV6k53Qh61P9MA/o.jpg'),
+	(76,'pig-o-the-week',75,'https://s3-media1.fl.yelpcdn.com/bphoto/FJEZes4pZEi-liMTY9TsuA/o.jpg'),
+	(77,'cold-brown',76,'https://s3-media3.fl.yelpcdn.com/bphoto/auLrXbkgdBx2TLCBAOyzFQ/o.jpg'),
+	(78,'reuben-ish',77,'Macintosh HD⁩/⁨Users⁩/punchcode⁩/Desktop/reuben⁩.png'),
+	(79,'patty',78,'Macintosh HD⁩/⁨Users⁩/punchcode⁩/Desktop/patty.png'),
+	(80,'seed-salad',79,'Macintosh HD⁩/⁨Users⁩/punchcode⁩/Desktop/seed-salad.png'),
+	(81,'cheese-bomb',80,'Macintosh HD⁩/⁨Users⁩/punchcode⁩/Desktop/cheese-bomb.png'),
+	(82,'Good-White',81,'https://s3-media3.fl.yelpcdn.com/bphoto/5OLMeVjoOWduBxJAvKvOiw/o.jpg'),
+	(83,'Good-Supreme',82,'https://s3-media1.fl.yelpcdn.com/bphoto/GJgiMf2p8ydDpc7t7hPuyw/o.jpg'),
+	(84,'Good-$hit',83,'https://s3-media2.fl.yelpcdn.com/bphoto/0q7TrMr5pGF4LRhM7qK3AA/o.jpg'),
+	(85,'Good-Time',84,'https://s3-media2.fl.yelpcdn.com/bphoto/kriGGGRhe56aX8NPSgvUjg/o.jpg'),
+	(86,'Good-Cheese',85,'https://s3-media2.fl.yelpcdn.com/bphoto/CLwMfGbWZPVeLf7gjt5CQA/o.jpg'),
+	(87,'Johnny-be-good',86,'https://s3-media3.fl.yelpcdn.com/bphoto/K40ajTXqgdXQqTvZoSsD-A/o.jpg'),
+	(88,'good-shrooms',87,'https://s3-media4.fl.yelpcdn.com/bphoto/9G-MS9KLYuIHK8jfJokxlA/o.jpg'),
+	(89,'good-pep',88,'https://s3-media1.fl.yelpcdn.com/bphoto/gMp7zs904JSTRqbd_iTu4A/o.jpg'),
+	(90,'good-good',89,'https://s3-media3.fl.yelpcdn.com/bphoto/4L5GvL0f8RyGmBIFdvWoNA/o.jpg'),
+	(91,'good-knots',90,'https://s3-media2.fl.yelpcdn.com/bphoto/mniZD9oetDQCnsKGxVkldw/o.jpg'),
+	(92,'pulled-pork',91,'http://rrsbbq.com/wp-content/uploads/2018/10/276_-1_2-lb-pulled-pork-bbq-las-vegas-strip_20170104-thumb.jpg'),
+	(93,'baby-back-ribs',92,'http://rrsbbq.com/wp-content/uploads/2018/10/277_-full-rack-baby-back-ribs-las-vegs-strip-bbq_20170104-thumb.jpg'),
+	(94,'smoked-meat-loaf',93,'http://rrsbbq.com/wp-content/uploads/2018/10/196_RRSBBQ-Las-Vegas-Hot-Link-Sandwich_20161207-thumb.jpg'),
+	(95,'chopped-brisket',94,'http://rrsbbq.com/wp-content/uploads/2018/10/305_chopped-brisket-sandwich-bbq-las-vegas-strip_20170104-thumb.jpg'),
+	(96,'burnt-end-sliders',95,'http://rrsbbq.com/wp-content/uploads/2018/10/197_RRSBBQ-Las-Vegas-Chopped-Brisket-Sandwich_20161207-thumb.jpg'),
+	(97,'red-nack-nachos',96,'http://rrsbbq.com/wp-content/uploads/2018/10/195_RRSBBQ-Nachos_20161207-thumb.jpg'),
+	(98,'chicken-wings',97,'http://rrsbbq.com/wp-content/uploads/2018/10/291_dlicious-chicken-wings-las-vegas-strip-bbq_20170104-thumb.jpg'),
+	(99,'smokin-skillet',98,'http://rrsbbq.com/wp-content/uploads/2018/10/295_ricks-smokin-skillet-hotlink-pork-shanks-burnt-ends-las-vegas-bbq_20170104-thumb.jpg'),
+	(100,'baked-potato',99,'http://rrsbbq.com/wp-content/uploads/2018/10/316_loaded-baked-potato-las-vegs-strip-bbq_20170104-thumb.jpg'),
+	(101,'hotlink-sandwich',100,'http://rrsbbq.com/wp-content/uploads/2018/10/304_biggin-brisket-pork-_-hotlink-sandwich-bbq-las-vegas-strip_20170104-thumb.jpg');
 
 /*!40000 ALTER TABLE `pictures` ENABLE KEYS */;
 UNLOCK TABLES;
