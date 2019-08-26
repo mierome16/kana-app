@@ -43,6 +43,10 @@ export default props => {
         </button>
       </div>
 
+      <div className='save'>
+        <button type='Submit'>Save</button>
+      </div>
+
     </div>
   )
 }

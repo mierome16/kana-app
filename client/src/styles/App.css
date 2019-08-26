@@ -63,12 +63,13 @@ html {box-sizing:border-box;}
 .Profile {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   height: 100vh;
   background: rgba(235, 101, 53, 1)
 }
 
 .Profile div {
-  margin: 20px;
+  margin: 15px;
 }
 
 .location input {
@@ -79,7 +80,7 @@ html {box-sizing:border-box;}
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-even;
+  margin: 
 }
 
 .diet button {
@@ -91,5 +92,22 @@ html {box-sizing:border-box;}
   border-radius: 15%;
   border-style: none;
   outline: none;
+}
+
+.save {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.save button {
+  width: 100px;
+  height: 30px;
+  background: green;
+  color: white;
+  border-radius: 10px;
+  border-style: none;
+  outline: none;
+  margin: auto;
 }
 
