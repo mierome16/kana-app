@@ -2,7 +2,10 @@ import React, { useState } from 'react'
 import 'flatpickr/dist/themes/material_green.css'
 import { Form, Container, Header, Divider, Image, Popup } from 'semantic-ui-react'
 import moment from 'moment'
-import Flatpickr from "react-flatpickr";
+import 'flatpickr/dist/themes/material_green.css'
+
+import Flatpickr from 'react-flatpickr'
+
 
 export default props => { 
   const [date, setDate] = useState(new Date())  
@@ -37,7 +40,8 @@ export default props => {
             <Form.Field>
               <label>Date:</label>
               <Flatpickr data-enable-time
-                value={date} />
+                value={date}
+                onChange={e => setDate(e.target.value)} />
             </Form.Field>
             </Form.Group>
           <Form.Button inverted color="orange">Confirm Reservation</Form.Button>
