@@ -5,6 +5,38 @@ html {box-sizing:border-box;}
   background: rgba(235, 101, 53, 1)
 }
 
+/**********EatOptions Styling*********/
+.EatOptions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: auto;
+  background-color: rgba(235, 101, 53, 1)
+}
+
+.EatOptions div {
+  margin-top: 30px;
+}
+
+.EatOptions div h1 {
+  font-weight: lighter;
+  color: white;
+}
+
+.EatOptions button {
+  width: 200px;
+}
+
+.EatOptions div h6 {
+  margin: 0px;
+  color: white;
+  text-align: center;
+  font-style: italic;
+  font-weight: lighter;
+}
+
 .foodmainheader {
     display: flex;
     justify-content: space-between;
