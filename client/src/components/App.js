@@ -13,12 +13,11 @@ import Registration from './Registration'
 import { from } from 'rxjs';
 import EatOptions from './EatOptions'
 import FoodMain from './FoodMain';
+import Profile from './Profile'
 
 
 
 export default props => {
-
-
 
   return (
     <Provider store={store}>
@@ -31,7 +30,7 @@ export default props => {
           <Route path="/register" component={Registration}/>
           <Route path="/options" component={EatOptions} />
           <Route path="/foodfinder" component={FoodMain}/>
-
+          <Route path="/profile" component={Profile} />
         </div>
       </Router>
     </Provider>

@@ -37,6 +37,7 @@ html {box-sizing:border-box;}
   font-weight: lighter;
 }
 
+/**********FoodMain Styling*********/
 .foodmainheader {
     display: flex;
     justify-content: space-between;
@@ -56,3 +57,39 @@ html {box-sizing:border-box;}
     margin-bottom: 25px;
     width: 400px;
 }
+
+
+/**********Profile Styling*********/
+.Profile {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: rgba(235, 101, 53, 1)
+}
+
+.Profile div {
+  margin: 20px;
+}
+
+.location input {
+  width: 200px;
+}
+
+.diet {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-even;
+}
+
+.diet button {
+  width: 100px;
+  height: 100px;
+  margin: 5px;
+  background: white;
+  border: none;
+  border-radius: 15%;
+  border-style: none;
+  outline: none;
+}
+
