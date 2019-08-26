@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/pc-summer-2019/boilerplate#readme",
   "dependencies": {
-    "concurrently": "^4.1.1"
+    "concurrently": "^4.1.1",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.88.0"
   },
   "boilerplate": {
     "name": "boilerplate",
