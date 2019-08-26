@@ -1,6 +1,6 @@
 import React from 'react'
-import ReactDOM from "react-dom";
-import { Input, Button} from 'semantic-ui-react'
+import {Link} from "react-router-dom"
+import { Input} from 'semantic-ui-react'
 
 
 export default props => {
@@ -44,7 +44,7 @@ export default props => {
       </div>
 
       <div className='save'>
-        <button type='Submit'>Save</button>
+        <Link to='/foodfinder'><button type='Submit'>Save</button></Link>
       </div>
 
     </div>

@@ -80,7 +80,6 @@ html {box-sizing:border-box;}
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin: 
 }
 
 .diet button {
@@ -100,7 +99,11 @@ html {box-sizing:border-box;}
   flex-wrap: wrap;
 }
 
-.save button {
+.save a {
+  margin: auto;
+}
+
+.save a button {
   width: 100px;
   height: 30px;
   background: green;
@@ -108,6 +111,5 @@ html {box-sizing:border-box;}
   border-radius: 10px;
   border-style: none;
   outline: none;
-  margin: auto;
 }
 
