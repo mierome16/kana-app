@@ -6,7 +6,6 @@ html {box-sizing:border-box;}
 }
 
 /**********EatOptions Styling*********/
-
 .EatOptions {
   display: flex;
   flex-direction: column;
@@ -38,5 +37,22 @@ html {box-sizing:border-box;}
   font-weight: lighter;
 }
 
-
-
+.foodmainheader {
+    display: flex;
+    justify-content: space-between;
+}
+#foodnameheader {
+    display: flex;
+    justify-content: space-between;
+}
+#foodmainpage {
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    margin: auto;
+}
+#fooditem {
+    margin: auto;
+    margin-bottom: 25px;
+    width: 400px;
+}
