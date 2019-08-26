@@ -4,3 +4,23 @@ html {box-sizing:border-box;}
 .ui.inverted.segment, .ui.primary.inverted.segment {
   background: rgba(235, 101, 53, 1)
 }
+
+.foodmainheader {
+    display: flex;
+    justify-content: space-between;
+}
+#foodnameheader {
+    display: flex;
+    justify-content: space-between;
+}
+#foodmainpage {
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    margin: auto;
+}
+#fooditem {
+    margin: auto;
+    margin-bottom: 25px;
+    width: 400px;
+}

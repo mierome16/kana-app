@@ -10,7 +10,7 @@ import HomepageLayout from './Homepage';
 import OrderForm from './OrderForm'
 import Login from './Login'
 import Registration from './Registration'
-import { from } from 'rxjs';
+import FoodMain from './FoodMain';
 
 
 export default props => {
@@ -21,11 +21,12 @@ export default props => {
     <Provider store={store}>
       <Router>
         <div>
-          <Route path="/homepage" component={HomepageLayout} />
+          <Route exact path="/" component={HomepageLayout} />
           <Route path="/order" component={OrderForm} />
           <Route path="/reservation" component={ReservationForm} />
           <Route path = "/login" component={Login} />
           <Route path="/register" component={Registration}/>
+          <Route path="/foodfinder" component={FoodMain}/>
         </div>
       </Router>
     </Provider>
