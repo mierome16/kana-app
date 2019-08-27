@@ -4,6 +4,7 @@ import axios from 'axios'
 
 export function getMenuItems(){
   axios.get('/api/menu-items').then(resp => {
+    console.log(resp.data)
     store.dispatch({
       type:'GET_ALL_ITEMS',
       payload: resp.data

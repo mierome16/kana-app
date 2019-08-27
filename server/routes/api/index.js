@@ -8,12 +8,12 @@ router.post('/login', (req, res, next) => {
   const username = req.body.username
   const password = sha512(req.body.password + config.get('salt'))
 
-  const sql =  `SELECT * FROM users WHERE username = ? & password = ? `
+  const sql =  `SELECT * FROM users WHERE username = ? AND password = ? `
 
   conn.query(sql, [username, password], (err, results, fields) => {
     if (results.length > 0){
       const token = jwt.sign({username}, config.get('secret'))
-
+ 
       res.json({
         message: "User signed in",
         token: token 
@@ -27,14 +27,14 @@ router.post('/login', (req, res, next) => {
 })
 
 router.post('/register', (req, res, next) => {
-  // const first_name = req.body.first_name
-  // const last_name = req.body.last_name
+  const first_name = req.body.first_name
+  const last_name = req.body.last_name
   const username = req.body.username
   const password = sha512(req.body.password + config.get('salt'))
-
- const sql = `INSERT into users (username, password) VALUES (?,?)`
+  console.log(username)
+ const sql = `INSERT into users (username, password, first_name, last_name) VALUES (?, ?, ?, ?)`
  
- conn.query(sql, [username, password], (err, results, fields) => {
+ conn.query(sql, [username, password, first_name, last_name], (err, results, fields) => {
    if (err) {
      console.log(err)
      res.json({
@@ -49,7 +49,6 @@ router.post('/register', (req, res, next) => {
 })
 
 //******Diet Selection and Filtering*******//
-
 router.get('/menu-items', (req, res, next) => {
   const diet = req.body.diet
   const sql = `

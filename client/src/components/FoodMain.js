@@ -1,7 +1,14 @@
-import React from 'react'
-import { Card, Icon, Image, Divider, Button, Header } from 'semantic-ui-react'
+import React, { useEffect } from 'react'
+import { Card, Icon, Image, Button, Header } from 'semantic-ui-react'
+import { getMenuItems } from '../actions/diet.actions'
+
 
 export default props => {
+
+    useEffect(() => {
+        getMenuItems()
+        }, [])
+
     return (
         <div id="foodmainpage">
             <Header className="foodmainheader"as='h2'>
