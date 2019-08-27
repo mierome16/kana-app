@@ -1,14 +1,19 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import validator from 'validator';
 import { register } from '../actions/auth.actions'
+import { getMenuItems } from '../actions/diet.actions'
 
 export default props => {
   const [first_name, setFirst_name] = useState('')
   const [last_name, setLast_name] = useState('')
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+
+  useEffect(() => {
+    getMenuItems()
+  }, [])
 
   function handleSubmit(e){
     e.preventDefault()
