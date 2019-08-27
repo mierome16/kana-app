@@ -58,13 +58,11 @@ router.get('/menu-items', (req, res, next) => {
   ON m.restaurant_id = r.id
   LEFT JOIN pictures p
   ON p.menu_items_id = m.id
- `
+`
   conn.query(sql, (err, results,fields) => {
     console.log(results)
     res.json(results)
   })
- })
-
-
+})
 
 module.exports = router
