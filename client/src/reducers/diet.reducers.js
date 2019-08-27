@@ -12,7 +12,8 @@ export default function(state = initialState, action) {
       return {...state, selectedDiets: [...state.selectedDiets, action.payload]}
       }
     case 'GET_ALL_ITEMS':
-      return {...state, allItems: [action.payload]}
+      return {...state, allItems: action.payload}
+
     default: 
       return state
   }

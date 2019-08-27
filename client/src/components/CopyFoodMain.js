@@ -1,8 +1,9 @@
-import React from 'react'
-import { Card, Icon, Image, Divider, Button, Header } from 'semantic-ui-react'
-import Swipe from './Swipe'
+import React, { } from 'react'
+import { Icon, Header } from 'semantic-ui-react'
+import CopySwipe from './CopySwipe'
 
 export default props => {
+
     return (
         <div id="foodmainpage">
             <Header className="foodmainheader"as='h2'>
@@ -19,7 +20,7 @@ export default props => {
                 </button>
             </Header>
             {/* <Divider /> */}
-            <Swipe />
+            <CopySwipe />
         </div>
     )
 }
