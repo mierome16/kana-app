@@ -1,21 +1,45 @@
 import store from '../store'
 import axios from 'axios'
-// import io from 'socket.io-client'
 
-// MUST CHANGE localhost to IP ADDRESS
-// const socket = io.connect('http://localhost:8000')
-
-
-
-export function submitName(name) {
-  socket.emit('name', name)
+if(localStorage.getItem('token')){
+    setInterceptors(localStorage.getItem('token'))
 }
 
-export function greet() {
-  axios.get('/api/greeting').then(resp => {
-    store.dispatch({
-      type: 'GREETING',
-      payload: resp.data.greeting
+function setInterceptors(){
+    axios.interceptors.request.use(
+        reqConfig => {
+            reqConfig.headers.Authorization = 'Bearer ' + localStorage.getItem('token');
+            return reqConfig
+        },
+        err => Promise.reject(err) 
+    )
+}
+
+export function login(username, password){
+    console.log(username, password)
+    axios.post('/api/login', {
+      username: username,
+      password: password}
+      ).then(resp => {
+        const token = resp.data.token
+
+        localStorage.setItem('token', token)
+
+        setInterceptors(token)
+        console.log(resp.data)
     })
-  })
+
+}
+
+export function register(username, password, first_name, last_name){
+    console.log(username, password, first_name, last_name)
+    axios.post('/api/register', {
+      username: username, 
+      password: password, 
+      first_name: first_name, 
+      last_name: last_name
+    }).then(resp => {
+      console.log(resp.data)
+    })
+
 }
