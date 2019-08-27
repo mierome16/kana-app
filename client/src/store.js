@@ -1,8 +1,8 @@
+import {createStore, combineReducers} from 'redux'
 
-import { createStore, combineReducers } from 'redux'
-import { reducer as orderformReducer } from './reducers/orderform.reducer'
-import {reducer as authReducer } from "./reducers/auth.reducers";
-import {reducer as dietReducer } from './reducers/diet.reducers'
+import orderformReducer from './reducers/orderform.reducer'
+import authReducer from "./reducers/auth.reducers"
+import dietReducer from "./reducers/diet.reducers"
 
 
 const rootReducer = combineReducers({

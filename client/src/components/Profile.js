@@ -7,7 +7,7 @@ import DietButton from './DietButton'
 
 
 export default props => {
-  const selectedDiets = useSelector(appState => appState.selectedDiets)
+  const selectedDiets = useSelector(appState => appState.dietReducer.selectedDiets)
   const diets = [
     'Vegetarian',
     'Vegan',
