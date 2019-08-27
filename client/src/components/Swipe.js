@@ -2,11 +2,12 @@ import React, {Component} from "react";
 import Swipeable from "react-swipy"
 import { Card, Button, Icon, Image } from "semantic-ui-react"
 import { Link } from 'react-router-dom'
+import axios from 'axios'
   
 const wrapperStyles = {position: "relative", maxWidth: "100vh", height: "550px"};
 const actionsStyles = {
-  display: "flex",
-  justifyContent: "space-between",
+  position: 'relative',
+  bottom: 0,
   marginTop: 12,
   width: '100%'
 };
@@ -49,10 +50,26 @@ const CardProp = ({ zIndex = 0, children }) => (
 
  
 class Swipe extends Component {
+  // items = useSelector(appState => appState.rootReducer.dietReducter.allItems)
+
   state = {
     cards: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
   };
  
+  componentDidMount() {
+    axios.get('/api/menu-items').then(resp => {
+      const data = resp.data.map(item => {
+        let items = {name: item.meal_name,
+        restaurant: item.res_name,
+        price: item.price,
+        allergy: item.diet,
+        rating: item.ratings,
+        image: item.url}
+        return items
+      })
+    console.log(data)
+  })}
+
   remove = () =>
     this.setState(({cards}) => ({
       cards: cards.slice(1, cards.length),
@@ -73,9 +90,7 @@ class Swipe extends Component {
                     <Button.Group fluid>
                       <Button onClick={left}>No</Button>
                       <Button.Or />
-                      
-                        <Button onClick={right} positive><Link to="/options">Yes</Link></Button>    
-                      
+                      <Button onClick={right} positive><Link to="/options">Yes</Link></Button>    
                     </Button.Group>
                   </div>
                 )}
