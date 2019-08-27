@@ -1,22 +1,27 @@
 import React from 'react'
 import {Link} from "react-router-dom"
-import { Input, Button } from 'semantic-ui-react'
+import { Input } from 'semantic-ui-react'
+import {useSelector} from 'react-redux'
+
+import DietButton from './DietButton'
 
 
 export default props => {
-  const [active, setActive] = UseActive({})
-
-  function handleClick() {
-    setActive({
-      ...active, 
-    })
-  }
-
-
+  const selectedDiets = useSelector(appState => appState.selectedDiets)
+  const diets = [
+    'Vegetarian',
+    'Vegan',
+    'Gluten-free',
+    'Nuts-free',
+    'Dairy-free',
+    'Spicy',
+    'Halal',
+    'Kosher'
+  ]
 
   return (
     <div className="Profile">
-      <div>
+      <div className='top'>
         <h1>Welcome <i>name</i>!</h1>
         <h2>Let's set up your preferences..</h2>
       </div>
@@ -27,39 +32,49 @@ export default props => {
       </div>
 
       <div className='diet'>
-        <Button toggle active={active} onClick={handleClick}>
+        {diets.map((diet, i) => (
+          <div key={'diet' + i}>
+          <DietButton diet={diet} active={selectedDiets.find(selectedDiet => selectedDiet === diet)}/>
+          </div>
+          ))}
+      </div> 
+
+      <div className='save'>
+        <Link to='/foodfinder'><button type='Submit'>Save</button></Link>
+      </div>
+    </div>
+  )
+}
+
+
+
+
+
+
+{/* <Button toggle active={active} onClick={handleClick}>
           Gluten Free
         </Button >
         <Button toggle active={active} onClick={handleClick}>
           Vegetarian
         </Button>
-        <button>
+        <Button toggle active={active} onClick={handleClick}>
           Vegan
-        </button>
-        <button>
+        </Button>
+        <Button toggle active={active} onClick={handleClick} style={{'marginTop':'10px'}}>
           Spicy
-        </button>
-        <button>
+        </Button>
+        <Button toggle active={active} onClick={handleClick} style={{'marginTop':'10px'}}>
           Nuts Free
-        </button>
-        <button>
+        </Button>
+        <Button toggle active={active} onClick={handleClick} style={{'marginTop':'10px'}}>
           Dairy Free
-        </button>
-        <button disabled>
+        </Button>
+        <Button disabled toggle active={active} onClick={handleClick} style={{'marginTop':'10px'}}>
           Kosher
-        </button>
-        <button disabled>
+        </Button>
+        <Button disabled toggle active={active} onClick={handleClick} style={{'marginTop':'10px'}}>
           Halal
-        </button>
-      </div>
-
-      <div className='save'>
-        <Link to='/foodfinder'><button type='Submit'>Save</button></Link>
-      </div>
-
-    </div>
-  )
-}
+        </Button> */}
 
 
 
