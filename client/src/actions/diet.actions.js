@@ -18,3 +18,10 @@ export function toggleDiet(diet) {
     payload: diet
   })
 }
+
+export function getAllergyFreeItems(filteredItems) {
+  store.dispatch({
+    type: 'GET_ALLERGYFREE',
+    payload: filteredItems
+  })
+}
