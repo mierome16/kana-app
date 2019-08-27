@@ -68,8 +68,8 @@ html {box-sizing:border-box;}
   background: rgba(235, 101, 53, 1)
 }
 
-.Profile div {
-  margin: 15px;
+.top, .location {
+  margin: 20px;
 }
 
 .location input {
@@ -80,12 +80,16 @@ html {box-sizing:border-box;}
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  margin: 20px;
 }
 
-.diet button {
+.diet div {
+  margin: 3px;
+}
+
+.diet Button {
   width: 100px;
   height: 100px;
-  margin: 5px;
   background: white;
   border: none;
   border-radius: 15%;
