@@ -1,18 +1,18 @@
 import React, { useState } from 'react'
-import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
+import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import validator from 'validator';
+import { register } from '../actions/auth.actions'
 
 export default props => {
-  const [fname, setFname] = useState('')
-  const [lname, setLname] = useState('')
-  const [email, setEmail] = useState('')
+  const [first_name, setFirst_name] = useState('')
+  const [last_name, setLast_name] = useState('')
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
   function handleSubmit(e){
     e.preventDefault()
-    console.log(fname, lname, email, username, password)
+    register(username, password, first_name, last_name)
   }
 
   return (
@@ -25,9 +25,8 @@ export default props => {
             </Header>
             <Form size='large' onSubmit={handleSubmit}>
                 <Segment stacked>
-                <Form.Input fluid icon='user' iconPosition='left' placeholder='First Name' value={fname} onChange={e => setFname(e.target.value)}/>
-                <Form.Input fluid icon='user' iconPosition='left' placeholder='Last Name' value={lname} onChange={e => setLname(e.target.value)}/>
-                <Form.Input fluid icon='envelope' iconPosition='left' placeholder='E-mail address' value={email} onChange={e => setEmail(e.target.value)}/>
+                <Form.Input fluid icon='user' iconPosition='left' placeholder='First Name' value={first_name} onChange={e => setFirst_name(e.target.value)}/>
+                <Form.Input fluid icon='user' iconPosition='left' placeholder='Last Name' value={last_name} onChange={e => setLast_name(e.target.value)}/>
                 <Form.Input fluid icon='user' iconPosition='left' placeholder='Username' value={username} onChange={e => setUsername(e.target.value)} />
                 <Form.Input
                     fluid

@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import 'semantic-ui-css/semantic.min.css'
 import { Link } from 'react-router-dom'
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
+import { login } from '../actions/auth.actions'
 
 export default props => {
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
+    
+    function handleSubmit(e){
+        e.preventDefault()
+        login(username, password)
+    }
+
     return (
         <div className="loginform">
             <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
@@ -12,10 +21,12 @@ export default props => {
                         {/* <Image src='/logo.png' />  */}
                         Log-in to your account
                     </Header>
-                <Form size='large'>
+                <Form size='large' onSubmit={handleSubmit}>
                     <Segment stacked>
-                    <Form.Input fluid icon='user' iconPosition='left' placeholder='E-mail address' />
+                    <Form.Input onChange={e => setUsername(e.target.value)} value={username}fluid icon='user' iconPosition='left' placeholder='Username' />
                     <Form.Input
+                        onChange={e => setPassword(e.target.value)}
+                        value={password}
                         fluid
                         icon='lock'
                         iconPosition='left'
