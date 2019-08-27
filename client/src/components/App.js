@@ -13,6 +13,8 @@ import EatOptions from './EatOptions'
 import FoodMain from './FoodMain';
 import Profile from './Profile'
 import Confirmation from './Confirmation'
+import Swipe from './Swipe'
+import CopyFoodMain from './CopyFoodMain'
 
 
 
@@ -31,6 +33,7 @@ export default props => {
           <Route path="/foodfinder" component={FoodMain}/>
           <Route path="/profile" component={Profile} />
           <Route path="/confirm" component={Confirmation} />
+          <Route path="/swipe" component={CopyFoodMain} />
         </div>
       </Router>
     </Provider>
