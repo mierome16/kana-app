@@ -1,5 +1,6 @@
 const initialState = {
- selectedDiets: []
+ selectedDiets: [],
+ allItems: []
 }
 
 export default function(state = initialState, action) {
@@ -10,6 +11,7 @@ export default function(state = initialState, action) {
       } else {
       return {...state, selectedDiets: [...state.selectedDiets, action.payload]}
       }
+
     default: 
       return state
   }
