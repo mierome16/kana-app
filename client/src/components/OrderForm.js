@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Form, Container, Header, Divider, Image } from 'semantic-ui-react'
-
+import { Link } from 'react-router-dom'
+ 
 export default props => { 
   const [values, setValues] = useState({
     quantity: 1,
@@ -50,7 +51,9 @@ export default props => {
             <Header>
             Total: $10.00
             </Header>
-          <Form.Button inverted color="orange">Place Order</Form.Button>
+          <Link to="/confirm">
+            <Form.Button inverted color="orange">Place Order</Form.Button> 
+          </Link>
         </Form>
         
       </Container>

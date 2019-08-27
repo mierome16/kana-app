@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import 'flatpickr/dist/themes/material_green.css'
 import { Form, Container, Header, Divider, Image, Popup } from 'semantic-ui-react'
 import moment from 'moment'
-import 'flatpickr/dist/themes/material_green.css'
+import { Link } from 'react-router-dom'
 
 import Flatpickr from 'react-flatpickr'
 
@@ -44,7 +44,9 @@ export default props => {
                 onChange={e => setDate(e.target.value)} />
             </Form.Field>
             </Form.Group>
-          <Form.Button inverted color="orange">Confirm Reservation</Form.Button>
+          <Link to="/confirm">
+            <Form.Button inverted color="orange">Confirm Reservation</Form.Button>
+          </Link>
         </Form>
         
       </Container>
