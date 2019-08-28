@@ -64,6 +64,17 @@ router.get('/menu-items', (req, res, next) => {
   })
  })
 
+ router.get('/locations', (req,res,next) => {
+   const sql = `
+   SELECT *
+   FROM restaurants
+   `
+  
+   conn.query(sql, (err, results, fields) => {
+     res.json(results)
+   })
+ })
+
 
 
 module.exports = router

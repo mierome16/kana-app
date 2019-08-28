@@ -6,4 +6,6 @@ router.get("/foo", (req, res, next) => {
   })
 })
 
+router.get('/')
+
 module.exports = router
