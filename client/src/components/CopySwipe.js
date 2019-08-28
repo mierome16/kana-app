@@ -2,7 +2,7 @@ import React, { useState, useEffect} from "react";
 import Swipeable from "react-swipy"
 import { Card, Button, Icon, Image } from "semantic-ui-react"
 import { Link } from 'react-router-dom'
-import { getMenuItems } from '../actions/diet.actions'
+import { getMenuItems, getFilteredItems } from '../actions/diet.actions'
 import { useSelector } from 'react-redux'
   
 const wrapperStyles = {position: "relative", maxWidth: "100vh", height: "550px"};
@@ -27,25 +27,31 @@ const cardStyles = {
 };  
 
   export default props => {
-    const items = useSelector(appState => appState.dietReducer.allItems)
+    // const items = useSelector(appState => appState.dietReducer.allItems)
     const [cards, setCards] = useState(["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"])
-    const selectedDiet = useSelector(appState => appState.dietReducer.selectedDiets)
-    console.log(selectedDiet)
-    const allergy = items.filter(item => item.allergy !== null).filter(item => item.allergy.length > 0)
+    const selectedDiets = useSelector(appState => appState.dietReducer.selectedDiets)
+    const filterFood = useSelector(appState => appState.dietReducer.filteredItems)
+    // console.log(selectedDiet)
+    // const allergy = items.filter(item => item.allergy !== null).filter(item => item.allergy.length > 0)
 
-    function contains(allergies, diets) {
-      let filtered = []
-      if (diets.length <= 1 ) {
-        return allergies.filter(item => item.allergy.includes(selectedDiet))
-      } else {
-        allergies.forEach(item => diets.forEach(item2 => item.allergy.includes(item2) ? filtered.push(item) : filtered)) 
-        return [...new Set(filtered)] 
-      }
-    }
-    const filterFood = contains(allergy, selectedDiet)
+    // function contains(allergies, diets) {
+    //   let filtered = []
+    //   if (diets.length <= 1 ) {
+    //     return allergies.filter(item => item.allergy.includes(selectedDiet))
+    //   } else {
+    //     allergies.forEach(item => diets.forEach(item2 => item.allergy.includes(item2) ? filtered.push(item) : filtered)) 
+    //     return [...new Set(filtered)] 
+    //   }
+    // }
+    // const filterFood = contains(allergy, selectedDiet)
     
     useEffect(() => {
-      getMenuItems()
+      if(selectedDiets.length === 0){
+        getMenuItems('none')
+      }else{
+      getMenuItems(selectedDiets)
+      }
+      // getFilteredItems(selectedDiets)
       }, [])
   
     function remove() {
@@ -55,7 +61,7 @@ const cardStyles = {
    
       return (
         <div>
-          <div style={wrapperStyles}>
+          {/* <div style={wrapperStyles}>
             {filterFood.length > 0 ? (
               <div style={wrapperStyles}>
                 <Swipeable
@@ -138,7 +144,7 @@ const cardStyles = {
                     rating??
                   </Card.Content>
                 </Card>)}
-          </div>
+          </div> */}
         </div>
       );
     }

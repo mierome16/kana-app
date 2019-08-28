@@ -2,8 +2,9 @@ import store from '../store'
 import axios from 'axios'
 
 
-export function getMenuItems(){
- axios.get('/api/menu-items').then(resp => {
+export function getMenuItems(selectedDiets){
+ axios.get('/api/menu-items/'+ selectedDiets).then(resp => {
+  console.log(resp.data)
     const data = resp.data.map(item => {
       let items = {
       name: item.meal_name,
@@ -16,6 +17,7 @@ export function getMenuItems(){
     }
       return items
     })
+    // console.log(data)
    store.dispatch({
      type:'GET_ALL_ITEMS',
      payload: data
@@ -23,12 +25,18 @@ export function getMenuItems(){
  })
 }
 
-
+export function getFilteredItems(selectedDiets){
+  axios.post('/api/filtered-items', selectedDiets).then(resp => {
+    console.log(resp.data)
+    store.dispatch({
+      type: 'GET_FILTERED_ITEMS',
+      payload: resp.data
+    })
+  })
+}
 export function toggleDiet(diet) {
   store.dispatch({
     type: 'SELECT_DIET',
     payload: diet
   })
 }
-
-
