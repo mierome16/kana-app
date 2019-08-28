@@ -51,32 +51,4 @@ export default props => {
 
 
 
-{/* <Button toggle active={active} onClick={handleClick}>
-          Gluten Free
-        </Button >
-        <Button toggle active={active} onClick={handleClick}>
-          Vegetarian
-        </Button>
-        <Button toggle active={active} onClick={handleClick}>
-          Vegan
-        </Button>
-        <Button toggle active={active} onClick={handleClick} style={{'marginTop':'10px'}}>
-          Spicy
-        </Button>
-        <Button toggle active={active} onClick={handleClick} style={{'marginTop':'10px'}}>
-          Nuts Free
-        </Button>
-        <Button toggle active={active} onClick={handleClick} style={{'marginTop':'10px'}}>
-          Dairy Free
-        </Button>
-        <Button disabled toggle active={active} onClick={handleClick} style={{'marginTop':'10px'}}>
-          Kosher
-        </Button>
-        <Button disabled toggle active={active} onClick={handleClick} style={{'marginTop':'10px'}}>
-          Halal
-        </Button> */}
-
-
-
-
 
