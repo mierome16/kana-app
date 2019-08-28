@@ -16,8 +16,6 @@ export function getMenuItems(){
     }
       return items
     })
-
-    console.log(data)
    store.dispatch({
      type:'GET_ALL_ITEMS',
      payload: data
@@ -32,3 +30,5 @@ export function toggleDiet(diet) {
     payload: diet
   })
 }
+
+

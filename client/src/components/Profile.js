@@ -2,12 +2,13 @@ import React from 'react'
 import {Link} from "react-router-dom"
 import { Input } from 'semantic-ui-react'
 import {useSelector} from 'react-redux'
-
 import DietButton from './DietButton'
+import { sendDiets } from '../actions/diet.actions'
 
 
 export default props => {
   const selectedDiets = useSelector(appState => appState.dietReducer.selectedDiets)
+  console.log(selectedDiets)
   const diets = [
     'Vegetarian',
     'Vegan',
@@ -18,6 +19,10 @@ export default props => {
     'Halal',
     'Kosher'
   ]
+
+  // function handleSubmit(e) {
+  //   sendDiets(selectedDiets)
+  // }
 
   return (
     <div className="Profile">
@@ -40,7 +45,7 @@ export default props => {
       </div> 
 
       <div className='save'>
-        <Link to='/foodfinder'><button type='Submit'>Save</button></Link>
+        <Link to='/swipe'><button type='Submit'>Save</button></Link>
       </div>
     </div>
   )

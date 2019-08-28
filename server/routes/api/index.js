@@ -36,7 +36,7 @@ router.post('/register', (req, res, next) => {
  
  conn.query(sql, [username, password, first_name, last_name], (err, results, fields) => {
    if (err) {
-     console.log(err)
+    //  console.log(err)
      res.json({
        message: "User already exists"
      })
@@ -60,10 +60,11 @@ router.get('/menu-items', (req, res, next) => {
   ON p.menu_items_id = m.id
 `
   conn.query(sql, (err, results,fields) => {
-    console.log(results)
     res.json(results)
   })
  })
+
+
 
  router.get('/filtered-items/:diet', (req,res,next) => {
     const diet = req.body.diet
@@ -90,4 +91,5 @@ router.get('/menu-items', (req, res, next) => {
      res.json(results)
    })
  })
+
 module.exports = router

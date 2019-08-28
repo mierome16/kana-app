@@ -108,7 +108,6 @@ class MobileContainer extends Component {
           >
             {/* <Container> */}
               <Menu
-              fixed top
               inverted
               pointing
               secondary
@@ -119,16 +118,11 @@ class MobileContainer extends Component {
                   </Menu.Item>
                   <Menu.Item position='right'>
                     <Link to="/login">
-                      <Button as='a' inverted>
-                        Log in
-                      </Button>
+                      <Button inverted>Log in</Button>
                     </Link>
                     <Link to="/register">
-                      <Button as='a' inverted style={{ marginLeft: '0.5em' }}>
-                        Sign Up
-                      </Button>
+                      <Button inverted style={{ marginLeft: '0.5em' }}>Sign Up</Button>
                     </Link>
-                    
                   </Menu.Item>
                   </Container>
               </Menu>

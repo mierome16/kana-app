@@ -4,7 +4,7 @@ import {
     withScriptjs,
     GoogleMap,
     Marker,
-    InfoWindow
+    // InfoWindow
 } from 'react-google-maps'
 import { useSelector } from 'react-redux'
 import { getLocations } from '../actions/distance.actions';

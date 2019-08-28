@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import 'semantic-ui-css/semantic.min.css'
 import { Link } from 'react-router-dom'
-import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
+import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
 import { login } from '../actions/auth.actions'
 
 export default props => {
@@ -40,7 +40,7 @@ export default props => {
                     </Segment>
                 </Form>
                 <Message>
-                    New to us? <a href='#'><Link to="/register">Register</Link></a>
+                    New to us? <Link to="/register">Register</Link>
                 </Message>
                 </Grid.Column>
             </Grid>
