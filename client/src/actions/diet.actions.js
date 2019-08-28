@@ -33,6 +33,13 @@ export function toggleDiet(diet) {
   })
 }
 
+export function toggleMeal(meal) {
+  store.dispatch({
+    type: 'SELECT_MEAL',
+    payload: meal
+  })
+}
+
 export function getAllergyFreeItems(filteredItems) {
   store.dispatch({
     type: 'GET_ALLERGYFREE',

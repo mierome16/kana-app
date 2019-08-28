@@ -15,6 +15,8 @@ import Profile from './Profile'
 import Confirmation from './Confirmation'
 import CopyFoodMain from './CopyFoodMain'
 import CopySwipe from './CopySwipe';
+import MealOptions from './MealOptions';
+
 
 
 
@@ -34,6 +36,7 @@ export default props => {
           <Route path="/profile" component={Profile} />
           <Route path="/confirm" component={Confirmation} />
           <Route path="/swipe" component={CopyFoodMain} />
+          <Route path="/meal" component={MealOptions} />
         </div>
       </Router>
     </Provider>

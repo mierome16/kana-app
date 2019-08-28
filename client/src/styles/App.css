@@ -49,8 +49,10 @@ html {box-sizing:border-box;}
 #foodmainpage {
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     width: 90vw;
     margin: auto;
+    padding-top: 10px;
 }
 #fooditem {
   margin: auto;
@@ -64,11 +66,19 @@ html {box-sizing:border-box;}
   flex-direction: column;
   justify-content: flex-start;
   height: 100vh;
-  background: rgba(235, 101, 53, 1)
+  background: rgba(235, 101, 53, 1);
+}
+
+.Profile h1, .Profile h2 {
+  color: white;
 }
 
 .top, .location {
   margin: 20px;
+}
+
+.location label {
+  margin-bottom: 20px;
 }
 
 .location input {
@@ -78,6 +88,7 @@ html {box-sizing:border-box;}
 .diet {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
   flex-wrap: wrap;
   margin: 20px;
 }
@@ -86,7 +97,7 @@ html {box-sizing:border-box;}
   margin: 3px;
 }
 
-.diet Button {
+#diet-button {
   width: 100px;
   height: 100px;
   background: white;
@@ -94,12 +105,22 @@ html {box-sizing:border-box;}
   border-radius: 15%;
   border-style: none;
   outline: none;
+  padding: 0;
 }
 
-.save {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+#diet-button p {
+  margin: auto;
+}
+
+#diet-button img {
+  width: 70px;
+  margin: auto;
+}
+
+.Profile .save {
+  width: 100%;
+  position: absolute;
+  Bottom: 0;
 }
 
 .save a {
@@ -109,10 +130,83 @@ html {box-sizing:border-box;}
 .save a button {
   width: 100px;
   height: 30px;
-  background: green;
+  background: #16ab39;
   color: white;
   border-radius: 10px;
   border-style: none;
   outline: none;
 }
+
+
+/******Meal Types Styling******/
+.MealOptions {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100vh;
+  background: rgba(235, 101, 53, 1);
+  position: relative;
+}
+
+.MealOptions h2 {
+  color: white;
+}
+
+.meals {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: space-around;
+  margin: 5px;
+}
+
+.meal {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: space-around;
+  width: 100%;
+}
+
+.ui.fluid.toggle.button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+  background: white;
+  border: none;
+  border-style: none;
+  outline: none;
+  padding: 0;
+  margin: 3px;
+}
+
+.ui.fluid.toggle.button p {
+  margin: auto;
+}
+
+.ui.toggle.button img {
+  width: 70px;
+  margin: auto;
+}
+
+.MealOptions .save {
+  width: 100%;
+  position: absolute;
+  Bottom: 0;
+}
+
+.save a {
+  width: 100%;
+}
+
+#save {
+  width: 100%;
+  height: 50px;
+  background: #16ab39;
+  color: white;
+  text-align: center;
+}
+
 

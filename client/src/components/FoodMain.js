@@ -45,7 +45,7 @@ export default props => {
                 </a>
                 </Card.Content>
             </Card>
-            <Button.Group>
+            <Button.Group className='yesNo'>
                 <Button>No</Button>
                 <Button.Or />
                 <Button positive>Yes</Button>

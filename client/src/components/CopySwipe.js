@@ -61,7 +61,7 @@ export default props => {
               >
               <Card style={{ ...cardStyles, zIndex: '0' }} id="fooditem">
                 <div id="cardImage"
-                  style={{background: `url(${items[0].image}) no-repeat center`, backgroundSize: 'cover',
+                  style={{background: `url(${items[0].image}) no-repeat center`, objectFit:'cover', backgroundRepeat: 'no-repeat',
                   width:300, height:400
                 
                   }} >
