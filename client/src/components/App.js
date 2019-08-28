@@ -13,9 +13,10 @@ import EatOptions from './EatOptions'
 import FoodMain from './FoodMain';
 import Profile from './Profile'
 import Confirmation from './Confirmation'
-import Swipe from './Swipe'
 import CopyFoodMain from './CopyFoodMain'
 import DistanceMap from './DistanceMap'
+import CopySwipe from './CopySwipe';
+
 
 
 
