@@ -15,7 +15,6 @@ import Profile from './Profile'
 import Confirmation from './Confirmation'
 import CopyFoodMain from './CopyFoodMain'
 import DistanceMap from './DistanceMap'
-import CopySwipe from './CopySwipe';
 
 
 
@@ -32,7 +31,6 @@ export default props => {
           <Route path ="/login" component={Login} />
           <Route path="/register" component={Registration}/>
           <Route path="/options" component={EatOptions} />
-          <Route path="/foodfinder" component={FoodMain}/>
           <Route path="/profile" component={Profile} />
           <Route path="/confirm" component={Confirmation} />
           <Route path="/swipe" component={CopyFoodMain} />
