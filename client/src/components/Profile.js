@@ -2,15 +2,17 @@ import React, {useEffect} from 'react'
 import {Link} from "react-router-dom"
 import { Input } from 'semantic-ui-react'
 import {useSelector} from 'react-redux'
+
 import { Button } from 'semantic-ui-react'
-import {getAllergyFreeItems, getMenuItems} from '../actions/diet.actions'
 
 import DietButton from './DietButton'
+import { sendDiets } from '../actions/diet.actions'
 
 
 export default props => {
   const selectedDiets = useSelector(appState => appState.dietReducer.selectedDiets)
   console.log(selectedDiets)
+
   const allItems = useSelector(appState => appState.dietReducer.allItems)
   
   const diets = [
@@ -23,6 +25,10 @@ export default props => {
     {name: 'Halal', disabled: true, img:'/Icons/halal.png'},
     {name: 'Kosher', disabled: true, img:'/Icons/kosher.png'}
   ]
+
+  // function handleSubmit(e) {
+  //   sendDiets(selectedDiets)
+  // }
 
   return (
     <div className="Profile">
@@ -45,18 +51,11 @@ export default props => {
       </div> 
 
       <div className='save'>
+
         <Link to='/foodfinder'>
           <Button fluid id="save" type='Submit' >Continue</Button>
-          </Link>
+        </Link>
       </div>
     </div>
   )
 }
-
-
-
-
-
-
-
-

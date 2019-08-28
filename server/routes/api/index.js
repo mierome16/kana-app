@@ -36,7 +36,7 @@ router.post('/register', (req, res, next) => {
  
  conn.query(sql, [username, password, first_name, last_name], (err, results, fields) => {
    if (err) {
-     console.log(err)
+    //  console.log(err)
      res.json({
        message: "User already exists"
      })
@@ -49,8 +49,10 @@ router.post('/register', (req, res, next) => {
 })
 
 //******Diet Selection and Filtering*******//
-router.get('/menu-items', (req, res, next) => {
-  const diet = req.body.diet
+router.get('/menu-items/:selectedDiets', (req, res, next) => {
+  const diet = req.params.selectedDiets
+  const newDiet = diet.split(',')
+  if(diet === 'none'){
   const sql = `
   SELECT m.id, m.name as meal_name, m.meal_type, m.description, m.diet, m.price, r.name as res_name, r.address, r.zipcode, r.city, r.state, r.opening_time, r.closing_time, r.day_opened, r.ratings, p.url
   FROM menu_items m
@@ -60,16 +62,86 @@ router.get('/menu-items', (req, res, next) => {
   ON p.menu_items_id = m.id
 `
   conn.query(sql, (err, results,fields) => {
-    console.log(results)
     res.json(results)
   })
+}else{
+  const sql = `
+  SELECT m.id, m.name as meal_name, m.meal_type, m.description, m.diet, m.price, r.name as res_name, r.address, r.zipcode, r.city, r.state, r.opening_time, r.closing_time, r.day_opened, r.ratings, p.url
+  FROM menu_items m
+  LEFT JOIN Restaurants r
+  ON m.restaurant_id = r.id
+  LEFT JOIN pictures p
+  ON p.menu_items_id = m.id
+`
+  conn.query(sql, (err, results,fields) => {
+    const newResults = []
+      newDiet.forEach(diet => {
+         results.filter(item => {
+            // if(item.diet !== null){
+            // const dietArr = item.diet.split(' ')
+            // if(dietArr.includes(diet)){
+              if(item.diet === diet){
+                newResults.push(item)
+            }
+          // }
+      })
+      
+          })
+          console.log(newResults)
+      res.json(newResults)
+      })
+    }
+  })
+    
+
+
+ router.post('/filtered-items', (req,res,next) => {
+    const diet = req.params.diet
+    console.log(diet)
+    let all = []
+    if (diet.length === 0) {
+      const sql = `SELECT m.id, m.name as meal_name, m.meal_type, m.description, m.diet, m.price, r.name as res_name, r.address, r.zipcode, r.city, r.state, r.opening_time, r.closing_time, r.day_opened, r.ratings, p.url
+      FROM menu_items m
+      LEFT JOIN Restaurants r
+      ON m.restaurant_id = r.id
+      LEFT JOIN pictures p
+      ON p.menu_items_id = m.id
+      `
+      conn.query(sql, [item], (err,results,fields) => {
+        console.log(results)
+        res.json(results)
+      })
+
+    } else {
+    diet.forEach(item => {
+      let diet = '%' + item + '%'
+      const sql = `SELECT m.id, m.name as meal_name, m.meal_type, m.description, m.diet, m.price, r.name as res_name, r.address, r.zipcode, r.city, r.state, r.opening_time, r.closing_time, r.day_opened, r.ratings, p.url
+      FROM menu_items m
+      LEFT JOIN Restaurants r
+      ON m.restaurant_id = r.id
+      LEFT JOIN pictures p
+      ON p.menu_items_id = m.id
+      HAVING m.diet LIKE ?
+      `
+      conn.query(sql, [diet], (err,results,fields) => {
+        all.push(results)
+        console.log(results)
+      })
+      res.json(all)
+    })
+ }
 })
 
-
-
-
-
-
+ router.get('/locations', (req,res,next) => {
+   const sql = `
+   SELECT *
+   FROM restaurants
+   `
+ 
+   conn.query(sql, (err, results, fields) => {
+     res.json(results)
+   })
+ })
 
 
 module.exports = router

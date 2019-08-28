@@ -16,7 +16,7 @@ import Confirmation from './Confirmation'
 import CopyFoodMain from './CopyFoodMain'
 import CopySwipe from './CopySwipe';
 import MealOptions from './MealOptions';
-
+import DistanceMap from './DistanceMap'
 
 
 
@@ -32,11 +32,11 @@ export default props => {
           <Route path ="/login" component={Login} />
           <Route path="/register" component={Registration}/>
           <Route path="/options" component={EatOptions} />
-          <Route path="/foodfinder" component={FoodMain}/>
           <Route path="/profile" component={Profile} />
           <Route path="/confirm" component={Confirmation} />
           <Route path="/swipe" component={CopyFoodMain} />
           <Route path="/meal" component={MealOptions} />
+          <Route path="/map" component={DistanceMap}/>
         </div>
       </Router>
     </Provider>

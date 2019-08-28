@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import 'flatpickr/dist/themes/material_green.css'
-import { Form, Container, Header, Divider, Image, Popup } from 'semantic-ui-react'
+import { Form, Container, Header, Divider, Image } from 'semantic-ui-react'
 import moment from 'moment'
 import { Link } from 'react-router-dom'
 
