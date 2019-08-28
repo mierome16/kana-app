@@ -132,9 +132,6 @@ router.get('/menu-items/:selectedDiets', (req, res, next) => {
  }
 })
 
-
-
-
  router.get('/locations', (req,res,next) => {
    const sql = `
    SELECT *
@@ -145,5 +142,6 @@ router.get('/menu-items/:selectedDiets', (req, res, next) => {
      res.json(results)
    })
  })
+
 
 module.exports = router

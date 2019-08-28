@@ -40,3 +40,17 @@ export function toggleDiet(diet) {
     payload: diet
   })
 }
+
+export function toggleMeal(meal) {
+  store.dispatch({
+    type: 'SELECT_MEAL',
+    payload: meal
+  })
+}
+
+export function getAllergyFreeItems(filteredItems) {
+  store.dispatch({
+    type: 'GET_ALLERGYFREE',
+    payload: filteredItems
+  })
+}

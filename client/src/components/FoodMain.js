@@ -139,7 +139,11 @@ export default props => {
                   <Icon name='star' />
                   rating??
                 </Card.Content>
+
+          
+
               </Card>)}
+
         </div>
       </div>
     );

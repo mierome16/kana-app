@@ -108,6 +108,31 @@ const cardStyles = {
                     
                     }} >
                   </div>
+
+                )}
+                onAfterSwipe={remove}
+              >
+              <Card style={{ ...cardStyles, zIndex: '0' }} id="fooditem">
+                <div id="cardImage"
+                  style={{background: `url(${items[0].image}) no-repeat center`, objectFit:'cover', backgroundRepeat: 'no-repeat',
+                  width:300, height:400
+                
+                  }} >
+                </div>
+                <Card.Content style={{width: '100%'}}>
+                <Card.Header id="foodnameheader">{items[0].name}
+                    <Card.Meta><span>${(items[0].price).toFixed(2)}</span></Card.Meta>
+                </Card.Header>
+                <Card.Meta>
+                    <span className='date'>{items[0].restaurant}</span>
+                </Card.Meta>
+                <Card.Description>
+                  {items[0].description} {items[0].allergy}
+                </Card.Description>
+                </Card.Content>
+                <Card.Content extra style={{ width: '100%' }}>
+                <a>
+
                   <Card.Content style={{width: '100%'}}>
                   <Card.Header id="foodnameheader">{filterFood[1].name}
                       <Card.Meta><span>${(filterFood[1].price).toFixed(2)}</span></Card.Meta>
@@ -120,6 +145,7 @@ const cardStyles = {
                   </Card.Description>
                   </Card.Content>
                   <Card.Content extra style={{ width: '100%' }}>
+
                     <Icon name='star' />
                     {filterFood[1].rating}
                   </Card.Content>
