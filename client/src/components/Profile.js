@@ -57,7 +57,7 @@ export default props => {
       </div> 
 
       <div className='save'>
-        <Link to='/foodfinder'><button type='Submit' OnSubmit={getFilteredItems} >Continue</button></Link>
+        <Link to='/foodfinder'><button type='Submit' onSubmit={getFilteredItems} >Continue</button></Link>
       </div>
     </div>
   )
