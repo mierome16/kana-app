@@ -2,7 +2,6 @@ const initialState = {
  selectedDiets: [],
  allItems: [],
  selectedMeals: [],
- filteredItems: []
 
 }
 
@@ -18,12 +17,6 @@ export default function(state = initialState, action) {
       return {...state, allItems: action.payload}
     case 'ORDER_ITEM':
       return {...state, orderedItems: [action.payload, ...state.orderedItems]}
-    case 'GET_FILTERED_ITEMS':
-      return {...state, filteredItems: action.payload}
-
-    case 'GET_ALLERGYFREE':
-        return {...state, allItems: state.allItems.filter(item => item.allergy.includes(action.payload))}
-    
     case 'SELECT_MEAL':
       if (state.selectedMeals.find(meal => meal === action.payload)) {
         return {...state, selectedMeals: state.selectedMeals.filter(meal => meal !== action.payload)}

@@ -36,7 +36,6 @@ router.post('/register', (req, res, next) => {
  
  conn.query(sql, [username, password, first_name, last_name], (err, results, fields) => {
    if (err) {
-    //  console.log(err)
      res.json({
        message: "User already exists"
      })
