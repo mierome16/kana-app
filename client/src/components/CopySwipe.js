@@ -2,7 +2,7 @@ import React, { useState, useEffect} from "react";
 import Swipeable from "react-swipy"
 import { Card, Button, Icon, Image } from "semantic-ui-react"
 import { Link } from 'react-router-dom'
-import { getMenuItems, getFilteredItems } from '../actions/diet.actions'
+import { getMenuItems } from '../actions/diet.actions'
 import { useSelector } from 'react-redux'
   
 const wrapperStyles = {position: "relative", maxWidth: "100vh", height: "550px"};
@@ -27,42 +27,29 @@ const cardStyles = {
 };  
 
   export default props => {
-    // const items = useSelector(appState => appState.dietReducer.allItems)
     const [cards, setCards] = useState(["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"])
     const selectedDiets = useSelector(appState => appState.dietReducer.selectedDiets)
-    const filterFood = useSelector(appState => appState.dietReducer.filteredItems)
-    // console.log(selectedDiet)
-    // const allergy = items.filter(item => item.allergy !== null).filter(item => item.allergy.length > 0)
-
-    // function contains(allergies, diets) {
-    //   let filtered = []
-    //   if (diets.length <= 1 ) {
-    //     return allergies.filter(item => item.allergy.includes(selectedDiet))
-    //   } else {
-    //     allergies.forEach(item => diets.forEach(item2 => item.allergy.includes(item2) ? filtered.push(item) : filtered)) 
-    //     return [...new Set(filtered)] 
-    //   }
-    // }
-    // const filterFood = contains(allergy, selectedDiet)
+    const items = useSelector(appState => appState.dietReducer.allItems)
+    console.log(items)
     
     useEffect(() => {
       if(selectedDiets.length === 0){
         getMenuItems('none')
-      }else{
+      } else {
       getMenuItems(selectedDiets)
       }
-      // getFilteredItems(selectedDiets)
       }, [])
   
     function remove() {
-      filterFood.splice(0, 1)
-      console.log(filterFood[0])
+      items.splice(0, 1)
+      console.log(items[0])
     }
    
       return (
         <div>
-          {/* <div style={wrapperStyles}>
-            {filterFood.length > 0 ? (
+        {/* { rightSwipe ? <Redirect to="/options"  /> : ( */}
+          <div style={wrapperStyles}>
+            {items.length > 0 ? (
               <div style={wrapperStyles}>
                 <Swipeable
                   buttons={({left, right}) => (
@@ -79,75 +66,49 @@ const cardStyles = {
                 >
                 <Card style={{ ...cardStyles, zIndex: '0' }} id="fooditem">
                   <div id="cardImage"
-                    style={{background: `url(${filterFood[0].image}) no-repeat center`, backgroundSize: 'cover',
+                    style={{background: `url(${items[0].image}) no-repeat center`, backgroundSize: 'cover',
                     width:300, height:400
                     }} >
                   </div>
                   <Card.Content style={{width: '100%'}}>
-                  <Card.Header id="foodnameheader">{filterFood[0].name}
-                      <Card.Meta><span>${(filterFood[0].price).toFixed(2)}</span></Card.Meta>
+                  <Card.Header id="foodnameheader">{items[0].name}
+                      <Card.Meta><span>${(items[0].price).toFixed(2)}</span></Card.Meta>
                   </Card.Header>
                   <Card.Meta>
-                      <span className='date'>{filterFood[0].restaurant}</span>
+                      <span className='date'>{items[0].restaurant}</span>
                   </Card.Meta>
                   <Card.Description>
-                    {filterFood[0].description} {filterFood[0].allergy}
+                    {items[0].description} {items[0].allergy}
                   </Card.Description>
                   </Card.Content>
                   <Card.Content extra style={{ width: '100%' }}>
                     <Icon name='star' />
-                    {filterFood[0].rating}
+                    {items[0].rating}
                   </Card.Content>
                 </Card>))}
                 </Swipeable>
-                {filterFood.length > 1 && 
+                {items.length > 1 && 
                   <Card style={{ ...cardStyles, zIndex: '-1' }} id="fooditem">
                   <div id="cardImage"
-                    style={{background: `url(${filterFood[1].image})`,
+                    style={{background: `url(${items[1].image})`,
                     width:300, height:400
                     
                     }} >
                   </div>
-
-                )}
-                onAfterSwipe={remove}
-              >
-              <Card style={{ ...cardStyles, zIndex: '0' }} id="fooditem">
-                <div id="cardImage"
-                  style={{background: `url(${items[0].image}) no-repeat center`, objectFit:'cover', backgroundRepeat: 'no-repeat',
-                  width:300, height:400
-                
-                  }} >
-                </div>
-                <Card.Content style={{width: '100%'}}>
-                <Card.Header id="foodnameheader">{items[0].name}
-                    <Card.Meta><span>${(items[0].price).toFixed(2)}</span></Card.Meta>
-                </Card.Header>
-                <Card.Meta>
-                    <span className='date'>{items[0].restaurant}</span>
-                </Card.Meta>
-                <Card.Description>
-                  {items[0].description} {items[0].allergy}
-                </Card.Description>
-                </Card.Content>
-                <Card.Content extra style={{ width: '100%' }}>
-                <a>
-
                   <Card.Content style={{width: '100%'}}>
-                  <Card.Header id="foodnameheader">{filterFood[1].name}
-                      <Card.Meta><span>${(filterFood[1].price).toFixed(2)}</span></Card.Meta>
+                  <Card.Header id="foodnameheader">{items[1].name}
+                      <Card.Meta><span>${(items[1].price).toFixed(2)}</span></Card.Meta>
                   </Card.Header>
                   <Card.Meta>
-                      <span className='date'>{filterFood[1].restaurant}</span>
+                      <span className='date'>{items[1].restaurant}</span>
                   </Card.Meta>
                   <Card.Description>
-                    {filterFood[1].description} {filterFood[1].allergy}
+                    {items[1].description} {items[1].allergy}
                   </Card.Description>
                   </Card.Content>
                   <Card.Content extra style={{ width: '100%' }}>
-
                     <Icon name='star' />
-                    {filterFood[1].rating}
+                    {items[1].rating}
                   </Card.Content>
                 </Card>}
               </div>
@@ -162,7 +123,7 @@ const cardStyles = {
                       <span className='date'>(restaurant name)</span>
                   </Card.Meta>
                   <Card.Description>
-                      food allergy description {cards[0]}
+                      food allergy description
                   </Card.Description>
                   </Card.Content>
                   <Card.Content extra style={{ width: '100%' }}>
@@ -170,7 +131,7 @@ const cardStyles = {
                     rating??
                   </Card.Content>
                 </Card>)}
-          </div> */}
+          </div>
         </div>
       );
     }

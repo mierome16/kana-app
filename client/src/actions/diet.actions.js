@@ -7,17 +7,16 @@ export function getMenuItems(selectedDiets){
   console.log(resp.data)
     const data = resp.data.map(item => {
       let items = {
-      name: item.meal_name,
+      name: item.item_name,
       restaurant: item.res_name,
       price: item.price,
-      allergy: item.diet,
+      allergy: item.diet_name,
       rating: item.ratings,
-      image: item.url,
+      image: `/pictures/${item.pic_id}.jpg`,
       description: item.description
     }
       return items
     })
-    // console.log(data)
    store.dispatch({
      type:'GET_ALL_ITEMS',
      payload: data

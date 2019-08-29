@@ -7,7 +7,7 @@
 #
 # Host: localhost (MySQL 5.7.25)
 # Database: kana
-# Generation Time: 2019-08-26 21:15:01 +0000
+# Generation Time: 2019-08-29 19:32:06 +0000
 # ************************************************************
 
 
@@ -18,6 +18,114 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+
+# Dump of table diet_links
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `diet_links`;
+
+CREATE TABLE `diet_links` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `menu_item_id` int(11) unsigned DEFAULT NULL,
+  `dietary_rest_id` int(11) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8;
+
+LOCK TABLES `diet_links` WRITE;
+/*!40000 ALTER TABLE `diet_links` DISABLE KEYS */;
+
+INSERT INTO `diet_links` (`id`, `menu_item_id`, `dietary_rest_id`)
+VALUES
+	(1,13,1),
+	(2,15,1),
+	(3,16,1),
+	(4,24,1),
+	(5,26,1),
+	(6,41,3),
+	(7,42,3),
+	(8,46,3),
+	(9,47,3),
+	(10,52,1),
+	(11,53,1),
+	(12,53,2),
+	(13,53,3),
+	(14,53,6),
+	(15,54,1),
+	(16,54,2),
+	(17,54,3),
+	(18,55,1),
+	(19,55,2),
+	(20,55,3),
+	(21,56,1),
+	(22,56,2),
+	(23,56,3),
+	(24,56,6),
+	(25,57,1),
+	(26,57,2),
+	(27,57,3),
+	(28,58,6),
+	(29,59,1),
+	(30,59,2),
+	(31,59,3),
+	(32,59,6),
+	(33,60,1),
+	(34,60,2),
+	(35,60,3),
+	(36,60,6),
+	(37,61,2),
+	(38,61,3),
+	(39,62,3),
+	(40,62,6),
+	(41,63,2),
+	(42,64,2),
+	(43,65,2),
+	(44,66,2),
+	(45,68,3),
+	(46,69,2),
+	(47,70,2),
+	(48,70,3),
+	(49,70,4),
+	(50,81,3),
+	(51,82,3),
+	(52,83,3),
+	(53,84,3),
+	(54,85,3),
+	(55,86,3),
+	(56,87,3),
+	(57,88,3),
+	(58,89,3),
+	(59,90,3);
+
+/*!40000 ALTER TABLE `diet_links` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table dietary_rest
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `dietary_rest`;
+
+CREATE TABLE `dietary_rest` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+LOCK TABLES `dietary_rest` WRITE;
+/*!40000 ALTER TABLE `dietary_rest` DISABLE KEYS */;
+
+INSERT INTO `dietary_rest` (`id`, `name`)
+VALUES
+	(1,'Vegetarian'),
+	(2,'Vegan'),
+	(3,'Gluten-free'),
+	(4,'Nut-free'),
+	(5,'Dairy-free'),
+	(6,'Spicy');
+
+/*!40000 ALTER TABLE `dietary_rest` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table menu_items
@@ -287,26 +395,56 @@ CREATE TABLE `Restaurants` (
   `day_opened` varchar(255) DEFAULT NULL,
   `meal_type` varchar(255) DEFAULT NULL,
   `ratings` int(11) DEFAULT NULL,
+  `longitude` decimal(11,0) DEFAULT NULL,
+  `latitude` decimal(11,0) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 LOCK TABLES `Restaurants` WRITE;
 /*!40000 ALTER TABLE `Restaurants` DISABLE KEYS */;
 
-INSERT INTO `Restaurants` (`id`, `name`, `address`, `zipcode`, `city`, `state`, `opening_time`, `closing_time`, `day_opened`, `meal_type`, `ratings`)
+INSERT INTO `Restaurants` (`id`, `name`, `address`, `zipcode`, `city`, `state`, `opening_time`, `closing_time`, `day_opened`, `meal_type`, `ratings`, `longitude`, `latitude`)
 VALUES
-	(1,'Besta','1114 S Casino Center Blvd','89104','Las Vegas','NV','06:00:00','16:00:00','Mon Tues Wed Thurs Fri Sat','Coffee Breakfast Lunch Brunch',5),
-	(2,'Lornish Patty','10 E Charleston Blvd','89104','Las Vegas','NV','11:00:00','23:00:00','Mon Tues Wed Thurs Fri Sat Sun','Brunch Appetizers Lunch Dinner',5),
-	(3,'Lesther\'s','1130 S Casino Center Blvd','89104','Las Vegas','NV','11:00:00','23:00:00','Mon Tues Wed Thurs Fri Sat Sun','Brunch Lunch Dinner',5),
-	(4,'Casa Don Jose','1204 S Main St','89104','Las Vegas','NV','07:00:00','22:00:00','Mon Tues Wed Thurs Fri Sat Sun','Breakfast Brunch Lunch Dinner',4),
-	(5,'Setters & Founders','120 S Main St #110','89104','Las Vegas','NV','07:00:00','21:00:00','Mon Tues Wed Thurs Fri Sat Sun','Coffee Breakfast Brunch Lunch Dinner',4),
-	(6,'C O Thai','1108 S 3rd St','89104','Las Vegas','NV','11:00:00','21:00:00','Mon Tues Wed Thurs Fri Sat Sun','Lunch Dinner',4),
-	(7,'VegeState','616 Carson Ave #120','89101','Las Vegas','NV','08:00:00','21:00:00','Mon Tues Wed Thurs Fri Sat Sun','Breakfast Brunch Lunch Dinner',5),
-	(8,'The Greatwhich','900 S Las Vegas Blvd','89101','Las Vegas','NV','10:00:00','17:00:00','Mon Tues Wed Thurs Fri Sat','Lunch',5),
-	(9,'Great Pie','725 S Las Vegas Blvd #140','89101','Las Vegas','NV','11:00:00','21:00:00','Mon Tues Wed Thurs Fri Sat Sun','Lunch Dinner',5),
-	(10,'Jake’s Rollin Smoke BBQ','725 S Las Vegas Blvd','89101','Las Vegas','NV','10:00:00','22:00:00','Mon Tues Wed Thurs Fri Sat Sun','Lunch Dinner',4);
+	(1,'Besta','1114 S Casino Center Blvd','89104','Las Vegas','NV','06:00:00','16:00:00','Mon Tues Wed Thurs Fri Sat','Coffee Breakfast Lunch Brunch',5,-115,36),
+	(2,'Lornish Patty','10 E Charleston Blvd','89104','Las Vegas','NV','11:00:00','23:00:00','Mon Tues Wed Thurs Fri Sat Sun','Brunch Appetizers Lunch Dinner',5,-115,36),
+	(3,'Lesther\'s','1130 S Casino Center Blvd','89104','Las Vegas','NV','11:00:00','23:00:00','Mon Tues Wed Thurs Fri Sat Sun','Brunch Lunch Dinner',5,-115,36),
+	(4,'Casa Don Jose','1204 S Main St','89104','Las Vegas','NV','07:00:00','22:00:00','Mon Tues Wed Thurs Fri Sat Sun','Breakfast Brunch Lunch Dinner',4,-97,43),
+	(5,'Setters & Founders','120 S Main St #110','89104','Las Vegas','NV','07:00:00','21:00:00','Mon Tues Wed Thurs Fri Sat Sun','Coffee Breakfast Brunch Lunch Dinner',4,-115,36),
+	(6,'C O Thai','1108 S 3rd St','89104','Las Vegas','NV','11:00:00','21:00:00','Mon Tues Wed Thurs Fri Sat Sun','Lunch Dinner',4,-115,36),
+	(7,'VegeState','616 Carson Ave #120','89101','Las Vegas','NV','08:00:00','21:00:00','Mon Tues Wed Thurs Fri Sat Sun','Breakfast Brunch Lunch Dinner',5,-115,36),
+	(8,'The Greatwhich','900 S Las Vegas Blvd','89101','Las Vegas','NV','10:00:00','17:00:00','Mon Tues Wed Thurs Fri Sat','Lunch',5,-115,36),
+	(9,'Great Pie','725 S Las Vegas Blvd #140','89101','Las Vegas','NV','11:00:00','21:00:00','Mon Tues Wed Thurs Fri Sat Sun','Lunch Dinner',5,-115,36),
+	(10,'Jake’s Rollin Smoke BBQ','725 S Las Vegas Blvd #100','89101','Las Vegas','NV','10:00:00','22:00:00','Mon Tues Wed Thurs Fri Sat Sun','Lunch Dinner',4,-115,-115);
 
 /*!40000 ALTER TABLE `Restaurants` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table users
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `users`;
+
+CREATE TABLE `users` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) DEFAULT NULL,
+  `password` varchar(128) DEFAULT NULL,
+  `first_name` varchar(255) DEFAULT NULL,
+  `last_name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+
+INSERT INTO `users` (`id`, `username`, `password`, `first_name`, `last_name`)
+VALUES
+	(1,'mierome16','d222eb077e6f06da89b8b4323d2ad8b8f381eff47fc95dc3faacce64fd31fdaa2bc9366875f026a8aad537da177c5a2643defe800a25bd054f78918ea43e214e','Malina','Ierome'),
+	(2,'test','64a9f33391e600ed6eda97c8e943cd431f046f65b74275bdf0e175d1c05acba20c38ac3cdec7180fadddd2f4eeb1f7eaba9f85372b2d8706d2210bb762fe966d','test','test'),
+	(3,'asdfasdf','c6cadf5f6fe931734830455f6e50c90cbed422015135c5b905335ec79181300a0f5a5b590b99d1237d4864707299fadcf011f48ba464b5b0d83ca6b697f8cdbd','sdfas','df');
+
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
 

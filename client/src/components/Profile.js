@@ -18,9 +18,9 @@ export default props => {
   const diets = [
     {name: 'Vegetarian', disabled: false, img:'/Icons/vegetarian.png' },
     {name: 'Vegan', disabled: false, img:'/Icons/vegan.png'},
-    {name: 'Gluten_free', disabled: false, img:'/Icons/GF.png'},
-    {name: 'Nut_free', disabled: false, img:'/Icons/nutfree.png'},
-    {name: 'Dairy_free', disabled: false, img:'/Icons/dairyFree.png'},
+    {name: 'Gluten-free', disabled: false, img:'/Icons/GF.png'},
+    {name: 'Nut-free', disabled: false, img:'/Icons/nutfree.png'},
+    {name: 'Dairy-free', disabled: false, img:'/Icons/dairyFree.png'},
     {name: 'Spicy', disabled: false, img:'/Icons/spicy.png'},
     {name: 'Halal', disabled: true, img:'/Icons/halal.png'},
     {name: 'Kosher', disabled: true, img:'/Icons/kosher.png'}
@@ -37,10 +37,10 @@ export default props => {
         <h2>Let's set up your preferences..</h2>
       </div>
       
-      <div className='location'>
+      {/* <div className='location'>
         <label>Set your Home location</label>
         <Input icon='search' type='text' placeholder='enter either address, city or zipcode' style={{'marginTop':'10px','width':'90%'}}></Input>
-      </div>
+      </div> */}
 
       <div className='diet'>
         {diets.map((diet, i) => (
@@ -52,7 +52,7 @@ export default props => {
 
       <div className='save'>
 
-        <Link to='/foodfinder'>
+        <Link to='/swipe'>
           <Button fluid id="save" type='Submit' >Continue</Button>
         </Link>
       </div>
