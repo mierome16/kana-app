@@ -10,10 +10,10 @@ export default props => {
                 <button className="ui basic button">
                     <i className="icon user"></i>
                 </button>
-                <Icon name='leaf' />
-                <Header.Content>
+                {/* <Icon name='leaf' /> */}
+                <Header.Content className="kananame">
                 Kana
-                <Header.Subheader>Food Finder Service</Header.Subheader>
+                {/* <Header.Subheader>Swipe for food</Header.Subheader> */}
                 </Header.Content>
                 <button className="ui basic button">
                     <Icon name="heart"/>
