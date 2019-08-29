@@ -1,7 +1,7 @@
 const initialState = {
  selectedDiets: [],
  allItems: [],
- selectedMeals: []
+ selectedMeals: [],
  filteredItems: []
 
 }
