@@ -31,4 +31,9 @@ export function toggleDiet(diet) {
   })
 }
 
-
+export function orderItem(item) {
+  store.dispatch({
+    type: 'ORDER_ITEM',
+    payload: item
+  })
+}

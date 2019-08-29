@@ -27,8 +27,14 @@ export function login(username, password){
 
         setInterceptors(token)
         console.log(resp.data)
+
+    store.dispatch({
+        type: 'LOGIN',
+        payload: username
     })
 
+    })
+    
 }
 
 export function register(username, password, first_name, last_name){
@@ -40,6 +46,17 @@ export function register(username, password, first_name, last_name){
       last_name: last_name
     }).then(resp => {
       console.log(resp.data)
-    })
 
+    store.dispatch({
+        type: 'REGISTER',
+        payload: username
+    })  
+    })
+}
+
+export function logout() {
+    localStorage.removeItem('token')
+    store.dispatch({
+        type: 'LOGOUT'
+    })
 }

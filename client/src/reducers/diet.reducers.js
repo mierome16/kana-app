@@ -1,6 +1,7 @@
 const initialState = {
  selectedDiets: [],
- allItems: []
+ allItems: [],
+ orderedItems: []
 }
 
 export default function(state = initialState, action) {
@@ -13,7 +14,8 @@ export default function(state = initialState, action) {
       }
     case 'GET_ALL_ITEMS':
       return {...state, allItems: action.payload}
-
+    case 'ORDER_ITEM':
+      return {...state, orderedItems: [action.payload, ...state.orderedItems]}
     default: 
       return state
   }

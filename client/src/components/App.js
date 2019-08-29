@@ -10,11 +10,12 @@ import OrderForm from './OrderForm'
 import Login from './Login'
 import Registration from './Registration'
 import EatOptions from './EatOptions'
-import FoodMain from './FoodMain';
 import Profile from './Profile'
 import Confirmation from './Confirmation'
-import CopyFoodMain from './CopyFoodMain'
+import FoodMain from './FoodMain'
 import DistanceMap from './DistanceMap'
+import LoginRoute from './LoginRoute'
+import sticky from './sticky'
 
 
 
@@ -25,16 +26,17 @@ export default props => {
     <Provider store={store}>
       <Router>
         <div>
-          <Route exact path="/" component={HomepageLayout} />
-          <Route path="/order" component={OrderForm} />
-          <Route path="/reservation" component={ReservationForm} />
+          <Route exact path = "/" component={HomepageLayout} />
           <Route path ="/login" component={Login} />
           <Route path="/register" component={Registration}/>
-          <Route path="/options" component={EatOptions} />
-          <Route path="/profile" component={Profile} />
-          <Route path="/confirm" component={Confirmation} />
-          <Route path="/swipe" component={CopyFoodMain} />
-          <Route path="/map" component={DistanceMap}/>
+          <LoginRoute exact path="/profile" component={Profile} />
+          <LoginRoute exact path="/order" component={OrderForm} />
+          <LoginRoute exact path="/reservation" component={ReservationForm} />
+          <LoginRoute exact path="/options" component={EatOptions} />
+          <LoginRoute exact path="/confirm" component={Confirmation} />
+          <LoginRoute exact path="/swipe" component={FoodMain} />
+          <LoginRoute exact path="/map" component={DistanceMap}/>
+          <LoginRoute exact path="/sticky" component={sticky} />
         </div>
       </Router>
     </Provider>

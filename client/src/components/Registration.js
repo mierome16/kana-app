@@ -69,10 +69,11 @@ export default props => {
                     placeholder='Confirm Password'
                     type='password'
                 />
-
-                <Button color='teal' fluid size='large'>
-                    Sign Up
+                <Link to="/profile">
+                <Button onClick={handleSubmit} color='teal' fluid size='large'>
+                  Sign Up
                 </Button>
+                </Link>
                 </Segment>
             </Form>
             <Message>
