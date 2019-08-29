@@ -107,7 +107,7 @@ const cardStyles = {
                     </div>
                   )}
                   onAfterSwipe={remove}
-                  onRightSwipe={redirect}
+                  onSwipe={redirect}
                 >
                 <Card style={{ ...cardStyles, zIndex: '0' }} id="fooditem">
                   <div id="cardImage"
