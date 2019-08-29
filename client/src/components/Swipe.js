@@ -28,31 +28,31 @@ const cardStyles = {
 };  
 
   export default props => {
-    const items = useSelector(appState => appState.dietReducer.allItems)
+    const items = shuffle(useSelector(appState => appState.dietReducer.allItems))
     const [item, setItem] = useState(items[0])
-    const selectedDiet = useSelector(appState => appState.dietReducer.selectedDiets)
-    console.log(selectedDiet)
-    const allergy = items.filter(item => item.allergy !== null).filter(item => item.allergy.length > 0)
+    const selectedDiets = useSelector(appState => appState.dietReducer.selectedDiets)
     const [rightSwipe, setRightSwipe] = useState(false)
-
-    function contains(allergies, diets) {
-      let filtered = []
-      if (diets.length <= 1 ) {
-        return allergies.filter(item => item.allergy.includes(selectedDiet))
-      } else {
-        allergies.forEach(item => diets.forEach(item2 => item.allergy.includes(item2) ? filtered.push(item) : filtered)) 
-        return [...new Set(filtered)] 
-      }
-    }
-    const filterFood = contains(allergy, selectedDiet)
     
     useEffect(() => {
-      getMenuItems()
+      if(selectedDiets.length === 0){
+        getMenuItems('none')
+      } else {
+      getMenuItems(selectedDiets)
+      }
       }, [])
+
+      function shuffle(a) {
+        var j, x, i;
+        for (i = a.length - 1; i > 0; i--) {
+            j = Math.floor(Math.random() * (i + 1));
+            x = a[i];
+            a[i] = a[j];
+            a[j] = x;
+        }
+        return a;
+      }
   
     function remove() {
-      // filterFood.splice(0, 1)
-      // console.log(filterFood[0])
       items.splice(0,1)
       setItem(items[0])
     }

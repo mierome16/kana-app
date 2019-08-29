@@ -12,8 +12,6 @@ import { sendDiets } from '../actions/diet.actions'
 export default props => {
   const selectedDiets = useSelector(appState => appState.dietReducer.selectedDiets)
   console.log(selectedDiets)
-
-  const allItems = useSelector(appState => appState.dietReducer.allItems)
   
   const diets = [
     {name: 'Vegetarian', disabled: false, img:'/Icons/vegetarian.png' },
