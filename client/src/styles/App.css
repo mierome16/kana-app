@@ -5,6 +5,10 @@ html {box-sizing:border-box;}
   background: rgba(235, 101, 53, 1)
 }
 
+body {
+  background-color: rgba(235, 101, 53, 1)
+}
+
 /**********EatOptions Styling*********/
 .EatOptions {
   display: flex;
@@ -13,7 +17,7 @@ html {box-sizing:border-box;}
   align-items: center;
   height: 100vh;
   margin: auto;
-  background-color: rgba(235, 101, 53, 1)
+  background-color: rgba(235, 101, 53, 1);
 }
 
 .EatOptions div {
@@ -41,11 +45,30 @@ html {box-sizing:border-box;}
 .foodmainheader {
     display: flex;
     justify-content: space-between;
+    margin: 5px;
 }
+
+.ui.header {
+  margin: 5px;
+}
+
+.ui.basic.button {
+  box-shadow: none;
+}
+
 #foodnameheader {
     display: flex;
     justify-content: space-between;
 }
+
+.kananame {
+  color: white;
+  font-size: 36px;
+  letter-spacing: 4px;
+  /* font-weight: lighter; */
+  
+}
+
 #foodmainpage {
     display: flex;
     flex-direction: column;
@@ -53,12 +76,31 @@ html {box-sizing:border-box;}
     width: 90vw;
     margin: auto;
     padding-top: 10px;
+    
 }
 #fooditem {
   margin: auto;
   margin-bottom: 25px;
   width: 400px;
+  border: none;
+  
 }
+
+#cardImage {
+  margin-top: 5px;
+  
+}
+
+#yes {
+  background-color: rgb(175, 179, 79);
+  color: white;
+}
+
+#no {
+  background-color: rgb(193, 87, 49);
+  color: white;
+}
+
 
 /**********Profile Styling*********/
 .Profile {

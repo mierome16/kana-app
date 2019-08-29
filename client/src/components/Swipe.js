@@ -100,9 +100,9 @@ const cardStyles = {
                     <div style={actionsStyles}
                     >
                       <Button.Group fluid>
-                        <Button onClick={left}>No</Button>
+                        <Button id='no' onClick={left} >Yuck!</Button>
                         <Button.Or />
-                        <Button onClick={right} positive><Link to="/options">Yes</Link></Button>    
+                        <Button id='yes' onClick={right} positive><Link to="/options" style={{color:'white'}}>Yum!</Link></Button>    
                       </Button.Group>
                     </div>
                   )}
