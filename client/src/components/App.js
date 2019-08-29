@@ -1,6 +1,7 @@
 import React from 'react'
 import 'normalize.css/normalize.css'
 import '../styles/App.css'
+import '../styles/img.css'
 import { Provider } from 'react-redux'
 import store from '../store'
 import ReservationForm from './ReservationForm'
