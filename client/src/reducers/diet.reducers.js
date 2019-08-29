@@ -16,6 +16,8 @@ export default function(state = initialState, action) {
       }
     case 'GET_ALL_ITEMS':
       return {...state, allItems: action.payload}
+    case 'ORDER_ITEM':
+      return {...state, orderedItems: [action.payload, ...state.orderedItems]}
     case 'GET_FILTERED_ITEMS':
       return {...state, filteredItems: action.payload}
 

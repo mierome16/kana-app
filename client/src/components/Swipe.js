@@ -1,8 +1,10 @@
-import React, {Component} from "react";
+import React, { useState, useEffect} from "react";
 import Swipeable from "react-swipy"
 import { Card, Button, Icon, Image } from "semantic-ui-react"
 import { Link } from 'react-router-dom'
-import axios from 'axios'
+import { getMenuItems } from '../actions/diet.actions'
+import { useSelector } from 'react-redux'
+import { Redirect } from 'react-router-dom'
   
 const wrapperStyles = {position: "relative", maxWidth: "100vh", height: "550px"};
 const actionsStyles = {
@@ -21,92 +23,163 @@ const cardStyles = {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  top: 0
-};
+  top: 0,
+  height: '550px'
+};  
+
+  export default props => {
+    const items = useSelector(appState => appState.dietReducer.allItems)
+    const [item, setItem] = useState(items[0])
+    const selectedDiet = useSelector(appState => appState.dietReducer.selectedDiets)
+    console.log(selectedDiet)
+    const allergy = items.filter(item => item.allergy !== null).filter(item => item.allergy.length > 0)
+    const [rightSwipe, setRightSwipe] = useState(false)
+
+    function contains(allergies, diets) {
+      let filtered = []
+      if (diets.length <= 1 ) {
+        return allergies.filter(item => item.allergy.includes(selectedDiet))
+      } else {
+        allergies.forEach(item => diets.forEach(item2 => item.allergy.includes(item2) ? filtered.push(item) : filtered)) 
+        return [...new Set(filtered)] 
+      }
+    }
+    const filterFood = contains(allergy, selectedDiet)
+    
+    useEffect(() => {
+      getMenuItems()
+      }, [])
+  
+    function remove() {
+      // filterFood.splice(0, 1)
+      // console.log(filterFood[0])
+      items.splice(0,1)
+      setItem(items[0])
+    }
+
+    function redirect() {
+      // setRightSwipe(!rightSwipe)
+      console.log('right swipe')
+    }
 
 
-const CardProp = ({ zIndex = 0, children }) => (
-  <Card style={{ ...cardStyles, zIndex }} id="fooditem">
-      <Image src='https://placehold.it/400x500' wrapped ui={false} />
-      <Card.Content style={{width: '100%'}}>
-      <Card.Header id="foodnameheader">(food item name)
-          <Card.Meta><span>(food price)</span></Card.Meta>
-      </Card.Header>
-      <Card.Meta>
-          <span className='date'>(restaurant name)</span>
-      </Card.Meta>
-      <Card.Description>
-          food allergy description {children}
-      </Card.Description>
-      </Card.Content>
-      <Card.Content extra style={{ width: '100%' }}>
-      <a>
-          <Icon name='star' />
-          rating??
-      </a>
-      </Card.Content>
-  </Card>
-);
 
- 
-class Swipe extends Component {
-  // items = useSelector(appState => appState.rootReducer.dietReducter.allItems)
-
-  state = {
-    cards: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
-  };
- 
-  componentDidMount() {
-    axios.get('/api/menu-items').then(resp => {
-      const data = resp.data.map(item => {
-        let items = {name: item.meal_name,
-        restaurant: item.res_name,
-        price: item.price,
-        allergy: item.diet,
-        rating: item.ratings,
-        image: item.url}
-        return items
-      })
-    console.log(data)
-  })}
-
-  remove = () =>
-    this.setState(({cards}) => ({
-      cards: cards.slice(1, cards.length),
-    }));
- 
-  render() {
-    const {cards} = this.state;
- 
-    return (
-      <div>
-        <div style={wrapperStyles}>
-          {cards.length > 0 ? (
-            <div style={wrapperStyles}>
-              <Swipeable
-                buttons={({left, right}) => (
-                  <div style={actionsStyles}
-                  >
-                    <Button.Group fluid>
-                      <Button onClick={left}>No</Button>
-                      <Button.Or />
-                      <Button onClick={right} positive><Link to="/options">Yes</Link></Button>    
-                    </Button.Group>
+    // onSwipe = direction => {
+    //   const {limit, onSwipe} = this.props;
+  
+    //   if (onSwipe) {
+    //     onSwipe(direction);
+    //   }
+  
+    //   this.setState({
+    //     swiped: true,
+    //     moving: false,
+    //     offset: getLimitOffset(limit, direction),
+    //   });
+    // };
+  
+    // onAfterSwipe = () => {
+    //   const {onAfterSwipe} = this.props;
+  
+    //   this.setState(INITIAL_STATE);
+  
+    //   if (onAfterSwipe) {
+    //     onAfterSwipe();
+    //   }
+    // };
+  
+   
+      return (
+        <div>
+        {/* { rightSwipe ? <Redirect to="/options"  /> : ( */}
+          <div style={wrapperStyles}>
+            {items.length > 0 ? (
+              <div style={wrapperStyles}>
+                <Swipeable
+                  buttons={({left, right}) => (
+                    <div style={actionsStyles}
+                    >
+                      <Button.Group fluid>
+                        <Button onClick={left}>No</Button>
+                        <Button.Or />
+                        <Button onClick={right} positive><Link to="/options">Yes</Link></Button>    
+                      </Button.Group>
+                    </div>
+                  )}
+                  onAfterSwipe={remove}
+                  onSwipe={redirect}
+                >
+                <Card style={{ ...cardStyles, zIndex: '0' }} id="fooditem">
+                  <div id="cardImage"
+                    style={{background: `url(${items[0].image}) no-repeat center`, backgroundSize: 'cover',
+                    width:300, height:400
+                    }} >
                   </div>
-                )}
-                onAfterSwipe={this.remove}
-              >
-                <CardProp>{cards[0]}</CardProp>
-              </Swipeable>
-              {cards.length > 1 && <CardProp zIndex={-1}>{cards[1]}</CardProp>}
-            </div>
-          ) : (
-            <CardProp zIndex={-2}>No more cards</CardProp>
-          )}
+                  <Card.Content style={{width: '100%'}}>
+                  <Card.Header id="foodnameheader">{items[0].name}
+                      <Card.Meta><span>${(items[0].price).toFixed(2)}</span></Card.Meta>
+                  </Card.Header>
+                  <Card.Meta>
+                      <span className='date'>{items[0].restaurant}</span>
+                  </Card.Meta>
+                  <Card.Description>
+                    {items[0].description} {items[0].allergy}
+                  </Card.Description>
+                  </Card.Content>
+                  <Card.Content extra style={{ width: '100%' }}>
+                    <Icon name='star' />
+                    {items[0].rating}
+                  </Card.Content>
+                </Card>))}
+                </Swipeable>
+                {items.length > 1 && 
+                  <Card style={{ ...cardStyles, zIndex: '-1' }} id="fooditem">
+                  <div id="cardImage"
+                    style={{background: `url(${items[1].image})`,
+                    width:300, height:400
+                    
+                    }} >
+                  </div>
+                  <Card.Content style={{width: '100%'}}>
+                  <Card.Header id="foodnameheader">{items[1].name}
+                      <Card.Meta><span>${(items[1].price).toFixed(2)}</span></Card.Meta>
+                  </Card.Header>
+                  <Card.Meta>
+                      <span className='date'>{items[1].restaurant}</span>
+                  </Card.Meta>
+                  <Card.Description>
+                    {items[1].description} {items[1].allergy}
+                  </Card.Description>
+                  </Card.Content>
+                  <Card.Content extra style={{ width: '100%' }}>
+                    <Icon name='star' />
+                    {items[1].rating}
+                  </Card.Content>
+                </Card>}
+              </div>
+            ) : (
+              <Card style={{ ...cardStyles, zIndex: '-2' }} id="fooditem">
+                  <Image src='https://placehold.it/400x500' wrapped ui={false} />
+                  <Card.Content style={{width: '100%'}}>
+                  <Card.Header id="foodnameheader">(food item name)
+                      <Card.Meta><span>(food price)</span></Card.Meta>
+                  </Card.Header>
+                  <Card.Meta>
+                      <span className='date'>(restaurant name)</span>
+                  </Card.Meta>
+                  <Card.Description>
+                      food allergy description
+                  </Card.Description>
+                  </Card.Content>
+                  <Card.Content extra style={{ width: '100%' }}>
+                    <Icon name='star' />
+                    rating??
+                  </Card.Content>
+                </Card>)}
+          </div>
+           {/* )
+        } */}
         </div>
-      </div>
-    );
-  }
-}
- 
-export default Swipe;
+       
+      );
+    }

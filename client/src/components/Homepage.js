@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import React, { Component } from 'react'
+import { StickyContainer, Sticky } from 'react-sticky'
 import {
   Button,
   Container,
@@ -76,6 +77,7 @@ class MobileContainer extends Component {
     const { sidebarOpened } = this.state
 
     return (
+     
       <Responsive
         as={Sidebar.Pushable}
         getWidth={getWidth}
@@ -112,6 +114,7 @@ class MobileContainer extends Component {
               pointing
               secondary
               size='large'>
+             
                 <Container>
                   <Menu.Item onClick={this.handleToggle}>
                     <Icon name='sidebar' />
@@ -126,12 +129,14 @@ class MobileContainer extends Component {
                   </Menu.Item>
                   </Container>
               </Menu>
+             
             {/* </Container> */}
             <HomepageHeading mobile />
           </Segment>
         </Sidebar.Pusher>
         {children}
       </Responsive>
+      
     )
   }
 }
