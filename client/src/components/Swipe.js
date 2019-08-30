@@ -7,9 +7,9 @@ import { Redirect } from 'react-router-dom'
 import { Card as FoodCard, CardWrapper as FoodCardWrapper } from 'react-swipeable-cards';
 
   
-const wrapperStyles = {position: "relative", maxWidth: "100vh", height: "500px"};
+const wrapperStyles = {position: "relative", maxWidth: "100vh", height: "600px"};
 const actionsStyles = {position: 'relative', bottom: 0, width: '100%'};
-const cardStyles = {borderRadius: 3, cursor: "pointer", userSelect: "none", position: "absolute", display: "flex", alignItems: "center", justifyContent: "center", top: 0, height: '550px'}
+const cardStyles = {borderRadius: 3, cursor: "pointer", userSelect: "none", position: "absolute", display: "flex", alignItems: "center", justifyContent: "center", top: 0, height: '600px',}
 
   export default props => {
     const items = useSelector(appState => appState.dietReducer.allItems)
@@ -49,7 +49,7 @@ const cardStyles = {borderRadius: 3, cursor: "pointer", userSelect: "none", posi
             onSwipeRight={onSwipeRight}
             id="fooditem"
             >
-            <FoodItem style={{marginTop:20}}>
+            <FoodItem style={{marginTop:20, maginBottom:20}}>
               <div id="cardImage"
                   style={{background: `url(${item.image}) no-repeat center`, backgroundSize: 'cover',
                   width:300, height:300, 
@@ -75,11 +75,11 @@ const cardStyles = {borderRadius: 3, cursor: "pointer", userSelect: "none", posi
           )) }
         </FoodCardWrapper>
           <div styles={actionsStyles}>
-            <Button.Group fluid >
+            {/* <Button.Group fluid >
                   <Button onClick={ e => setSwipe(!swipe)}>No</Button>
                   <Button.Or />
                   <Button onClick={e => onSwipeRight()} positive><Link to="/options">Yes</Link></Button>    
-              </Button.Group> 
+              </Button.Group>  */}
           </div>
         </div>
         )

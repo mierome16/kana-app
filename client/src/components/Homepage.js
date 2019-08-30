@@ -30,7 +30,7 @@ const getWidth = () => {
  * such things.
  */
 const HomepageHeading = ({ mobile }) => (
-  <Container text>
+  <Container text style={{maxHeight: '280px'}}>
     <Header
       id="mainpagekana"
       as='h1'
@@ -117,7 +117,7 @@ class MobileContainer extends Component {
               secondary
               size='large'>
              
-                <Container>
+                <Container style={{height: '50px'}}>
                   <Menu.Item onClick={this.handleToggle}>
                     <Icon name='sidebar' id="sidebar-butt"/>
                   </Menu.Item>
@@ -132,7 +132,7 @@ class MobileContainer extends Component {
                   </Container>
               </Menu>
              
-            <HomepageHeading mobile />
+            <HomepageHeading mobile style={{maxHeight: '50px'}} />
           </Segment>
         </Sidebar.Pusher>
         {children}
@@ -204,8 +204,8 @@ const HomepageLayout = () => (
     <Segment style={{ padding: '0em' }} vertical>
       <Grid celled='internally' columns='equal' stackable>
         <Grid.Row textAlign='center'>
-          <Grid.Column style={{ paddingBottom: '5em', paddingTop: '5em' }}>
-            <Header as='h3' style={{ fontSize: '2em' }}>
+          <Grid.Column style={{ paddingBottom: '0em', paddingTop: '0em' }}>
+            <Header as='h3' style={{ fontSize: '2em'}}>
               "What a Company"
             </Header>
             <p style={{ fontSize: '1.33em' }}>That is what they all say about us</p>
@@ -219,7 +219,7 @@ const HomepageLayout = () => (
           as='h4'
           className='header'
           horizontal
-          style={{ margin: '3em 0em', textTransform: 'uppercase' }}
+          style={{ margin: '0em 0em', textTransform: 'uppercase' }}
         >
           <a href='https://google.com'>Case Studies</a>
         </Divider>

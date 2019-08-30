@@ -36,7 +36,7 @@ export default props => {
   
     return (
       submit ? <Redirect to="/confirm" /> : (
-      <Container style={{'padding': '1em', overflowY: 'scroll', overflowX: 'hidden'}}>
+      <Container style={{'padding': '1em', overflowY: 'scroll', overflowX: 'hidden', background: 'white'}}>
         <Header as='h3' style={{'paddingTop': '1em', 'textAlign': 'center' }}>
           Confirm Your Order
         </Header>

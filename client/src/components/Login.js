@@ -19,7 +19,7 @@ export default props => {
                 <Link to="/register"><button>Sign up</button></Link>
             </header>
             <Grid textAlign='center' style={{ height: '100vh', width:'100vw' }} verticalAlign='middle'>
-                <Grid.Column style={{ maxWidth: '340px' }}>
+                <Grid.Column style={{ maxWidth: '350px' }}>
                     <Header as='h2' color='black' textAlign='center'>
                         {/* <Image src='/logo.png' />  */}
                         Log-in to your account
