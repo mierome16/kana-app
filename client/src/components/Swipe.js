@@ -28,10 +28,11 @@ const cardStyles = {
 };  
 
   export default props => {
-    const items = shuffle(useSelector(appState => appState.dietReducer.allItems))
+    const items = useSelector(appState => appState.dietReducer.allItems)
     const [item, setItem] = useState(items[0])
     const selectedDiets = useSelector(appState => appState.dietReducer.selectedDiets)
     const [rightSwipe, setRightSwipe] = useState(false)
+    console.log(items)
     
     useEffect(() => {
       if(selectedDiets.length === 0){
@@ -41,16 +42,6 @@ const cardStyles = {
       }
       }, [])
 
-      function shuffle(a) {
-        var j, x, i;
-        for (i = a.length - 1; i > 0; i--) {
-            j = Math.floor(Math.random() * (i + 1));
-            x = a[i];
-            a[i] = a[j];
-            a[j] = x;
-        }
-        return a;
-      }
   
     function remove() {
       items.splice(0,1)

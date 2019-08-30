@@ -34,9 +34,9 @@ export default props => {
                         type='password'
                     />
                    
-                    <Button onClick={handleSubmit} color='teal' fluid size='large'>
-                       <Link to="/profile" >Login</Link>
-                    </Button>
+                   <Link to="/profile" ><Button onClick={handleSubmit} color='teal' fluid size='large'>
+                       Login
+                    </Button></Link>
                     
                     </Segment>
                 </Form>

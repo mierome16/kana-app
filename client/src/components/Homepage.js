@@ -34,7 +34,7 @@ const HomepageHeading = ({ mobile }) => (
   <Container text>
     <Header
       as='h1'
-      content='Discover (add emphasis/special text) Kana'
+      content=''
       inverted
       style={{
         fontSize: mobile ? '2em' : '4em',
@@ -130,7 +130,6 @@ class MobileContainer extends Component {
                   </Container>
               </Menu>
              
-            {/* </Container> */}
             <HomepageHeading mobile />
           </Segment>
         </Sidebar.Pusher>
