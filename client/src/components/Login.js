@@ -9,7 +9,6 @@ export default props => {
     const [password, setPassword] = useState('')
     
     function handleSubmit(e){
-        e.preventDefault()
         login(username, password)
     }
 
