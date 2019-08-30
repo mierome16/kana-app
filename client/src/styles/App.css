@@ -16,7 +16,7 @@ html {box-sizing:border-box;}
 body,
  #mainpageback {
   background: rgb(193,87,49);
-  background: linear-gradient(164deg, rgba(193,87,49,1) 23%, rgba(240,197,92,1) 53%, rgba(175,179,79,1) 88%);
+  background: linear-gradient(164deg, rgba(193,87,49,1) 23%, rgba(240,197,92,1) 53%, rgba(245,249,154,1) 88%);
   background-size: cover;
 }
 
@@ -273,7 +273,7 @@ body,
   height: 100vh;
   /* background: rgba(0,0,0,.8); */
   background: rgb(193,87,49);
-background: linear-gradient(164deg, rgba(193,87,49,1) 23%, rgba(240,197,92,1) 53%, rgba(175,179,79,1) 88%);
+background: linear-gradient(164deg, rgba(193,87,49,1) 23%, rgba(240,197,92,1) 53%, rgba(245,249,154,1) 88%);
 
 }
 .mhheader {

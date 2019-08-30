@@ -11,6 +11,7 @@ import { sendDiets } from '../actions/diet.actions'
 
 export default props => {
   const selectedDiets = useSelector(appState => appState.dietReducer.selectedDiets)
+  const user = useSelector(appState => appState.authReducer.users)
   console.log(selectedDiets)
   
   const diets = [
@@ -31,7 +32,7 @@ export default props => {
   return (
     <div className="Profile">
       <div className='top'>
-        <h1>Welcome <i>name</i>!</h1>
+        <h1>Welcome {user[user.length - 1]}!</h1>
         <h2>Let's set up your preferences..</h2>
       </div>
       
