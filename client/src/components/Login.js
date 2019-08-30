@@ -14,17 +14,24 @@ export default props => {
     }
 
     return (
-        <div className="loginform">
-            <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
-                <Grid.Column style={{ maxWidth: 450 }}>
-                    <Header as='h2' color='teal' textAlign='center'>
+        <div id="loginform">
+            <header id="lrheader">
+                <Link to="/login"><button>Log in</button></Link>
+                <Link to="/register"><button>Sign up</button></Link>
+            </header>
+            <Grid textAlign='center' style={{ height: '100vh', width:'100vw' }} verticalAlign='middle'>
+                <Grid.Column style={{ maxWidth: '340px' }}>
+                    <Header as='h2' color='black' textAlign='center'>
                         {/* <Image src='/logo.png' />  */}
                         Log-in to your account
                     </Header>
                 <Form size='large' onSubmit={handleSubmit}>
-                    <Segment stacked>
-                    <Form.Input onChange={e => setUsername(e.target.value)} value={username}fluid icon='user' iconPosition='left' placeholder='Username' />
+                    <Segment stacked style={{
+                        background: 'rgb(0,0,0,.8)'
+                    }}>
+                    <Form.Input id="formz" onChange={e => setUsername(e.target.value)} value={username}fluid icon='user' iconPosition='left' placeholder='Username' />
                     <Form.Input
+                        id="formz"
                         onChange={e => setPassword(e.target.value)}
                         value={password}
                         fluid
@@ -34,13 +41,16 @@ export default props => {
                         type='password'
                     />
                    
-                   <Link to="/profile" ><Button onClick={handleSubmit} color='teal' fluid size='large'>
+                   <Link to="/profile" ><Button onClick={handleSubmit} style={{background: 'rgb(233,115,63)',
+    color: 'white'}} fluid size='large'>
                        Login
                     </Button></Link>
                     
                     </Segment>
                 </Form>
-                <Message>
+                <Message style={{
+                        background: 'rgb(0,0,0,.8)', color: 'white'
+                    }}>
                     New to us? <Link to="/register">Register</Link>
                 </Message>
                 </Grid.Column>

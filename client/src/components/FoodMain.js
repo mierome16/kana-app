@@ -5,7 +5,7 @@ import Swipe from './Swipe'
 export default props => {
 
     return (
-        <div id="foodmainpage">
+        <div className="foodmainpage">
             <Header className="foodmainheader"as='h2'>
                 <button className="ui basic button">
                     <i className="icon user"></i>
