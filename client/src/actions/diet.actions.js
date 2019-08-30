@@ -12,6 +12,17 @@ function shuffle(a) {
         return a;
       }
 
+function shuffle(a) {
+  var j, x, i;
+  for (i = a.length - 1; i > 0; i--) {
+      j = Math.floor(Math.random() * (i + 1));
+      x = a[i];
+      a[i] = a[j];
+      a[j] = x;
+  }
+  return a;
+}
+
 export function getMenuItems(selectedDiets){
  axios.get('/api/menu-items/'+ selectedDiets).then(resp => {
     const data = resp.data.map(item => {
@@ -31,7 +42,7 @@ export function getMenuItems(selectedDiets){
     })
    store.dispatch({
      type:'GET_ALL_ITEMS',
-     payload: data
+     payload: shuffle(data)
    })
  })
 }

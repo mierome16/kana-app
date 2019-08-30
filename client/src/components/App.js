@@ -18,6 +18,7 @@ import DistanceMap from './DistanceMap'
 import LoginRoute from './LoginRoute'
 import sticky from './sticky'
 import PastOrders from './PastOrders';
+import MobileHome from './MobileHome';
 
 
 
@@ -27,7 +28,8 @@ export default props => {
     <Provider store={store}>
       <Router>
         <div>
-          <Route exact path = "/" component={HomepageLayout} />
+          <Route exact path="/" component={MobileHome}></Route>
+          <Route exact path = "/about-kana" component={HomepageLayout} />
           <Route path ="/login" component={Login} />
           <Route path="/register" component={Registration}/>
           <LoginRoute exact path="/profile" component={Profile} />

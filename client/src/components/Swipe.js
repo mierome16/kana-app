@@ -18,7 +18,6 @@ const cardStyles = {borderRadius: 3, cursor: "pointer", userSelect: "none", posi
     const [swipe, setSwipe] = useState(false)
     let counter = 0
     console.log(swipe)
-    console.log(items)
     
     useEffect(() => {
       if(selectedDiets.length === 0){

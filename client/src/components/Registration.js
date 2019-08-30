@@ -36,23 +36,31 @@ export default props => {
 
     register(username, password, first_name, last_name)
     login(username, password)
-  }
+    }
 
   return (
     <div>
       {(error === true) ? <div>{errorMessage}</div> : ''}
+      <header id="lrheader">
+                <Link to="/login"><button>Log in</button></Link>
+                <Link to="/register"><button>Sign up</button></Link>
+            </header>
       <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
-          <Grid.Column style={{ maxWidth: 450 }}>
-            <Header as='h2' color='teal' textAlign='center'>
+          <Grid.Column style={{ maxWidth: 350 }}>
+            
+            <Header as='h2' color='black' textAlign='center'>
                 {/* <Image src='/logo.png' />  */}
                 Sign up for an account
             </Header>
             <Form size='large' onSubmit={handleSubmit}>
-                <Segment stacked>
-                <Form.Input fluid icon='user' iconPosition='left' placeholder='First Name' value={first_name} onChange={e => setFirst_name(e.target.value)}/>
-                <Form.Input fluid icon='user' iconPosition='left' placeholder='Last Name' value={last_name} onChange={e => setLast_name(e.target.value)}/>
-                <Form.Input fluid icon='user' iconPosition='left' placeholder='Username' value={username} onChange={e => setUsername(e.target.value)} />
+                <Segment stacked style={{
+                        background: 'rgb(0,0,0,.8)'
+                    }}>
+                <Form.Input id="formz" fluid icon='user' iconPosition='left' placeholder='First Name' value={first_name} onChange={e => setFirst_name(e.target.value)}/>
+                <Form.Input id="formz" fluid icon='user' iconPosition='left' placeholder='Last Name' value={last_name} onChange={e => setLast_name(e.target.value)}/>
+                <Form.Input id="formz" fluid icon='user' iconPosition='left' placeholder='Username' value={username} onChange={e => setUsername(e.target.value)} />
                 <Form.Input
+                id="formz"
                     fluid
                     icon='lock'
                     iconPosition='left'
@@ -61,6 +69,7 @@ export default props => {
                     value={password} onChange={e => setPassword(e.target.value)}
                 />
                 <Form.Input
+                id="formz"
                     value={confirm}
                     onChange={e => setConfirm(e.target.value)}
                     fluid
@@ -70,13 +79,16 @@ export default props => {
                     type='password'
                 />
                 <Link to="/profile">
-                <Button onClick={handleSubmit} color='teal' fluid size='large'>
+                <Button onClick={handleSubmit} color='teal' fluid size='large' style={{background: 'rgb(233,115,63)',
+    color: 'white'}}>
                   Sign Up
                 </Button>
                 </Link>
                 </Segment>
             </Form>
-            <Message>
+            <Message style={{
+                        background: 'rgb(0,0,0,.8)', color: 'white'
+                    }}>
                 Already a user? <Link to="/login">Log in</Link>
             </Message>
           </Grid.Column>

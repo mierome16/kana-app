@@ -6,15 +6,15 @@ import { Link } from 'react-router-dom'
 export default props => {
 
     return (
-        <div id="foodmainpage">
+        <div className="foodmainpage">
             <Header className="foodmainheader"as='h2'>
                 <button className="ui basic button">
                     <i className="icon user"></i>
                 </button>
-                <Icon name='leaf' />
-                <Header.Content>
+                {/* <Icon name='leaf' /> */}
+                <Header.Content className="kananame">
                 Kana
-                <Header.Subheader>Food Finder Service</Header.Subheader>
+                {/* <Header.Subheader>Swipe for food</Header.Subheader> */}
                 </Header.Content>
                 <button className="ui basic button">
                     <Icon name="heart"/>
