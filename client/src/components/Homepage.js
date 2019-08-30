@@ -33,19 +33,20 @@ const getWidth = () => {
 const HomepageHeading = ({ mobile }) => (
   <Container text>
     <Header
+      id="mainpagekana"
       as='h1'
-      content=''
+      content="Kana"
       inverted
       style={{
-        fontSize: mobile ? '2em' : '4em',
-        fontWeight: 'normal',
+        fontSize: mobile ? '3em' : '4em',
+        fontWeight: '600',
         marginBottom: 0,
-        marginTop: mobile ? '1.5em' : '3em',
+        marginTop: mobile ? '.7em' : '3em',
       }}
     />
     <Header
       as='h2'
-      content='Food Finder'
+      content='a speedy solution to decide what to eat'
       inverted
       style={{
         fontSize: mobile ? '1.5em' : '1.7em',
@@ -53,10 +54,10 @@ const HomepageHeading = ({ mobile }) => (
         marginTop: mobile ? '0.5em' : '1.5em',
       }}
     />
-    <Button primary size='medium'>
+    {/* <Button primary size='medium'>
       Get Started
       <Icon name='right arrow' />
-    </Button>
+    </Button> */}
   </Container>
 )
 
@@ -79,6 +80,7 @@ class MobileContainer extends Component {
     return (
      
       <Responsive
+        id="mainpageback"
         as={Sidebar.Pushable}
         getWidth={getWidth}
         maxWidth={Responsive.onlyMobile.maxWidth}
@@ -103,9 +105,10 @@ class MobileContainer extends Component {
 
         <Sidebar.Pusher dimmed={sidebarOpened}>
           <Segment
+            id="backgroundhome"
             inverted
             textAlign='center'
-            style={{ minHeight: 350, padding: '1em 0em' }}
+            style={{ minHeight: 330, padding: '1em 0em' }}
             vertical
           >
             {/* <Container> */}
@@ -117,7 +120,7 @@ class MobileContainer extends Component {
              
                 <Container>
                   <Menu.Item onClick={this.handleToggle}>
-                    <Icon name='sidebar' />
+                    <Icon name='sidebar' id="sidebar-butt"/>
                   </Menu.Item>
                   <Menu.Item position='right'>
                     <Link to="/login">
@@ -156,7 +159,7 @@ ResponsiveContainer.propTypes = {
 
 const HomepageLayout = () => (
   <ResponsiveContainer>
-    <Segment style={{ padding: '8em 0em' }} vertical>
+    <Segment style={{ paddingTop: '20px' }} vertical>
       <Grid container stackable verticalAlign='middle'>
         <Grid.Row>
           <Grid.Column width={8}>
@@ -211,7 +214,7 @@ const HomepageLayout = () => (
         </Grid.Row>
       </Grid>
     </Segment>
-    <Segment style={{ padding: '8em 0em' }} vertical>
+    <Segment style={{ padding: '0' }} vertical>
       <Container text>
         <Divider
           as='h4'

@@ -2,11 +2,22 @@ html {box-sizing:border-box;}
 *, *::before, *::after {box-sizing:inherit;}
 
 .ui.inverted.segment, .ui.primary.inverted.segment {
-  background: rgba(235, 101, 53, 1)
+  /* background: rgba(235, 101, 53, 1) */
+  background: rgba(0,0,0,.8)
+}
+.ui.vertical.segment {
+  padding-top: 20px;
+}
+#sidebar-butt {
+  position: relative;
+  top: -10px;
 }
 
-body {
-  background-color: rgba(235, 101, 53, 1)
+body,
+ #mainpageback {
+  background: rgb(193,87,49);
+  background: linear-gradient(164deg, rgba(193,87,49,1) 23%, rgba(240,197,92,1) 53%, rgba(175,179,79,1) 88%);
+  background-size: cover;
 }
 
 /**********EatOptions Styling*********/
@@ -69,7 +80,7 @@ body {
   
 }
 
-#foodmainpage {
+.foodmainpage {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -92,13 +103,17 @@ body {
 }
 
 #yes {
-  background-color: rgb(175, 179, 79);
+  background-color: #16ab39;
   color: white;
+  font-weight: bold;
+  font-size: 18px;
 }
 
 #no {
-  background-color: rgb(193, 87, 49);
+  background-color: #e71010;
   color: white;
+  font-weight: bold;
+  font-size: 18px;
 }
 
 
@@ -256,20 +271,24 @@ body {
 .mhpage {
   width: 100vw;
   height: 100vh;
-  background: rgba(0,0,0,.8);
+  /* background: rgba(0,0,0,.8); */
+  background: rgb(193,87,49);
+background: linear-gradient(164deg, rgba(193,87,49,1) 23%, rgba(240,197,92,1) 53%, rgba(175,179,79,1) 88%);
+
 }
 .mhheader {
   display: flex;
   justify-content: flex-end;
-  height: 8vh;
+  height: 9vh;
   width: 100vw;
-  background: rgb(233,115,63);
+  background: rgba(0,0,0,.8);
   margin-bottom: 10%;
   align-content: center;
   align-items: center;
 }
+
 .mhheader button {
-  height: 40px;
+  height: 30px;
   width: 75px;
   margin-right: 10px;
   font-size: 17px;
@@ -279,8 +298,8 @@ body {
   justify-content: center;
   border: 1px solid rgb(158,168,44);
   font-weight: bold;
-  background: rgb(158,168,44);
   color: white;
+  border-radius: 5px;
 }
 .mhlogo {
   height: 60vh;
@@ -302,7 +321,8 @@ body {
   width: 60vw;
   font-size: 22px;
   font-weight: bold;
-  background: rgb(233,115,63);
+  /* background: rgb(233,115,63); */
+  background: rgba(0,0,0,.7);
   box-shadow: 3px 3px 3px rgb(233,115,63);
   border-radius: 5px;
   align-items: center;
@@ -311,6 +331,42 @@ body {
   color: white;
 }
 
+/****** About Kana styling ******/
+#mainpagekana {
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', sans-serif;
+  font-weight: bold
+}
 
-
-
+/***** Login and Register ******/
+#formz {
+  background: rgb(100,100,100);
+  opacity: .7;
+  border: 2px solid rgba(193,87,49,)
+}
+#lrheader {
+  display: flex;
+  justify-content: flex-end;
+  height: 9vh;
+  width: 100vw;
+  background: rgba(0,0,0,.8);
+  align-content: center;
+  align-items: center;
+  margin-bottom: -100px;
+  padding-right: 10px;
+}
+#lrheader button {
+  height: 30px;
+  width: 75px;
+  margin-right: 10px;
+  font-size: 17px;
+  align-content: center;
+  align-items: center;
+  background: rgb(233,115,63);
+  justify-content: center;
+  border: 1px solid rgb(158,168,44);
+  font-weight: bold;
+  color: white;
+  border-radius: 5px;
+}
