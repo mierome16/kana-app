@@ -17,7 +17,6 @@ export default props => {
 
 
   function handleSubmit(e){
-    e.preventDefault()
     if (!validator.isLength(username, {min:6})){
       setError(true)
       setErrorMessage('Username must be at least 6 characters')
