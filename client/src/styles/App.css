@@ -2,9 +2,10 @@ html {box-sizing:border-box;}
 *, *::before, *::after {box-sizing:inherit;}
 
 .ui.inverted.segment, .ui.primary.inverted.segment {
-  /* background: rgba(235, 101, 53, 1) */
-  background: rgba(0,0,0,.8)
+  background: rgba(235, 101, 53, 1);
+  /* background: rgba(0,0,0,.8) */
 }
+
 .ui.vertical.segment {
   padding-top: 20px;
 }
@@ -13,12 +14,10 @@ html {box-sizing:border-box;}
   top: -10px;
 }
 
-body,
- #mainpageback {
-  background: rgb(193,87,49);
-  background: linear-gradient(164deg, rgba(193,87,49,1) 23%, rgba(240,197,92,1) 53%, rgba(245,249,154,1) 88%);
-  background-size: cover;
-}
+/* body,
+ #Responsive {
+  background: rgba(235, 101, 53, 1);
+} */
 
 /**********EatOptions Styling*********/
 .EatOptions {
@@ -271,9 +270,8 @@ body,
 .mhpage {
   width: 100vw;
   height: 100vh;
-  /* background: rgba(0,0,0,.8); */
-  background: rgb(193,87,49);
-background: linear-gradient(164deg, rgba(193,87,49,1) 23%, rgba(240,197,92,1) 53%, rgba(245,249,154,1) 88%);
+   background: rgba(235, 101, 53, 1)
+
 
 }
 .mhheader {
@@ -294,9 +292,9 @@ background: linear-gradient(164deg, rgba(193,87,49,1) 23%, rgba(240,197,92,1) 53
   font-size: 17px;
   align-content: center;
   align-items: center;
-  background: rgb(233,115,63);
+  background: rgba(0,0,0,.7);
   justify-content: center;
-  border: 1px solid rgb(158,168,44);
+  border: 1px solid white;
   font-weight: bold;
   color: white;
   border-radius: 5px;
@@ -309,29 +307,27 @@ background: linear-gradient(164deg, rgba(193,87,49,1) 23%, rgba(240,197,92,1) 53
   background-size: cover;
   background-repeat: no-repeat;
   margin-bottom: 30px;
-  border: 2px solid rgb(158,168,44);
+  border: 2px solid white;
   border-radius: 20%
 }
 .aboutkana {
   display: flex;
   margin: auto;
+  margin-top: 110px;
   justify-content: center;
-  height: 7vh;
-  border: 1px solid rgb(158,168,44);
-  width: 60vw;
-  font-size: 22px;
-  font-weight: bold;
-  /* background: rgb(233,115,63); */
-  background: rgba(0,0,0,.7);
-  box-shadow: 3px 3px 3px rgb(233,115,63);
+  height: 5vh;
+  width: 40vw;
+  font-size: 16px;
+  font-weight: lighter;
+  /* background: rgba(0,0,0,.7);
+  box-shadow: 3px 3px 3px rgb(233,115,63); */
   border-radius: 5px;
   align-items: center;
   align-content: center;
-  /* color:  rgb(233,115,63); */
   color: white;
+  text-decoration: underline;
 }
 
-/****** About Kana styling ******/
 #mainpagekana {
   font-size: 12px;
   letter-spacing: 2px;
