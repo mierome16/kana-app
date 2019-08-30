@@ -36,7 +36,7 @@ export default props => {
 
     register(username, password, first_name, last_name)
     login(username, password)
-  }
+    }
 
   return (
     <div>

@@ -209,4 +209,66 @@ html {box-sizing:border-box;}
   text-align: center;
 }
 
+/****** Mobile Home page styling ******/
+
+.mhpage {
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,.8);
+}
+.mhheader {
+  display: flex;
+  justify-content: flex-end;
+  height: 8vh;
+  width: 100vw;
+  background: rgb(233,115,63);
+  margin-bottom: 10%;
+  align-content: center;
+  align-items: center;
+}
+.mhheader button {
+  height: 40px;
+  width: 75px;
+  margin-right: 10px;
+  font-size: 17px;
+  align-content: center;
+  align-items: center;
+  background: rgb(233,115,63);
+  justify-content: center;
+  border: 1px solid rgb(158,168,44);
+  font-weight: bold;
+  background: rgb(158,168,44);
+  color: white;
+}
+.mhlogo {
+  height: 60vh;
+  width: 90vw;
+  margin: auto;
+  background: url('../image.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-bottom: 30px;
+  border: 2px solid rgb(158,168,44);
+  border-radius: 20%
+}
+.aboutkana {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  height: 7vh;
+  border: 1px solid rgb(158,168,44);
+  width: 60vw;
+  font-size: 22px;
+  font-weight: bold;
+  background: rgb(233,115,63);
+  box-shadow: 3px 3px 3px rgb(233,115,63);
+  border-radius: 5px;
+  align-items: center;
+  align-content: center;
+  /* color:  rgb(233,115,63); */
+  color: white;
+}
+
+
+
 
