@@ -17,6 +17,7 @@ import MealOptions from './MealOptions';
 import DistanceMap from './DistanceMap'
 import LoginRoute from './LoginRoute'
 import sticky from './sticky'
+import PastOrders from './PastOrders';
 
 
 
@@ -29,7 +30,6 @@ export default props => {
           <Route exact path = "/" component={HomepageLayout} />
           <Route path ="/login" component={Login} />
           <Route path="/register" component={Registration}/>
-
           <LoginRoute exact path="/profile" component={Profile} />
           <LoginRoute exact path="/order" component={OrderForm} />
           <LoginRoute exact path="/reservation" component={ReservationForm} />
@@ -39,7 +39,7 @@ export default props => {
           <LoginRoute exact path="/map" component={DistanceMap}/>
           <LoginRoute exact path="/sticky" component={sticky} />
           <LoginRoute exact path="/meal" component={MealOptions} />
-     
+          <LoginRoute exact path="/orders" component={PastOrders} />
 
         </div>
       </Router>
