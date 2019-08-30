@@ -15,6 +15,5 @@
 --- confirmation page works and shows the restaurant you're ordering from
 
 --- added ability to view past orders
-    looks ugly tho 
 
 --- time order was placed isn't completely working yet
