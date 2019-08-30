@@ -1,13 +1,24 @@
 import React, { useState } from 'react'
 import { Form, Container, Header, Divider, Image } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import shortid from 'shortid'
+import { addOrder } from '../actions/diet.actions'
+import { Redirect } from "react-router-dom"
+
  
 export default props => { 
+  const order = useSelector(appState => appState.dietReducer.orderedItem)
+  const [submit, setSubmit] = useState(false)
   const [values, setValues] = useState({
     quantity: 1,
     notes: '',
-    size: ''
+    size: '',
+    order: order,
+    confirm: shortid.generate(),
+    type: 'order'
   })
+  console.log(values)
 
   function handleChange(e) {
     setValues({
@@ -15,10 +26,17 @@ export default props => {
       [e.target.name]: e.target.value
     })
   }
-  console.log(values)
+
+  function handleSubmit(e) {
+    e.preventDefault()
+    setSubmit(!submit)
+    console.log(values)
+    addOrder(values)
+  }
   
     return (
-      <Container style={{'padding': '1em'}}>
+      submit ? <Redirect to="/confirm" /> : (
+      <Container style={{'padding': '1em', overflowY: 'scroll', overflowX: 'hidden'}}>
         <Header as='h3' style={{'paddingTop': '1em', 'textAlign': 'center' }}>
           Confirm Your Order
         </Header>
@@ -26,16 +44,17 @@ export default props => {
         <Header as='h4'>
           Item
         </Header>
-        <p>Grilled Cheese</p>
+        <p>{order.name}</p>
         <Header as='h4'>
           Restaurant Details
         </Header>
-        <p>PunchCode Cafe</p>
-        <p>1112 S Casino Center Blvd, Las Vegas, NV 89104</p>
+        <p>{order.restaurant}</p>
+        <p>{order.address}</p>
         <p>702-123-4567</p>
+        <p>Mon - Fri: {order.open} AM - {order.close} PM</p>
         <p>(possible maps api below)</p>
         <Image bordered rounded size='small' src='https://www.google.com/maps/d/thumbnail?mid=1CoxrxicMw4uSYPjPb20L6eQisoI&hl=en_US' />
-        <Form>
+        <Form onSubmit={handleSubmit}>
             <Form.Group widths='equal'>
               <Form.Field>
                 <label>Size:</label>
@@ -49,14 +68,12 @@ export default props => {
           <Form.TextArea name="notes" label='Notes/Special Instructions' value={values.notes} onChange={handleChange}/>
           <Form.Checkbox label='I agree to place my order for pick up and pay upon arrival' />
             <Header>
-            Total: $10.00
+            Total: ${(order.price * values.quantity).toFixed(2)}
             </Header>
-          <Link to="/confirm">
-            <Form.Button inverted color="orange">Place Order</Form.Button> 
-          </Link>
+            <Form.Button onClick={handleSubmit} inverted color="orange">Place Order</Form.Button> 
         </Form>
-        
       </Container>
+      )
     )
   }
 

@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import React, { Component } from 'react'
-import { StickyContainer, Sticky } from 'react-sticky'
 import {
   Button,
   Container,

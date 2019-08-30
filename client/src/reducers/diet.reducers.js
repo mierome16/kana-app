@@ -1,8 +1,9 @@
 const initialState = {
- selectedDiets: [],
- allItems: [],
- selectedMeals: [],
-
+  selectedDiets: [],
+  allItems: [],
+  selectedMeals: [],
+  orderedItem: '',
+  pastOrders: []
 }
 
 export default function(state = initialState, action) {
@@ -16,14 +17,17 @@ export default function(state = initialState, action) {
     case 'GET_ALL_ITEMS':
       return {...state, allItems: action.payload}
     case 'ORDER_ITEM':
-      return {...state, orderedItems: [action.payload, ...state.orderedItems]}
+      return {...state, orderedItem: action.payload}
     case 'SELECT_MEAL':
       if (state.selectedMeals.find(meal => meal === action.payload)) {
         return {...state, selectedMeals: state.selectedMeals.filter(meal => meal !== action.payload)}
       } else {
         return {...state, selectedMeals: [...state.selectedMeals, action.payload]}
       }
-
+    case 'END_ORDER':
+      return {...state, orderedItem: ''}
+    case 'ADD_ORDER':
+      return {...state, pastOrders: [action.payload, ...state.pastOrders]}
     default: 
       return state
   }
