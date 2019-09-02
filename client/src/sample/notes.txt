@@ -1,0 +1,19 @@
+to convert all the files to react
+
+--- each card should be mapped data, and plug in the data for each card
+--- the functionality like managing the state, pressing the buttons, and swiping cards has to be written with react hooks
+    --- on click, swipe the cards left right or up (instead of adding a click event listener)
+    --- on swipe, remove the current card from the deck and put it where it needs to go (use touch events, refs, useEffect instead of swipe event listeners)
+
+
+--- swipe isn't working for actual food items data, only works for example data 
+    --- the document selector isn't selecting the cards for some reason
+    --- convert the js to react
+
+--- parts to convert
+    --- classes to add
+    --- tracking current card
+    --- on touch (swipe) events
+    --- on click buttons to force a swipe
+    --- overlays to show yes, no, or favorite
+    

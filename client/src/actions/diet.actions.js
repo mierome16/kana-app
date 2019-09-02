@@ -58,10 +58,13 @@ export function toggleMeal(meal) {
 }
 
 export function addOrder(item) {
-  store.dispatch({
-    type: 'ADD_ORDER',
-    payload: item
-  })
+  // axios.post('/api/order', item).then(resp => {
+    store.dispatch({
+      type: 'ADD_ORDER',
+      payload: item
+    }) 
+  //})
+  
 }
 
 export function finishOrder() {

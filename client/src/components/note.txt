@@ -1,11 +1,17 @@
 --- the buttons might not be working because of e.preventDefault()
   i used a redirect to workaround that  ^^
+  *** fixed ***
+
+--- phone #, "link" to websitest
 
 --- create an individual view for past orders
   ex: show list of all past orders, then be able to click on one to only view that specific order
       then be able to go back to list of all past orders
+  --- order past item again
 
 --- add past orders to backend? link past orders by each user?
+
+--- make sidebar functional
 
 --- fixed swipe, but there's still bugs (swiping doesn't always remove all the elements on the card because the elements are placed "on top" of swipecard component so it won't go to the next card until you swipe the swipecard)
 
@@ -13,7 +19,100 @@
     works, but need to fix the date/time part of reservation, it breaks when you choose a date
 
 --- confirmation page works and shows the restaurant you're ordering from
-
 --- added ability to view past orders
 
+
 --- time order was placed isn't completely working yet
+
+--- add favorites page to see all favorites
+
+--- on heart click, add to favorites list
+
+--- google map page before preferences
+
+
+--- background: linear-gradient(164deg, #00bcd4a8 23%, rgb(92, 240, 204) 53%, rgba(83, 220, 98, 0.72) 88%); */
+
+--- so I actually dont really need the swipe event listener as much as I need a 'next' function
+    on click, trigger 'next' function that moves the cards
+    on swipe, also trigger 'next' function
+    right now what is moving the cards is a swipe listener, I cant make the cards move with a click
+    so i have to manually make the cards move with a click
+
+import React, { useState, useEffect} from "react";
+import { Card as FoodItem, Button, Icon, Image } from "semantic-ui-react"
+import { Link } from 'react-router-dom'
+import { getMenuItems, orderItem } from '../actions/diet.actions'
+import { useSelector } from 'react-redux'
+import { Redirect } from 'react-router-dom'
+import { Card as FoodCard, CardWrapper as FoodCardWrapper } from 'react-swipeable-cards';
+
+  
+const wrapperStyles = {position: "relative", maxWidth: "100vh", height: "500px"};
+const actionsStyles = {position: 'relative', bottom: 0, width: '100%'};
+const cardStyles = {borderRadius: 3, cursor: "pointer", userSelect: "none", position: "absolute", display: "flex", alignItems: "center", justifyContent: "center", top: 0, height: '550px'}
+
+  export default props => {
+    const items = useSelector(appState => appState.dietReducer.allItems)
+    const selectedDiets = useSelector(appState => appState.dietReducer.selectedDiets)
+    const [rightSwipe, setRightSwipe] = useState(false)
+    const [swipe, setSwipe] = useState(false)
+    let counter = 0
+    console.log(swipe)
+    
+    useEffect(() => {
+      if(selectedDiets.length === 0){
+        getMenuItems('none')
+      } else {
+      getMenuItems(selectedDiets)
+      }
+      }, [])
+
+      function onSwipeLeft() {
+          counter++
+      }
+     
+      function onSwipeRight() {
+        setRightSwipe(!rightSwipe)
+        counter++
+        orderItem(items[counter-1])
+      }
+
+      return (
+        rightSwipe ? <Redirect to="/options" /> : (
+          <div>
+         <FoodCardWrapper style={wrapperStyles}>
+          { items.map((item) => (
+            <FoodCard
+            key={item.name}
+            style={{borderRadius: 3, cursor: "pointer", userSelect: "none", position: "absolute", display: "flex", alignItems: "flex-end", flexDirection: 'column', justifyContent: "flex-end", top: 0, height: '550px',
+            background: `url(${item.image}) no-repeat top`, backgroundSize: 'contain', color:'white',}}
+            onSwipeLeft={onSwipeLeft}
+            onSwipeRight={onSwipeRight}
+            id="fooditem"
+            >
+            {/* <div style={{marginTop:20, maxHeight:'200px', position:'relative', bottom:20}}> */}
+              {/* <p id="foodnameheader">{item.name}</p> */}
+             <div style={{marginTop:20, maxHeight:'200px', position:'relative', bottom:50}}>
+              {item.name}
+              ${(item.price).toFixed(2)}
+              {item.restaurant}
+              {item.description} {item.allergy}
+              <Icon name='star' /> {item.rating}
+             </div>
+            {/* </div> */}
+          </FoodCard>
+          )) }
+        </FoodCardWrapper>
+          {/* <div styles={actionsStyles}>
+            <Button.Group fluid >
+                  <Button onClick={ e => setSwipe(!swipe)}>No</Button>
+                  <Button.Or />
+                  <Button onClick={e => onSwipeRight()} positive><Link to="/options">Yes</Link></Button>    
+              </Button.Group> 
+          </div> */}
+        </div>
+        )
+      )}
+
+

@@ -2,16 +2,16 @@ import React, {useEffect} from 'react'
 import {Link} from "react-router-dom"
 import { Input } from 'semantic-ui-react'
 import {useSelector} from 'react-redux'
-
 import { Button } from 'semantic-ui-react'
-
 import DietButton from './DietButton'
-import { sendDiets } from '../actions/diet.actions'
+import { getMenuItems } from '../actions/diet.actions'
 
 
 export default props => {
   const selectedDiets = useSelector(appState => appState.dietReducer.selectedDiets)
-  console.log(selectedDiets)
+  const foodItems = useSelector(appState => appState.dietReducer.allItems)
+  const user = useSelector(appState => appState.authReducer.users)
+  console.log(selectedDiets, foodItems)
   
   const diets = [
     {name: 'Vegetarian', disabled: false, img:'/Icons/vegetarian.png' },
@@ -25,13 +25,21 @@ export default props => {
   ]
 
   // function handleSubmit(e) {
-  //   sendDiets(selectedDiets)
+
+  //   if(selectedDiets.length === 0){
+  //     getMenuItems('none')
+      
+  //   } else {
+  //   getMenuItems(selectedDiets)
+      
+  //   }
+   
   // }
 
   return (
     <div className="Profile">
       <div className='top'>
-        <h1>Welcome <i>name</i>!</h1>
+        <h1>Welcome <i style={{textTransform:'capitalize'}}>{user[user.length-1]}</i>!</h1>
         <h2>Let's set up your preferences..</h2>
       </div>
       
@@ -50,7 +58,7 @@ export default props => {
 
       <div className='save'>
 
-        <Link to='/swipe'>
+        <Link to='/item'>
           <Button fluid id="save" type='Submit' >Continue</Button>
         </Link>
       </div>
