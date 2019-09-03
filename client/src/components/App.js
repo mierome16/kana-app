@@ -19,6 +19,8 @@ import DistanceMap from './DistanceMap'
 import LoginRoute from './LoginRoute'
 import PastOrders from './PastOrders';
 import MobileHome from './MobileHome';
+import RestHome from './RestHome'
+import RestRegister from './RestRegister';
 import SinglePastOrder from './SinglePastOrder'
  
 
@@ -43,6 +45,8 @@ export default props => {
           <LoginRoute exact path="/meal" component={MealOptions} />
           <LoginRoute exact path="/orders" component={PastOrders} />
           <LoginRoute exact path="/orders/:singleOrder" component={SinglePastOrder} />
+          <Route path = "/restaurant-home" component={RestHome}/>
+          <Route path ="/restaurant-register" component={RestRegister}/>
         </div>
       </Router>
     </Provider>
