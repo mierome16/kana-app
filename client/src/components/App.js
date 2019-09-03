@@ -19,7 +19,8 @@ import LoginRoute from './LoginRoute'
 import sticky from './sticky'
 import PastOrders from './PastOrders';
 import MobileHome from './MobileHome';
-
+import RestHome from './RestHome'
+import RestRegister from './RestRegister';
 
 
 export default props => {
@@ -42,6 +43,8 @@ export default props => {
           <LoginRoute exact path="/sticky" component={sticky} />
           <LoginRoute exact path="/meal" component={MealOptions} />
           <LoginRoute exact path="/orders" component={PastOrders} />
+          <Route path = "/restaurant-home" component={RestHome}/>
+          <Route path ="/restaurant-register" component={RestRegister}/>
 
         </div>
       </Router>
