@@ -103,7 +103,7 @@ class DesktopContainer extends Component {
               secondary={!fixed}
               size='large'
             >
-              <Container id='desktopnav'>
+              <Container id='desktopnav' style={{height: 50, paddingTop: 10}}>
                 <Menu.Item as='a' active>
                   Home
                 </Menu.Item>
@@ -181,6 +181,7 @@ class MobileContainer extends Component {
             <Container id="mobileHeader" 
             style={{height: '50px'}}>
               <Menu id='mobileTop'
+              style={{border:0}}
               inverted
               pointing
               secondary
