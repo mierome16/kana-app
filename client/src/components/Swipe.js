@@ -5,7 +5,6 @@ import { Card, Icon } from 'semantic-ui-react'
 import { getMenuItems } from '../actions/diet.actions'
 import { useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom'
-  
 
   export default props => {
     const foodItems = useSelector(appState => appState.dietReducer.allItems)

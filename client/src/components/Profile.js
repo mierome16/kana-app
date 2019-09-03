@@ -9,9 +9,8 @@ import { getMenuItems } from '../actions/diet.actions'
 
 export default props => {
   const selectedDiets = useSelector(appState => appState.dietReducer.selectedDiets)
-  const foodItems = useSelector(appState => appState.dietReducer.allItems)
   const user = useSelector(appState => appState.authReducer.users)
-  console.log(selectedDiets, foodItems)
+  console.log(selectedDiets)
   
   const diets = [
     {name: 'Vegetarian', disabled: false, img:'/Icons/vegetarian.png' },
@@ -39,7 +38,7 @@ export default props => {
   return (
     <div className="Profile">
       <div className='top'>
-        <h1>Welcome <i style={{textTransform:'capitalize'}}>{user[user.length-1]}</i>!</h1>
+        <h1>Welcome {user[user.length - 1]}!</h1>
         <h2>Let's set up your preferences..</h2>
       </div>
       

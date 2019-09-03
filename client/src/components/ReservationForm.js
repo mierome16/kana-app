@@ -31,7 +31,7 @@ export default props => {
 
     return (
       submit ? <Redirect to="/confirm" /> : (
-      <Container style={{'padding': '1em', overflowY: 'scroll'}}>
+      <Container style={{'padding': '1em', overflowY: 'scroll', background: 'white', height: '100vh', width: '100vw'}}>
         <Header as='h3' style={{'paddingTop': '1em', 'textAlign': 'center' }}>
           Make a Reservation
         </Header>

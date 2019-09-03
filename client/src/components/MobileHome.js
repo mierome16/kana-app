@@ -9,8 +9,7 @@ export default props => {
                 <Link to="/register"><button>Sign up</button></Link>
             </header>
             <div className="mhlogo"></div>
-            <Link to="/about-kana"><div className="aboutkana">About Kana</div></Link>
-            
+            <Link to="/about-kana"><div className="aboutkana">About us</div></Link>
         </div>
     )
 }
