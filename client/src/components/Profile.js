@@ -2,11 +2,9 @@ import React, {useEffect} from 'react'
 import {Link} from "react-router-dom"
 import { Input } from 'semantic-ui-react'
 import {useSelector} from 'react-redux'
-
 import { Button } from 'semantic-ui-react'
-
 import DietButton from './DietButton'
-import { sendDiets } from '../actions/diet.actions'
+import { getMenuItems } from '../actions/diet.actions'
 
 
 export default props => {
@@ -26,7 +24,15 @@ export default props => {
   ]
 
   // function handleSubmit(e) {
-  //   sendDiets(selectedDiets)
+
+  //   if(selectedDiets.length === 0){
+  //     getMenuItems('none')
+      
+  //   } else {
+  //   getMenuItems(selectedDiets)
+      
+  //   }
+   
   // }
 
   return (

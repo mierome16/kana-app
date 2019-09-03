@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
 import React, { Component } from 'react'
 import {
   Button,
@@ -13,8 +12,10 @@ import {
   Menu,
   Responsive,
   Segment,
-  Sidebar
+  Sidebar,
+  Visibility
 } from 'semantic-ui-react'
+import { isAbsolute } from 'path';
 
 // Heads up!
 // We using React Static to prerender our docs with server side rendering, this is a quite simple solution.
@@ -30,22 +31,30 @@ const getWidth = () => {
  * such things.
  */
 const HomepageHeading = ({ mobile }) => (
-  <Container text style={{maxHeight: '280px'}}>
+  <Container text id="header" 
+    style={{
+      height: mobile ? '140px' : '300px',
+      textAlign: 'center'
+    }}
+     >
     <Header
-      id="mainpagekana"
       as='h1'
-      content="Kana"
+      content='Discover (add emphasis/special text) Kana'
       inverted
       style={{
+
+        color: 'white',
         fontSize: mobile ? '3em' : '4em',
         fontWeight: '600',
         marginBottom: 0,
-        marginTop: mobile ? '.7em' : '3em',
+        marginTop: mobile ? '.2em' : '1em',
+
       }}
     />
     <Header
       as='h2'
-      content='a speedy solution to decide what to eat'
+
+      content='Decide on dinner faster!'
       inverted
       style={{
         fontSize: mobile ? '1.5em' : '1.7em',
@@ -53,10 +62,10 @@ const HomepageHeading = ({ mobile }) => (
         marginTop: mobile ? '0.5em' : '1.5em',
       }}
     />
-    {/* <Button primary size='medium'>
+    <Button primary size='medium'>
       Get Started
       <Icon name='right arrow' />
-    </Button> */}
+    </Button>
   </Container>
 )
 
@@ -64,9 +73,133 @@ HomepageHeading.propTypes = {
   mobile: PropTypes.bool,
 }
 
-class MobileContainer extends Component {
+
+class DesktopContainer extends Component {
+  // fixed={fixed ? 'top' : null}
   state = {}
 
+  hideFixedMenu = () => this.setState({ fixed: false })
+  showFixedMenu = () => this.setState({ fixed: true })
+
+  render() {
+    const { children } = this.props
+    const { fixed } = this.state
+
+    return (
+      <Responsive id='desktopview' getWidth={getWidth} minWidth={Responsive.onlyTablet.minWidth}>
+        <Visibility id='desktopvisi'
+          once={false}
+          onBottomPassed={this.showFixedMenu}
+          onBottomPassedReverse={this.hideFixedMenu}
+        >
+          <Segment id='desktopseg'
+            inverted
+            textAlign='center'
+            style={{ minHeight: 300, padding: '1em 0em' }}
+            vertical
+          >
+            <Menu id='desktopmenu'
+              fixed={fixed ? 'top' : null}
+              inverted={!fixed}
+              pointing={!fixed}
+              secondary={!fixed}
+              size='large'
+            >
+              <Container id='desktopnav' style={{height: 50, paddingTop: 10}}>
+                <Menu.Item as='a' active>
+                  Home
+                </Menu.Item>
+                <Menu.Item as='a'>Work</Menu.Item>
+                <Menu.Item as='a'>Company</Menu.Item>
+                <Menu.Item as='a'>Careers</Menu.Item>
+                <Menu.Item position='right'>
+                  <Button as='a' inverted={!fixed}>
+                    Log in
+                  </Button>
+                  <Button as='a' inverted={!fixed} primary={fixed} style={{ marginLeft: '0.5em' }}>
+                    Sign Up
+                  </Button>
+                </Menu.Item>
+              </Container>
+            </Menu>
+            <HomepageHeading id='desktopHeading'/>
+          </Segment>
+        </Visibility>
+
+        {children}
+      </Responsive>
+    )
+  }
+}
+
+DesktopContainer.propTypes = {
+  children: PropTypes.node,
+}
+
+class MobileContainer extends Component {
+
+  state = {}
+
+  hideFixedMenu = () => this.setState({ fixed: false })
+  showFixedMenu = () => this.setState({ fixed: true })
+
+  render() {
+    const { children } = this.props
+    const { fixed } = this.state
+
+    return (
+      <Responsive getWidth={getWidth} minWidth={Responsive.onlyTablet.minWidth}>
+        <Visibility
+          once={false}
+          onBottomPassed={this.showFixedMenu}
+          onBottomPassedReverse={this.hideFixedMenu}
+        >
+          <Segment
+            inverted
+            textAlign='center'
+            style={{ minHeight: 700, padding: '1em 0em' }}
+            vertical
+          >
+            <Menu
+              fixed={fixed ? 'top' : null}
+              inverted={!fixed}
+              pointing={!fixed}
+              secondary={!fixed}
+              size='large'
+            >
+              <Container>
+                <Menu.Item as='a' active>
+                  Home
+                </Menu.Item>
+                <Menu.Item as='a'>Work</Menu.Item>
+                <Menu.Item as='a'>Company</Menu.Item>
+                <Menu.Item as='a'>Careers</Menu.Item>
+                <Menu.Item position='right'>
+                  <Button as='a' inverted={!fixed}>
+                    Log in
+                  </Button>
+                  <Button as='a' inverted={!fixed} primary={fixed} style={{ marginLeft: '0.5em' }}>
+                    Sign Up
+                  </Button>
+                </Menu.Item>
+              </Container>
+            </Menu>
+            <HomepageHeading />
+          </Segment>
+        </Visibility>
+
+        {children}
+      </Responsive>
+    )
+  }
+}
+
+DesktopContainer.propTypes = {
+  children: PropTypes.node,
+}
+
+class MobileContainer extends Component {
+  state = {}
 
   handleSidebarHide = () => this.setState({ sidebarOpened: false })
 
@@ -77,14 +210,13 @@ class MobileContainer extends Component {
     const { sidebarOpened } = this.state
 
     return (
-     
       <Responsive
-        id="mainpageback"
         as={Sidebar.Pushable}
         getWidth={getWidth}
         maxWidth={Responsive.onlyMobile.maxWidth}
       >
         <Sidebar
+          id='mobileSideBar'
           as={Menu}
           animation='push'
           inverted
@@ -92,7 +224,7 @@ class MobileContainer extends Component {
           vertical
           visible={sidebarOpened}
         >
-          <Menu.Item as='a' active>
+          <Menu.Item  as='a' active>
             Home
           </Menu.Item>
           <Menu.Item as='a'>Work</Menu.Item>
@@ -104,20 +236,19 @@ class MobileContainer extends Component {
 
         <Sidebar.Pusher dimmed={sidebarOpened}>
           <Segment
-            id="backgroundhome"
             inverted
-            textAlign='center'
-            style={{ minHeight: 330, padding: '1em 0em' }}
             vertical
           >
-            {/* <Container> */}
-              <Menu
+            <Container id="mobileHeader" 
+            style={{height: '50px'}}>
+              <Menu id='mobileTop'
+              style={{border:0}}
               inverted
               pointing
               secondary
               size='large'>
              
-                <Container style={{height: '50px'}}>
+                <Container style={{height: '50px'}} >
                   <Menu.Item onClick={this.handleToggle}>
                     <Icon name='sidebar' id="sidebar-butt"/>
                   </Menu.Item>
@@ -129,15 +260,15 @@ class MobileContainer extends Component {
                       <Button inverted style={{ marginLeft: '0.5em' }}>Sign Up</Button>
                     </Link>
                   </Menu.Item>
-                  </Container>
+                </Container>
               </Menu>
-             
-            <HomepageHeading mobile style={{maxHeight: '50px'}} />
+            </Container>
+            <HomepageHeading mobile style={{maxHeight: '10px'}} />
           </Segment>
+
+          {children}
         </Sidebar.Pusher>
-        {children}
       </Responsive>
-      
     )
   }
 }
@@ -148,6 +279,7 @@ MobileContainer.propTypes = {
 
 const ResponsiveContainer = ({ children }) => (
   <div>
+    <DesktopContainer>{children}</DesktopContainer>
     <MobileContainer>{children}</MobileContainer>
   </div>
 )
@@ -158,10 +290,10 @@ ResponsiveContainer.propTypes = {
 
 const HomepageLayout = () => (
   <ResponsiveContainer>
-    <Segment style={{ paddingTop: '20px' }} vertical>
-      <Grid container stackable verticalAlign='middle'>
-        <Grid.Row>
-          <Grid.Column width={8}>
+    <Segment style={{ padding: '8em 0em', height:'auto' }} vertical id='tableview'>
+      <Grid container stackable verticalAlign='middle'style={{height: 'auto'}}>
+        <Grid.Row id='row'>
+          <Grid.Column id='columns' style={{height:'auto'}}>
             <Header as='h3' style={{ fontSize: '2em' }}>
               Choose your location
             </Header>
@@ -169,8 +301,9 @@ const HomepageLayout = () => (
               Set how far you want to drive, and we'll find menu items from open restaurants in the area
             </p>
             <Grid.Column floated='right' width={6}>
-            <Image bordered rounded size='large' src='https://www.google.com/maps/d/thumbnail?mid=1CoxrxicMw4uSYPjPb20L6eQisoI&hl=en_US' />
+              <Image bordered rounded size='large' src='https://www.google.com/maps/d/thumbnail?mid=1CoxrxicMw4uSYPjPb20L6eQisoI&hl=en_US' />
             </Grid.Column>
+            <Grid.Row id='row'>
             <Divider />
             <Header as='h3' style={{ fontSize: '2em' }}>
               Choose your cuisines
@@ -178,12 +311,14 @@ const HomepageLayout = () => (
             <p style={{ fontSize: '1.33em' }}>
               In the mood for Italian? Maybe Asian? We'll only show you items from the cuisines you want, or don't choose any if you're not sure
             </p>
-            <Grid.Column floated='right' width={6}>
+            <Grid.Column floated='right' width={2}>
             <Image bordered rounded size='large' src='https://nationalpostcom.files.wordpress.com/2019/02/gettyimages-545286388.jpg?quality=80&strip=all&w=780' />
             </Grid.Column>
+            </Grid.Row>
             <Divider />
+            <Grid.Row id='row'>
             <Header as='h3' style={{ fontSize: '2em' }}>
-              Find what you've been craving
+              Find what you've been craving for
             </Header>
             <p style={{ fontSize: '1.33em' }}>
               We'll show you all the food nearby. Not feeling it? Swipe left. Looks good? Swipe right and see restaurant details, make a reservation or confirm your order for pickup
@@ -191,20 +326,21 @@ const HomepageLayout = () => (
             <Grid.Column floated='right' width={6}>
               <Image bordered rounded size='large' src='https://i.kym-cdn.com/photos/images/original/001/293/971/eef.png' />
             </Grid.Column>
+            </Grid.Row>
           </Grid.Column>
-          
         </Grid.Row>
+
         <Grid.Row>
-          <Grid.Column textAlign='center'>
+          {/* <Grid.Column textAlign='center'>
             <Button size='medium'>Check Them Out</Button>
-          </Grid.Column>
+          </Grid.Column> */}
         </Grid.Row>
       </Grid>
     </Segment>
     <Segment style={{ padding: '0em' }} vertical>
       <Grid celled='internally' columns='equal' stackable>
-        <Grid.Row textAlign='center'>
-          <Grid.Column style={{ paddingBottom: '0em', paddingTop: '0em' }}>
+        <Grid.Row id='companyrow' textAlign='center'>
+          <Grid.Column style={{ paddingBottom: '5em', paddingTop: '5em' }}>
             <Header as='h3' style={{ fontSize: '2em'}}>
               "What a Company"
             </Header>
@@ -213,20 +349,25 @@ const HomepageLayout = () => (
         </Grid.Row>
       </Grid>
     </Segment>
-    <Segment style={{ padding: '0' }} vertical>
+    <Segment style={{ padding: '8em 0em' }} vertical>
       <Container text>
         <Divider
           as='h4'
           className='header'
           horizontal
-          style={{ margin: '0em 0em', textTransform: 'uppercase' }}
+          style={{ margin: '5em 0em', textTransform: 'uppercase' }}
         >
           <a href='https://google.com'>Case Studies</a>
         </Divider>
       </Container>
     </Segment>
-    <Segment inverted vertical style={{ padding: '5em 0em' }}>
-      <Container>
+    <Segment id='footer' inverted vertical 
+      style={{ 
+        padding: '5em 0em'}}>
+      <Container 
+        style={{ 
+          padding: '3em 0em', 
+          height: 'auto' }}>
         <Grid divided inverted stackable>
           <Grid.Row>
             <Grid.Column width={3}>
@@ -260,6 +401,5 @@ const HomepageLayout = () => (
       </Container>
     </Segment>
   </ResponsiveContainer>
-
 )
 export default HomepageLayout

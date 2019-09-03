@@ -9,6 +9,7 @@ import { Redirect } from "react-router-dom"
  
 export default props => { 
   const order = useSelector(appState => appState.dietReducer.orderedItem)
+  console.log(order)
   const [submit, setSubmit] = useState(false)
   const [values, setValues] = useState({
     quantity: 1,
