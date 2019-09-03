@@ -1,7 +1,7 @@
 import React from 'react'
 import 'normalize.css/normalize.css'
 import '../styles/App.css'
-import '../sample/styles.css'
+import '../styles/SwipeStyles.css'
 import { Provider } from 'react-redux'
 import store from '../store'
 import ReservationForm from './ReservationForm'
@@ -20,8 +20,6 @@ import LoginRoute from './LoginRoute'
 import PastOrders from './PastOrders';
 import MobileHome from './MobileHome';
 import SinglePastOrder from './SinglePastOrder'
-import SwipeSample from './SwipeSample';
-import Swipe from './Swipe'
  
 
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from "react";
-import '../sample/styles.css'
-import { stackedCards } from '../sample/index'
+import '../styles/SwipeStyles.css'
+import { stackedCards } from './SwipeCards'
 import { Card, Icon } from 'semantic-ui-react'
 import { getMenuItems } from '../actions/diet.actions'
 import { useSelector } from 'react-redux'
