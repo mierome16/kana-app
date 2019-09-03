@@ -316,28 +316,28 @@
 //             onSwipeRight={onSwipeRight}
 //             id="fooditem"
 //             >
-//             <FoodItem style={{marginTop:20, maxHeight:'500px'}}>
-//               <div id="cardImage"
-//                   style={{background: `url(${item.image}) no-repeat center`, backgroundSize: 'cover',
-//                   width:300, height:300, 
-//                   }} >
-//               </div>
-//               <FoodItem.Content>
-//               <FoodItem.Header id="foodnameheader">{item.name}
-//                   <FoodItem.Meta><span>${(item.price).toFixed(2)}</span></FoodItem.Meta>
-//               </FoodItem.Header>
-//               <FoodItem.Meta>
-//                   <span className='date'>{item.restaurant}</span>
-//               </FoodItem.Meta>
-//               <FoodItem.Description style={{overflow:'ellipsis'}}>
-//                 {item.description} {item.allergy}
-//               </FoodItem.Description>
-//               </FoodItem.Content>
-//               <FoodItem.Content extra >
-//                 <Icon name='star' />
-//                 {item.rating}
-//               </FoodItem.Content>
-//           </FoodItem>
+            {/* <FoodItem style={{marginTop:20, maxHeight:'500px'}}>
+              <div id="cardImage"
+                  style={{background: `url(${item.image}) no-repeat center`, backgroundSize: 'cover',
+                  width:300, height:300, 
+                  }} >
+              </div>
+              <FoodItem.Content>
+              <FoodItem.Header id="foodnameheader">{item.name}
+                  <FoodItem.Meta><span>${(item.price).toFixed(2)}</span></FoodItem.Meta>
+              </FoodItem.Header>
+              <FoodItem.Meta>
+                  <span className='date'>{item.restaurant}</span>
+              </FoodItem.Meta>
+              <FoodItem.Description style={{overflow:'ellipsis'}}>
+                {item.description} {item.allergy}
+              </FoodItem.Description>
+              </FoodItem.Content>
+              <FoodItem.Content extra >
+                <Icon name='star' />
+                {item.rating}
+              </FoodItem.Content>
+          </FoodItem> */}
 //           </FoodCard>
 //           )) }
 //         </FoodCardWrapper>

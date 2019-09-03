@@ -17,13 +17,11 @@ import FoodMain from './FoodMain'
 import MealOptions from './MealOptions';
 import DistanceMap from './DistanceMap'
 import LoginRoute from './LoginRoute'
-import sticky from './sticky'
 import PastOrders from './PastOrders';
 import MobileHome from './MobileHome';
 import SinglePastOrder from './SinglePastOrder'
 import SwipeSample from './SwipeSample';
 import Swipe from './Swipe'
-import Items from './Items';
  
 
 
@@ -42,13 +40,11 @@ export default props => {
           <LoginRoute exact path="/reservation" component={ReservationForm} />
           <LoginRoute exact path="/options" component={EatOptions} />
           <LoginRoute exact path="/confirm" component={Confirmation} />
-          <LoginRoute exact path="/swipe" component={Swipe} />
+          <LoginRoute exact path="/swipe" component={FoodMain} />
           <LoginRoute exact path="/map" component={DistanceMap}/>
-          <LoginRoute exact path="/sticky" component={sticky} />
           <LoginRoute exact path="/meal" component={MealOptions} />
           <LoginRoute exact path="/orders" component={PastOrders} />
           <LoginRoute exact path="/orders/:singleOrder" component={SinglePastOrder} />
-          <LoginRoute exact path="/item" component={Items} />
         </div>
       </Router>
     </Provider>

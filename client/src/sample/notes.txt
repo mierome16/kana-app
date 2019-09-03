@@ -16,4 +16,9 @@ to convert all the files to react
     --- on touch (swipe) events
     --- on click buttons to force a swipe
     --- overlays to show yes, no, or favorite
-    
+
+
+    --- for tags, 
+        --- in jsx, use if "tag" exists, add icon that goes with it
+
+    --- use loading screen for food items, it definitely takes a few seconds

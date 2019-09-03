@@ -58,7 +58,7 @@ export default props => {
 
       <div className='save'>
 
-        <Link to='/item'>
+        <Link to='/swipe'>
           <Button fluid id="save" type='Submit' >Continue</Button>
         </Link>
       </div>

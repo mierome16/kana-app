@@ -44,7 +44,7 @@ export function toggleDiet(diet) {
 }
 
 export function orderItem(item) {
-  // console.log(item)
+  console.log(item)
   store.dispatch({
     type: 'ORDER_ITEM',
     payload: item
