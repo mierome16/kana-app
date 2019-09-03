@@ -1,21 +1,23 @@
 import React from 'react' 
 import { useSelector } from 'react-redux'
-import moment from 'moment'
+// import moment from 'moment'
 import { Card as FoodItem, Button, Header } from "semantic-ui-react"
 import { Link } from 'react-router-dom'
 
 
 export default props => {
-  const orders = useSelector(appState => appState.dietReducer.pastOrders)
-  console.log(orders)
+  const singleItem = useSelector(appState => appState.dietReducer.pastOrders.find(item => item.confirm === props.match.params.singleOrder))
+
+  function reorder(e) {
+    console.log(singleItem)
+    // orderitem(singleItem) ? check if current item to order exists already
+  }
   return (
     <div style={{padding:25}}>
-      <Header as="h1">Past Orders</Header>
-      {orders.map(order => (
-        <div key={order.confirm}>
-          <Link to={"/orders/" + order.confirm}>
+      <Header as="h1">{singleItem.confirm}</Header>
+        <div>
           <FoodItem style={{marginBottom:20, width:'100vh'}}>
-                <div
+                {/* <div
                     style={{background: `url(${order.order.image}) no-repeat center`, backgroundSize: 'cover',
                     width:300, height:200, 
                     }} >
@@ -33,14 +35,12 @@ export default props => {
                 <FoodItem.Description>
                   {order.order.description} {order.order.allergy}
                 </FoodItem.Description>
-                </FoodItem.Content>
+                </FoodItem.Content> */}
             </FoodItem>
-            </Link>
         </div>
-      ))}
       <div>
         <Link to="/"><Button>Back to Home</Button></Link>
-        <Link to="/profile"><Button>Order Again</Button></Link>
+        <Link to="/options"><Button onClick={reorder}>Order Again</Button></Link>
       </div>
     </div>
   )

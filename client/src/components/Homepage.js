@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
 import React, { Component } from 'react'
 import {
   Button,
@@ -39,20 +38,22 @@ const HomepageHeading = ({ mobile }) => (
     }}
      >
     <Header
-      id="mainpagekana"
       as='h1'
-      content="Kana"
+      content='Discover (add emphasis/special text) Kana'
       inverted
       style={{
+
         color: 'white',
         fontSize: mobile ? '3em' : '4em',
         fontWeight: '600',
         marginBottom: 0,
         marginTop: mobile ? '.2em' : '1em',
+
       }}
     />
     <Header
       as='h2'
+
       content='Decide on dinner faster!'
       inverted
       style={{
@@ -61,16 +62,17 @@ const HomepageHeading = ({ mobile }) => (
         marginTop: mobile ? '0.5em' : '1.5em',
       }}
     />
-    {/* <Button primary size='medium'>
+    <Button primary size='medium'>
       Get Started
       <Icon name='right arrow' />
-    </Button> */}
+    </Button>
   </Container>
 )
 
 HomepageHeading.propTypes = {
   mobile: PropTypes.bool,
 }
+
 
 class DesktopContainer extends Component {
   // fixed={fixed ? 'top' : null}
@@ -135,8 +137,69 @@ DesktopContainer.propTypes = {
 }
 
 class MobileContainer extends Component {
+
   state = {}
 
+  hideFixedMenu = () => this.setState({ fixed: false })
+  showFixedMenu = () => this.setState({ fixed: true })
+
+  render() {
+    const { children } = this.props
+    const { fixed } = this.state
+
+    return (
+      <Responsive getWidth={getWidth} minWidth={Responsive.onlyTablet.minWidth}>
+        <Visibility
+          once={false}
+          onBottomPassed={this.showFixedMenu}
+          onBottomPassedReverse={this.hideFixedMenu}
+        >
+          <Segment
+            inverted
+            textAlign='center'
+            style={{ minHeight: 700, padding: '1em 0em' }}
+            vertical
+          >
+            <Menu
+              fixed={fixed ? 'top' : null}
+              inverted={!fixed}
+              pointing={!fixed}
+              secondary={!fixed}
+              size='large'
+            >
+              <Container>
+                <Menu.Item as='a' active>
+                  Home
+                </Menu.Item>
+                <Menu.Item as='a'>Work</Menu.Item>
+                <Menu.Item as='a'>Company</Menu.Item>
+                <Menu.Item as='a'>Careers</Menu.Item>
+                <Menu.Item position='right'>
+                  <Button as='a' inverted={!fixed}>
+                    Log in
+                  </Button>
+                  <Button as='a' inverted={!fixed} primary={fixed} style={{ marginLeft: '0.5em' }}>
+                    Sign Up
+                  </Button>
+                </Menu.Item>
+              </Container>
+            </Menu>
+            <HomepageHeading />
+          </Segment>
+        </Visibility>
+
+        {children}
+      </Responsive>
+    )
+  }
+}
+
+DesktopContainer.propTypes = {
+  children: PropTypes.node,
+}
+
+class MobileContainer extends Component {
+  state = {}
 
   handleSidebarHide = () => this.setState({ sidebarOpened: false })
 
@@ -147,9 +210,7 @@ class MobileContainer extends Component {
     const { sidebarOpened } = this.state
 
     return (
-     
       <Responsive
-        id="mobileview"
         as={Sidebar.Pushable}
         getWidth={getWidth}
         maxWidth={Responsive.onlyMobile.maxWidth}
@@ -204,10 +265,10 @@ class MobileContainer extends Component {
             </Container>
             <HomepageHeading mobile style={{maxHeight: '10px'}} />
           </Segment>
+
+          {children}
         </Sidebar.Pusher>
-        {children}
       </Responsive>
-      
     )
   }
 }
@@ -288,7 +349,7 @@ const HomepageLayout = () => (
         </Grid.Row>
       </Grid>
     </Segment>
-    <Segment style={{ padding: '0' }} vertical>
+    <Segment style={{ padding: '8em 0em' }} vertical>
       <Container text>
         <Divider
           as='h4'
@@ -340,6 +401,5 @@ const HomepageLayout = () => (
       </Container>
     </Segment>
   </ResponsiveContainer>
-
 )
 export default HomepageLayout

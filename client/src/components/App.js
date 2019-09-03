@@ -1,6 +1,7 @@
 import React from 'react'
 import 'normalize.css/normalize.css'
 import '../styles/App.css'
+import '../styles/SwipeStyles.css'
 import { Provider } from 'react-redux'
 import store from '../store'
 import ReservationForm from './ReservationForm'
@@ -16,10 +17,10 @@ import FoodMain from './FoodMain'
 import MealOptions from './MealOptions';
 import DistanceMap from './DistanceMap'
 import LoginRoute from './LoginRoute'
-import sticky from './sticky'
 import PastOrders from './PastOrders';
 import MobileHome from './MobileHome';
-
+import SinglePastOrder from './SinglePastOrder'
+ 
 
 
 export default props => {
@@ -39,10 +40,9 @@ export default props => {
           <LoginRoute exact path="/confirm" component={Confirmation} />
           <LoginRoute exact path="/swipe" component={FoodMain} />
           <LoginRoute exact path="/map" component={DistanceMap}/>
-          <LoginRoute exact path="/sticky" component={sticky} />
           <LoginRoute exact path="/meal" component={MealOptions} />
           <LoginRoute exact path="/orders" component={PastOrders} />
-
+          <LoginRoute exact path="/orders/:singleOrder" component={SinglePastOrder} />
         </div>
       </Router>
     </Provider>

@@ -182,4 +182,18 @@ router.get('/menu-items/:selectedDiets', (req,res,next) => {
  })
 
 
+//   router.post('/order', (req,res,next) => {
+//     const order = req.body.item
+//     const sql = `
+//     INSERT INTO past_Orders (name, quantity, notes, size, price, time_placed) VALUES ? ? ? ? ? ? ?
+//     `
+//     // join by user id/token/name/email?
+//     conn.query(sql, order, order, order, order, order, order, order, (err, results, fields) => {
+//       res.json({
+//         message: 'Order added'
+//       })
+//     })
+//  })
+
+
 module.exports = router

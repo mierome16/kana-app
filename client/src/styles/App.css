@@ -83,9 +83,7 @@ html {box-sizing:border-box;}
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    width: 90vw;
     margin: auto;
-    padding-top: 10px;
     
 }
 #fooditem {
