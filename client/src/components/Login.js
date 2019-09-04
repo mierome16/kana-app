@@ -19,8 +19,8 @@ export default props => {
                 <Link to="/register"><button>Sign up</button></Link>
             </header>
             <Grid textAlign='center' style={{ height: '100vh', width:'100vw' }} verticalAlign='middle'>
-                <Grid.Column style={{ maxWidth: '350px' }}>
-                    <Header as='h2' color='black' textAlign='center'>
+                <Grid.Column id="loginbox" style={{ maxWidth: '350px' }}>
+                    <Header as='h2' style={{color: 'white'}} textAlign='center'>
                         {/* <Image src='/logo.png' />  */}
                         Log-in to your account
                     </Header>
@@ -40,7 +40,7 @@ export default props => {
                         type='password'
                     />
                    
-                   <Link to="/profile" ><Button onClick={handleSubmit} style={{background: 'rgb(233,115,63)',
+                   <Link to="/profile" ><Button onClick={handleSubmit} style={{background: '#8f0a03',
     color: 'white'}} fluid size='large'>
                        Login
                     </Button></Link>

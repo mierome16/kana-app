@@ -308,7 +308,7 @@ html {box-sizing:border-box;}
     width: 250px;
     margin: auto;
     margin-top: 105px;
-    background: url("../kanapic.png");
+    background: url('../kanapic.png');
     background-size: cover;
     background-repeat: no-repeat;
     margin-bottom: -44px;
@@ -341,10 +341,26 @@ html {box-sizing:border-box;}
 }
 
 /***** Login and Register ******/
+#loginform, #registerpage {
+  width: 100vw;
+  height: 100vh;
+   background:   linear-gradient(
+    rgba(0, 0, 0, 0.3), 
+    rgba(0, 0, 0, 0.3)
+  ),url('https://i.pinimg.com/564x/26/3d/53/263d53ed14ea33255b11d342a25c20d4.jpg');
+  background-size: contain;
+  background-repeat: no-repeat
+}
+#lr {
+  margin-top: 48px;
+}
+#loginbox {
+  padding: 0;
+  margin-left: 30px;
+}
 #formz {
   background: rgb(100,100,100);
   opacity: .7;
-  border: 2px solid rgba(193,87,49,)
 }
 #lrheader {
   display: flex;
@@ -364,9 +380,9 @@ html {box-sizing:border-box;}
   font-size: 17px;
   align-content: center;
   align-items: center;
-  background: rgb(233,115,63);
+  background: transparent;
   justify-content: center;
-  border: 1px solid rgb(158,168,44);
+  border: 1px solid white;
   font-weight: bold;
   color: white;
   border-radius: 5px;
