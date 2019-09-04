@@ -1,0 +1,27 @@
+from profile.js
+
+  // const diets = [
+  //   // {name: 'Vegetarian', disabled: false, img:'/Icons/d1.png' },
+  //   // {name: 'Vegan', disabled: false, img:'/Icons/d2.png'},
+  //   // {name: 'Gluten-free', disabled: false, img:'/Icons/d3.png'},
+  //   // {name: 'Nut-free', disabled: false, img:'/Icons/d4.png'},
+  //   // {name: 'Dairy-free', disabled: false, img:'/Icons/d5.png'},
+  //   // {name: 'Spicy', disabled: false, img:'/Icons/d6.png'},
+  //   // {name: 'Halal', disabled: true, img:'/Icons/d7.png'},
+  //   // {name: 'Kosher', disabled: true, img:'/Icons/d8.png'}
+  // ]
+
+  *************
+
+  from MealOptions.js 
+
+    // const meals = [
+  //   {name: 'Coffee', img:'/Icons/m1.png'},
+  //   {name: 'Breakfast', img:'/Icons/m2.png'},
+  //   {name: 'Brunch', img:'/Icons/m3.png'},
+  //   {name: 'Lunch', img:"/Icons/m4.png" },
+  //   {name: 'Dinner', img:'/Icons/m5.png'}
+  // ]
+
+  *************
+

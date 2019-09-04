@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button } from 'semantic-ui-react'
-import {toggleMeal} from '../actions/diet.actions'
+import {toggleMeal} from '../actions/meal.actions'
 
 export default props => {
 
@@ -11,7 +11,7 @@ export default props => {
   return (
     <Button fluid className="button" id='meal-button' active={props.active} toggle onClick={handleClick}>
       <p>{props.meal}</p>
-      <img src={props.img} />
+      <img src={props.img} alt={props.meal} />
     </Button>
   )
 }

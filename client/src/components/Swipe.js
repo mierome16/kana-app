@@ -1,8 +1,8 @@
 import React, { useState, useEffect} from "react";
+import { Card as FoodItem, Icon } from "semantic-ui-react"
+import { getMenuItems, orderItem } from '../actions/meal.actions'
 import '../styles/SwipeStyles.css'
 import { stackedCards } from './SwipeCards'
-import { Icon } from 'semantic-ui-react'
-import { getMenuItems } from '../actions/diet.actions'
 import { useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 
@@ -10,6 +10,7 @@ import { Redirect } from 'react-router-dom'
     const foodItems = useSelector(appState => appState.dietReducer.allItems)
     const order = useSelector(appState => appState.dietReducer.orderedItem)
     const selectedDiets = useSelector(appState => appState.dietReducer.selectedDiets)
+    const selectedMeals = useSelector(appState => appState.mealReducer.selectedMeals)
     const [redir, setRedir] = useState(false)
 
     function mapOut(number) {
@@ -36,9 +37,17 @@ import { Redirect } from 'react-router-dom'
     let counter = 0;
     
     useEffect(() => {
-      // selectedDiets.length === 0 ? getMenuItems('none') ? getMenuItems(selectedDiets) ? foodItems.length > 0 ? stackedCards()
-      selectedDiets.length === 0 ? getMenuItems('none') : getMenuItems(selectedDiets)
-      }, [])
+      // if(selectedDiets.length === 0){
+      //   getMenuItems('none')
+      // } else {
+      // getMenuItems(selectedDiets)
+      // }
+      // }, [])
+      const diets = selectedDiets.length === 0 ? 'none' : selectedDiets
+      const meals = selectedMeals.length === 0 ? 'none' : selectedMeals
+      // selectedDiets.length === 0 ? getMenuItems('none') : getMenuItems(selectedDiets) 
+      getMenuItems(diets, meals)
+    }, [selectedDiets, selectedMeals ]) 
 
     useEffect(() => {
       order ? setRedir(!redir) : stackedCards(foodItems)

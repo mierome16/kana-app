@@ -1,34 +1,9 @@
---- the buttons might not be working because of e.preventDefault()
-  i used a redirect to workaround that  ^^
-  *** fixed ***
-
 --- phone #, "link" to websitest
 
---- create an individual view for past orders
-  ex: show list of all past orders, then be able to click on one to only view that specific order
-      then be able to go back to list of all past orders
-  --- order past item again
 
 --- add past orders to backend? link past orders by each user?
-
 --- make sidebar functional
-
---- fixed swipe, but there's still bugs (swiping doesn't always remove all the elements on the card because the elements are placed "on top" of swipecard component so it won't go to the next card until you swipe the swipecard)
-    --- fixed swipe 
-
---- added ability to order specific item/set reservation
-    works, but need to fix the date/time part of reservation, it breaks when you choose a date
-
---- confirmation page works and shows the restaurant you're ordering from
---- added ability to view past orders
-
-
---- time order was placed isn't completely working yet
-
---- add favorites page to see all favorites
-
 --- on heart click, add to favorites list
-
 --- google map page before preferences
 
 
