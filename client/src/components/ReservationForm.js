@@ -2,10 +2,7 @@ import React, { useState } from 'react'
 import { Form, Container, Header, Divider, Image } from 'semantic-ui-react'
 import moment from 'moment'
 import { useSelector } from 'react-redux'
-<<<<<<< HEAD
 import Flatpickr from 'react-flatpickr'
-=======
->>>>>>> master
 import shortid from 'shortid'
 import { addOrder } from '../actions/meal.actions'
 import { Redirect } from "react-router-dom"
