@@ -4,10 +4,12 @@ import { useSelector } from 'react-redux'
 import shortid from 'shortid'
 import { addOrder } from '../actions/meal.actions'
 import { Redirect } from "react-router-dom"
+import moment from 'moment'
 
  
 export default props => { 
-  const order = useSelector(appState => appState.mealReducer.orderedItem)
+  const order = useSelector(appState => appState.dietReducer.orderedItem)
+  console.log(order)
   const [submit, setSubmit] = useState(false)
   const [values, setValues] = useState({
     quantity: 1,
@@ -15,7 +17,8 @@ export default props => {
     size: '',
     order: order,
     confirm: shortid.generate(),
-    type: 'order'
+    type: 'order',
+    timePlaced: moment().format('LLL')
   })
   console.log(values)
 

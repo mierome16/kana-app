@@ -1,12 +1,15 @@
 import React, { useState } from 'react'
-import 'flatpickr/dist/themes/material_green.css'
 import { Form, Container, Header, Divider, Image } from 'semantic-ui-react'
 import moment from 'moment'
 import { useSelector } from 'react-redux'
+<<<<<<< HEAD
 import Flatpickr from 'react-flatpickr'
+=======
+>>>>>>> master
 import shortid from 'shortid'
 import { addOrder } from '../actions/meal.actions'
 import { Redirect } from "react-router-dom"
+import DatePicker from 'react-date-picker'
 
 
 export default props => { 
@@ -17,7 +20,8 @@ export default props => {
     order: order,
     date: date,
     confirm: shortid.generate(),
-    type: 'reservation'
+    type: 'reservation',
+    timePlaced: moment().format('LLL')
   }
 
   function handleSubmit(e) {
@@ -26,6 +30,8 @@ export default props => {
     console.log(values)
     addOrder(values)
   }
+  console.log(date)
+
 
     return (
       submit ? <Redirect to="/confirm" /> : (
@@ -53,14 +59,12 @@ export default props => {
         <Image bordered rounded size='small' src='https://www.google.com/maps/d/thumbnail?mid=1CoxrxicMw4uSYPjPb20L6eQisoI&hl=en_US' />
         <Form onSubmit={handleSubmit}>
           <Form.Group widths='equal'>
-            <Form.Field>
-              <label>Date:</label>
-              <Flatpickr data-enable-time
-                name="date"
-                value={date}
-                onChange={e => setDate(moment(e.target.value).format('LL'))} />
-            </Form.Field>
-            </Form.Group>
+            <DatePicker
+              value={date}
+              onChange={date => setDate(date)}
+              id="date-picker"
+            />
+          </Form.Group>
             <Form.Button inverted color="orange" onClick={handleSubmit}>Confirm Reservation</Form.Button>
         </Form>
       </Container>

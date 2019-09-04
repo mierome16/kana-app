@@ -4,6 +4,9 @@ const conn = require('../../db')
 const jwt = require('jsonwebtoken')
 const config = require('config')
 
+
+//****** user login and register *********//
+
 router.post('/login', (req, res, next) => {
   const username = req.body.username
   const password = sha512(req.body.password + config.get('salt'))
@@ -295,6 +298,7 @@ router.get('/mealtypes', (req,res,next) => {
 //  }
 // })
 
+/*******Google map api ************/
  router.get('/locations', (req,res,next) => {
    const sql = `
    SELECT *
@@ -305,6 +309,45 @@ router.get('/mealtypes', (req,res,next) => {
      res.json(results)
    })
  })
+
+/********Restaurant Registration *********/
+router.post('/rest-register', (req,res,next) => {
+  const name = req.body.name
+  const address = req.body.address
+  const city = req.body.city
+  const state = req.body.state
+  const zipcode = req.body.zipcode
+  const sql = `
+  INSERT INTO Restaurants (name, address, city, state, zipcode)
+  VALUES(?,?,?,?,?)
+  `
+  conn.query(sql, [name, address, city, state, zipcode],(err,results,fields) => {
+    console.log(err)
+    if (err) {
+      res.json({
+        message: "Restaurant already exists"
+      })
+    } else {
+      res.json({
+        message: "Restaurant added"
+      })
+    }
+  })
+})
+
+
+//   router.post('/order', (req,res,next) => {
+//     const order = req.body.item
+//     const sql = `
+//     INSERT INTO past_Orders (name, quantity, notes, size, price, time_placed) VALUES ? ? ? ? ? ? ?
+//     `
+//     // join by user id/token/name/email?
+//     conn.query(sql, order, order, order, order, order, order, order, (err, results, fields) => {
+//       res.json({
+//         message: 'Order added'
+//       })
+//     })
+//  })
 
 
 module.exports = router

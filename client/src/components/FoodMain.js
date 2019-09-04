@@ -3,7 +3,6 @@ import { Icon, Header } from 'semantic-ui-react'
 import Swipe from './Swipe'
 
 export default props => {
-
     return (
         <div className="foodmainpage">
             <Header className="foodmainheader"as='h2'>
@@ -20,7 +19,9 @@ export default props => {
                 </button>
             </Header>
             {/* <Divider /> */}
-            <Swipe />
+          
+                <Swipe />
         </div>
     )
-}
+
+    }
