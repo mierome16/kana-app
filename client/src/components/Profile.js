@@ -4,7 +4,7 @@ import {useSelector} from 'react-redux'
 import { Button } from 'semantic-ui-react'
 import DietButton from './DietButton'
 import { getDiets } from '../actions/meal.actions'
-import { getMenuItems } from '../actions/diet.actions'
+import { getMenuItems } from '../actions/meal.actions'
 
 
 export default props => {
@@ -19,29 +19,7 @@ export default props => {
   useEffect(() => {
     getDiets()
   }, [])
-  
-  // const diets = [
-  //   {name: 'Vegetarian', disabled: false, img:'/Icons/vegetarian.png' },
-  //   {name: 'Vegan', disabled: false, img:'/Icons/vegan.png'},
-  //   {name: 'Gluten-free', disabled: false, img:'/Icons/GF.png'},
-  //   {name: 'Nut-free', disabled: false, img:'/Icons/nutfree.png'},
-  //   {name: 'Dairy-free', disabled: false, img:'/Icons/dairyFree.png'},
-  //   {name: 'Spicy', disabled: false, img:'/Icons/spicy.png'},
-  //   {name: 'Halal', disabled: true, img:'/Icons/halal.png'},
-  //   {name: 'Kosher', disabled: true, img:'/Icons/kosher.png'}
-  // ]
 
-  // function handleSubmit(e) {
-
-  //   if(selectedDiets.length === 0){
-  //     getMenuItems('none')
-      
-  //   } else {
-  //   getMenuItems(selectedDiets)
-      
-  //   }
-   
-  // }
 
   return (
     <div className="Profile">

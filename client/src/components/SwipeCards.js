@@ -1,4 +1,4 @@
-import { orderItem } from "../actions/diet.actions";
+import { orderItem } from "../actions/meal.actions";
 
 // JavaScript Document
 

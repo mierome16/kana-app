@@ -35,15 +35,12 @@ export default function(state = initialState, action) {
     case 'GET_ALL_ITEMS':
       return {...state, allItems: action.payload}
 
-    // //**** FILTER ALL SELECTEDDIETS BY MEAL TYPE  ****/
-    // case 'GET_FILTERED':
-    //   return {...state, filteredItems: state.allItems.filter(item => item.meal.contains(state.selectedMeals.name === state.allItems.meal.id))}
-
     case 'ORDER_ITEM':
         return {...state, orderedItem: action.payload}
 
     case 'END_ORDER':
       return {...state, orderedItem: ''}
+      
     case 'ADD_ORDER':
       return {...state, pastOrders: [action.payload, ...state.pastOrders]}
     default: 

@@ -7,9 +7,9 @@ import { useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 
   export default props => {
-    const foodItems = useSelector(appState => appState.dietReducer.allItems)
-    const order = useSelector(appState => appState.dietReducer.orderedItem)
-    const selectedDiets = useSelector(appState => appState.dietReducer.selectedDiets)
+    const foodItems = useSelector(appState => appState.mealReducer.allItems)
+    const order = useSelector(appState => appState.mealReducer.orderedItem)
+    const selectedDiets = useSelector(appState => appState.mealReducer.selectedDiets)
     const selectedMeals = useSelector(appState => appState.mealReducer.selectedMeals)
     const [redir, setRedir] = useState(false)
 

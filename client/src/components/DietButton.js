@@ -10,7 +10,6 @@ export default props => {
 
   return (
       <Button id='diet-button' disabled={props.disabled} active={props.active} toggle onClick={handleClick}>
-        {/* <p>{props.diet}</p> */}
         <img src={props.img} alt={props.diet}></img>
       </Button>
   )

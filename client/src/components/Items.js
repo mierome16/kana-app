@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react' 
 import { useSelector } from 'react-redux'
-import { getMenuItems } from '../actions/diet.actions'
+import { getMenuItems } from '../actions/meal.actions'
 import { Link } from 'react-router-dom'
 
 export default props => {

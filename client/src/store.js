@@ -2,7 +2,6 @@ import {createStore, combineReducers} from 'redux'
 import orderformReducer from './reducers/orderform.reducer'
 import authReducer from "./reducers/auth.reducers"
 import mealReducer from "./reducers/meal.reducers"
-import dietReducer from "./reducers/diet.reducers"
 import restaurantReducer from './reducers/restaurant.reducers'
 
 
@@ -10,7 +9,6 @@ const rootReducer = combineReducers({
   authReducer: authReducer,
   orderformReducer: orderformReducer,
   mealReducer: mealReducer,
-  dietReducer: dietReducer,
   restaurantReducer: restaurantReducer 
 });
 

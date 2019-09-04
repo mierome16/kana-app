@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import moment from 'moment'
 import { Card as FoodItem, Button, Header } from "semantic-ui-react"
 import { Link } from 'react-router-dom'
-import { finishOrder, orderItem } from '../actions/diet.actions'
+import { finishOrder, orderItem } from '../actions/meal.actions'
 
 
 export default props => {
