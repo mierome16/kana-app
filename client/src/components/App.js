@@ -1,7 +1,7 @@
 import React, { lazy, Suspense } from 'react'
 import 'normalize.css/normalize.css'
 import '../styles/App.css'
-import '../styles/SwipeStyles.css'
+//import '../styles/SwipeStyles.css'
 import { Provider } from 'react-redux'
 import store from '../store'
 import ReservationForm from './ReservationForm'

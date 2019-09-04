@@ -213,7 +213,7 @@ import { orderItem } from "../actions/diet.actions";
 			//counter +=1
 			// console.log(counter)
 			currentPosition = currentPosition + 1;
-			console.log(array[currentPosition-1])
+			//console.log(array[currentPosition-1])
 			updateUi();
 			currentElement();
 			setActiveHidden();
@@ -242,7 +242,7 @@ import { orderItem } from "../actions/diet.actions";
 			setTimeout(function(){
 				orderItem(array[currentPosition-1])
 				
-			},200);
+			},400);
 		
 
 		};

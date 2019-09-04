@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from "react";
 import '../styles/SwipeStyles.css'
 import { stackedCards } from './SwipeCards'
-import { Card, Icon } from 'semantic-ui-react'
+import { Icon } from 'semantic-ui-react'
 import { getMenuItems } from '../actions/diet.actions'
 import { useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom'
@@ -11,7 +11,27 @@ import { Redirect } from 'react-router-dom'
     const order = useSelector(appState => appState.dietReducer.orderedItem)
     const selectedDiets = useSelector(appState => appState.dietReducer.selectedDiets)
     const [redir, setRedir] = useState(false)
-    //console.log(foodItems)
+
+    function mapOut(number) {
+      let arr = []
+      for(let i = 0; i<number; i++) {
+        arr.push(<Icon name="star" />)
+      }
+      return arr
+    }
+
+    // function mapAllergy(allergies) {
+    //   let arr = allergies.split(' ')
+    //   let icons = []
+    //     for(let i = 0; i < arr.length; i++) {
+    //     if (allergies[i].includes('Vegetarian')) {icons.push(<Icon name="leaf" />)}
+    //     else if (allergies[i].includes('Gluten')) {icons.push(<Icon name="bread-slice" />)}
+    //     else if (allergies[i].includes('Spicy'))  {icons.push(<Icon name="burn" />)} else {return icons}
+    //     }
+    //     console.log(icons)
+    //   return icons
+    // }
+    
     console.log(order)
     let counter = 0;
     
@@ -48,7 +68,7 @@ import { Redirect } from 'react-router-dom'
                     <p>Tags: {item.allergy ? item.allergy : 'None'}</p>
                   </div>
                   <div>
-                    <p>{item.rating}</p>
+                    <p>Rating: {item.rating ? mapOut(item.rating) : '' }</p>
                   </div>
                 </div>
               </div> 

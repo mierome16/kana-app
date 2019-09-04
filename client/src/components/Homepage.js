@@ -16,7 +16,7 @@ import {
   Sidebar,
   Visibility
 } from 'semantic-ui-react'
-import { isAbsolute } from 'path';
+import { Link } from 'react-router-dom'
 
 // Heads up!
 // We using React Static to prerender our docs with server side rendering, this is a quite simple solution.
@@ -131,10 +131,6 @@ class DesktopContainer extends Component {
       </Responsive>
     )
   }
-}
-
-DesktopContainer.propTypes = {
-  children: PropTypes.node,
 }
 
 DesktopContainer.propTypes = {

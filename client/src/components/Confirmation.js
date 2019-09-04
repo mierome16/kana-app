@@ -23,7 +23,7 @@ export default props => {
           <Header as="h1">Success!</Header>
           <Header as="h3">Confirmation Number: #{order.confirm}</Header>
           <p>{order.type === 'order' ? order.date : ''}</p>
-          <p>Order Placed: {moment(new Date()).format('LLL')}</p>
+          <p>Order Placed: {order.timePlaced}</p>
         <div>
           <p>Your {order.type} has been successfully {order.type === 'order' ? 'placed' : 'made'}. Click 'View Orders' to view details.</p> 
           <p>Please contact the restaurant if you have any questions regarding your {order.type}:</p>
