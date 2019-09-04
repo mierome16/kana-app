@@ -38,16 +38,16 @@ export default props => {
     }
 
   return (
-    <div>
+    <div id="registerpage">
       {(error === true) ? <div>{errorMessage}</div> : ''}
       <header id="lrheader">
                 <Link to="/login"><button>Log in</button></Link>
                 <Link to="/register"><button>Sign up</button></Link>
             </header>
-      <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+      <Grid id="lr"textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
           <Grid.Column style={{ maxWidth: 350 }}>
             
-            <Header as='h2' color='black' textAlign='center'>
+            <Header as='h2' style={{color: 'white'}} textAlign='center'>
                 {/* <Image src='/logo.png' />  */}
                 Sign up for an account
             </Header>
@@ -78,7 +78,7 @@ export default props => {
                     type='password'
                 />
                 <Link to="/profile">
-                <Button onClick={handleSubmit} color='teal' fluid size='large' style={{background: 'rgb(233,115,63)',
+                <Button onClick={handleSubmit} color='#8f0a03' fluid size='large' style={{background: '#8f0a03',
     color: 'white'}}>
                   Sign Up
                 </Button>
