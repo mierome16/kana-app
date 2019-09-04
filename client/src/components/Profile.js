@@ -25,7 +25,7 @@ export default props => {
     <div className="Profile">
       <div className='top'>
         <h1>Welcome {user[user.length - 1]}!</h1>
-        <h2>Let's set up your preferences..</h2>
+        <h2>Let's set up your dietary preferences..</h2>
       </div>
       
       {/* <div className='location'>

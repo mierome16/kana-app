@@ -7,7 +7,7 @@ import { finishOrder, orderItem } from '../actions/meal.actions'
 
 
 export default props => {
-  const singleItem = useSelector(appState => appState.dietReducer.pastOrders.find(item => item.confirm === props.match.params.singleOrder))
+  const singleItem = useSelector(appState => appState.mealReducer.pastOrders.find(item => item.confirm === props.match.params.singleOrder))
 
   function reorder(e) {
     console.log(singleItem)

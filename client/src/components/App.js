@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from 'react'
+import React, { lazy, Suspense, useState } from 'react'
 import 'normalize.css/normalize.css'
 import '../styles/App.css'
 //import '../styles/SwipeStyles.css'
@@ -21,16 +21,20 @@ import PastOrders from './PastOrders';
 import MobileHome from './MobileHome';
 import RestHome from './RestHome'
 import RestRegister from './RestRegister';
-import SinglePastOrder from './SinglePastOrder'
+import SinglePastOrder from './SinglePastOrder';
+import GifLoading from './GifLoading'
  
 
 
 export default props => {
-const LoadingPage = lazy(() => import('../food-loading.gif'))
+const [loading, setLoading] = useState(true)
+// const LoadingPage = lazy(() => import('../loadingkana.gif'))
+
   return (
     <Provider store={store}>
       <Router>
         <div>
+          <Route path="/loading" component={GifLoading}/>
           <Route exact path="/" component={MobileHome}></Route>
           <Route exact path = "/about-kana" component={HomepageLayout} />
           <Route path ="/login" component={Login} />
