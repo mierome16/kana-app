@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { lazy, Suspense } from 'react'
 import 'normalize.css/normalize.css'
 import '../styles/App.css'
 //import '../styles/SwipeStyles.css'
@@ -26,7 +26,7 @@ import SinglePastOrder from './SinglePastOrder'
 
 
 export default props => {
-
+const LoadingPage = lazy(() => import('../food-loading.gif'))
   return (
     <Provider store={store}>
       <Router>
