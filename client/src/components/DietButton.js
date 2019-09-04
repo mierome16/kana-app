@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button } from 'semantic-ui-react'
-import {toggleDiet} from '../actions/diet.actions'
+import {toggleDiet} from '../actions/meal.actions'
 
 export default props => {
 

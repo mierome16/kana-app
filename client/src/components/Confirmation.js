@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import moment from 'moment'
 import { useSelector } from 'react-redux'
-import { finishOrder } from '../actions/diet.actions'
+import { finishOrder } from '../actions/meal.actions'
 import { Redirect } from 'react-router-dom'
 import { Header, Container, Button } from 'semantic-ui-react'
 
 export default props => {
-  const order = useSelector(appState => appState.dietReducer.pastOrders[0])
-  const resetItem = useSelector(appState => appState.dietReducer.orderedItem)
+  const order = useSelector(appState => appState.mealReducer.pastOrders[0])
+  const resetItem = useSelector(appState => appState.mealReducer.orderedItem)
   const [viewOrders, setViewOrders] = useState(false)
   const [orderAgain, setOrderAgain] = useState(false)
   console.log(resetItem)
