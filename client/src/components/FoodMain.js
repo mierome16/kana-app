@@ -2,7 +2,6 @@ import React, { } from 'react'
 import { Icon, Header,  Button } from 'semantic-ui-react'
 import Swipe from './Swipe'
 import { Link } from 'react-router-dom'
-import { Swipeable } from 'react-touch'
 
 export default props => {
     return (

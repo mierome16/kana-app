@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux'
 import shortid from 'shortid'
 import { addOrder } from '../actions/diet.actions'
 import { Redirect } from "react-router-dom"
+import moment from 'moment'
 
  
 export default props => { 
@@ -17,7 +18,8 @@ export default props => {
     size: '',
     order: order,
     confirm: shortid.generate(),
-    type: 'order'
+    type: 'order',
+    timePlaced: moment().format('LLL')
   })
   console.log(values)
 
