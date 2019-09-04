@@ -2,7 +2,7 @@
 // import Swipeable from "react-swipy"
 // import { Card, Button, Icon, Image } from "semantic-ui-react"
 // import { Link } from 'react-router-dom'
-// import { getMenuItems } from '../actions/diet.actions'
+// import { getMenuItems } from '../actions/meal.actions'
 // import { useSelector } from 'react-redux'
 // import { Redirect } from 'react-router-dom'
   
@@ -28,9 +28,9 @@
 // };  
 
 //   export default props => {
-//     const items = useSelector(appState => appState.dietReducer.allItems)
+//     const items = useSelector(appState => appState.mealReducer.allItems)
 //     const [item, setItem] = useState(items[0])
-//     const selectedDiets = useSelector(appState => appState.dietReducer.selectedDiets)
+//     const selectedDiets = useSelector(appState => appState.mealReducer.selectedDiets)
 //     const [rightSwipe, setRightSwipe] = useState(false)
 //     console.log(items)
     
@@ -179,7 +179,7 @@
 // import React, { useState, useEffect} from "react";
 // import { Card as FoodItem, Button, Icon, Image } from "semantic-ui-react"
 // import { Link } from 'react-router-dom'
-// import { getMenuItems, orderItem } from '../actions/diet.actions'
+// import { getMenuItems, orderItem } from '../actions/meal.actions'
 // import { useSelector } from 'react-redux'
 // import { Redirect } from 'react-router-dom'
 // import { Card as FoodCard, CardWrapper as FoodCardWrapper } from 'react-swipeable-cards';
@@ -190,8 +190,8 @@
 // const cardStyles = {borderRadius: 3, cursor: "pointer", userSelect: "none", position: "absolute", display: "flex", alignItems: "center", justifyContent: "center", top: 0, height: '550px'}
 
 //   export default props => {
-//     const items = useSelector(appState => appState.dietReducer.allItems)
-//     const selectedDiets = useSelector(appState => appState.dietReducer.selectedDiets)
+//     const items = useSelector(appState => appState.mealReducer.allItems)
+//     const selectedDiets = useSelector(appState => appState.mealReducer.selectedDiets)
 //     const [rightSwipe, setRightSwipe] = useState(false)
 //     const [swipe, setSwipe] = useState(false)
 //     let counter = 0

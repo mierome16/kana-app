@@ -1,14 +1,13 @@
 import React, { useState } from 'react'
 import { Form, Container, Header, Divider, Image } from 'semantic-ui-react'
-import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import shortid from 'shortid'
-import { addOrder } from '../actions/diet.actions'
+import { addOrder } from '../actions/meal.actions'
 import { Redirect } from "react-router-dom"
 
  
 export default props => { 
-  const order = useSelector(appState => appState.dietReducer.orderedItem)
+  const order = useSelector(appState => appState.mealReducer.orderedItem)
   const [submit, setSubmit] = useState(false)
   const [values, setValues] = useState({
     quantity: 1,

@@ -48,15 +48,60 @@ router.post('/register', (req, res, next) => {
 })
 
 //******Diet Selection and Filtering*******//
-router.get('/menu-items/:selectedDiets', (req,res,next) => {
-  const diet = req.params.selectedDiets.split(',')
+// router.get('/menu-items/:selectedDiets', (req,res,next) => {
+//   const diet = req.params.selectedDiets.split(',')
+//   const sql = `
+//   SELECT m.id, m.name as item_name, m.description, m.price, dr.name as diet_name, dr.disabled, mt.meal_name, mt.id AS meal_id, p.id as pic_id, r.name as res_name, r.address, r.zipcode, r.city, r.state, r.opening_time, r.closing_time, r.ratings
+//   FROM menu_items m
+//   LEFT JOIN diet_links dl
+//   ON m.id = dl.menu_item_id
+//   LEFT JOIN dietary_rest dr
+//   ON dl.dietary_rest_id = dr.id
+//   LEFT JOIN meal_Links ml
+//   on m.id = ml.menu_item_id
+//   LEFT JOIN meal_types mt
+//   ON ml.mealtype_id = mt.id
+//   LEFT JOIN pictures p
+//   ON p.menu_items_id = m.id
+//   LEFT JOIN restaurants r
+//   ON m.restaurant_id = r.id
+//   `
+
+//   conn.query(sql, ( err, results, fields ) => {
+
+//     if(diet == 'none'){
+//       var map = new Map(results.map(o => [o.id,o]))
+//       var newResults = [...map.values()]
+//       res.json(newResults)
+//     } else {
+//      const filteredResults = results.filter(item => {
+//       if(diet.includes(item.diet_name)){
+//         return true
+//       } else {
+//         return false
+//       }
+//     })
+//     var map = new Map(filteredResults.map(o => [o.id,o]))
+//     var unique = [...map.values()]
+//     res.json(unique)
+//     }
+//   })
+// })
+
+router.get('/menu-items/:selectedDiets/:selectedMeals', (req,res,next) => {
+  const diets = req.params.selectedDiets.split(',')
+  const meals = req.params.selectedMeals.split(',')
   const sql = `
-  SELECT m.id, m.name as item_name, m.description, m.price, dr.name as diet_name, p.id as pic_id, r.name as res_name, r.address, r.zipcode, r.city, r.state, r.opening_time, r.closing_time, r.ratings
+  SELECT m.id, m.name as item_name, m.description, m.price, dr.name as diet_name, dr.disabled, mt.meal_name, mt.id AS meal_id, p.id as pic_id, r.name as res_name, r.address, r.zipcode, r.city, r.state, r.opening_time, r.closing_time, r.ratings
   FROM menu_items m
   LEFT JOIN diet_links dl
   ON m.id = dl.menu_item_id
   LEFT JOIN dietary_rest dr
   ON dl.dietary_rest_id = dr.id
+  LEFT JOIN meal_Links ml
+  on m.id = ml.menu_item_id
+  LEFT JOIN meal_types mt
+  ON ml.mealtype_id = mt.id
   LEFT JOIN pictures p
   ON p.menu_items_id = m.id
   LEFT JOIN restaurants r
@@ -64,25 +109,105 @@ router.get('/menu-items/:selectedDiets', (req,res,next) => {
   `
 
   conn.query(sql, ( err, results, fields ) => {
-
-    if(diet == 'none'){
-      var map = new Map(results.map(o => [o.id,o]))
-      var newResults = [...map.values()]
-      res.json(newResults)
-    } else {
-     const filteredResults = results.filter(item => {
-      if(diet.includes(item.diet_name)){
-        return true
-      } else {
-        return false
-      }
-    })
+  const filteredResults = results.filter(item => diets.includes(item.diet_name) || diets == 'none').filter(item => meals.includes(item.meal_name) || meals == 'none'); 
+    // var filteredResults
+    // var filteredResults2
+    // if (diets == 'none') {
+    //   var map = new Map(results.map(o => [o.id,o]))
+    //   var newResults = [...map.values()]
+    //   res.json(newResults)
+    // } else {
+    // if (diets !== 'none'){
+      // const filteredResults = results.filter(item => {
+      //   if(diets.includes(item.diet_name)){
+      //     return true
+      //   } else {
+      //     return false
+      //   }
+      // })
+      // if (meals !== 'none') {
+        // const filteredResults2 = filteredResults.filter(item => {
+        //   if(meals.includes(item.meal_name)){
+        //     return true
+        //   } else {
+        //     return false
+        //   }
+        // }) 
+    //   }
+    // }
     var map = new Map(filteredResults.map(o => [o.id,o]))
     var unique = [...map.values()]
     res.json(unique)
-    }
   })
 })
+
+
+
+//**** GET LIST OF DIETS FROM SQL *****//
+router.get('/dietary-rest', (req,res,next) => {
+  const sql = `
+  SELECT * 
+  FROM dietary_rest
+  `
+
+  conn.query(sql, (err, results, fields) => {
+    res.json(results)
+  })
+})
+
+//**** GET LIST OF MEAL TYPES FROM SQL *****//
+router.get('/mealtypes', (req,res,next) => {
+  const sql = `
+  SELECT * 
+  FROM meal_types
+  `
+
+  conn.query(sql, (err, results, fields) => {
+    res.json(results)
+  })
+})
+
+
+//****Type of Meal Selection & Filtering*****//
+// router.get('/menu-items/:selectedMeals', (req,res,next) => {
+//   const meal = req.params.selectedMeals.split(',')
+//   const sql = `
+//  SELECT m.id, m.name as item_name, m.description, m.price, dr.name as diet_name, mt.meal_name, mt.id, p.id as pic_id, r.name as res_name, r.address, r.zipcode, r.city, r.state, r.opening_time, r.closing_time, r.ratings
+//   FROM menu_items m
+//   LEFT JOIN diet_links dl
+//   ON m.id = dl.menu_item_id
+//   LEFT JOIN dietary_rest dr
+//   ON dl.dietary_rest_id = dr.id
+//   LEFT JOIN meal_Links ml
+//   on m.id = ml.menu_item_id
+//   LEFT JOIN meal_types mt
+//   ON ml.mealtype_id = mt.id
+//   LEFT JOIN pictures p
+//   ON p.menu_items_id = m.id
+//   LEFT JOIN restaurants r
+//   ON m.restaurant_id = r.id
+//   `
+//   console.log(selectedMeals)
+//   conn.query(sql, ( err, results, fields ) => {
+
+//     if(meal == 'none'){
+//       var map = new Map(results.map(o => [o.id,o]))
+//       var newMealResults = [...map.values()]
+//       res.json(newMealResults)
+//     } else {
+//      const filteredMeals = results.filter(item => {
+//       if(diet.includes(item.meal_name)){
+//         return true
+//       } else {
+//         return false
+//       }
+//     })
+//     var map = new Map(filteredMeals.map(o => [o.id,o]))
+//     var unique = [...map.values()]
+//     res.json(unique)
+//     }
+//   })
+// })
 
 
 

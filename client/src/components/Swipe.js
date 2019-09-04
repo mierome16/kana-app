@@ -1,7 +1,6 @@
 import React, { useState, useEffect} from "react";
-import { Card as FoodItem, Button, Icon, Image } from "semantic-ui-react"
-import { Link } from 'react-router-dom'
-import { getMenuItems, orderItem } from '../actions/diet.actions'
+import { Card as FoodItem, Icon } from "semantic-ui-react"
+import { getMenuItems, orderItem } from '../actions/meal.actions'
 import { useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { Card as FoodCard, CardWrapper as FoodCardWrapper } from 'react-swipeable-cards';
@@ -12,30 +11,39 @@ const actionsStyles = {position: 'relative', bottom: 0, width: '100%'};
 const cardStyles = {borderRadius: 3, cursor: "pointer", userSelect: "none", position: "absolute", display: "flex", alignItems: "center", justifyContent: "center", top: 0, height: '600px',}
 
   export default props => {
-    const items = useSelector(appState => appState.dietReducer.allItems)
-    const selectedDiets = useSelector(appState => appState.dietReducer.selectedDiets)
+    const items = useSelector(appState => appState.mealReducer.allItems)
+    const selectedDiets = useSelector(appState => appState.mealReducer.selectedDiets)
+    const selectedMeals = useSelector(appState => appState.mealReducer.selectedMeals)
     const [rightSwipe, setRightSwipe] = useState(false)
     const [swipe, setSwipe] = useState(false)
     let counter = 0
+    
+    console.log(selectedDiets)
     console.log(swipe)
     
     useEffect(() => {
-      if(selectedDiets.length === 0){
-        getMenuItems('none')
-      } else {
-      getMenuItems(selectedDiets)
-      }
-      }, [])
+      // if(selectedDiets.length === 0){
+      //   getMenuItems('none')
+      // } else {
+      // getMenuItems(selectedDiets)
+      // }
+      // }, [])
+      const diets = selectedDiets.length === 0 ? 'none' : selectedDiets
+      const meals = selectedMeals.length === 0 ? 'none' : selectedMeals
+      // selectedDiets.length === 0 ? getMenuItems('none') : getMenuItems(selectedDiets) 
+      getMenuItems(diets, meals)
+    }, [selectedDiets, selectedMeals ]) 
 
-      function onSwipeLeft() {
-          counter++
-      }
-     
-      function onSwipeRight() {
-        setRightSwipe(!rightSwipe)
+
+    function onSwipeLeft() {
         counter++
-        orderItem(items[counter-1])
-      }
+    }
+    
+    function onSwipeRight() {
+      setRightSwipe(!rightSwipe)
+      counter++
+      orderItem(items[counter-1])
+    }
 
       return (
         rightSwipe ? <Redirect to="/options" /> : (

@@ -16,7 +16,6 @@ import {
   Sidebar,
   Visibility
 } from 'semantic-ui-react'
-import { isAbsolute } from 'path';
 
 // Heads up!
 // We using React Static to prerender our docs with server side rendering, this is a quite simple solution.

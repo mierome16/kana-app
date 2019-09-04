@@ -5,9 +5,9 @@
 # http://www.sequelpro.com/
 # https://github.com/sequelpro/sequelpro
 #
-# Host: localhost (MySQL 5.7.25)
-# Database: kana
-# Generation Time: 2019-08-29 19:32:06 +0000
+# Host: localhost (MySQL 5.7.27)
+# Database: Kana
+# Generation Time: 2019-08-29 21:44:59 +0000
 # ************************************************************
 
 
@@ -128,6 +128,244 @@ VALUES
 UNLOCK TABLES;
 
 
+# Dump of table meal_links
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `meal_links`;
+
+CREATE TABLE `meal_links` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `menu_item_id` int(11) DEFAULT NULL,
+  `mealtype_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=191 DEFAULT CHARSET=utf8;
+
+LOCK TABLES `meal_links` WRITE;
+/*!40000 ALTER TABLE `meal_links` DISABLE KEYS */;
+
+INSERT INTO `meal_links` (`id`, `menu_item_id`, `mealtype_id`)
+VALUES
+	(1,1,1),
+	(2,2,1),
+	(3,2,1),
+	(4,4,1),
+	(5,5,2),
+	(6,5,3),
+	(7,6,2),
+	(8,6,3),
+	(9,48,1),
+	(10,7,2),
+	(11,7,3),
+	(12,8,4),
+	(13,9,4),
+	(14,10,4),
+	(15,11,4),
+	(16,11,5),
+	(17,12,4),
+	(18,12,5),
+	(19,13,4),
+	(20,13,5),
+	(21,14,4),
+	(22,14,5),
+	(23,15,4),
+	(24,15,5),
+	(25,16,4),
+	(26,16,5),
+	(27,17,4),
+	(28,17,5),
+	(29,18,4),
+	(30,18,5),
+	(31,19,4),
+	(32,19,5),
+	(33,20,4),
+	(34,20,5),
+	(35,21,3),
+	(36,22,4),
+	(37,22,5),
+	(38,23,4),
+	(39,23,5),
+	(40,24,4),
+	(41,24,5),
+	(42,25,4),
+	(43,25,5),
+	(44,26,4),
+	(45,27,4),
+	(46,27,5),
+	(47,28,4),
+	(48,24,4),
+	(49,24,5),
+	(50,25,4),
+	(51,25,5),
+	(52,26,4),
+	(53,26,5),
+	(54,27,4),
+	(55,28,4),
+	(56,28,5),
+	(57,29,4),
+	(58,29,5),
+	(59,30,4),
+	(60,30,5),
+	(61,31,4),
+	(62,31,5),
+	(63,32,4),
+	(64,32,5),
+	(65,33,4),
+	(66,33,5),
+	(67,34,4),
+	(68,34,5),
+	(69,35,4),
+	(70,35,5),
+	(71,36,4),
+	(72,36,5),
+	(73,37,4),
+	(74,37,5),
+	(75,38,4),
+	(76,38,5),
+	(77,39,3),
+	(78,39,4),
+	(79,39,5),
+	(80,40,4),
+	(81,40,5),
+	(82,41,2),
+	(83,41,3),
+	(84,41,4),
+	(85,42,2),
+	(86,42,3),
+	(87,42,4),
+	(88,43,2),
+	(89,43,3),
+	(90,43,4),
+	(91,44,5),
+	(92,45,2),
+	(93,45,3),
+	(94,46,2),
+	(95,46,3),
+	(96,46,4),
+	(97,47,2),
+	(98,47,3),
+	(99,47,4),
+	(100,49,2),
+	(101,49,3),
+	(102,49,4),
+	(103,50,5),
+	(104,51,4),
+	(105,52,4),
+	(106,52,5),
+	(107,53,4),
+	(108,53,5),
+	(109,54,4),
+	(110,54,5),
+	(111,55,4),
+	(112,55,5),
+	(113,56,4),
+	(114,56,5),
+	(115,57,4),
+	(116,57,5),
+	(117,58,4),
+	(118,58,5),
+	(119,59,4),
+	(120,59,5),
+	(121,60,4),
+	(122,60,5),
+	(123,61,3),
+	(124,62,4),
+	(125,62,5),
+	(126,63,4),
+	(127,63,5),
+	(128,64,4),
+	(129,64,5),
+	(130,65,4),
+	(131,65,5),
+	(132,66,4),
+	(133,66,5),
+	(134,67,4),
+	(135,67,5),
+	(136,68,4),
+	(137,68,5),
+	(138,69,4),
+	(139,69,5),
+	(140,70,4),
+	(141,70,5),
+	(142,71,4),
+	(143,72,4),
+	(144,73,4),
+	(145,74,4),
+	(146,76,4),
+	(147,77,4),
+	(148,78,4),
+	(149,79,4),
+	(150,80,4),
+	(151,81,4),
+	(152,81,5),
+	(153,82,4),
+	(154,82,5),
+	(155,83,4),
+	(156,83,5),
+	(157,84,4),
+	(158,84,5),
+	(159,85,4),
+	(160,85,5),
+	(161,86,4),
+	(162,86,5),
+	(163,87,4),
+	(164,87,5),
+	(165,88,4),
+	(166,88,5),
+	(167,89,4),
+	(168,89,5),
+	(169,90,4),
+	(170,90,5),
+	(171,91,4),
+	(172,91,5),
+	(173,92,4),
+	(174,92,5),
+	(175,93,4),
+	(176,93,5),
+	(177,94,4),
+	(178,94,5),
+	(179,95,4),
+	(180,95,5),
+	(181,96,4),
+	(182,96,5),
+	(183,97,4),
+	(184,97,5),
+	(185,98,4),
+	(186,98,5),
+	(187,99,4),
+	(188,99,5),
+	(189,100,4),
+	(190,100,5);
+
+/*!40000 ALTER TABLE `meal_links` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table meal_types
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `meal_types`;
+
+CREATE TABLE `meal_types` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `meal_name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+LOCK TABLES `meal_types` WRITE;
+/*!40000 ALTER TABLE `meal_types` DISABLE KEYS */;
+
+INSERT INTO `meal_types` (`id`, `meal_name`)
+VALUES
+	(1,'Coffee'),
+	(2,'Breakfast'),
+	(3,'Brunch'),
+	(4,'Lunch'),
+	(5,'Dinner');
+
+/*!40000 ALTER TABLE `meal_types` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
 # Dump of table menu_items
 # ------------------------------------------------------------
 
@@ -154,12 +392,12 @@ VALUES
 	(2,'Espresso','Coffee',NULL,1,NULL,4,'true'),
 	(3,'Latte','Coffee',NULL,1,NULL,6,'true'),
 	(4,'Earl Grey Tea','Coffee',NULL,1,NULL,4,'false'),
-	(5,'Chai Oatmeal','Breakfast','oatmeal with chai spices',1,NULL,6,'false'),
+	(5,'Chai Oatmeal','Breakfast Brunch','oatmeal with chai spices',1,NULL,6,'false'),
 	(6,'Fluffy Pancakes','Breakfast Brunch','pancakes with mapple syrup\n',1,NULL,8,'false'),
 	(7,'Fried Egg Sandwich','Breakfast Brunch','Egg, jalapenos, cheese',1,NULL,7,'true'),
-	(8,'California Club Chicken Wraps','Sandwich','Chicken, tomato, bacon, lettuce, cheese',1,NULL,12,'true'),
-	(9,'Spicy Grilled Cheese Sandwich','Sandwich','Grilled cheese with onions, tomatoes and jalapenos',1,NULL,8,'true'),
-	(10,'Roquefort Pear Salad','Salad','mixed greens, blue cheese, pears, caramelized pecans, mustard vinaigrette',1,NULL,11,'true'),
+	(8,'California Club Chicken Wraps','Sandwich Lunch','Chicken, tomato, bacon, lettuce, cheese',1,NULL,12,'true'),
+	(9,'Spicy Grilled Cheese Sandwich','Sandwich Lunch','Grilled cheese with onions, tomatoes and jalapenos',1,NULL,8,'true'),
+	(10,'Roquefort Pear Salad','Salad Lunch','mixed greens, blue cheese, pears, caramelized pecans, mustard vinaigrette',1,NULL,11,'true'),
 	(11,'The Oggie','Lunch Dinner','Steak, potato, onion, and rutabaga (swede) with a side of red wine gravy or ketchup',2,NULL,10,'true'),
 	(12,'The Pilgrim','Lunch Dinner','House roasted turkey, sweet potato, grilled onion and housemade stuffing. Served with red wine gravy and cranberry sauce',2,NULL,13,'false'),
 	(13,'Eggplan Parmesan','Lunch Dinner','Pan fried eggplant, zucchini, broccoli, fresh mozzarella, spinach, fresh basil, parmesan and marinara.',2,'Vegetarian',12,'false'),
@@ -216,7 +454,7 @@ VALUES
 	(64,'Elote Tamale','Starter Lunch Dinner','filled with fresh non-gmo masa, baked corn, a magical secret sauce, and topped with parmesan cheese',7,'Vegan',9,'true'),
 	(65,'The Mac Daddy Burger','Lunch Dinner','a kickass burger topped with creamy mac n cheese, collard greens, gochujang bbq sauce, and secret burger sauce. want it naked? we can do that too! served with fresh cut fries and organic ketchup.',7,'Vegan',14,'false'),
 	(66,'Bao Wow','Starter Lunch Dinner','steamed bao, tempura tofu, shitake hoisin',7,'Vegan',8,'false'),
-	(67,'The Fancy Cheeseboard','Starter','seasonal, locally made, artisan cheese (by @virgincheese) curated with seasonal fruits, nuts and dips',7,'Peanuts',10,'false'),
+	(67,'The Fancy Cheeseboard','Starter Lunch Dinner','seasonal, locally made, artisan cheese (by @virgincheese) curated with seasonal fruits, nuts and dips',7,'Peanuts',10,'false'),
 	(68,'Pho-King-Delicious','Dinner Lunch','vietnamese style pho with a mushroom broth, seasonal vegetables, tofu, and rice noodles',7,'Gluten-free',13,'true'),
 	(69,'Chicken Pot Pie Gnocchi','Dinner Lunch','house made creamy herb sauce with chicken, peas, carrots, and mushrooms. topped with pie crust crumbles and herbs',7,'Vegan',13,'false'),
 	(70,'Pamela Anderson Raw Power Tacos','Lunch Dinner','walnuts, sunflower seeds, sun-dried tomato, raw veggies, avocado, tahini, fresh lime',7,'Vegan Gluten-free Peanuts Oil-free',13,'false'),
