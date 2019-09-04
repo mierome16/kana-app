@@ -7,7 +7,7 @@
 #
 # Host: localhost (MySQL 5.7.27)
 # Database: Kana
-# Generation Time: 2019-08-29 21:44:59 +0000
+# Generation Time: 2019-09-04 17:28:35 +0000
 # ************************************************************
 
 
@@ -109,20 +109,23 @@ DROP TABLE IF EXISTS `dietary_rest`;
 CREATE TABLE `dietary_rest` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
+  `disabled` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 LOCK TABLES `dietary_rest` WRITE;
 /*!40000 ALTER TABLE `dietary_rest` DISABLE KEYS */;
 
-INSERT INTO `dietary_rest` (`id`, `name`)
+INSERT INTO `dietary_rest` (`id`, `name`, `disabled`)
 VALUES
-	(1,'Vegetarian'),
-	(2,'Vegan'),
-	(3,'Gluten-free'),
-	(4,'Nut-free'),
-	(5,'Dairy-free'),
-	(6,'Spicy');
+	(1,'Vegetarian',0),
+	(2,'Vegan',0),
+	(3,'Gluten-free',0),
+	(4,'Nut-free',0),
+	(5,'Dairy-free',0),
+	(6,'Spicy',0),
+	(7,'Halal',1),
+	(8,'Kosher',1);
 
 /*!40000 ALTER TABLE `dietary_rest` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -138,7 +141,7 @@ CREATE TABLE `meal_links` (
   `menu_item_id` int(11) DEFAULT NULL,
   `mealtype_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=191 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=192 DEFAULT CHARSET=utf8;
 
 LOCK TABLES `meal_links` WRITE;
 /*!40000 ALTER TABLE `meal_links` DISABLE KEYS */;
@@ -334,7 +337,8 @@ VALUES
 	(187,99,4),
 	(188,99,5),
 	(189,100,4),
-	(190,100,5);
+	(190,100,5),
+	(191,3,1);
 
 /*!40000 ALTER TABLE `meal_links` ENABLE KEYS */;
 UNLOCK TABLES;
