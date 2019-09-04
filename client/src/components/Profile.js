@@ -1,27 +1,35 @@
 import React, {useEffect} from 'react'
 import {Link} from "react-router-dom"
-import { Input } from 'semantic-ui-react'
 import {useSelector} from 'react-redux'
 import { Button } from 'semantic-ui-react'
 import DietButton from './DietButton'
+import { getDiets } from '../actions/meal.actions'
 import { getMenuItems } from '../actions/diet.actions'
 
 
 export default props => {
-  const selectedDiets = useSelector(appState => appState.dietReducer.selectedDiets)
+  const allItems = useSelector(appState => appState.mealReducer.allItems)
+  const selectedDiets = useSelector(appState => appState.mealReducer.selectedDiets)
   const user = useSelector(appState => appState.authReducer.users)
+  const diets = useSelector(appState => appState.mealReducer.diets)
+
+  console.log(allItems)
   console.log(selectedDiets)
+
+  useEffect(() => {
+    getDiets()
+  }, [])
   
-  const diets = [
-    {name: 'Vegetarian', disabled: false, img:'/Icons/vegetarian.png' },
-    {name: 'Vegan', disabled: false, img:'/Icons/vegan.png'},
-    {name: 'Gluten-free', disabled: false, img:'/Icons/GF.png'},
-    {name: 'Nut-free', disabled: false, img:'/Icons/nutfree.png'},
-    {name: 'Dairy-free', disabled: false, img:'/Icons/dairyFree.png'},
-    {name: 'Spicy', disabled: false, img:'/Icons/spicy.png'},
-    {name: 'Halal', disabled: true, img:'/Icons/halal.png'},
-    {name: 'Kosher', disabled: true, img:'/Icons/kosher.png'}
-  ]
+  // const diets = [
+  //   {name: 'Vegetarian', disabled: false, img:'/Icons/vegetarian.png' },
+  //   {name: 'Vegan', disabled: false, img:'/Icons/vegan.png'},
+  //   {name: 'Gluten-free', disabled: false, img:'/Icons/GF.png'},
+  //   {name: 'Nut-free', disabled: false, img:'/Icons/nutfree.png'},
+  //   {name: 'Dairy-free', disabled: false, img:'/Icons/dairyFree.png'},
+  //   {name: 'Spicy', disabled: false, img:'/Icons/spicy.png'},
+  //   {name: 'Halal', disabled: true, img:'/Icons/halal.png'},
+  //   {name: 'Kosher', disabled: true, img:'/Icons/kosher.png'}
+  // ]
 
   // function handleSubmit(e) {
 
@@ -50,14 +58,14 @@ export default props => {
       <div className='diet'>
         {diets.map((diet, i) => (
           <div key={'diet' + i}>
-          <DietButton diet={diet.name} img={diet.img} disabled={diet.disabled} active={selectedDiets.find(selectedDiet => selectedDiet === diet.name)}/>
+          <DietButton diet={diet.name} img={diet.img} disabled={diet.disabled} active={selectedDiets.find(selectedDiet => selectedDiet === diet.name) !== undefined}/>
           </div>
           ))}
       </div> 
 
       <div className='save'>
 
-        <Link to='/swipe'>
+        <Link to='/meal'>
           <Button fluid id="save" type='Submit' >Continue</Button>
         </Link>
       </div>

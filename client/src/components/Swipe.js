@@ -1,12 +1,52 @@
 import React, { useState, useEffect} from "react";
+<<<<<<< HEAD
+import { Card as FoodItem, Icon } from "semantic-ui-react"
+import { getMenuItems, orderItem } from '../actions/meal.actions'
+=======
 import '../styles/SwipeStyles.css'
 import { stackedCards } from './SwipeCards'
 import { Icon } from 'semantic-ui-react'
 import { getMenuItems } from '../actions/diet.actions'
+>>>>>>> master
 import { useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 
   export default props => {
+<<<<<<< HEAD
+    const items = useSelector(appState => appState.mealReducer.allItems)
+    const selectedDiets = useSelector(appState => appState.mealReducer.selectedDiets)
+    const selectedMeals = useSelector(appState => appState.mealReducer.selectedMeals)
+    const [rightSwipe, setRightSwipe] = useState(false)
+    const [swipe, setSwipe] = useState(false)
+    let counter = 0
+    
+    console.log(selectedDiets)
+    console.log(swipe)
+    
+    useEffect(() => {
+      // if(selectedDiets.length === 0){
+      //   getMenuItems('none')
+      // } else {
+      // getMenuItems(selectedDiets)
+      // }
+      // }, [])
+      const diets = selectedDiets.length === 0 ? 'none' : selectedDiets
+      const meals = selectedMeals.length === 0 ? 'none' : selectedMeals
+      // selectedDiets.length === 0 ? getMenuItems('none') : getMenuItems(selectedDiets) 
+      getMenuItems(diets, meals)
+    }, [selectedDiets, selectedMeals ]) 
+
+
+    function onSwipeLeft() {
+        counter++
+    }
+    
+    function onSwipeRight() {
+      setRightSwipe(!rightSwipe)
+      counter++
+      orderItem(items[counter-1])
+    }
+=======
     const foodItems = useSelector(appState => appState.dietReducer.allItems)
     const order = useSelector(appState => appState.dietReducer.orderedItem)
     const selectedDiets = useSelector(appState => appState.dietReducer.selectedDiets)
@@ -43,6 +83,7 @@ import { Redirect } from 'react-router-dom'
     useEffect(() => {
       order ? setRedir(!redir) : stackedCards(foodItems)
     })
+>>>>>>> master
 
       return (
         order ? <Redirect to="/options" /> : (

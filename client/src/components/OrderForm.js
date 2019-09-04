@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import { Form, Container, Header, Divider, Image } from 'semantic-ui-react'
-import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import shortid from 'shortid'
-import { addOrder } from '../actions/diet.actions'
+import { addOrder } from '../actions/meal.actions'
 import { Redirect } from "react-router-dom"
 import moment from 'moment'
 

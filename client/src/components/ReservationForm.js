@@ -2,14 +2,18 @@ import React, { useState } from 'react'
 import { Form, Container, Header, Divider, Image } from 'semantic-ui-react'
 import moment from 'moment'
 import { useSelector } from 'react-redux'
+<<<<<<< HEAD
+import Flatpickr from 'react-flatpickr'
+=======
+>>>>>>> master
 import shortid from 'shortid'
-import { addOrder } from '../actions/diet.actions'
+import { addOrder } from '../actions/meal.actions'
 import { Redirect } from "react-router-dom"
 import DatePicker from 'react-date-picker'
 
 
 export default props => { 
-  const order = useSelector(appState => appState.dietReducer.orderedItem)
+  const order = useSelector(appState => appState.mealReducer.orderedItem)
   const [date, setDate] = useState(new Date())  
   const [submit, setSubmit] = useState(false)
   const values = {
