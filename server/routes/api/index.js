@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken')
 const config = require('config')
 
 
-//******/ user login and register /*********//
+//****** user login and register *********//
 
 router.post('/login', (req, res, next) => {
   const username = req.body.username

@@ -84,6 +84,7 @@ html {box-sizing:border-box;}
     flex-direction: column;
     justify-content: space-around;
     margin: auto;
+    background:rgba(83, 220, 98, 0.72);
     
 }
 #fooditem {
@@ -268,7 +269,12 @@ html {box-sizing:border-box;}
 .mhpage {
   width: 100vw;
   height: 100vh;
-   background: rgba(235, 101, 53, 1)
+   background:   linear-gradient(
+    rgba(0, 0, 0, 0.3), 
+    rgba(0, 0, 0, 0.3)
+  ),url('https://i.pinimg.com/564x/26/3d/53/263d53ed14ea33255b11d342a25c20d4.jpg');
+  background-size: contain;
+  background-repeat: no-repeat
 
 
 }
@@ -298,15 +304,16 @@ html {box-sizing:border-box;}
   border-radius: 5px;
 }
 .mhlogo {
-  height: 60vh;
-  width: 90vw;
-  margin: auto;
-  background: url('../image.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  margin-bottom: 30px;
-  border: 2px solid white;
-  border-radius: 20%
+  height: 250px;
+    width: 250px;
+    margin: auto;
+    margin-top: 105px;
+    background: url(/static/media/kanapic.eaa0e660.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-bottom: -44px;
+    border: 2px solid #8f0a03;
+    border-radius: 50%;
 }
 .aboutkana {
   display: flex;
@@ -315,7 +322,7 @@ html {box-sizing:border-box;}
   justify-content: center;
   height: 5vh;
   width: 40vw;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: lighter;
   /* background: rgba(0,0,0,.7);
   box-shadow: 3px 3px 3px rgb(233,115,63); */
