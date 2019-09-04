@@ -308,7 +308,7 @@ html {box-sizing:border-box;}
     width: 250px;
     margin: auto;
     margin-top: 105px;
-    background: url(/static/media/kanapic.eaa0e660.png);
+    background: url("../kanapic.png");
     background-size: cover;
     background-repeat: no-repeat;
     margin-bottom: -44px;
