@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 
 
 export default props => {
-  const orders = useSelector(appState => appState.dietReducer.pastOrders)
+  const orders = useSelector(appState => appState.mealReducer.pastOrders)
   console.log(orders)
   return (
     <div style={{padding:25}}>

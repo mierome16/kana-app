@@ -7,6 +7,7 @@
     font-size: 12px;
     /* background: #BFC7D0; */
     padding: 5%;
+    padding-top: 0px;
   }
   
   .no-transition {
@@ -95,11 +96,11 @@
   }
   
   .stackedcards-overlay.right {
-      background:rgb(135, 197, 123);
+      background:rgb(34, 175, 6);
   }
   
   .stackedcards-overlay.left {
-      background:rgb(223, 108, 108);
+      background:rgb(187, 7, 7);
   }
   
   .stackedcards-overlay.left:empty,
@@ -170,8 +171,8 @@
       margin: 0 10px; 
   }
   
-  .right-action { background: rgb(135, 197, 123); }
-  .left-action { background: rgb(223, 108, 108); }
+  .right-action { background: rgb(34, 175, 6); }
+  .left-action { background: rgb(187, 7, 7); }
   
   /* elements on stacked cards */
   .card-item { 
