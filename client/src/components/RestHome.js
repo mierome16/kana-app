@@ -7,15 +7,20 @@ export default props => {
         <div className="resthomepage">
             <header className="rhheader">
                 <h2>KANA</h2>
+                <div>
                 <Link to="/restaurant-login"><button>Log in</button></Link>
                 <Link to="/restaurant-register"><button>Register</button></Link>
+                </div>
             </header>
             <div className="rheading">
+                <div className="joinkana">
                 <h1>JOIN KANA</h1>
                 <h3>Grow your restaurant business</h3>
                 <p>Register today and allow others to discover your meals</p>
-            </div>
+                <Link to="/restaurant-register"><button>Register</button></Link>
+                </div>
             <div className="rescontainer">
+                <div className="reslogo"></div>
                 <div className="stepone">
                     <h2>Step 1:</h2>
                     <h5>Register for Kana</h5>
@@ -31,7 +36,7 @@ export default props => {
                 </div>
 
             </div>
-            
+            </div>
         </div>
     )
 }
