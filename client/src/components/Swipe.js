@@ -22,7 +22,7 @@ export default props => {
         arr.push(<Icon name="star" />)
       }
       return arr
-
+    }
     function mapAllergy(allergies) {
       let icons = []
         if (allergies.includes('Vegetarian')) {
@@ -67,12 +67,9 @@ export default props => {
         // noFound ? <NoResults /> : ( 
           order ? <Redirect to="/options" /> : (
               <div id="cardsContainer">
-              
-                  {/* {noFound ? <NoResults /> : ( */}
-                    
+                  {/* {noFound ? <NoResults /> : ( */} 
                 <div id="stacked-cards-block" className="stackedcards stackedcards--animatable init">
                   <div className="stackedcards-container">
-              
                     {foodItems.map(item => (         
                       <div key={item.name} className="card-item">
                         <div style={{background: `url(${item.image}) no-repeat center`, backgroundSize: 'cover', width: '100%', height: '350px', borderTopRightRadius: '10px', borderTopLeftRadius: '10px'}}>
@@ -80,7 +77,7 @@ export default props => {
                         <div className="card-header">
                           <div className="card-header-info">
                             <h3>{item.name}</h3>
-                            <p>{item.restaurant} {item.rating ? mapOut(item.rating) : '' }</p>
+                            <p>{item.restaurant} {item.rating ? mapRating(item.rating) : '' }</p>
                           </div>
                           <div>
                             <h3>${item.price.toFixed(2)}</h3> 
@@ -113,5 +110,5 @@ export default props => {
               </div>
           ))
       // )
-    
+      
   }
