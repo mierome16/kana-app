@@ -19,12 +19,12 @@ export default props => {
   }
   return (
     <div style={{padding:25}}>
-      <Header as="h1">{singleItem.confirm}</Header>
+      <Header as="h1">{singleItem.name}</Header>
         <div>
           <FoodItem style={{marginBottom:20, width:'100vh'}}>
             <div
                 style={{background: `url(${singleItem.order.image}) no-repeat center`, backgroundSize: 'cover',
-                width:200, height:200, 
+                width:'100%', height:300, margin: 'auto'
                 }} >
             </div>
             <FoodItem.Content>

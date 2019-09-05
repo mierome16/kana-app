@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from "react";
-import { Card as FoodItem, Icon } from "semantic-ui-react"
-import { getMenuItems, orderItem } from '../actions/meal.actions'
 import '../styles/SwipeStyles.css'
+import { Icon } from "semantic-ui-react"
+import { getMenuItems } from '../actions/meal.actions'
 import { stackedCards } from './SwipeCards'
 import { useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom'
@@ -13,7 +13,7 @@ import { Redirect } from 'react-router-dom'
     const selectedMeals = useSelector(appState => appState.mealReducer.selectedMeals)
     const [redir, setRedir] = useState(false)
 
-    function mapOut(number) {
+    function mapRating(number) {
       let arr = []
       for(let i = 0; i<number; i++) {
         arr.push(<Icon name="star" />)
@@ -21,31 +21,23 @@ import { Redirect } from 'react-router-dom'
       return arr
     }
 
-    // function mapAllergy(allergies) {
-    //   let arr = allergies.split(' ')
-    //   let icons = []
-    //     for(let i = 0; i < arr.length; i++) {
-    //     if (allergies[i].includes('Vegetarian')) {icons.push(<Icon name="leaf" />)}
-    //     else if (allergies[i].includes('Gluten')) {icons.push(<Icon name="bread-slice" />)}
-    //     else if (allergies[i].includes('Spicy'))  {icons.push(<Icon name="burn" />)} else {return icons}
-    //     }
-    //     console.log(icons)
-    //   return icons
-    // }
+    function mapAllergy(allergies) {
+      let icons = []
+        if (allergies.includes('Vegetarian')) {
+          icons.push(<Icon name="leaf"/>)
+        } 
+        // else if (allergies.includes('Gluten-free')) {
+        //   icons.push(<Icon name="bread-slice" />)
+        // }
+        //console.log(allergies)
+      return icons
+    }
     
-    console.log(order)
-    let counter = 0;
+    console.log(order, foodItems)
     
     useEffect(() => {
-      // if(selectedDiets.length === 0){
-      //   getMenuItems('none')
-      // } else {
-      // getMenuItems(selectedDiets)
-      // }
-      // }, [])
       const diets = selectedDiets.length === 0 ? 'none' : selectedDiets
       const meals = selectedMeals.length === 0 ? 'none' : selectedMeals
-      // selectedDiets.length === 0 ? getMenuItems('none') : getMenuItems(selectedDiets) 
       getMenuItems(diets, meals)
     }, [selectedDiets, selectedMeals ]) 
 
@@ -74,10 +66,10 @@ import { Redirect } from 'react-router-dom'
                 <div className="card-body">
                   <div>
                     <p>{item.description}</p>
-                    <p>Tags: {item.allergy ? item.allergy : 'None'}</p>
+                    <p>Tags: {item.allergy ? mapAllergy(item.allergy) : 'None'}</p>
                   </div>
                   <div>
-                    <p>Rating: {item.rating ? mapOut(item.rating) : '' }</p>
+                    <p>Rating: {item.rating ? mapRating(item.rating) : '' }</p>
                   </div>
                 </div>
               </div> 

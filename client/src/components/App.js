@@ -22,6 +22,7 @@ import MobileHome from './MobileHome';
 import RestHome from './RestHome'
 import RestRegister from './RestRegister';
 import SinglePastOrder from './SinglePastOrder'
+import MSidebar from './Sidebar';
  
 
 
@@ -31,22 +32,25 @@ const LoadingPage = lazy(() => import('../food-loading.gif'))
     <Provider store={store}>
       <Router>
         <div>
-          <Route exact path="/" component={MobileHome}></Route>
-          <Route exact path = "/about-kana" component={HomepageLayout} />
-          <Route path ="/login" component={Login} />
-          <Route path="/register" component={Registration}/>
-          <LoginRoute exact path="/profile" component={Profile} />
-          <LoginRoute exact path="/order" component={OrderForm} />
-          <LoginRoute exact path="/reservation" component={ReservationForm} />
-          <LoginRoute exact path="/options" component={EatOptions} />
-          <LoginRoute exact path="/confirm" component={Confirmation} />
-          <LoginRoute exact path="/swipe" component={FoodMain} />
-          <LoginRoute exact path="/map" component={DistanceMap}/>
-          <LoginRoute exact path="/meal" component={MealOptions} />
-          <LoginRoute exact path="/orders" component={PastOrders} />
-          <LoginRoute exact path="/orders/:singleOrder" component={SinglePastOrder} />
-          <Route path = "/restaurant-home" component={RestHome}/>
-          <Route path ="/restaurant-register" component={RestRegister}/>
+            <Route exact path="/" component={MobileHome}></Route>
+            <Route path ="/login" component={Login} />
+            <Route path="/register" component={Registration}/>
+          <MSidebar>
+            <Route exact path = "/about-kana" component={HomepageLayout} />
+            <LoginRoute exact path="/profile" component={Profile} />
+            <LoginRoute exact path="/order" component={OrderForm} />
+            <LoginRoute exact path="/reservation" component={ReservationForm} />
+            <LoginRoute exact path="/options" component={EatOptions} />
+            <LoginRoute exact path="/confirm" component={Confirmation} />
+            <LoginRoute exact path="/swipe" component={FoodMain} />
+            <LoginRoute exact path="/map" component={DistanceMap}/>
+            <LoginRoute exact path="/meal" component={MealOptions} />
+            <LoginRoute exact path="/orders" component={PastOrders} />
+            <LoginRoute exact path="/orders/:singleOrder" component={SinglePastOrder} />
+            <Route path = "/restaurant-home" component={RestHome}/>
+            <Route path ="/restaurant-register" component={RestRegister}/>
+            <Route path ="/sidebar" component={MSidebar}/>
+          </MSidebar>
         </div>
       </Router>
     </Provider>

@@ -2,18 +2,19 @@ import React, { useState } from 'react'
 import { Form, Container, Header, Divider, Image } from 'semantic-ui-react'
 import { useSelector } from 'react-redux'
 import shortid from 'shortid'
-import { addOrder } from '../actions/meal.actions'
+import { addOrder, sendOrder } from '../actions/meal.actions'
 import { Redirect } from "react-router-dom"
 import moment from 'moment'
 
  
 export default props => { 
   const order = useSelector(appState => appState.mealReducer.orderedItem)
-  const user = useSelector(appState => appState.authReducer.users)
+ // const user = useSelector(appState => appState.authReducer.users[0].id)
   //console.log(user[user.length - 1])
-  //console.log(order)
+  console.log(order)
   const [submit, setSubmit] = useState(false)
   const [values, setValues] = useState({
+    //user: user,
     quantity: 1,
     notes: '',
     size: '',
@@ -34,8 +35,9 @@ export default props => {
   function handleSubmit(e) {
     e.preventDefault()
     console.log(values)
-    addOrder(values)
-    //setSubmit(!submit)
+    sendOrder(values)
+    //addOrder(values)
+    setSubmit(!submit)
     
   }
   

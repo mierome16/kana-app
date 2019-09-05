@@ -14,12 +14,14 @@ router.post('/login', (req, res, next) => {
   const sql =  `SELECT * FROM users WHERE username = ? AND password = ? `
 
   conn.query(sql, [username, password], (err, results, fields) => {
+    results.insertId
     if (results.length > 0){
       const token = jwt.sign({username}, config.get('secret'))
  
       res.json({
         message: "User signed in",
-        token: token
+        token: token,
+        user: results
       })
     } else {
       res.status(401).json({
@@ -38,13 +40,15 @@ router.post('/register', (req, res, next) => {
  const sql = `INSERT into users (username, password, first_name, last_name) VALUES (?, ?, ?, ?)`
  
  conn.query(sql, [username, password, first_name, last_name], (err, results, fields) => {
+  results.insertId
    if (err) {
      res.json({
        message: "User already exists"
      })
    } else {
      res.json({
-       message: "User created"
+       message: "User created",
+       user: results
      })
    }
  })
@@ -335,68 +339,51 @@ router.post('/rest-register', (req,res,next) => {
   })
 })
 
-  router.post('/order', (req,res,next) => {
-    const name = req.body.item.order.name
-    const restaurant = req.body.item.order.restaurant
-    const order_placed = req.body.item.timePlaced
-    const confirm_num = req.body.item.confirm
-    const image = req.body.item.order.image
-    const type = req.body.item.type
-    const reservation_date = req.body.item.date
-    const price = req.body.item.order.price
-    const quantity = req.body.item.quantity
-    const allergy = req.body.item.order.allergy
-    const description = req.body.item.order.description
-    const notes = req.body.item.order.notes
-    // const name = req.body.name
-    // const restaurant = req.body.restaurant
-    // const order_placed = req.body.timePlaced
-    // const confirm_num = req.body.confirm
-    // const image =  req.body.image
-    // const type = req.body.type
-    // const reservation_date = req.body.date
-    // const price = req.body.price
-    // const quantity = req.body.quantity
-    // const allergy = req.body.allergy
-    // const description = req.body.description
-    // const notes = req.body.notes
-
-    const sql = `
-    INSERT INTO user_orders 
-    (confirm, 
-      name, 
-      time_placed, 
-      quantity, 
-      notes, 
-      size, 
-      price, 
-      reserve_date, 
-      description, 
-      image, 
-      type, 
-      restaurant, 
-      allergy)
-    VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)
-    `
-    conn.query(sql, 
-      [confirm_num, 
-      name,
-      order_placed, 
-      quantity, 
-      notes, 
-      size, 
-      price, 
-      reservation_date, 
-      description, 
-      image, 
-      type, 
-      restaurant, 
-      allergy], (err, results, fields) => {
-        results.insertId
-        console.log(err)
-      res.json(results)
-    })
+  
+        //results.insertId
+ router.post('/add-order', (req, res, next) => {
+  const user_id = req.body.user_id
+  const item_id = req.body.item_id
+  const confirm = req.body.confirm
+  const notes = req.body.notes
+  const quantity = req.body.quantity
+  const size = req.body.size
+  const timePlaced = req.body.timePlaced
+  const type = req.body.type
+  const reservation_date = req.body.reservation_date
+  //const reserve_date = req.body.reserve_date
+ const sql = `INSERT into orders (user_id, item_id, confirm, notes, quantity, size, time_placed, type, reserve_date) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`
+ 
+ conn.query(sql, [user_id, item_id, confirm, notes, quantity, size, timePlaced, type, reservation_date], (err, results, fields) => {
+    results.insertId
+    if (err) {
+     res.json({
+       message: err
+     })
+   } else {
+     res.json(results)
+   }
  })
+})
+
+// router.get('/add-order', (req, res, next) => {
+//   const user_id = req.body.user_id
+//   //const reserve_date = req.body.reserve_date
+//   const sql = `
+//   SELECT o.confirm, o.quantity, o.notes, o.time_placed, o.reserve_date, o.item_id, o.type, o.size, m.name as meal_name, m.meal_type, m.description, m.diet, m.price, m.popular, r.name as restaurant, r.address, r.zipcode, r.city, r.state, r.opening_time, r.day_opened
+//   FROM orders o, users, menu_items m, restaurants r
+//   WHERE o.user_id = ? AND users.id = ? AND o.item_id = m.id AND m.restaurant_id = r.id
+//   `
+//  conn.query(sql, [user_id, user_id], (err, results, fields) => {
+//     if (err) {
+//      res.json({
+//        message: err
+//      })
+//    } else {
+//      res.json(results)
+//    }
+//  })
+// })
 
 
 module.exports = router

@@ -5,6 +5,7 @@ import { Button } from 'semantic-ui-react'
 import DietButton from './DietButton'
 import { getDiets } from '../actions/meal.actions'
 import { getMenuItems } from '../actions/meal.actions'
+import MSidebar from './Sidebar'
 
 
 export default props => {
@@ -12,19 +13,20 @@ export default props => {
   const selectedDiets = useSelector(appState => appState.mealReducer.selectedDiets)
   const user = useSelector(appState => appState.authReducer.users)
   const diets = useSelector(appState => appState.mealReducer.diets)
-
-  console.log(allItems)
-  console.log(selectedDiets)
-
+  console.log(user)
+  // console.log(allItems)
+  // console.log(selectedDiets)
+// {user[user.length - 1].username}
   useEffect(() => {
     getDiets()
   }, [])
 
 
   return (
+   
     <div className="Profile">
       <div className='top'>
-        <h1>Welcome {user[user.length - 1]}!</h1>
+        <h1>Welcome !</h1>
         <h2>Let's set up your preferences..</h2>
       </div>
       
@@ -48,5 +50,6 @@ export default props => {
         </Link>
       </div>
     </div>
+    
   )
 }

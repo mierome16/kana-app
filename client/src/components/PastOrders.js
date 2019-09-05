@@ -14,17 +14,16 @@ export default props => {
       {orders.map(order => (
         <div key={order.confirm}>
           <Link to={"/orders/" + order.confirm}>
-          <FoodItem style={{marginBottom:20, width:'100vh'}}>
+          <FoodItem style={{marginBottom:20, width:'100vh', flexDirection:'row', alignItems: 'center', alignContent:'center'}}>
                 <div
                     style={{background: `url(${order.order.image}) no-repeat center`, backgroundSize: 'cover',
-                    width:300, height:200, 
+                    width:100, height:100, marginLeft: 10
                     }} >
                 </div>
                 <FoodItem.Content>
                 <FoodItem.Header style={{ display:'flex', flexDirection:'column'}}>
                   {order.order.name}
-                  <FoodItem.Meta>Confirmation: {order.confirm}</FoodItem.Meta>
-                  <FoodItem.Meta>Order placed at: {order.timePlaced}</FoodItem.Meta>
+                  <FoodItem.Meta>Placed at: {order.timePlaced}</FoodItem.Meta>
                   <FoodItem.Meta>{order.type === 'reservation' ? ('Reservation Date: ' + moment(order.date).format('LLL')) : ('Order Total: $' + (order.order.price * order.quantity).toFixed(2))}</FoodItem.Meta>
                 </FoodItem.Header>
                 <FoodItem.Meta>
