@@ -8,8 +8,10 @@ import moment from 'moment'
 
  
 export default props => { 
-  const order = useSelector(appState => appState.dietReducer.orderedItem)
-  console.log(order)
+  const order = useSelector(appState => appState.mealReducer.orderedItem)
+  const user = useSelector(appState => appState.authReducer.users)
+  //console.log(user[user.length - 1])
+  //console.log(order)
   const [submit, setSubmit] = useState(false)
   const [values, setValues] = useState({
     quantity: 1,
@@ -31,9 +33,10 @@ export default props => {
 
   function handleSubmit(e) {
     e.preventDefault()
-    setSubmit(!submit)
     console.log(values)
     addOrder(values)
+    //setSubmit(!submit)
+    
   }
   
     return (
@@ -72,7 +75,7 @@ export default props => {
             <Header>
             Total: ${(order.price * values.quantity).toFixed(2)}
             </Header>
-            <Form.Button onClick={handleSubmit} inverted color="orange">Place Order</Form.Button> 
+            <Form.Button type="submit" onClick={handleSubmit} inverted color="orange">Place Order</Form.Button> 
         </Form>
       </Container>
       )

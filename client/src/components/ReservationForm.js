@@ -11,6 +11,8 @@ import DatePicker from 'react-date-picker'
 
 export default props => { 
   const order = useSelector(appState => appState.mealReducer.orderedItem)
+  const user = useSelector(appState => appState.authReducer.users)
+  console.log(user[user.length - 1])
   const [date, setDate] = useState(new Date())  
   const [submit, setSubmit] = useState(false)
   const values = {

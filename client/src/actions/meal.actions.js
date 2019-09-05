@@ -103,22 +103,23 @@ export function getFilteredItems() {
 
 //**** ORDERING OPTIONS ****/
 export function orderItem(item) {
-  // console.log(item)
   store.dispatch({
     type: 'ORDER_ITEM',
     payload: item
   })
 }
 
+
 export function addOrder(item) {
-  // axios.post('/api/order', item).then(resp => {
-    store.dispatch({
+  axios.post('/api/order', { item }).then(resp => {
+    console.log(resp.data)
+    store.dispatch({ 
       type: 'ADD_ORDER',
       payload: item
     }) 
-  //})
-  
+  })
 }
+
 
 export function finishOrder() {
   store.dispatch({

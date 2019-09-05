@@ -19,7 +19,7 @@ router.post('/login', (req, res, next) => {
  
       res.json({
         message: "User signed in",
-        token: token 
+        token: token
       })
     } else {
       res.status(401).json({
@@ -335,19 +335,68 @@ router.post('/rest-register', (req,res,next) => {
   })
 })
 
+  router.post('/order', (req,res,next) => {
+    const name = req.body.item.order.name
+    const restaurant = req.body.item.order.restaurant
+    const order_placed = req.body.item.timePlaced
+    const confirm_num = req.body.item.confirm
+    const image = req.body.item.order.image
+    const type = req.body.item.type
+    const reservation_date = req.body.item.date
+    const price = req.body.item.order.price
+    const quantity = req.body.item.quantity
+    const allergy = req.body.item.order.allergy
+    const description = req.body.item.order.description
+    const notes = req.body.item.order.notes
+    // const name = req.body.name
+    // const restaurant = req.body.restaurant
+    // const order_placed = req.body.timePlaced
+    // const confirm_num = req.body.confirm
+    // const image =  req.body.image
+    // const type = req.body.type
+    // const reservation_date = req.body.date
+    // const price = req.body.price
+    // const quantity = req.body.quantity
+    // const allergy = req.body.allergy
+    // const description = req.body.description
+    // const notes = req.body.notes
 
-//   router.post('/order', (req,res,next) => {
-//     const order = req.body.item
-//     const sql = `
-//     INSERT INTO past_Orders (name, quantity, notes, size, price, time_placed) VALUES ? ? ? ? ? ? ?
-//     `
-//     // join by user id/token/name/email?
-//     conn.query(sql, order, order, order, order, order, order, order, (err, results, fields) => {
-//       res.json({
-//         message: 'Order added'
-//       })
-//     })
-//  })
+    const sql = `
+    INSERT INTO user_orders 
+    (confirm, 
+      name, 
+      time_placed, 
+      quantity, 
+      notes, 
+      size, 
+      price, 
+      reserve_date, 
+      description, 
+      image, 
+      type, 
+      restaurant, 
+      allergy)
+    VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)
+    `
+    conn.query(sql, 
+      [confirm_num, 
+      name,
+      order_placed, 
+      quantity, 
+      notes, 
+      size, 
+      price, 
+      reservation_date, 
+      description, 
+      image, 
+      type, 
+      restaurant, 
+      allergy], (err, results, fields) => {
+        results.insertId
+        console.log(err)
+      res.json(results)
+    })
+ })
 
 
 module.exports = router

@@ -10,7 +10,7 @@ export default props => {
   const resetItem = useSelector(appState => appState.mealReducer.orderedItem)
   const [viewOrders, setViewOrders] = useState(false)
   const [orderAgain, setOrderAgain] = useState(false)
-  console.log(resetItem)
+  console.log(resetItem, order)
 
   function endOrder(action) {
     finishOrder()
