@@ -3,7 +3,7 @@ import { orderItem } from "../actions/meal.actions";
 // JavaScript Document
 
 	export function stackedCards(array) {
-
+	
 		console.log(array)
 		var stackedOptions = 'Top'; //Change stacked cards view from 'Bottom', 'Top' or 'None'.
 		var rotate = true; //Activate the elements' rotation for each move on stacked cards.
@@ -29,7 +29,7 @@ import { orderItem } from "../actions/meal.actions";
 		obj = document.getElementById('stacked-cards-block');
 		stackedCardsObj = obj.querySelector('.stackedcards-container');
 		listElNodesObj = stackedCardsObj.children;
-		//console.log(listElNodesObj)
+		console.log(stackedCardsObj)
 		
 		topObj = obj.querySelector('.stackedcards-overlay.top');
 		rightObj = obj.querySelector('.stackedcards-overlay.right');
@@ -703,4 +703,5 @@ import { orderItem } from "../actions/meal.actions";
 
 	
 	}
+
 	

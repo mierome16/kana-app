@@ -12,7 +12,6 @@ const initialState = {
 export default function(state = initialState, action) {
   switch (action.type) {
     case 'GET_DIETS':
-      //
         return {...state, diets: action.payload}
 
     case 'SELECT_DIET':

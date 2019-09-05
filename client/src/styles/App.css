@@ -28,7 +28,6 @@ html {box-sizing:border-box;}
   height: 100vh;
   margin: auto;
   background-color: rgb(203,203,203);
-  
 }
 
 .EatOptions div {
@@ -56,12 +55,21 @@ html {box-sizing:border-box;}
 .foodmainheader {
     display: flex;
     justify-content: space-between;
-    padding: 0;
-    margin: 0;
-    background: #8f0a03be;
-    height: 50px;
-    width: 100vw;
-    margin-bottom: 0;
+    margin: 5px;
+}
+
+#cardheader {
+  margin-top: 10px;
+}
+
+.ui.header {
+  margin: 5px;
+  padding: 0;
+  margin: 0;
+  background: #8f0a03be;
+  height: 50px;
+  width: 100vw;
+  margin-bottom: 0;
 }
 
 .ui.basic.button {
@@ -395,6 +403,68 @@ html {box-sizing:border-box;}
 #date-picker {
   height:10px;
 }
+
+
+/***********//* NoResults Styling *//**********/
+.noresults {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+  border: solid 5px #E84940;;
+  height: 78vh;
+}
+
+.joke {
+  font-size: 20px;
+  color: #E84940;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.joke-q {
+  text-align: left;
+  padding-left: 5px;
+
+}
+
+.joke-a {
+  text-align: right;
+  padding-right: 5px;
+  padding-left: 5px;
+  margin-right: 5px;
+  float:right;
+  font-style: italic;
+  -webkit-animation-duration: 3s;
+  animation-duration: 3s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeIn {
+0% {opacity: 0;}
+100% {opacity: 1;}
+}
+
+@keyframes fadeIn {
+0% {opacity: 0;}
+100% {opacity: 1;}
+}
+
+.fadeIn {
+-webkit-animation-name: fadeIn;
+animation-name: fadeIn;
+}
+
+
+.textbox {
+  background-color: #E84940;
+  border-radius: 15px;
+  /* opacity: .8; */
+  color: antiquewhite;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
 
 /********* loading page ******/
 #gif {
