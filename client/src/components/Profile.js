@@ -10,14 +10,15 @@ import { getMenuItems } from '../actions/meal.actions'
 export default props => {
   const allItems = useSelector(appState => appState.mealReducer.allItems)
   const selectedDiets = useSelector(appState => appState.mealReducer.selectedDiets)
+  const selectedMeals = useSelector(appState => appState.mealReducer.selectedMeals)
   const user = useSelector(appState => appState.authReducer.users)
   const diets = useSelector(appState => appState.mealReducer.diets)
 
   console.log(allItems)
-  console.log(selectedDiets)
 
   useEffect(() => {
     getDiets()
+    // getMenuItems(selectedDiets, selectedMeals)
   }, [])
 
 

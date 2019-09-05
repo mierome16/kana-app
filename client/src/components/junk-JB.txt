@@ -1,3 +1,11 @@
+from noOption.js
+if (foodItems.length === 0) {
+        return (
+            <NoResults />
+        )
+    } else {
+  *************
+
 from profile.js
 
   // const diets = [
@@ -215,4 +223,21 @@ export default function(state = initialState, action) {
   }
 }
 
+******************
+
+from swipe.js
+
+  // if (foodItems.length === 0) {
+  //   useEffect(() => {
+  //     setNoFound(!noFound)
+  //   },[])
+  // }  else if (order) {
+  //   useEffect (() => {
+  //     setRedir(!redir)
+  //   },[])
+  // } else {
+  //   useEffect(() => {
+  //     stackedCards(foodItems)
+  //   },[])
+  // }
 

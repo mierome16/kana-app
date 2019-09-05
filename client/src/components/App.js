@@ -13,7 +13,7 @@ import Registration from './Registration'
 import EatOptions from './EatOptions'
 import Profile from './Profile'
 import Confirmation from './Confirmation'
-import FoodMain from './FoodMain'
+import Swipe from './Swipe'
 import MealOptions from './MealOptions';
 import DistanceMap from './DistanceMap'
 import LoginRoute from './LoginRoute'
@@ -22,6 +22,8 @@ import MobileHome from './MobileHome';
 import RestHome from './RestHome'
 import RestRegister from './RestRegister';
 import SinglePastOrder from './SinglePastOrder'
+import NoResults  from './NoResults'
+import EndOfDeck from './EndOfDeck';
  
 
 
@@ -40,13 +42,15 @@ const LoadingPage = lazy(() => import('../food-loading.gif'))
           <LoginRoute exact path="/reservation" component={ReservationForm} />
           <LoginRoute exact path="/options" component={EatOptions} />
           <LoginRoute exact path="/confirm" component={Confirmation} />
-          <LoginRoute exact path="/swipe" component={FoodMain} />
+          <LoginRoute exact path="/swipe" component={Swipe} />
           <LoginRoute exact path="/map" component={DistanceMap}/>
           <LoginRoute exact path="/meal" component={MealOptions} />
           <LoginRoute exact path="/orders" component={PastOrders} />
           <LoginRoute exact path="/orders/:singleOrder" component={SinglePastOrder} />
           <Route path = "/restaurant-home" component={RestHome}/>
           <Route path ="/restaurant-register" component={RestRegister}/>
+          <Route path ="/notfound" component={NoResults} />
+          <Route path="/endofdeck" component={EndOfDeck} />
         </div>
       </Router>
     </Provider>

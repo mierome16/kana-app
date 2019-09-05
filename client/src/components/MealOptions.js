@@ -3,17 +3,21 @@ import {Link} from "react-router-dom"
 import {useSelector} from 'react-redux'
 import { Button } from 'semantic-ui-react'
 import {getMeals} from '../actions/meal.actions'
+import { getMenuItems } from '../actions/meal.actions'
 
 import MealButton from './MealButton'
+
 
 
 
 export default props => {
   const meals = useSelector(appState => appState.mealReducer.meals)
   const selectedMeals = useSelector(appState => appState.mealReducer.selectedMeals)
+  const selectedDiets = useSelector(appState => appState.mealReducer.selectedDiets)
   
   useEffect(() => {
     getMeals()
+    // getMenuItems(selectedDiets, selectedMeals)
   }, [])
 
   return (
@@ -29,7 +33,7 @@ export default props => {
           </div>
           ))}
       </div> 
-
+          
       <div className='save'>
         <Link to='/swipe'>
           <Button fluid id="save" type='Submit' >Continue</Button>

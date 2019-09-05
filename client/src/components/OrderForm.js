@@ -8,7 +8,7 @@ import moment from 'moment'
 
  
 export default props => { 
-  const order = useSelector(appState => appState.dietReducer.orderedItem)
+  const order = useSelector(appState => appState.mealReducer.orderedItem)
   console.log(order)
   const [submit, setSubmit] = useState(false)
   const [values, setValues] = useState({

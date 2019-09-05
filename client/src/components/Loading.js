@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default props => {
+export 
   const jokes = [
     { q:'What do you call a fake noodle?', a: 'An impasta.' },
     { q:'What is the most attractive fruit?', a:'A fine-apple.' },
@@ -24,4 +24,3 @@ export default props => {
     { q:'Why can’t eggs tell jokes?', a:'They’d crack each other up.'}
   ]
   
-}
