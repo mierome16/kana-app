@@ -3,8 +3,7 @@ import { orderItem } from "../actions/meal.actions";
 // JavaScript Document
 
 	export function stackedCards(array) {
-	
-		console.log(array)
+
 		var stackedOptions = 'Top'; //Change stacked cards view from 'Bottom', 'Top' or 'None'.
 		var rotate = true; //Activate the elements' rotation for each move on stacked cards.
 		var items = 3; //Number of visible elements when the stacked options are bottom or top.
@@ -24,7 +23,6 @@ import { orderItem } from "../actions/meal.actions";
 		var elementHeight;
 		var obj;
 		var elTrans;
-		let counter = 0;
 		
 		obj = document.getElementById('stacked-cards-block');
 		stackedCardsObj = obj.querySelector('.stackedcards-container');

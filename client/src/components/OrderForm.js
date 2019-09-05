@@ -2,16 +2,18 @@ import React, { useState } from 'react'
 import { Form, Container, Header, Divider, Image } from 'semantic-ui-react'
 import { useSelector } from 'react-redux'
 import shortid from 'shortid'
-import { addOrder } from '../actions/meal.actions'
+import { addOrder, sendOrder } from '../actions/meal.actions'
 import { Redirect } from "react-router-dom"
 import moment from 'moment'
 
  
 export default props => { 
   const order = useSelector(appState => appState.mealReducer.orderedItem)
+
   console.log(order)
   const [submit, setSubmit] = useState(false)
   const [values, setValues] = useState({
+    //user: user,
     quantity: 1,
     notes: '',
     size: '',
@@ -31,9 +33,11 @@ export default props => {
 
   function handleSubmit(e) {
     e.preventDefault()
-    setSubmit(!submit)
     console.log(values)
-    addOrder(values)
+    sendOrder(values)
+    //addOrder(values)
+    setSubmit(!submit)
+    
   }
   
     return (
@@ -72,7 +76,7 @@ export default props => {
             <Header>
             Total: ${(order.price * values.quantity).toFixed(2)}
             </Header>
-            <Form.Button onClick={handleSubmit} inverted color="orange">Place Order</Form.Button> 
+            <Form.Button type="submit" onClick={handleSubmit} inverted color="orange">Place Order</Form.Button> 
         </Form>
       </Container>
       )

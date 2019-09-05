@@ -14,6 +14,10 @@ html {box-sizing:border-box;}
   top: -10px;
 }
 
+#sidebarTop {
+  background: rgba(92, 91, 91, 0.68)
+}
+
 /* body,
  #Responsive {
   background: rgba(235, 101, 53, 1);
@@ -285,9 +289,7 @@ html {box-sizing:border-box;}
     rgba(0, 0, 0, 0.3)
   ),url('https://i.pinimg.com/564x/26/3d/53/263d53ed14ea33255b11d342a25c20d4.jpg');
   background-size: contain;
-  background-repeat: no-repeat
-
-
+  background-repeat: no-repeat;
 }
 .mhheader {
   display: flex;
@@ -318,7 +320,6 @@ html {box-sizing:border-box;}
   height: 250px;
     width: 250px;
     margin: auto;
-    margin-top: 105px;
     background: url('../kanapic.png');
     background-size: cover;
     background-repeat: no-repeat;

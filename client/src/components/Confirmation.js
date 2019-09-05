@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, uesEffect} from 'react'
 import moment from 'moment'
 import { useSelector } from 'react-redux'
 import { finishOrder } from '../actions/meal.actions'
@@ -6,11 +6,17 @@ import { Redirect } from 'react-router-dom'
 import { Header, Container, Button } from 'semantic-ui-react'
 
 export default props => {
+  //const order = useSelector(appState => appState.mealReducer.orderedItem)
+  //const resetItem = useSelector(appState => appState.mealReducer.orderedItem)
   const order = useSelector(appState => appState.mealReducer.pastOrders[0])
-  const resetItem = useSelector(appState => appState.mealReducer.orderedItem)
+  //const user = useSelector(appState => appState.authReducer.users[0].id)
   const [viewOrders, setViewOrders] = useState(false)
   const [orderAgain, setOrderAgain] = useState(false)
-  console.log(resetItem)
+  console.log(order.confirm)
+
+  // useEffect(() => {
+  //   getOrders(user)
+  // }, [])
 
   function endOrder(action) {
     finishOrder()
@@ -18,6 +24,7 @@ export default props => {
   }
 
     return (
+      //<h1>confirm</h1>
       viewOrders ? <Redirect to="/orders" /> : orderAgain ? <Redirect to="/profile" /> : (
       <Container style={{padding: '1em'}}>
           <Header as="h1">Success!</Header>

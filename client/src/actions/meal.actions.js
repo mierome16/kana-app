@@ -16,8 +16,11 @@ function shuffle(a) {
 //**** CALL TO GET ALL MENU ITEMS FILTERED BY DIETARY RESTRICTIONS ****/
 export function getMenuItems(selectedDiets, selectedMeals){
  axios.get('/api/menu-items/'+ selectedDiets + '/' + selectedMeals).then(resp => {
+   //console.log(resp.data)
+   // probably can remote this data variable, we receive an object anyway?
     const data = resp.data.map(item => {
       let items = {
+      id: item.id,
       name: item.item_name,
       restaurant: item.res_name,
       price: item.price,
@@ -37,7 +40,7 @@ export function getMenuItems(selectedDiets, selectedMeals){
      type:'GET_ALL_ITEMS',
      payload: shuffle(data)
    })
-   console.log(data)
+  //  console.log(data)
  })
 }
 
@@ -103,22 +106,52 @@ export function getFilteredItems() {
 
 //**** ORDERING OPTIONS ****/
 export function orderItem(item) {
-  // console.log(item)
   store.dispatch({
     type: 'ORDER_ITEM',
     payload: item
   })
 }
 
+
 export function addOrder(item) {
-  // axios.post('/api/order', item).then(resp => {
-    store.dispatch({
+  // axios.post('/api/order', { item }).then(resp => {
+    console.log(item)
+    
+  //})
+}
+
+export function sendOrder(item){
+  // let reserve 
+  // axios.post('/api/add-order', {
+  //     user_id: item.user,
+  //     item_id: item.order.id,
+  //     confirm: item.confirm,
+  //     notes: item.notes,
+  //     quantity: item.quantity,
+  //     size: item.size,
+  //     timePlaced: item.timePlaced,
+  //     type: item.type,
+  //     reservation_date: item.date
+
+  // }).then(resp => {
+  //     console.log(item)
+    store.dispatch({ 
       type: 'ADD_ORDER',
       payload: item
-    }) 
+    })   
   //})
-  
 }
+
+// export function getOrders(user) {
+//   axios.get('/api/get-orders', { user }).then(resp => {
+//     console.log(resp.data)
+//     store.dispatch({
+//       type: 'GET_PAST_ORDERS',
+//       payload: resp.data
+//     })
+//   })
+// }
+
 
 export function finishOrder() {
   store.dispatch({
