@@ -10,12 +10,12 @@ export default props => {
           <h1>Pick your dining option</h1>
         </div>
         <div>
-          <Link to='/reservation'><Button color='green' toggle >
+          <Link to='/reservation'><Button style={{background: '#8f0a03', color: 'white', fontSize: '17px', boxShadow: '2px 3px 8px black'}} toggle >
             Dine-in
           </Button></Link>
         </div>
         <div>
-          <Link to='/order' ><Button toggle color='blue'>
+          <Link to='/order' ><Button toggle style={{background: '#8f0a03', color: 'white', fontSize: '17px', boxShadow: '2px 3px 8px black'}}>
             Pick-up
           </Button></Link>
         </div>
