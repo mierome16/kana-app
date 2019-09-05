@@ -31,14 +31,16 @@ class MSidebar extends Component {
           <Menu.Item  as='a' active>
             Home
           </Menu.Item>
-          <Menu.Item as='a'>Home</Menu.Item>
-          <Menu.Item as='a'>About Us</Menu.Item>
-          <Menu.Item as='a'>Log in</Menu.Item>
-          <Menu.Item as='a'>Sign Up</Menu.Item>
-          <Menu.Item as='a'>Account Settings</Menu.Item>
-          <Menu.Item as='a'>Restaurant Inquiry</Menu.Item>
-          <Menu.Item as='a'>Contact Us</Menu.Item>
-          <Menu.Item as='a'>FAQ</Menu.Item>
+            <Link to="/"><Menu.Item as='a'>Home</Menu.Item></Link>
+            <Link to="/about-kana"><Menu.Item as='a'>About Us</Menu.Item></Link>
+            <Link to="/login"><Menu.Item as='a'>Log in</Menu.Item></Link>
+            <Link to="/register"><Menu.Item as='a'>Sign Up</Menu.Item></Link>
+            <Link to="/profile"><Menu.Item as='a'>Start an Order</Menu.Item></Link>
+            <Link to="/orders"><Menu.Item as='a'>Past Orders</Menu.Item></Link>
+            <Link to="/restaurant-home"><Menu.Item as='a'>Restaurant Inquiry</Menu.Item></Link>
+            <Link to="/contact"><Menu.Item as='a'>Contact Us</Menu.Item></Link>
+            <Link to="/setting"><Menu.Item as='a'>Account Settings</Menu.Item></Link>
+            <Link to="/sign-out"><Menu.Item as='a'>Sign Out</Menu.Item></Link>
         </Sidebar>
 
         <Sidebar.Pusher dimmed={sidebarOpened}>

@@ -26,6 +26,7 @@ import MSidebar from './Sidebar';
 import NoResults  from './NoResults'
 import EndOfDeck from './EndOfDeck';
 import GifLoading from './GifLoading'
+import FoodMain from './FoodMain'
 
 
 export default props => {
@@ -37,9 +38,9 @@ const [loading, setLoading] = useState(true)
       <Router>
         <div>
             <Route exact path="/" component={MobileHome}></Route>
-            <Route path ="/login" component={Login} />
-            <Route path="/register" component={Registration}/>
-            <Route path="/loading" component={GifLoading}/>
+            <Route exact path ="/login" component={Login} />
+            <Route exact path="/register" component={Registration}/>
+            <Route exact path="/loading" component={GifLoading}/>
           <MSidebar>
             <Route exact path = "/about-kana" component={HomepageLayout} />
             <LoginRoute exact path="/profile" component={Profile} />
