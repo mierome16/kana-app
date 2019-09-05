@@ -31,7 +31,7 @@ html {box-sizing:border-box;}
   align-items: center;
   height: 100vh;
   margin: auto;
-  background-color: rgba(235, 101, 53, 1);
+  background-color: rgb(203,203,203);
 }
 
 .EatOptions div {
@@ -40,7 +40,7 @@ html {box-sizing:border-box;}
 
 .EatOptions div h1 {
   font-weight: lighter;
-  color: white;
+  color: black;
 }
 
 .EatOptions button {
@@ -62,8 +62,18 @@ html {box-sizing:border-box;}
     margin: 5px;
 }
 
+#cardheader {
+  margin-top: 10px;
+}
+
 .ui.header {
   margin: 5px;
+  padding: 0;
+  margin: 0;
+  background: #8f0a03be;
+  height: 50px;
+  width: 100vw;
+  margin-bottom: 0;
 }
 
 .ui.basic.button {
@@ -77,10 +87,11 @@ html {box-sizing:border-box;}
 
 .kananame {
   color: white;
-  font-size: 36px;
+  font-size: 30px;
   letter-spacing: 4px;
-  /* font-weight: lighter; */
-  
+  font-weight: lighter;
+  font-family: 'Rock Salt', cursive;
+  margin: auto;
 }
 
 .foodmainpage {
@@ -88,8 +99,14 @@ html {box-sizing:border-box;}
     flex-direction: column;
     justify-content: space-around;
     margin: auto;
-    background:rgba(83, 220, 98, 0.72);
-    
+    width: 100vw;
+    height: 100vh;
+    background:   linear-gradient(
+      rgba(0, 0, 0, 0.8), 
+      rgba(0, 0, 0, 0.8)
+    ),url('https://i.pinimg.com/564x/26/3d/53/263d53ed14ea33255b11d342a25c20d4.jpg');
+    background-size: contain;
+    background-repeat: no-repeat
 }
 #fooditem {
   margin: auto;
@@ -104,20 +121,6 @@ html {box-sizing:border-box;}
   
 }
 
-#yes {
-  background-color: #16ab39;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-}
-
-#no {
-  background-color: #e71010;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-}
-
 
 /**********Profile Styling*********/
 .Profile {
@@ -125,11 +128,14 @@ html {box-sizing:border-box;}
   flex-direction: column;
   justify-content: flex-start;
   height: 100vh;
-  background: rgba(235, 101, 53, 1);
+  background: #8f0a03;
 }
 
 .Profile h1, .Profile h2 {
-  color: white;
+  color: rgb(208,208,208);
+}
+.Profile h2 {
+  font-size: 20px;
 }
 
 .top, .location {
@@ -175,6 +181,9 @@ html {box-sizing:border-box;}
   width: 70px;
   margin: auto;
 }
+#diet-button:active {
+  background: #6b6565
+}
 
 .Profile .save {
   width: 100%;
@@ -184,18 +193,17 @@ html {box-sizing:border-box;}
 
 .save a {
   margin: auto;
+  font-size: 26px;
 }
 
 .save a button {
   width: 100px;
   height: 30px;
-  background: #16ab39;
   color: white;
   border-radius: 10px;
   border-style: none;
   outline: none;
 }
-
 
 /******Meal Types Styling******/
 .MealOptions {
@@ -203,12 +211,12 @@ html {box-sizing:border-box;}
   flex-direction: column;
   justify-content: flex-start;
   height: 100vh;
-  background: rgba(235, 101, 53, 1);
+  background: #8f0a03;
   position: relative;
 }
 
 .MealOptions h2 {
-  color: white;
+  color: rgb(208,208,208);
 }
 
 .meals {
@@ -231,7 +239,7 @@ html {box-sizing:border-box;}
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  width: 88vw;
   height: 100px;
   background: white;
   border: none;
@@ -263,8 +271,11 @@ html {box-sizing:border-box;}
 #save {
   width: 100%;
   height: 50px;
-  background: #16ab39;
+  background: #6b6565;
   color: white;
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 2px;
   text-align: center;
 }
 
@@ -392,4 +403,85 @@ html {box-sizing:border-box;}
 
 #date-picker {
   height:10px;
+}
+
+
+/***********//* NoResults Styling *//**********/
+.noresults {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+  border: solid 5px #E84940;;
+  height: 78vh;
+}
+
+.joke {
+  font-size: 20px;
+  color: #E84940;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.joke-q {
+  text-align: left;
+  padding-left: 5px;
+
+}
+
+.joke-a {
+  text-align: right;
+  padding-right: 5px;
+  padding-left: 5px;
+  margin-right: 5px;
+  float:right;
+  font-style: italic;
+  -webkit-animation-duration: 3s;
+  animation-duration: 3s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeIn {
+0% {opacity: 0;}
+100% {opacity: 1;}
+}
+
+@keyframes fadeIn {
+0% {opacity: 0;}
+100% {opacity: 1;}
+}
+
+.fadeIn {
+-webkit-animation-name: fadeIn;
+animation-name: fadeIn;
+}
+
+
+.textbox {
+  background-color: #E84940;
+  border-radius: 15px;
+  /* opacity: .8; */
+  color: antiquewhite;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+}
+
+/********* loading page ******/
+#gif {
+  background: url('../loadingkana.gif');
+  height: 300px;
+  width: 300px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: auto;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+#loadinggifpg{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
 }

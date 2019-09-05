@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from 'react'
+import React, { lazy, Suspense, useState } from 'react'
 import 'normalize.css/normalize.css'
 import '../styles/App.css'
 //import '../styles/SwipeStyles.css'
@@ -13,7 +13,7 @@ import Registration from './Registration'
 import EatOptions from './EatOptions'
 import Profile from './Profile'
 import Confirmation from './Confirmation'
-import FoodMain from './FoodMain'
+import Swipe from './Swipe'
 import MealOptions from './MealOptions';
 import DistanceMap from './DistanceMap'
 import LoginRoute from './LoginRoute'
@@ -23,11 +23,15 @@ import RestHome from './RestHome'
 import RestRegister from './RestRegister';
 import SinglePastOrder from './SinglePastOrder'
 import MSidebar from './Sidebar';
- 
+import NoResults  from './NoResults'
+import EndOfDeck from './EndOfDeck';
+import GifLoading from './GifLoading'
 
 
 export default props => {
-const LoadingPage = lazy(() => import('../food-loading.gif'))
+const [loading, setLoading] = useState(true)
+// const LoadingPage = lazy(() => import('../loadingkana.gif'))
+
   return (
     <Provider store={store}>
       <Router>
@@ -35,6 +39,7 @@ const LoadingPage = lazy(() => import('../food-loading.gif'))
             <Route exact path="/" component={MobileHome}></Route>
             <Route path ="/login" component={Login} />
             <Route path="/register" component={Registration}/>
+            <Route path="/loading" component={GifLoading}/>
           <MSidebar>
             <Route exact path = "/about-kana" component={HomepageLayout} />
             <LoginRoute exact path="/profile" component={Profile} />
@@ -50,6 +55,8 @@ const LoadingPage = lazy(() => import('../food-loading.gif'))
             <Route path = "/restaurant-home" component={RestHome}/>
             <Route path ="/restaurant-register" component={RestRegister}/>
             <Route path ="/sidebar" component={MSidebar}/>
+            <Route path ="/notfound" component={NoResults} />
+            <Route path="/endofdeck" component={EndOfDeck} />
           </MSidebar>
         </div>
       </Router>
