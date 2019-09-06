@@ -5,7 +5,7 @@ import shortid from 'shortid'
 import { addOrder, sendOrder } from '../actions/meal.actions'
 import { Redirect } from "react-router-dom"
 import moment from 'moment'
-
+import MSidebar from './Sidebar'
  
 export default props => { 
   const order = useSelector(appState => appState.mealReducer.orderedItem)
@@ -42,6 +42,7 @@ export default props => {
   
     return (
       submit ? <Redirect to="/confirm" /> : (
+      <MSidebar>
       <Container style={{'padding': '1em', overflowY: 'scroll', overflowX: 'hidden', background: 'white'}}>
         <Header as='h3' style={{'paddingTop': '1em', 'textAlign': 'center' }}>
           Confirm Your Order
@@ -79,6 +80,7 @@ export default props => {
             <Form.Button type="submit" onClick={handleSubmit} inverted color="orange">Place Order</Form.Button> 
         </Form>
       </Container>
+      </MSidebar>
       )
     )
   }

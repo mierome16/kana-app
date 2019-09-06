@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import { finishOrder } from '../actions/meal.actions'
 import { Redirect } from 'react-router-dom'
 import { Header, Container, Button } from 'semantic-ui-react'
+import MSidebar from './Sidebar';
 
 export default props => {
   //const order = useSelector(appState => appState.mealReducer.orderedItem)
@@ -26,6 +27,7 @@ export default props => {
     return (
       //<h1>confirm</h1>
       viewOrders ? <Redirect to="/orders" /> : orderAgain ? <Redirect to="/profile" /> : (
+      <MSidebar>
       <Container style={{padding: '1em'}}>
           <Header as="h1">Success!</Header>
           <Header as="h3">Confirmation Number: #{order.confirm}</Header>
@@ -46,6 +48,7 @@ export default props => {
           <Button onClick={e => endOrder('another')}>Order Another Item</Button>
         </div>
       </Container>
+      </MSidebar>
       )
     )
   }

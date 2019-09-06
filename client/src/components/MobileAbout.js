@@ -46,7 +46,7 @@ export default props => {
             </div>
           </div>
         </div>
-        <div className="about-card" style={{background:'#960080'}}>
+        <div className="about-card" style={{background:'#df6618'}}>
           <div className="about-content">
             <div className="about-header">
               <div className="about-logo">KANA</div>

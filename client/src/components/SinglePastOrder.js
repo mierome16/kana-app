@@ -4,6 +4,7 @@ import moment from 'moment'
 import { Card as FoodItem, Button, Header } from "semantic-ui-react"
 import { Link } from 'react-router-dom'
 import { finishOrder, orderItem } from '../actions/meal.actions'
+import MSidebar from './Sidebar';
 
 
 export default props => {
@@ -18,6 +19,7 @@ export default props => {
     // orderitem(singleItem) ? check if current item to order exists already
   }
   return (
+    <MSidebar>
     <div style={{padding:25}}>
       <Header as="h1">{singleItem.name}</Header>
         <div>
@@ -48,5 +50,6 @@ export default props => {
         <Link to="/options"><Button onClick={reorder}>Order Again</Button></Link>
       </div>
     </div>
+    </MSidebar>
   )
 }
