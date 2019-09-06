@@ -9,7 +9,9 @@ import NoResults from './NoResults'
 import EndOfDeck from "./EndOfDeck";
 import MSidebar from './Sidebar' 
 
-
+const endCard = {
+  name: 'Last Card'
+}
 
 export default props => {
   const foodItems = useSelector(appState => appState.mealReducer.allItems)
@@ -18,6 +20,7 @@ export default props => {
   const selectedMeals = useSelector(appState => appState.mealReducer.selectedMeals)
   const [redir, setRedir] = useState(false)
   const [noFound, setNoFound] = useState(false)
+  
   
    function mapRating(number) {
       let arr = []
@@ -99,6 +102,9 @@ export default props => {
                         </div> 
                       ))
                     )}
+                  </div>
+                  <div id="lastCard" >
+                        <EndOfDeck />
                   </div>
                   <div className="stackedcards--animatable stackedcards-overlay top">Favorite</div>
                   <div className="stackedcards--animatable stackedcards-overlay right">Yum</div>

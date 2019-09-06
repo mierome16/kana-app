@@ -7,8 +7,6 @@ import MSidebar from './Sidebar'
 import MealButton from './MealButton'
 
 
-
-
 export default props => {
   const meals = useSelector(appState => appState.mealReducer.meals)
   const selectedMeals = useSelector(appState => appState.mealReducer.selectedMeals)

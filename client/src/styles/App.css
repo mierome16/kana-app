@@ -12,6 +12,22 @@ html {box-sizing:border-box;}
   padding:3px;
 }
 
+#menuicon {
+  width: 50px;
+}
+
+#mobileTop {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+#favIcon {
+  font-size: 28px;
+  color: black
+}
+
 
 /**********EatOptions Styling*********/
 .EatOptions {
@@ -119,7 +135,7 @@ html {box-sizing:border-box;}
 }
 
 .Profile h1, .Profile h2 {
-  color: rgb(208,208,208);
+  color: rgb(247, 243, 243);
 }
 .Profile h2 {
   font-size: 20px;
@@ -208,25 +224,28 @@ html {box-sizing:border-box;}
 
 .meals {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
-  align-content: space-around;
+  justify-content: space-around;
+  /* align-content: space-between; */
   margin: 5px;
 }
 
 .meal {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
   align-content: space-around;
-  width: 100%;
+  width: 180px;
+  margin-bottom: 5px;
+  
 }
 
 .ui.fluid.toggle.button {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  width: 88vw;
+  width: 180px;
   height: 100px;
   background: white;
   border: none;
@@ -234,6 +253,7 @@ html {box-sizing:border-box;}
   outline: none;
   padding: 0;
   margin: 3px;
+  border-radius: 15px;
 }
 
 .ui.fluid.toggle.button p {
@@ -319,7 +339,7 @@ html {box-sizing:border-box;}
 
 .mhlinks {
   position: relative;
-  top: 75px;
+  top: 94px;
   display: flex;
   flex-direction: column;
   width: 100vw;
@@ -416,16 +436,26 @@ html {box-sizing:border-box;}
 /***********//* NoResults Styling *//**********/
 /* #endofdeck {
   position: relative;
-  z-index: -100
+  z-index: -1000
 } */
 
+#lastCard {
+  height: 505px;
+  background: white;
+  position: absolute;
+  top: 0;
+  border-radius: 10px;
+  /* z-index: 9; */
+  /* width: 100vw; */
+}
 
-#none {
+.none {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   text-align: center;
-  height: 75vh;
+  height: 500px;
+  border-radius: 10px;
   background-color: rgb(230, 230, 230, .8);
 }
 
@@ -542,3 +572,72 @@ animation-name: fadeIn;
   width:100%;
 } */
 
+
+/******* Contact Us Form ********/
+.contactus {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  width: 100vw;
+  background:   linear-gradient(
+    rgba(0, 0, 0, 0.3), 
+    rgba(0, 0, 0, 0.3)
+  ),url('https://i.pinimg.com/564x/26/3d/53/263d53ed14ea33255b11d342a25c20d4.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  overflow: -moz-hidden-unscrollable;
+}
+
+.contactform {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+
+
+
+
+#title h1 {
+  color: white;
+  text-align: center;
+}
+
+#title {
+  height: 15;
+  margin-top: 10%;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 85%;
+  margin-top: 0px;
+  height: 70%
+}
+
+#inputs {
+  height:50px;
+}
+
+#inputs, #textarea {
+  margin-top: 20px;
+}
+
+#textarea {
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.contactus #save {
+  opacity: .8;
+}
+
+#modal {
+  width: 80%;
+  height: 100px;
+  background: rgb(228, 225, 225);
+  margin: auto;
+}

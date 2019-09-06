@@ -33,7 +33,7 @@ class MSidebar extends Component {
             Home
           </Menu.Item>
             <Link to="/"><Menu.Item>Home</Menu.Item></Link>
-            <Link to="/about-kana"><Menu.Item>About Us</Menu.Item></Link>
+            <Link to="/about"><Menu.Item>About Us</Menu.Item></Link>
             <Link to="/profile"><Menu.Item>Start an Order</Menu.Item></Link>
             <Link to="/orders"><Menu.Item>Past Orders</Menu.Item></Link>
             <Link to="/restaurant-home"><Menu.Item>Restaurant Inquiry</Menu.Item></Link>
@@ -49,20 +49,27 @@ class MSidebar extends Component {
             id="sidebarTop"
           >
             <Container id="mobileHeader" 
-            style={{height: '50px'}}>
+            style={{height: '50px', display:'flex', flexDirection:'row'}}>
               <Menu id='mobileTop'
               style={{border:0}}
+              
               inverted
               pointing
               secondary
               size='large'>
              
-                <Container>
+                {/* <Container id='menuicon'> */}
                   <Menu.Item onClick={this.handleToggle}>
                     <Image style={{width:30, height:30}} src="https://cdn1.iconfinder.com/data/icons/restaurant-kitchen-utensils/100/Kitchenware_8-512.png" size="small" />
                     {/* <Icon name='sidebar' id="sidebar-butt"/> */}
                   </Menu.Item>
-                </Container>
+                {/* </Container> */}
+                {/* <div style={{width: 600, marginTop: 5}}> */}
+                  <h3 className='kananame'>Kana</h3>
+                  <button class="item">
+                    <Icon id='favIcon' name="heart"/>
+                  </button>
+                {/* </div> */}
               </Menu>
             </Container>
           </Segment>
