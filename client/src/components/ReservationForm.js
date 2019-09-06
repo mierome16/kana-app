@@ -25,7 +25,7 @@ export default props => {
 
   function handleSubmit(e) {
     e.preventDefault()
-    //setSubmit(!submit)
+    setSubmit(!submit)
     console.log(values)
     sendOrder(values)
   }

@@ -16,17 +16,6 @@ export default props => {
     return (
         <div>
         {showLoading === true ?  <div className="foodmainpage">
-        <Header className="foodmainheader"as='h2'>
-            <button className="ui basic button">
-                <i className="icon user"></i>
-            </button>
-            <Header.Content className="kananame">
-            Kana
-            </Header.Content>
-            <button className="ui basic button">
-                <Icon name="heart"/>
-            </button>
-        </Header>
             <Swipe />
     </div> : <GifLoading/>}
     </div>

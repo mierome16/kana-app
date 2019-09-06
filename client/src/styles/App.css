@@ -1,6 +1,16 @@
 html {box-sizing:border-box;}
 *, *::before, *::after {box-sizing:inherit;}
 
+/* #app-container {
+  max-width: 100vw;
+  max-height: 100vh;
+  overflow: hidden;
+} */
+
+.app-content {
+  margin-top: 50px;
+}
+
 .ui.inverted.segment, .ui.primary.inverted.segment {
   background: rgba(235, 101, 53, 1);
   /* background: rgba(0,0,0,.8) */
@@ -72,7 +82,6 @@ html {box-sizing:border-box;}
   margin: 0;
   background: #8f0a03be;
   height: 50px;
-  width: 100vw;
   margin-bottom: 0;
 }
 
@@ -270,7 +279,7 @@ html {box-sizing:border-box;}
 
 #save {
   width: 100%;
-  height: 50px;
+  height: 60px;
   background: #6b6565;
   color: white;
   font-size: 20px;
@@ -317,7 +326,7 @@ html {box-sizing:border-box;}
   border-radius: 5px;
 }
 .mhlogo {
-  height: 250px;
+    height: 250px;
     width: 250px;
     margin: auto;
     background: url('../kanapic.png');
@@ -326,7 +335,27 @@ html {box-sizing:border-box;}
     margin-bottom: -44px;
     border: 2px solid #8f0a03;
     border-radius: 50%;
+    position: relative;
+    top: 75px;
 }
+
+.mhlinks {
+  position: relative;
+  top: 75px;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  /* align-content: center; */
+  align-items: center;
+  margin-top: 60px;
+}
+
+.mhbutton .ui.inverted.button {
+  margin: 5px;
+  width: 200px;
+}
+
+
 .aboutkana {
   display: flex;
   margin: auto;

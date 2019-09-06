@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useState } from 'react'
+import React, { useState } from 'react'
 import 'normalize.css/normalize.css'
 import '../styles/App.css'
 //import '../styles/SwipeStyles.css'
@@ -13,7 +13,6 @@ import Registration from './Registration'
 import EatOptions from './EatOptions'
 import Profile from './Profile'
 import Confirmation from './Confirmation'
-import Swipe from './Swipe'
 import MealOptions from './MealOptions';
 import DistanceMap from './DistanceMap'
 import LoginRoute from './LoginRoute'
@@ -25,7 +24,6 @@ import SinglePastOrder from './SinglePastOrder'
 import MSidebar from './Sidebar';
 import NoResults  from './NoResults'
 import EndOfDeck from './EndOfDeck';
-import GifLoading from './GifLoading'
 import FoodMain from './FoodMain'
 
 
@@ -36,12 +34,10 @@ const [loading, setLoading] = useState(true)
   return (
     <Provider store={store}>
       <Router>
-        <div>
-            <Route exact path="/" component={MobileHome}></Route>
+        <div id="app-container">
+            <Route exact path="/" component={MobileHome}/>
             <Route exact path ="/login" component={Login} />
             <Route exact path="/register" component={Registration}/>
-            <Route exact path="/loading" component={GifLoading}/>
-          <MSidebar>
             <Route exact path = "/about-kana" component={HomepageLayout} />
             <LoginRoute exact path="/profile" component={Profile} />
             <LoginRoute exact path="/order" component={OrderForm} />
@@ -58,7 +54,6 @@ const [loading, setLoading] = useState(true)
             <Route path ="/sidebar" component={MSidebar}/>
             <Route path ="/notfound" component={NoResults} />
             <Route path="/endofdeck" component={EndOfDeck} />
-          </MSidebar>
         </div>
       </Router>
     </Provider>
