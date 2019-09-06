@@ -6,6 +6,7 @@ import shortid from 'shortid'
 import { sendOrder } from '../actions/meal.actions'
 import { Redirect } from "react-router-dom"
 import DatePicker from 'react-date-picker'
+import MSidebar from './Sidebar';
 
 
 export default props => { 
@@ -25,7 +26,7 @@ export default props => {
 
   function handleSubmit(e) {
     e.preventDefault()
-    //setSubmit(!submit)
+    setSubmit(!submit)
     console.log(values)
     sendOrder(values)
   }
@@ -34,6 +35,7 @@ export default props => {
 
     return (
       submit ? <Redirect to="/confirm" /> : (
+        <MSidebar>
       <Container style={{'padding': '1em', overflowY: 'scroll', background: 'white', height: '100vh', width: '100vw'}}>
         <Header as='h3' style={{'paddingTop': '1em', 'textAlign': 'center' }}>
           Make a Reservation
@@ -67,6 +69,7 @@ export default props => {
             <Form.Button inverted color="orange" onClick={handleSubmit}>Confirm Reservation</Form.Button>
         </Form>
       </Container>
+      </MSidebar>
       )
     )
   }

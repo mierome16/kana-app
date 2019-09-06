@@ -7,6 +7,8 @@ import { useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import NoResults from './NoResults'
 import EndOfDeck from "./EndOfDeck";
+import MSidebar from './Sidebar' 
+
 
 
 export default props => {
@@ -67,8 +69,8 @@ export default props => {
       return (
         
           order ? <Redirect to="/options" /> : (
+            <MSidebar>
               <div id="cardsContainer">
-                  
                 <div id="stacked-cards-block" className="stackedcards stackedcards--animatable init">
                   {/* <div id="endofdeck">
                     <EndOfDeck />
@@ -107,8 +109,10 @@ export default props => {
                   <div className="left-action">Yuck</div>
                     {/* <div className="top-action">Favorite</div> */}
                   <div className="right-action">Yum</div>
-                </div>  
+                </div> 
+               
               </div>
+              </MSidebar>
           ))
       // )
       

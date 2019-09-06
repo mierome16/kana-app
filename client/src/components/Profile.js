@@ -14,7 +14,7 @@ export default props => {
   const selectedMeals = useSelector(appState => appState.mealReducer.selectedMeals)
   const user = useSelector(appState => appState.authReducer.users)
   const diets = useSelector(appState => appState.mealReducer.diets)
-
+  console.log(user[0])
   useEffect(() => {
     getDiets()
     // getMenuItems(selectedDiets, selectedMeals)
@@ -22,10 +22,10 @@ export default props => {
 
 
   return (
-   
     <div className="Profile">
+      <MSidebar>
       <div className='top'>
-        <h1>Welcome !</h1>
+        <h1>Welcome {user ? user[0].username : ''}!</h1>
         <h2>Let's set up your preferences..</h2>
 
       </div>
@@ -49,7 +49,9 @@ export default props => {
           <Button fluid id="save" type='Submit' >Continue</Button>
         </Link>
       </div>
+      </MSidebar>
     </div>
+    
     
   )
 }

@@ -1,32 +1,17 @@
 html {box-sizing:border-box;}
 *, *::before, *::after {box-sizing:inherit;}
 
-/* .container {
-  height: 100vh;
-  overflow: hidden;
-} */
 
-.ui.inverted.segment, .ui.primary.inverted.segment {
-  background: rgba(235, 101, 53, 1);
-  /* background: rgba(0,0,0,.8) */
+.app-content {
+  margin-top: 50px;
 }
 
-.ui.vertical.segment {
-  padding-top: 20px;
-}
-#sidebar-butt {
-  position: relative;
-  top: -10px;
-}
 
 #sidebarTop {
-  background: rgba(92, 91, 91, 0.3)
+  background: rgba(255, 249, 249, 0.51);
+  padding:3px;
 }
 
-/* body,
- #Responsive {
-  background: rgba(235, 101, 53, 1);
-} */
 
 /**********EatOptions Styling*********/
 .EatOptions {
@@ -71,23 +56,19 @@ html {box-sizing:border-box;}
   margin-top: 10px;
 }
 
-.ui.header {
-  margin: 5px;
-  padding: 0;
-  margin: 0;
-  background: #8f0a03be;
-  height: 50px;
-  width: 100vw;
-  margin-bottom: 0;
-}
-
 .ui.basic.button {
   box-shadow: none;
 }
 
-#foodnameheader {
+#foodmainheader {
     display: flex;
     justify-content: space-between;
+    margin: 5px;
+    padding: 0;
+    margin: 0;
+    height: 50px;
+    width: 100vw;
+    margin-bottom: 0;
 }
 
 .kananame {
@@ -276,7 +257,7 @@ html {box-sizing:border-box;}
 
 #save {
   width: 100%;
-  height: 50px;
+  height: 60px;
   background: #6b6565;
   color: white;
   font-size: 20px;
@@ -323,7 +304,7 @@ html {box-sizing:border-box;}
   border-radius: 5px;
 }
 .mhlogo {
-  height: 250px;
+    height: 250px;
     width: 250px;
     margin: auto;
     background: url('../kanapic.png');
@@ -332,7 +313,27 @@ html {box-sizing:border-box;}
     margin-bottom: -44px;
     border: 2px solid #8f0a03;
     border-radius: 50%;
+    position: relative;
+    top: 75px;
 }
+
+.mhlinks {
+  position: relative;
+  top: 75px;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  /* align-content: center; */
+  align-items: center;
+  margin-top: 60px;
+}
+
+.mhbutton .ui.inverted.button {
+  margin: 5px;
+  width: 200px;
+}
+
+
 .aboutkana {
   display: flex;
   margin: auto;
@@ -499,4 +500,45 @@ animation-name: fadeIn;
   width: 100vw;
   display: flex;
 }
+
+
+/********* mobile about page ******/
+.about-card {
+  height: 100vh;
+  width: 100vw;
+  margin: auto;
+  text-align: center;
+  color:white;
+}
+
+.about-header {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+}
+
+.about-header div {
+  padding: 20px;
+}
+
+.about-progress {
+  position: absolute;
+  bottom: 75px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.about-info {
+  position: absolute;
+  top: 120px;
+  width:100%;
+  margin:auto;
+}
+
+/* .about-content{
+  width:100%;
+} */
 
