@@ -1,6 +1,8 @@
 html {box-sizing:border-box;}
 *, *::before, *::after {box-sizing:inherit;}
 
+
+/* .ui.inverted.segment, .ui.primary.inverted.segment {
 /* #app-container {
   max-width: 100vw;
   max-height: 100vh;
@@ -10,28 +12,6 @@ html {box-sizing:border-box;}
 .app-content {
   margin-top: 50px;
 }
-
-.ui.inverted.segment, .ui.primary.inverted.segment {
-  background: rgba(235, 101, 53, 1);
-  /* background: rgba(0,0,0,.8) */
-}
-
-.ui.vertical.segment {
-  padding-top: 20px;
-}
-#sidebar-butt {
-  position: relative;
-  top: -10px;
-}
-
-#sidebarTop {
-  background: rgba(92, 91, 91, 0.68)
-}
-
-/* body,
- #Responsive {
-  background: rgba(235, 101, 53, 1);
-} */
 
 /**********EatOptions Styling*********/
 .EatOptions {
@@ -76,22 +56,19 @@ html {box-sizing:border-box;}
   margin-top: 10px;
 }
 
-.ui.header {
-  margin: 5px;
-  padding: 0;
-  margin: 0;
-  background: #8f0a03be;
-  height: 50px;
-  margin-bottom: 0;
-}
-
 .ui.basic.button {
   box-shadow: none;
 }
 
-#foodnameheader {
+#foodmainheader {
     display: flex;
     justify-content: space-between;
+    margin: 5px;
+    padding: 0;
+    margin: 0;
+    height: 50px;
+    width: 100vw;
+    margin-bottom: 0;
 }
 
 .kananame {

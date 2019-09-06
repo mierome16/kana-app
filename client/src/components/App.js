@@ -25,6 +25,7 @@ import MSidebar from './Sidebar';
 import NoResults  from './NoResults'
 import EndOfDeck from './EndOfDeck';
 import FoodMain from './FoodMain'
+import RestLogin from './RestLogin'
 
 
 export default props => {
@@ -38,6 +39,11 @@ const [loading, setLoading] = useState(true)
             <Route exact path="/" component={MobileHome}/>
             <Route exact path ="/login" component={Login} />
             <Route exact path="/register" component={Registration}/>
+            <Route exact path="/loading" component={GifLoading}/>
+            <Route path = "/restaurant-home" component={RestHome}/>
+            <Route path ="/restaurant-register" component={RestRegister}/>
+            <Route path="/restaurant-login" component={RestLogin}/>
+          <MSidebar>
             <Route exact path = "/about-kana" component={HomepageLayout} />
             <LoginRoute exact path="/profile" component={Profile} />
             <LoginRoute exact path="/order" component={OrderForm} />
@@ -49,8 +55,6 @@ const [loading, setLoading] = useState(true)
             <LoginRoute exact path="/meal" component={MealOptions} />
             <LoginRoute exact path="/orders" component={PastOrders} />
             <LoginRoute exact path="/orders/:singleOrder" component={SinglePastOrder} />
-            <Route path = "/restaurant-home" component={RestHome}/>
-            <Route path ="/restaurant-register" component={RestRegister}/>
             <Route path ="/sidebar" component={MSidebar}/>
             <Route path ="/notfound" component={NoResults} />
             <Route path="/endofdeck" component={EndOfDeck} />
