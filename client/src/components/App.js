@@ -5,7 +5,7 @@ import '../styles/App.css'
 import { Provider } from 'react-redux'
 import store from '../store'
 import ReservationForm from './ReservationForm'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import HomepageLayout from './Homepage';
 import OrderForm from './OrderForm'
 import Login from './Login'
@@ -27,6 +27,7 @@ import EndOfDeck from './EndOfDeck';
 import FoodMain from './FoodMain'
 import MobileAbout from './MobileAbout';
 import RestLogin from './RestLogin'
+import GifLoading from './GifLoading'
 
 
 export default props => {
@@ -37,15 +38,21 @@ const [loading, setLoading] = useState(true)
     <Provider store={store}>
       <Router>
         <div id="app-container">
+          <Switch>
             <Route exact path="/" component={MobileHome}/>
             <Route exact path ="/login" component={Login} />
             <Route exact path="/register" component={Registration}/>
             <Route exact path="/loading" component={GifLoading}/>
-            <Route path = "/restaurant-home" component={RestHome}/>
-            <Route path ="/restaurant-register" component={RestRegister}/>
+            <Route exact path = "/restaurant-home" component={RestHome}/>
+            <Route exact path ="/restaurant-register" component={RestRegister}/>
             <Route path="/restaurant-login" component={RestLogin}/>
             <Route exact path = "/about-kana" component={HomepageLayout} />
             <Route exact path ="/about" component={MobileAbout} />
+            <Route path ="/sidebar" component={MSidebar}/>
+            <Route path ="/notfound" component={NoResults} />
+            <Route path="/endofdeck" component={EndOfDeck} />
+          </Switch>
+          <Switch>
             <LoginRoute exact path="/profile" component={Profile} />
             <LoginRoute exact path="/order" component={OrderForm} />
             <LoginRoute exact path="/reservation" component={ReservationForm} />
@@ -56,9 +63,7 @@ const [loading, setLoading] = useState(true)
             <LoginRoute exact path="/meal" component={MealOptions} />
             <LoginRoute exact path="/orders" component={PastOrders} />
             <LoginRoute exact path="/orders/:singleOrder" component={SinglePastOrder} />
-            <Route path ="/sidebar" component={MSidebar}/>
-            <Route path ="/notfound" component={NoResults} />
-            <Route path="/endofdeck" component={EndOfDeck} />
+          </Switch>
         </div>
       </Router>
     </Provider>
