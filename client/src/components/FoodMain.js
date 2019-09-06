@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Icon, Header } from 'semantic-ui-react'
-import Swipe from './Swipe'
 
-import NoResults from './NoResults';
-import {useSelector} from 'react-redux'
+import Swipe from './Swipe'
 import GifLoading from './GifLoading'
 
 export default props => {

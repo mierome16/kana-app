@@ -36,7 +36,7 @@ const [loading, setLoading] = useState(true)
   return (
     <Provider store={store}>
       <Router>
-        <div>
+        <div className='container'>
             <Route exact path="/" component={MobileHome}></Route>
             <Route exact path ="/login" component={Login} />
             <Route exact path="/register" component={Registration}/>

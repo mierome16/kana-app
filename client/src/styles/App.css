@@ -1,6 +1,11 @@
 html {box-sizing:border-box;}
 *, *::before, *::after {box-sizing:inherit;}
 
+/* .container {
+  height: 100vh;
+  overflow: hidden;
+} */
+
 .ui.inverted.segment, .ui.primary.inverted.segment {
   background: rgba(235, 101, 53, 1);
   /* background: rgba(0,0,0,.8) */
@@ -15,7 +20,7 @@ html {box-sizing:border-box;}
 }
 
 #sidebarTop {
-  background: rgba(92, 91, 91, 0.68)
+  background: rgba(92, 91, 91, 0.3)
 }
 
 /* body,
@@ -106,8 +111,9 @@ html {box-sizing:border-box;}
       rgba(0, 0, 0, 0.8)
     ),url('https://i.pinimg.com/564x/26/3d/53/263d53ed14ea33255b11d342a25c20d4.jpg');
     background-size: contain;
-    background-repeat: no-repeat
+    background-repeat: no-repeat;
 }
+
 #fooditem {
   margin: auto;
   margin-bottom: 25px;
@@ -371,7 +377,7 @@ html {box-sizing:border-box;}
   margin-left: 30px;
 }
 #formz {
-  background: rgb(100,100,100);
+  background: rgb(242, 236, 236);
   opacity: .7;
 }
 #lrheader {
@@ -407,13 +413,19 @@ html {box-sizing:border-box;}
 
 
 /***********//* NoResults Styling *//**********/
-.noresults {
+/* #endofdeck {
+  position: relative;
+  z-index: -100
+} */
+
+
+#none {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-around;
   text-align: center;
-  border: solid 5px #E84940;;
-  height: 78vh;
+  height: 75vh;
+  background-color: rgb(230, 230, 230, .8);
 }
 
 .joke {
@@ -456,12 +468,14 @@ html {box-sizing:border-box;}
 animation-name: fadeIn;
 }
 
+#none a {
+  font-size: 16px;
+}
 
 .textbox {
   background-color: #E84940;
   border-radius: 15px;
-  /* opacity: .8; */
-  color: antiquewhite;
+  color: rgb(250, 235, 215);
   width: 90%;
   margin-left: auto;
   margin-right: auto;
@@ -485,3 +499,4 @@ animation-name: fadeIn;
   width: 100vw;
   display: flex;
 }
+
