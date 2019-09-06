@@ -18,6 +18,7 @@ class MSidebar extends Component {
         as={Sidebar.Pushable}
         id="sidebarContainer"
         maxWidth={Responsive.onlyMobile.maxWidth}
+        style={{height:'100vh'}}
       >
         <Sidebar
           id='mobileSideBar'
