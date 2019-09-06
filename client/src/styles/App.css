@@ -80,6 +80,7 @@ html {box-sizing:border-box;}
   margin: auto;
 }
 
+
 .foodmainpage {
     display: flex;
     flex-direction: column;
