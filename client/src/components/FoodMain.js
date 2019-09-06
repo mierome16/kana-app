@@ -19,8 +19,9 @@ export default props => {
                 <i className="icon user"></i>
             </button>
             <Header.Content className="kananame">
-            Kana
+                Kana
             </Header.Content>
+
             <button className="ui basic button">
                 <Icon name="heart"/>
             </button>

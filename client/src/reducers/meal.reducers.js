@@ -40,8 +40,8 @@ export default function(state = initialState, action) {
     case 'END_ORDER':
       return {...state, orderedItem: ''}
       
-    case 'ADD_ORDER':
-      return {...state, pastOrders: [action.payload, ...state.pastOrders]}
+    case 'GET_PAST_ORDERS':
+      return {...state, pastOrders: action.payload}
     default: 
       return state
   }

@@ -12,9 +12,9 @@ export default props => {
   const allItems = useSelector(appState => appState.mealReducer.allItems)
   const selectedDiets = useSelector(appState => appState.mealReducer.selectedDiets)
   const selectedMeals = useSelector(appState => appState.mealReducer.selectedMeals)
-  const user = useSelector(appState => appState.authReducer.users)
+  const user = useSelector(appState => appState.authReducer.user)
   const diets = useSelector(appState => appState.mealReducer.diets)
-  console.log(user[0])
+  console.log(user)
   useEffect(() => {
     getDiets()
     // getMenuItems(selectedDiets, selectedMeals)
@@ -25,9 +25,8 @@ export default props => {
     <div className="Profile">
       <MSidebar>
       <div className='top'>
-        <h1>Welcome {user ? user[0].username : ''}!</h1>
+        <h1>Welcome {localStorage.getItem('user')}!</h1>
         <h2>Let's set up your preferences..</h2>
-
       </div>
       
       {/* <div className='location'>

@@ -11,12 +11,11 @@ import MSidebar from './Sidebar';
 
 export default props => { 
   const order = useSelector(appState => appState.mealReducer.orderedItem)
- // const user = useSelector(appState => appState.authReducer.users[0].id)
-//  console.log(user[user.length - 1])
+  const user = useSelector(appState => appState.authReducer.user.id)
   const [date, setDate] = useState(new Date())  
   const [submit, setSubmit] = useState(false)
   const values = {
-    //user: user,
+    user: localStorage.getItem('id'),
     order: order,
     date: date,
     confirm: shortid.generate(),

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { Responsive, Sidebar, Menu, Segment, Container, Icon, Image, Button } from 'semantic-ui-react'
+import { Responsive, Sidebar, Menu, Segment, Container, Icon, Image, Button, Header } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
+import { logout } from '../actions/auth.actions';
 
 class MSidebar extends Component {
   state = {}
@@ -39,7 +40,7 @@ class MSidebar extends Component {
             <Link to="/restaurant-home"><Menu.Item>Restaurant Inquiry</Menu.Item></Link>
             <Link to="/contact"><Menu.Item>Contact Us</Menu.Item></Link>
             <Link to="/setting"><Menu.Item>Account Settings</Menu.Item></Link>
-            <Link to="/sign-out"><Menu.Item>Sign Out</Menu.Item></Link>
+            <Link to="/sign-out"><Menu.Item onClick={logout}> Sign Out</Menu.Item></Link>
         </Sidebar>
 
         <Sidebar.Pusher dimmed={sidebarOpened}>
@@ -61,6 +62,9 @@ class MSidebar extends Component {
                 {/* <Container id='menuicon'> */}
                   <Menu.Item onClick={this.handleToggle}>
                     <Image style={{width:30, height:30}} src="https://cdn1.iconfinder.com/data/icons/restaurant-kitchen-utensils/100/Kitchenware_8-512.png" size="small" />
+                    <h2 className="kanaSidebar">
+                        Kana
+                    </h2>
                     {/* <Icon name='sidebar' id="sidebar-butt"/> */}
                   </Menu.Item>
                 {/* </Container> */}
