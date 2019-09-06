@@ -14,15 +14,10 @@ export default props => {
 
     return (
         <div id="loginform">
-            <header id="lrheader">
-                <Link to="/login"><button>Log in</button></Link>
-                <Link to="/register"><button>Sign up</button></Link>
-            </header>
             <Grid textAlign='center' style={{ height: '100vh', width:'100vw' }} verticalAlign='middle'>
                 <Grid.Column id="loginbox" style={{ maxWidth: '350px' }}>
                     <Header as='h2' style={{color: 'white'}} textAlign='center'>
-                        {/* <Image src='/logo.png' />  */}
-                        Log-in to your account
+                        Log in to your account
                     </Header>
                 <Form size='large' onSubmit={handleSubmit}>
                     <Segment stacked style={{
