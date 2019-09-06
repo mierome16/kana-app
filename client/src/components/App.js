@@ -26,7 +26,9 @@ import NoResults  from './NoResults'
 import EndOfDeck from './EndOfDeck';
 import FoodMain from './FoodMain'
 import MobileAbout from './MobileAbout';
-import RestLogin from './RestLogin'
+import RestLogin from './RestLogin';
+import GifLoading from './GifLoading';
+import ContactUs from './ContactUs'
 
 
 export default props => {
@@ -59,6 +61,10 @@ const [loading, setLoading] = useState(true)
             <LoginRoute exact path="/meal" component={MealOptions} />
             <LoginRoute exact path="/orders" component={PastOrders} />
             <LoginRoute exact path="/orders/:singleOrder" component={SinglePastOrder} />
+            <Route path ="/sidebar" component={MSidebar}/>
+            <Route path ="/notfound" component={NoResults} />
+            <Route path="/endofdeck" component={EndOfDeck} />
+            <Route path="/contact" component={ContactUs} />
           </Switch>        
         </div>
       </Router>

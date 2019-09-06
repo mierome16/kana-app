@@ -27,8 +27,8 @@ import { orderItem } from "../actions/meal.actions";
 		obj = document.getElementById('stacked-cards-block');
 		stackedCardsObj = obj.querySelector('.stackedcards-container');
 		listElNodesObj = stackedCardsObj.children;
-		console.log(stackedCardsObj)
-		
+		console.log(listElNodesObj.length)
+		var deckLength = listElNodesObj.length
 		topObj = obj.querySelector('.stackedcards-overlay.top');
 		rightObj = obj.querySelector('.stackedcards-overlay.right');
 		leftObj = obj.querySelector('.stackedcards-overlay.left');
@@ -215,6 +215,8 @@ import { orderItem } from "../actions/meal.actions";
 			updateUi();
 			currentElement();
 			setActiveHidden();
+			deckLength-=1
+			console.log(deckLength)
 		};
 		
 		//Swipe active card to right.
@@ -235,6 +237,8 @@ import { orderItem } from "../actions/meal.actions";
 			updateUi();
 			currentElement();
 			setActiveHidden();
+			deckLength-=1
+			console.log(deckLength)
 
 		//	orderItem(array[currentPosition-1])
 			setTimeout(function(){
@@ -257,9 +261,9 @@ import { orderItem } from "../actions/meal.actions";
 			}
 			// counter +=0
 			// console.log(counter)
-	
-			currentPosition = currentPosition + 1;
-			console.log(array[currentPosition-1])
+			deckLength-=1
+			console.log(deckLength)
+			
 
 			updateUi();
 			currentElement();
