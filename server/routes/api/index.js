@@ -14,14 +14,18 @@ router.post('/login', (req, res, next) => {
   const sql =  `SELECT * FROM users WHERE username = ? AND password = ? `
 
   conn.query(sql, [username, password], (err, results, fields) => {
-    results.insertId
     if (results.length > 0){
       const token = jwt.sign({username}, config.get('secret'))
  
+      console.log(results[0])
+
       res.json({
         message: "User signed in",
         token: token,
-        user: results
+        user: {
+          username: results[0].username,
+          id: results[0].id
+        }
       })
     } else {
       res.status(401).json({
@@ -40,8 +44,7 @@ router.post('/register', (req, res, next) => {
  const sql = `INSERT into users (username, password, first_name, last_name) VALUES (?, ?, ?, ?)`
  
  conn.query(sql, [username, password, first_name, last_name], (err, results, fields) => {
-  results.insertId
-   if (err) {
+  if (err) {
      res.json({
        message: "User already exists"
      })
@@ -366,24 +369,27 @@ router.post('/rest-register', (req,res,next) => {
  })
 })
 
-// router.get('/add-order', (req, res, next) => {
-//   const user_id = req.body.user_id
-//   //const reserve_date = req.body.reserve_date
-//   const sql = `
-//   SELECT o.confirm, o.quantity, o.notes, o.time_placed, o.reserve_date, o.item_id, o.type, o.size, m.name as meal_name, m.meal_type, m.description, m.diet, m.price, m.popular, r.name as restaurant, r.address, r.zipcode, r.city, r.state, r.opening_time, r.day_opened
-//   FROM orders o, users, menu_items m, restaurants r
-//   WHERE o.user_id = ? AND users.id = ? AND o.item_id = m.id AND m.restaurant_id = r.id
-//   `
-//  conn.query(sql, [user_id, user_id], (err, results, fields) => {
-//     if (err) {
-//      res.json({
-//        message: err
-//      })
-//    } else {
-//      res.json(results)
-//    }
-//  })
-// })
+router.get('/get-orders/:user', (req, res, next) => {
+  const user_id = req.params.user
+  //console.log(user_id)
+  //const reserve_date = req.body.reserve_date
+  const sql = `
+  SELECT o.confirm, o.quantity, o.notes, o.time_placed, o.reserve_date, o.item_id, o.type, o.size, m.name as meal_name, m.meal_type, m.description, m.diet, m.price, m.popular, r.name as restaurant, r.address, r.zipcode, r.city, r.state, r.opening_time, r.day_opened, p.url
+  FROM orders o, users, menu_items m, restaurants r, pictures p 
+  WHERE o.user_id = ? AND users.id = ? AND o.item_id = m.id AND m.id = p.menu_items_id AND m.restaurant_id = r.id 
+  ORDER BY time_placed DESC
+  `
+ conn.query(sql, [user_id, user_id], (err, results, fields) => {
+   console.log(results)
+    if (err) {
+     res.json({
+       message: err
+     })
+   } else {
+     res.json(results)
+   }
+ })
+})
 
 
 module.exports = router
