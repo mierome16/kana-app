@@ -6,6 +6,7 @@ import { stackedCards } from './SwipeCards'
 import { useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import NoResults from './NoResults'
+import MSidebar from './Sidebar' 
 
 
 export default props => {
@@ -66,7 +67,9 @@ export default props => {
       return (
         // noFound ? <NoResults /> : ( 
           order ? <Redirect to="/options" /> : (
+            <MSidebar>
               <div id="cardsContainer">
+                
                   {/* {noFound ? <NoResults /> : ( */} 
                 <div id="stacked-cards-block" className="stackedcards stackedcards--animatable init">
                   <div className="stackedcards-container">
@@ -106,8 +109,10 @@ export default props => {
                   <div className="left-action">Yuck</div>
                     {/* <div className="top-action">Favorite</div> */}
                   <div className="right-action">Yum</div>
-                </div>  
+                </div> 
+               
               </div>
+              </MSidebar>
           ))
       // )
       

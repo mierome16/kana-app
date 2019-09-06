@@ -3,8 +3,7 @@ import {Link} from "react-router-dom"
 import {useSelector} from 'react-redux'
 import { Button } from 'semantic-ui-react'
 import {getMeals} from '../actions/meal.actions'
-import { getMenuItems } from '../actions/meal.actions'
-
+import MSidebar from './Sidebar'
 import MealButton from './MealButton'
 
 
@@ -21,7 +20,9 @@ export default props => {
   }, [])
 
   return (
+    
     <div className="MealOptions">
+    <MSidebar>
       <div className='top'>
         <h2>What are you in the mood for?</h2>
       </div>
@@ -39,6 +40,8 @@ export default props => {
           <Button fluid id="save" type='Submit' >Continue</Button>
         </Link>
       </div>
+      </MSidebar>
+
     </div>
   )
 }

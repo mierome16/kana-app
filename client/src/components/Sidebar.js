@@ -18,6 +18,7 @@ class MSidebar extends Component {
         as={Sidebar.Pushable}
         id="sidebarContainer"
         maxWidth={Responsive.onlyMobile.maxWidth}
+        style={{height:'100vh'}}
       >
         <Sidebar
           id='mobileSideBar'
@@ -60,14 +61,6 @@ class MSidebar extends Component {
                   <Menu.Item onClick={this.handleToggle}>
                     <Image style={{width:30, height:30}} src="https://cdn1.iconfinder.com/data/icons/restaurant-kitchen-utensils/100/Kitchenware_8-512.png" size="small" />
                     {/* <Icon name='sidebar' id="sidebar-butt"/> */}
-                  </Menu.Item>
-                  <Menu.Item position='right'>
-                      <Link to ="/login">
-                        <Button inverted>Log in</Button>
-                      </Link>
-                      <Link to="/register">
-                        <Button inverted style={{ marginLeft: '0.5em' }}>Sign Up</Button>
-                      </Link>
                   </Menu.Item>
                 </Container>
               </Menu>

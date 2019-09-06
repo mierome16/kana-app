@@ -3,12 +3,14 @@ import { useSelector } from 'react-redux'
 import moment from 'moment'
 import { Card as FoodItem, Button, Header } from "semantic-ui-react"
 import { Link } from 'react-router-dom'
+import MSidebar from './Sidebar';
 
 
 export default props => {
   const orders = useSelector(appState => appState.mealReducer.pastOrders)
   console.log(orders)
   return (
+    <MSidebar>
     <div style={{padding:25}}>
       <Header as="h1">Past Orders</Header>
       {orders.map(order => (
@@ -39,5 +41,6 @@ export default props => {
         <Link to="/profile"><Button>Order Again</Button></Link>
       </div>
     </div>
+    </MSidebar>
   )
 }

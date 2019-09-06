@@ -25,6 +25,7 @@ import MSidebar from './Sidebar';
 import NoResults  from './NoResults'
 import EndOfDeck from './EndOfDeck';
 import FoodMain from './FoodMain'
+import MobileAbout from './MobileAbout';
 import RestLogin from './RestLogin'
 
 
@@ -43,8 +44,8 @@ const [loading, setLoading] = useState(true)
             <Route path = "/restaurant-home" component={RestHome}/>
             <Route path ="/restaurant-register" component={RestRegister}/>
             <Route path="/restaurant-login" component={RestLogin}/>
-          <MSidebar>
             <Route exact path = "/about-kana" component={HomepageLayout} />
+            <Route exact path ="/about" component={MobileAbout} />
             <LoginRoute exact path="/profile" component={Profile} />
             <LoginRoute exact path="/order" component={OrderForm} />
             <LoginRoute exact path="/reservation" component={ReservationForm} />
