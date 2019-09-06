@@ -16,7 +16,7 @@ export default props => {
     return (
         <div>
         {showLoading === true ?  <div className="foodmainpage">
-        <Header className="foodmainheader"as='h2'>
+        <Header id="foodmainheader"as='h2'>
             <button className="ui basic button">
                 <i className="icon user"></i>
             </button>

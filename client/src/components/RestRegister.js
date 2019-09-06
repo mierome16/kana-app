@@ -9,6 +9,8 @@ export default props => {
     const [res_city, setRes_city] = useState('')
     const [res_state, setRes_state] = useState('')
     const [res_zip, setRes_zip] = useState('')
+    const [res_email, setRes_email] = useState('')
+    const [res_password, setRes_password] = useState('')
 
 
     function handleSubmit(){
@@ -31,6 +33,10 @@ export default props => {
             </Form.Group>
         <Form.TextArea label='About' placeholder='Tell us more about your restaurant...' />
         <Form.Checkbox label='I agree to the Terms and Conditions' />
+            <Form.Group>
+                <Form.Input value={res_email} onChange={e => setRes_email(e.target.value)} fluid label="Restaurant Email Address" placeholder="Restaurant Email Address" />
+                <Form.Input value={res_password} onChange={e => setRes_password(e.target.value)} fluid label="Restaurant Password" placeholder="Restaurant Password" />
+            </Form.Group>
         <Form.Button>Submit</Form.Button>
       </Form>
         </div>
