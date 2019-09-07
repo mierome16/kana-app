@@ -62,9 +62,9 @@ class MSidebar extends Component {
                 {/* <Container id='menuicon'> */}
                   <Menu.Item onClick={this.handleToggle}>
                     <Image style={{width:30, height:30}} src="https://cdn1.iconfinder.com/data/icons/restaurant-kitchen-utensils/100/Kitchenware_8-512.png" size="small" />
-                    <h2 className="kanaSidebar">
+                    {/* <h2 className="kanaSidebar">
                         Kana
-                    </h2>
+                    </h2> */}
                     {/* <Icon name='sidebar' id="sidebar-butt"/> */}
                   </Menu.Item>
                 {/* </Container> */}
