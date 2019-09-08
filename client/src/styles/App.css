@@ -92,7 +92,7 @@ html {box-sizing:border-box;}
       rgba(0, 0, 0, 0.8)
     ),url('https://i.pinimg.com/564x/26/3d/53/263d53ed14ea33255b11d342a25c20d4.jpg');
     background-size: contain;
-    background-repeat: no-repeat
+    background-repeat: no-repeat;
 }
 #fooditem {
   margin: auto;

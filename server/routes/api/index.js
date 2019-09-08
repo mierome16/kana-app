@@ -31,6 +31,7 @@ router.post('/login', (req, res, next) => {
   })
 })
 
+
 router.post('/register', (req, res, next) => {
   const first_name = req.body.first_name
   const last_name = req.body.last_name

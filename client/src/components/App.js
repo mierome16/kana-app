@@ -38,7 +38,7 @@ const [loading, setLoading] = useState(true)
     <Provider store={store}>
       <Router>
         <div id="app-container">
-          <Switch>
+            <Switch>
             <Route exact path="/" component={MobileHome}/>
             <Route exact path ="/login" component={Login} />
             <Route exact path="/register" component={Registration}/>
@@ -51,8 +51,8 @@ const [loading, setLoading] = useState(true)
             <Route path ="/sidebar" component={MSidebar}/>
             <Route path ="/notfound" component={NoResults} />
             <Route path="/endofdeck" component={EndOfDeck} />
-          </Switch>
-          <Switch>
+            </Switch>
+            <Switch>
             <LoginRoute exact path="/profile" component={Profile} />
             <LoginRoute exact path="/order" component={OrderForm} />
             <LoginRoute exact path="/reservation" component={ReservationForm} />
@@ -63,7 +63,7 @@ const [loading, setLoading] = useState(true)
             <LoginRoute exact path="/meal" component={MealOptions} />
             <LoginRoute exact path="/orders" component={PastOrders} />
             <LoginRoute exact path="/orders/:singleOrder" component={SinglePastOrder} />
-          </Switch>
+            </Switch>
         </div>
       </Router>
     </Provider>
