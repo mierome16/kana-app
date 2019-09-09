@@ -36,10 +36,10 @@ class MSidebar extends Component {
           <Link to="/about"><Menu.Item>About Us</Menu.Item></Link>
           <Link to="/profile"><Menu.Item>Start an Order</Menu.Item></Link>
           <Link to="/orders"><Menu.Item>Past Orders</Menu.Item></Link>
-          <Link to="/favorites"><Menu.Item>Past Orders</Menu.Item></Link>
+          <Link to="/favorites"><Menu.Item>View Favorites</Menu.Item></Link>
           <Link to="/restaurant-home"><Menu.Item>Restaurant Inquiry</Menu.Item></Link>
           <Link to="/contact"><Menu.Item>Contact Us</Menu.Item></Link>
-          <Link to="/sign-out"><Menu.Item onClick={logout}> Sign Out</Menu.Item></Link>
+          <Link to="/"><Menu.Item onClick={logout}> Sign Out</Menu.Item></Link>
         </Sidebar>
 
         <Sidebar.Pusher dimmed={sidebarOpened}>

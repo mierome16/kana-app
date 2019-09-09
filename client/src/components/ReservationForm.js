@@ -46,7 +46,7 @@ export default props => {
             <Header as='h4'>
               Item
             </Header>
-            <p>{order.name}</p>
+            <p>{order.name ? order.name : order.meal_name ? order.meal_name : ''}</p>
           </div>
           <div>
             <Header as='h4'>

@@ -41,7 +41,7 @@ export default props => {
             </FoodItem>
             </Link>
         </div>
-      ))) : ''} 
+      ))) : <Header as="h3">No orders made yet, start a new order and you'll see your history here</Header>} 
       <div>
         <Link to="/"><Button>Back to Home</Button></Link>
         <Link to="/profile"><Button>Order Again</Button></Link>
