@@ -183,21 +183,8 @@ import { orderItem, addToFav } from "../actions/meal.actions";
 		
 		//Functions to swipe top elements on logic external action.
 		function onActionTop() {
-			addToFav(array[currentPosition-1])
-			// if(!(currentPosition >= maxElements)){
-			// 	if(useOverlays) {
-			// 		leftObj.classList.remove('no-transition');
-			// 		rightObj.classList.remove('no-transition');
-			// 		topObj.classList.remove('no-transition');
-			// 		topObj.style.zIndex = '8';
-			// 		transformUi(0, 0, 1, topObj);
-			// 	}
-				
-				// setTimeout(function(){
-				// 	//onSwipeTop();
-				// 	//resetOverlays();
-				// },300); //wait animations end
-			//}
+			addToFav(array[currentPosition])
+			buttonTop.classList.add('save')
 		};
 		
 		//Swipe active card to left.
@@ -212,6 +199,7 @@ import { orderItem, addToFav } from "../actions/meal.actions";
 			//counter +=1
 			// console.log(counter)
 			currentPosition = currentPosition + 1;
+			buttonTop.classList.remove('save')
 			//console.log(array[currentPosition-1])
 			updateUi();
 			currentElement();
@@ -233,8 +221,7 @@ import { orderItem, addToFav } from "../actions/meal.actions";
 			// console.log(counter)
 	
 			currentPosition = currentPosition + 1;
-			console.log(array[currentPosition-1])
-		//	orderItem(array[currentPosition-1]);
+			buttonTop.classList.remove('save')
 			updateUi();
 			currentElement();
 			setActiveHidden();
@@ -250,7 +237,7 @@ import { orderItem, addToFav } from "../actions/meal.actions";
 
 		};
 		
-		//Swipe active card to top.
+		// Swipe active card to top.
 		function onSwipeTop() {
 			removeNoTransition();
 			transformUi(0, -1000, 0, currentElementObj);

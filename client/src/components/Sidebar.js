@@ -1,15 +1,16 @@
 import React, { Component } from 'react'
-import { Responsive, Sidebar, Menu, Segment, Container, Icon, Image, Button, Header } from 'semantic-ui-react'
+import { Responsive, Sidebar, Menu, Segment, Container, Image, Button, Header } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import { logout } from '../actions/auth.actions';
+import MaterialIcon from 'material-icons-react'
 
 class MSidebar extends Component {
+ 
   state = {}
-
   handleSidebarHide = () => this.setState({ sidebarOpened: false })
-
   handleToggle = () => this.setState({ sidebarOpened: true })
-
+  
+  
   render() {
     const { children } = this.props
     const { sidebarOpened } = this.state
@@ -26,21 +27,19 @@ class MSidebar extends Component {
           as={Menu}
           animation='push'
           inverted
+          direction='right'
           onHide={this.handleSidebarHide}
           vertical
           visible={sidebarOpened}
         >
-          <Menu.Item  as='a' active>
-            Home
-          </Menu.Item>
-            <Link to="/"><Menu.Item>Home</Menu.Item></Link>
-            <Link to="/about"><Menu.Item>About Us</Menu.Item></Link>
-            <Link to="/profile"><Menu.Item>Start an Order</Menu.Item></Link>
-            <Link to="/orders"><Menu.Item>Past Orders</Menu.Item></Link>
-            <Link to="/restaurant-home"><Menu.Item>Restaurant Inquiry</Menu.Item></Link>
-            <Link to="/contact"><Menu.Item>Contact Us</Menu.Item></Link>
-            <Link to="/setting"><Menu.Item>Account Settings</Menu.Item></Link>
-            <Link to="/sign-out"><Menu.Item onClick={logout}> Sign Out</Menu.Item></Link>
+          <Link to="/"><Menu.Item>Home</Menu.Item></Link>
+          <Link to="/about"><Menu.Item>About Us</Menu.Item></Link>
+          <Link to="/profile"><Menu.Item>Start an Order</Menu.Item></Link>
+          <Link to="/orders"><Menu.Item>Past Orders</Menu.Item></Link>
+          <Link to="/restaurant-home"><Menu.Item>Restaurant Inquiry</Menu.Item></Link>
+          <Link to="/contact"><Menu.Item>Contact Us</Menu.Item></Link>
+          <Link to="/setting"><Menu.Item>Account Settings</Menu.Item></Link>
+          <Link to="/sign-out"><Menu.Item onClick={logout}> Sign Out</Menu.Item></Link>
         </Sidebar>
 
         <Sidebar.Pusher dimmed={sidebarOpened}>
@@ -58,22 +57,14 @@ class MSidebar extends Component {
               pointing
               secondary
               size='large'>
-             
-                {/* <Container id='menuicon'> */}
-                  <Menu.Item onClick={this.handleToggle}>
-                    <Image style={{width:30, height:30}} src="https://cdn1.iconfinder.com/data/icons/restaurant-kitchen-utensils/100/Kitchenware_8-512.png" size="small" />
-                    {/* <h2 className="kanaSidebar">
-                        Kana
-                    </h2> */}
-                    {/* <Icon name='sidebar' id="sidebar-butt"/> */}
+                  <Menu.Item onClick={this.handleBack}>
+                    <MaterialIcon icon="arrow_back_ios" />
                   </Menu.Item>
-                {/* </Container> */}
-                {/* <div style={{width: 600, marginTop: 5}}> */}
-                  <h3 className='kananame'>Kana</h3>
-                  <button class="item">
-                    <Icon id='favIcon' name="heart"/>
-                  </button>
-                {/* </div> */}
+                  <Menu.Item onClick={this.handleToggle}>
+                    Menu
+                    <Image style={{width:30, height:30}} src="https://cdn1.iconfinder.com/data/icons/restaurant-kitchen-utensils/100/Kitchenware_8-512.png" size="small" />
+                  </Menu.Item>
+                  {/* <h3 className='kananame'>Kana</h3> */}
               </Menu>
             </Container>
           </Segment>

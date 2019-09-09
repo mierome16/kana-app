@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from "react";
 import '../styles/SwipeStyles.css'
-import { Icon } from "semantic-ui-react"
+import { Icon, Label } from "semantic-ui-react"
 import { getMenuItems } from '../actions/meal.actions'
 import { stackedCards } from './SwipeCards'
 import { useSelector } from 'react-redux'
@@ -25,21 +25,18 @@ export default props => {
       }
       return arr
     }
-    function mapAllergy(allergies) {
-      let icons = []
-        if (allergies.includes('Vegetarian')) {
-          icons.push(<Icon name="leaf"/>)
-        } 
-        // else if (allergies.includes('Gluten-free')) {
-        //   icons.push(<Icon name="bread-slice" />)
-        // }
-        //console.log(allergies)
-      return icons
-    }
-
-    function addToFav() {
-
-    }
+    // function mapAllergy(allergies) {
+    //   let labels = []
+    //   if (allergies.indexOf(' ') === -1 ) {
+    //     labels.push(<Label>{allergies}</Label>)
+    //   } else {
+    //     allergies.split(' ').map(item => {
+    //       labels.push(<Label>{item}</Label>)
+    //     })
+    //   }
+    //   console.log(labels)
+    //   return labels
+    // }
     
     console.log(foodItems)
     
@@ -67,26 +64,30 @@ export default props => {
                   </div> */}
                   <div className="stackedcards-container">
                     {foodItems.length === 0 ? <NoResults /> : ( 
-                      foodItems.map(item => (         
+                      foodItems.map(item => (  
+                               
                         <div key={item.name} className="card-item">
-                          <div style={{background: `url(${item.image}) no-repeat center`, backgroundSize: 'cover', width: '100%', height: '350px', borderTopRightRadius: '10px', borderTopLeftRadius: '10px'}}>
+                          <div style={{background: `url(${item.image}) no-repeat center`, backgroundSize: 'cover', width: '100%', height: '325px', borderTopRightRadius: '10px', borderTopLeftRadius: '10px'}}>
                           </div>
-                          <div className="card-header">
-                            <div className="card-header-info">
-                              <h3>{item.name}</h3>
-                              <p>{item.restaurant} {item.rating ? mapRating(item.rating) : '' }</p>
+                          <div className="card-content">
+                            <div className="card-header">
+                              <div className="card-header-info">
+                                <h3>{item.name}</h3>
+                                <p>{item.restaurant} <span className="rating"> {item.rating ? mapRating(item.rating) : '' }</span></p>
+                              </div>
+                              <div>
+                                <h3>${item.price.toFixed(2)}</h3> 
+                              </div>
                             </div>
-                            <div>
-                              <h3>${item.price.toFixed(2)}</h3> 
+                            <div className="card-body">
+                              <div>
+                                <p className="card-desc">{item.description ? item.description.charAt(0).toUpperCase() + item.description.substr(1) : ''}</p>
+                                <p>Tags: {item.allergy ? <Label>{item.allergy}</Label> : 'None'}</p>
+                              </div>
                             </div>
                           </div>
-                          <div className="card-body">
-                            <div>
-                              <p>{item.description}</p>
-                              <p>Tags: {item.allergy ? item.allergy : 'None'}</p>
-                            </div>
-                          </div>
-                        </div> 
+                        </div>
+                         
                       ))
                     )}
                   </div>
@@ -100,7 +101,8 @@ export default props => {
 
                 <div className="global-actions">
                   <div className="left-action">Yuck</div>
-                  <div className="top-action">Favorite</div>
+                  <div className="top-action"><Icon  name="heart" size="large"/></div>
+                  {/* <Icon id="top-replace" name="heart" size="large"/> */}
                   <div className="right-action">Yum</div>
                 </div> 
                

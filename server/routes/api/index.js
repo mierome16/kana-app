@@ -374,12 +374,33 @@ router.get('/get-orders/:user', (req, res, next) => {
   //console.log(user_id)
   //const reserve_date = req.body.reserve_date
   const sql = `
-  SELECT o.confirm, o.quantity, o.notes, o.time_placed, o.reserve_date, o.item_id, o.type, o.size, m.name as meal_name, m.meal_type, m.description, m.diet, m.price, m.popular, r.name as restaurant, r.address, r.zipcode, r.city, r.state, r.opening_time, r.day_opened, p.url
+  SELECT o.confirm, o.quantity, o.notes, o.time_placed, o.reserve_date, o.item_id, o.type, o.size, m.name as meal_name, m.meal_type, m.description, m.diet, m.price, m.popular, r.name as restaurant, r.address, r.zipcode, r.city, r.state, r.opening_time, r.day_opened, p.id as img
   FROM orders o, users, menu_items m, restaurants r, pictures p 
   WHERE o.user_id = ? AND users.id = ? AND o.item_id = m.id AND m.id = p.menu_items_id AND m.restaurant_id = r.id 
   ORDER BY time_placed DESC
   `
  conn.query(sql, [user_id, user_id], (err, results, fields) => {
+   //console.log(results)
+    if (err) {
+     res.json({
+       message: err
+     })
+   } else {
+     res.json(results)
+   }
+ })
+})
+
+
+router.post('/add-to-favorites', (req, res, next) => {
+  const user_id = req.body.user_id
+  const item_id = req.body.item_id.id
+  console.log(user_id)
+  //const reserve_date = req.body.reserve_date
+  const sql = `
+  INSERT INTO user_favorites (user_id, item_id) VALUES (?, ?)
+  `
+ conn.query(sql, [user_id, item_id], (err, results, fields) => {
    console.log(results)
     if (err) {
      res.json({
@@ -390,6 +411,8 @@ router.get('/get-orders/:user', (req, res, next) => {
    }
  })
 })
+
+
 
 
 module.exports = router

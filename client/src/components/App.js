@@ -43,7 +43,7 @@ const [loading, setLoading] = useState(true)
           <Switch>
             <Route exact path="/" component={MobileHome}/>
             <AuthRoute path ="/login" component={Login} />
-            <Route path="/register" component={Registration}/>
+            <AuthRoute path="/register" component={Registration}/>
             <Route exact path ="/restaurant-home" component={RestHome}/>
             <Route exact path ="/restaurant-register" component={RestRegister}/>
             <Route exact path="/restaurant-login" component={RestLogin}/>
@@ -60,7 +60,7 @@ const [loading, setLoading] = useState(true)
             <LoginRoute path="/swipe" component={FoodMain} />
             <LoginRoute path="/map" component={DistanceMap}/>
             <LoginRoute path="/meal" component={MealOptions} />
-            <LoginRoute path="/orders" component={PastOrders} />
+            <LoginRoute exact path="/orders" component={PastOrders} />
             <LoginRoute exact path="/orders/:singleOrder" component={SinglePastOrder} />
             <Route path ="/sidebar" component={MSidebar}/>
             <Route path ="/notfound" component={NoResults} />

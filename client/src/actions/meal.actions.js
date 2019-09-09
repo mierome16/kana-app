@@ -112,14 +112,6 @@ export function orderItem(item) {
   })
 }
 
-
-export function addOrder(item) {
-  // axios.post('/api/order', { item }).then(resp => {
-    console.log(item)
-    
-  //})
-}
-
 export function sendOrder(item){
   axios.post('/api/add-order', {
       user_id: item.user,
@@ -143,14 +135,17 @@ export function sendOrder(item){
 
 export function getPastOrders() {
   const user = localStorage.getItem('id')
+  
   axios.get('/api/get-orders/' + user ).then(resp => {
-    // const data = resp.data
-    // data.map(item => (
-    //   let 
-    // ))
+    const data = resp.data
+    data.map(item => {
+      let pic = Object.assign({}, item)
+      item.image = `/pictures/${item.img}.jpg`
+      return pic
+    })
     store.dispatch({
       type: 'GET_PAST_ORDERS',
-      payload: resp.data
+      payload: data
     })
   })
 }
@@ -163,9 +158,10 @@ export function finishOrder() {
 }
 
 export function addToFav(item) {
+  let id = localStorage.getItem('id')
   axios.post('/api/add-to-favorites', {
-    user_id: localStorage.getItem('id'),
-    item_id: item.id
+    user_id: id,
+    item_id: item
   }).then(resp => {
     console.log(resp.data)
   })
