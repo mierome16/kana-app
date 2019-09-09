@@ -713,10 +713,7 @@ animation-name: fadeIn;
   text-align: center;
   font-size: 25px;
   color: white;
-
-  
-  
-  
+}
 .reserve-item {
   display: flex;
   justify-content: space-between;

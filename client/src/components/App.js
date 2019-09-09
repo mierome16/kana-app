@@ -29,7 +29,7 @@ import MobileAbout from './MobileAbout';
 import RestLogin from './RestLogin'
 import GifLoading from './GifLoading'
 import RestaurantAccount from './RestaurantAccount'
-import RestaurantItem from '../styles/RestaurantItem'
+import RestaurantItem from './RestaurantItem'
 import RestaurantInventory from './RestaurantInventory'
 import ContactUs from './ContactUs'
 import MobileDashboard from './MobileDashboard'

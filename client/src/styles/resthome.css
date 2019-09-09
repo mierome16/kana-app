@@ -133,3 +133,20 @@ a {
     height: 150px;
     background: rgba(0,0,0,.7);
 }
+
+/****** adding items ******/
+#additempage {
+    height: 100vh;
+    width: 100vw;
+    background: rgb(230,230,230)
+}
+#additempage h1 {
+    text-align: center
+}
+#additempage form {
+    width: 700px;
+    height: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
