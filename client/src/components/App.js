@@ -26,6 +26,11 @@ import NoResults  from './NoResults'
 import EndOfDeck from './EndOfDeck';
 import FoodMain from './FoodMain'
 import MobileAbout from './MobileAbout';
+import RestLogin from './RestLogin'
+import GifLoading from './GifLoading'
+import RestaurantAccount from './RestaurantAccount'
+import RestaurantItem from '../styles/RestaurantItem'
+import RestaurantInventory from './RestaurantInventory'
 import RestLogin from './RestLogin';
 import GifLoading from './GifLoading';
 import ContactUs from './ContactUs'
@@ -39,6 +44,25 @@ const [loading, setLoading] = useState(true)
     <Provider store={store}>
       <Router>
         <div id="app-container">
+
+         
+            <Route exact path="/" component={MobileHome}/>
+            <Route exact path ="/login" component={Login} />
+            <Route exact path="/register" component={Registration}/>
+            <Route exact path="/loading" component={GifLoading}/>
+            <Route exact path = "/restaurant-home" component={RestHome}/>
+            <Route exact path ="/restaurant-register" component={RestRegister}/>
+            <Route path="/restaurant-login" component={RestLogin}/>
+            <Route exact path = "/about-kana" component={HomepageLayout} />
+            <Route exact path ="/about" component={MobileAbout} />
+            <Route path ="/sidebar" component={MSidebar}/>
+            <Route path ="/notfound" component={NoResults} />
+            <Route path="/endofdeck" component={EndOfDeck} />
+            <Route path="/restaurant-profile" component={RestaurantAccount}/>
+            <Route path="/restaurant-additem" component={RestaurantItem}/>
+            <Route path="/restaurant-inventory" component={RestaurantInventory}/>
+        
+
           <Switch>
             <Route exact path="/" component={MobileHome}/>
             <Route exact path ="/login" component={Login} />
@@ -51,6 +75,7 @@ const [loading, setLoading] = useState(true)
             <Route exact path ="/sidebar" component={MSidebar}/>
             <Route exact path ="/notfound" component={NoResults} />
             <Route exact path="/endofdeck" component={EndOfDeck} />
+
             <LoginRoute exact path="/profile" component={Profile} />
             <LoginRoute exact path="/order" component={OrderForm} />
             <LoginRoute exact path="/reservation" component={ReservationForm} />
@@ -61,11 +86,15 @@ const [loading, setLoading] = useState(true)
             <LoginRoute exact path="/meal" component={MealOptions} />
             <LoginRoute exact path="/orders" component={PastOrders} />
             <LoginRoute exact path="/orders/:singleOrder" component={SinglePastOrder} />
+
+            
+
             <Route path ="/sidebar" component={MSidebar}/>
             <Route path ="/notfound" component={NoResults} />
             <Route path="/endofdeck" component={EndOfDeck} />
             <Route path="/contact" component={ContactUs} />
           </Switch>        
+    
         </div>
       </Router>
     </Provider>
