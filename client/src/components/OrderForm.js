@@ -2,14 +2,14 @@ import React, { useState } from 'react'
 import { Form, Container, Header, Divider, Image } from 'semantic-ui-react'
 import { useSelector } from 'react-redux'
 import shortid from 'shortid'
-import { addOrder, sendOrder } from '../actions/meal.actions'
+import { sendOrder, confirmOrder } from '../actions/meal.actions'
 import { Redirect } from "react-router-dom"
 import moment from 'moment'
 import MSidebar from './Sidebar'
  
 export default props => { 
   const order = useSelector(appState => appState.mealReducer.orderedItem)
-  const user = useSelector(appState => appState.authReducer.user.id)
+  // const user = useSelector(appState => appState.authReducer.user.id)
   console.log(order)
   const [submit, setSubmit] = useState(false)
   const [values, setValues] = useState({
@@ -35,6 +35,7 @@ export default props => {
     e.preventDefault()
     console.log(values)
     sendOrder(values)
+    confirmOrder(values)
     //addOrder(values)
     setSubmit(!submit)
     
@@ -43,7 +44,7 @@ export default props => {
     return (
       submit ? <Redirect to="/confirm" /> : (
       <MSidebar>
-      <Container style={{'padding': '1em', overflowY: 'scroll', overflowX: 'hidden', background: 'white'}}>
+      <Container style={{'padding': '1em', 'paddingTop': 0, background: 'white'}}>
         <Header as='h3' style={{'paddingTop': '1em', 'textAlign': 'center' }}>
           Confirm Your Order
         </Header>
@@ -58,8 +59,7 @@ export default props => {
         <p>{order.restaurant}</p>
         <p>{order.address}</p>
         <p>702-123-4567</p>
-        <p>Mon - Fri: {order.open} AM - {order.close} PM</p>
-        <p>(possible maps api below)</p>
+        <p>Mon - Fri: {(order.open)} AM - {order.close} PM</p>
         <Image bordered rounded size='small' src='https://www.google.com/maps/d/thumbnail?mid=1CoxrxicMw4uSYPjPb20L6eQisoI&hl=en_US' />
         <Form onSubmit={handleSubmit}>
             <Form.Group widths='equal'>

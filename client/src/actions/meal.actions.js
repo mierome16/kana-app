@@ -1,5 +1,6 @@
 import store from '../store'
 import axios from 'axios'
+import { func } from 'prop-types';
 
 //**** SHUFFLE MENU ITEMS ****/
 function shuffle(a) {
@@ -113,6 +114,7 @@ export function orderItem(item) {
 }
 
 export function sendOrder(item){
+  console.log(item)
   axios.post('/api/add-order', {
       user_id: item.user,
       item_id: item.order.id,
@@ -127,10 +129,18 @@ export function sendOrder(item){
   }).then(resp => {
       //console.log(item)
   })
-  store.dispatch({ 
-    type: 'ADD_ORDER',
+  console.log(item)
+  // store.dispatch({ 
+  //   type: 'CONFRIM_ORDER',
+  //   payload: item
+  // })   
+}
+
+export function confirmOrder(item) {
+  store.dispatch({
+    type: 'CONFIRM_ORDER',
     payload: item
-  })   
+  })
 }
 
 export function getPastOrders() {

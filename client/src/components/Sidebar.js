@@ -49,7 +49,7 @@ class MSidebar extends Component {
             id="sidebarTop"
           >
             <Container id="mobileHeader" 
-            style={{height: '50px', display:'flex', flexDirection:'row'}}>
+            style={{height: '50px'}}>
               <Menu id='mobileTop'
               style={{border:0}}
               
@@ -58,9 +58,11 @@ class MSidebar extends Component {
               secondary
               size='large'>
                   <Menu.Item onClick={this.handleBack}>
-                    <MaterialIcon icon="arrow_back_ios" />
+                    <Link to="/profile">
+                      <MaterialIcon color='black' icon="arrow_back_ios" />
+                    </Link>
                   </Menu.Item>
-                  <Menu.Item onClick={this.handleToggle}>
+                  <Menu.Item id="sidebar-menu" style={{color:'black'}} onClick={this.handleToggle}>
                     Menu
                     <Image style={{width:30, height:30}} src="https://cdn1.iconfinder.com/data/icons/restaurant-kitchen-utensils/100/Kitchenware_8-512.png" size="small" />
                   </Menu.Item>

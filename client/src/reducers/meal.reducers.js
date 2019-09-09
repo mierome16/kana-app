@@ -6,7 +6,9 @@ const initialState = {
   selectedMeals: [],
   orderedItem: '',
   pastOrders: [],
-  filteredItems: []
+  filteredItems: [],
+  confirm: ''
+  
 }
 
 export default function(state = initialState, action) {
@@ -31,6 +33,10 @@ export default function(state = initialState, action) {
         return {...state, selectedMeals: [...state.selectedMeals, action.payload]}
       }
 
+    case 'CONFIRM_ORDER':
+      console.log(state.confirm)
+      return {...state, confirm: action.payload}
+
     case 'GET_ALL_ITEMS':
       return {...state, allItems: action.payload}
 
@@ -38,7 +44,7 @@ export default function(state = initialState, action) {
         return {...state, orderedItem: action.payload}
 
     case 'END_ORDER':
-      return {...state, orderedItem: ''}
+      return {...state, orderedItem: '', confirmation: ''}
       
     case 'GET_PAST_ORDERS':
       return {...state, pastOrders: action.payload}

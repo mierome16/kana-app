@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { Form, Container, Header, Divider, Image } from 'semantic-ui-react'
+import { Button, Container, Header, Divider, Image } from 'semantic-ui-react'
 import moment from 'moment'
 import { useSelector } from 'react-redux'
 import shortid from 'shortid'
-import { sendOrder } from '../actions/meal.actions'
+import { sendOrder, confirmOrder } from '../actions/meal.actions'
 import { Redirect } from "react-router-dom"
 import DatePicker from 'react-date-picker'
 import MSidebar from './Sidebar';
@@ -28,26 +28,33 @@ export default props => {
     setSubmit(!submit)
     console.log(values)
     sendOrder(values)
+    confirmOrder(values)
   }
-  console.log(date)
+  //console.log(date)
 
 
     return (
       submit ? <Redirect to="/confirm" /> : (
         <MSidebar>
-      <Container style={{'padding': '1em', overflowY: 'scroll', background: 'white', height: '100vh', width: '100vw'}}>
+      <Container id="reserve-form" style={{'padding': '1em', 'paddingTop': 0, background: 'white'}}>
         <Header as='h3' style={{'paddingTop': '1em', 'textAlign': 'center' }}>
           Make a Reservation
         </Header>
         <Divider />
-        <Header as='h4'>
-          Item
-        </Header>
-        <p>{order.name}</p>
-        <Header as='h4'>
-          Price
-        </Header>
-        <p>${order.price.toFixed(2)}</p>
+        <div className="reserve-item">
+          <div>
+            <Header as='h4'>
+              Item
+            </Header>
+            <p>{order.name}</p>
+          </div>
+          <div>
+            <Header as='h4'>
+              Price
+            </Header>
+            <p>${order.price.toFixed(2)}</p>
+          </div>
+        </div>
         <Header as='h4'>
           Restaurant Details
         </Header>
@@ -55,18 +62,19 @@ export default props => {
         <p>{order.address}</p>
         <p>702-123-4567</p>
         <p>Mon - Fri: {order.open} AM - {order.close} PM</p>
-        <p>(possible maps api below)</p>
         <Image bordered rounded size='small' src='https://www.google.com/maps/d/thumbnail?mid=1CoxrxicMw4uSYPjPb20L6eQisoI&hl=en_US' />
-        <Form onSubmit={handleSubmit}>
-          <Form.Group widths='equal'>
-            <DatePicker
-              value={date}
-              onChange={date => setDate(date)}
-              id="date-picker"
-            />
-          </Form.Group>
-            <Form.Button inverted color="orange" onClick={handleSubmit}>Confirm Reservation</Form.Button>
-        </Form>
+        <Header as='h4'>
+          Choose your date and time:
+        </Header>
+        <DatePicker
+          value={date}
+          onChange={date => setDate(date)}
+          id="date-picker"
+        />
+        {/* <Header as='h4'>
+          Size of Party
+        </Header> */}
+        <Button style={{'marginTop': 30}} inverted color="orange" onClick={handleSubmit}>Confirm Reservation</Button>
       </Container>
       </MSidebar>
       )

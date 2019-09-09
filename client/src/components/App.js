@@ -30,6 +30,8 @@ import RestLogin from './RestLogin';
 import GifLoading from './GifLoading';
 import ContactUs from './ContactUs'
 import AuthRoute from './AuthRoute'
+import OrderRoute from './OrderRoute'
+import ConfirmRoute from './ConfirmRoute'
 
 
 export default props => {
@@ -44,6 +46,7 @@ const [loading, setLoading] = useState(true)
             <Route exact path="/" component={MobileHome}/>
             <AuthRoute path ="/login" component={Login} />
             <AuthRoute path="/register" component={Registration}/>
+
             <Route exact path ="/restaurant-home" component={RestHome}/>
             <Route exact path ="/restaurant-register" component={RestRegister}/>
             <Route exact path="/restaurant-login" component={RestLogin}/>
@@ -52,17 +55,21 @@ const [loading, setLoading] = useState(true)
             <Route path ="/sidebar" component={MSidebar}/>
             <Route path ="/notfound" component={NoResults} />
             <Route path="/endofdeck" component={EndOfDeck} />
+
             <LoginRoute path="/profile" component={Profile} />
-            <LoginRoute path="/order" component={OrderForm} />
-            <LoginRoute path="/reservation" component={ReservationForm} />
-            <LoginRoute path="/options" component={EatOptions} />
-            <LoginRoute path="/confirm" component={Confirmation} />
+
+            <OrderRoute path="/order" component={OrderForm} />
+            <OrderRoute path="/reservation" component={ReservationForm} />
+            <OrderRoute path="/options" component={EatOptions} />
+
+            <ConfirmRoute path="/confirm" component={Confirmation} />
+            
             <LoginRoute path="/swipe" component={FoodMain} />
             <LoginRoute path="/map" component={DistanceMap}/>
             <LoginRoute path="/meal" component={MealOptions} />
             <LoginRoute exact path="/orders" component={PastOrders} />
             <LoginRoute exact path="/orders/:singleOrder" component={SinglePastOrder} />
-            <Route path ="/sidebar" component={MSidebar}/>
+
             <Route path ="/notfound" component={NoResults} />
             <Route path="/endofdeck" component={EndOfDeck} />
             <Route path="/contact" component={ContactUs} />

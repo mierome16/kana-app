@@ -10,18 +10,30 @@ html {box-sizing:border-box;}
 #sidebarTop {
   background: rgba(255, 249, 249, 0.51);
   padding:3px;
+  width:100%;
+}
+
+#sidebar-menu {
+  position: absolute;
+  right:10px;
+  width: 150px;
+  display: flex;
+  justify-content: space-evenly;
+  text-transform: uppercase;
+  align-content: center;
 }
 
 #menuicon {
   width: 50px;
 }
 
-#mobileTop {
+/* #mobileTop {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   width: 100%;
-}
+} */
 
 #favIcon {
   font-size: 28px;
@@ -437,7 +449,8 @@ html {box-sizing:border-box;}
 
 
 #date-picker {
-  height:10px;
+  margin-bottom: 30px;
+  padding: 10px;
 }
 
 
@@ -648,4 +661,19 @@ animation-name: fadeIn;
   height: 100px;
   background: rgb(228, 225, 225);
   margin: auto;
+}
+
+.reserve-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+#reserve-form p, #confirm p {
+  font-size: 14px;
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.confirm-action {
+  margin-top: 20px;
 }
