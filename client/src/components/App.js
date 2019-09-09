@@ -28,7 +28,8 @@ import FoodMain from './FoodMain'
 import MobileAbout from './MobileAbout';
 import RestLogin from './RestLogin';
 import GifLoading from './GifLoading';
-import ContactUs from './ContactUs'
+import ContactUs from './ContactUs';
+import Charts from './Charts'
 
 
 export default props => {
@@ -65,6 +66,7 @@ const [loading, setLoading] = useState(true)
             <Route path ="/notfound" component={NoResults} />
             <Route path="/endofdeck" component={EndOfDeck} />
             <Route path="/contact" component={ContactUs} />
+            <Route path='/charts' component={Charts} />
           </Switch>        
         </div>
       </Router>
