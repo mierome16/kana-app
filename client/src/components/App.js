@@ -26,8 +26,11 @@ import NoResults  from './NoResults'
 import EndOfDeck from './EndOfDeck';
 import FoodMain from './FoodMain'
 import MobileAbout from './MobileAbout';
-import RestLogin from './RestLogin';
-import GifLoading from './GifLoading';
+import RestLogin from './RestLogin'
+import GifLoading from './GifLoading'
+import RestaurantAccount from './RestaurantAccount'
+import RestaurantItem from '../styles/RestaurantItem'
+import RestaurantInventory from './RestaurantInventory'
 import ContactUs from './ContactUs'
 import AuthRoute from './AuthRoute'
 import OrderRoute from './OrderRoute'
@@ -43,6 +46,9 @@ const [loading, setLoading] = useState(true)
     <Provider store={store}>
       <Router>
         <div id="app-container">
+
+        
+
           <Switch>
             <Route exact path="/" component={MobileHome}/>
             <AuthRoute path ="/login" component={Login} />
@@ -72,10 +78,14 @@ const [loading, setLoading] = useState(true)
             <LoginRoute exact path="/orders/:singleOrder" component={SinglePastOrder} />
             <LoginRoute path="/favorites" component={Favorites}/>
 
-            <Route path ="/notfound" component={NoResults} />
-            <Route path="/endofdeck" component={EndOfDeck} />
+         
+            <Route path="/restaurant-profile" component={RestaurantAccount}/>
+            <Route path="/restaurant-additem" component={RestaurantItem}/>
+            <Route path="/restaurant-inventory" component={RestaurantInventory}/>
+
             <Route path="/contact" component={ContactUs} />
           </Switch>        
+    
         </div>
       </Router>
     </Provider>

@@ -1,48 +1,7 @@
-// import React from 'react'
-// import { Link } from 'react-router-dom'
-// import '../styles/resthome.css'
-
-// export default props => {
-//     return (
-//         <div className="resthomepage">
-//             <header className="rhheader">
-//                 <h2>KANA</h2>
-//                 <div>
-//                 <Link to="/restaurant-login"><button>Log in</button></Link>
-//                 <Link to="/restaurant-register"><button>Register</button></Link>
-//                 </div>
-//             </header>
-//             <div className="rheading">
-//                 <div className="joinkana">
-//                 <h1>JOIN KANA</h1>
-//                 <h3>Grow your restaurant business</h3>
-//                 <p>Register today and allow others to discover your meals</p>
-//                 <Link to="/restaurant-register"><button>Register</button></Link>
-//                 </div>
-//             <div className="rescontainer">
-//                 <div className="reslogo"></div>
-//                 <div className="stepone">
-//                     <h2>Step 1:</h2>
-//                     <h5>Register for Kana</h5>
-//                     {/* <p></p> */}
-//                 </div>
-//                 <div className="steptwo">
-//                     <h2>Step 2:</h2>
-//                     <h5>Add menu items</h5>
-//                 </div>
-//                 <div className="stepthree">
-//                     <h2>Step 3:</h2>
-//                     <h5>Grow your business!</h5>
-//                 </div>
-
-//             </div>
-//             </div>
-//         </div>
-//     )
-// }
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import '../styles/resthome.css'
 import {
   Button,
   Container,
@@ -73,29 +32,31 @@ const getWidth = () => {
  * such things.
  */
 const HomepageHeading = ({ mobile }) => (
-  <Container text>
+  <Container text style={{position: 'relative',}}>
     <Header
+      id="reshomekana"
       as='h1'
       content='Kana'
       inverted
       style={{
-        fontSize: mobile ? '2em' : '4em',
+        fontSize: mobile ? '2em' : '6em',
+        fontFamily: 'Rock Salt',
         fontWeight: 'normal',
         marginBottom: 0,
-        marginTop: mobile ? '1.5em' : '3em',
+        marginTop: mobile ? '1.5em' : '1.5em',
+        // color: '#8f0a03',
+        fontWeight: 900,
+        
       }}
     />
-    <Header
-      as='h2'
-      content='Let others discover your restaurant'
-      inverted
-      style={{
-        fontSize: mobile ? '1.5em' : '1.7em',
-        fontWeight: 'normal',
-        marginTop: mobile ? '0.5em' : '1.5em',
-      }}
-    />
-    <Button primary size='huge'>
+    <Header id="reshomedef" inverted>
+        <div>Fijian-English Dictionary</div>
+        <div>Type: verb, noun</div>
+        <li>meal</li>
+        <li>to eat</li>
+      </Header>
+      <div id="reslogodiv"><div id="reshomelogo"></div></div>
+    <Button primary size='huge' style={{background: 'rgba(0, 0, 0, .9)'}}>
       Get Started
       <Icon name='right arrow' />
     </Button>
@@ -130,7 +91,8 @@ class DesktopContainer extends Component {
           <Segment
             inverted
             textAlign='center'
-            style={{ minHeight: 700, padding: '1em 0em' }}
+            style={{ minHeight: 650, padding: '1em 0em', background: 'rgba(107, 13, 8, 0.87)'
+          }}
             vertical
           >
             <Menu
@@ -274,7 +236,49 @@ const HomepageLayout = () => (
             </p>
           </Grid.Column>
           <Grid.Column floated='right' width={6}>
-            <Image bordered rounded size='large' src='/images/wireframe/white-image.png' />
+            <Image bordered rounded size='large' src='https://img.pngio.com/cartoon-restaurant-cartoon-vector-restaurant-vector-commercial-street-png-and-vector-restaurant-png-650_651.png' />
+          </Grid.Column>
+        </Grid.Row>
+        <Grid.Row>
+        <Grid.Column floated='left' width={6}>
+            <Image bordered rounded size='large' src='https://us.123rf.com/450wm/nitr/nitr1509/nitr150900021/45340767-collage-of-various-fast-food-products.jpg?ver=6' />
+          </Grid.Column>
+          <Grid.Column width={8}>
+            <Header as='h3' style={{ fontSize: '2em' }}>
+              We Help Restaurants and Companions
+            </Header>
+            <p style={{ fontSize: '1.33em' }}>
+              We can give your company superpowers to do things that they never thought possible.
+              Let us delight your customers and empower your needs... through pure data analytics.
+            </p>
+            <Header as='h3' style={{ fontSize: '2em' }}>
+              We Make Bananas That Can Dance
+            </Header>
+            <p style={{ fontSize: '1.33em' }}>
+              Yes that's right, you thought it was the stuff of dreams, but even bananas can be
+              bioengineered.
+            </p>
+          </Grid.Column>
+        </Grid.Row>
+        <Grid.Row>
+          <Grid.Column width={8}>
+            <Header as='h3' style={{ fontSize: '2em' }}>
+              We Help Restaurants and Companions
+            </Header>
+            <p style={{ fontSize: '1.33em' }}>
+              We can give your company superpowers to do things that they never thought possible.
+              Let us delight your customers and empower your needs... through pure data analytics.
+            </p>
+            <Header as='h3' style={{ fontSize: '2em' }}>
+              We Make Bananas That Can Dance
+            </Header>
+            <p style={{ fontSize: '1.33em' }}>
+              Yes that's right, you thought it was the stuff of dreams, but even bananas can be
+              bioengineered.
+            </p>
+          </Grid.Column>
+          <Grid.Column floated='right' width={6}>
+            <Image bordered rounded size='large' src='https://img.pngio.com/cartoon-restaurant-cartoon-vector-restaurant-vector-commercial-street-png-and-vector-restaurant-png-650_651.png' />
           </Grid.Column>
         </Grid.Row>
         <Grid.Row>
