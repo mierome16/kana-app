@@ -5,4 +5,5 @@ import { useSelector } from 'react-redux'
 export default props => {
   const user = useSelector(appState => appState.authReducer.user)
   //console.log('user', user)
-  return localStorage.getItem('token') ? <Route {...props} /> : user ? <Route {...props} /> : <Redirect to="/" />
+return localStorage.getItem('token') ? <Route {...props} /> : user ? <Route {...props} /> : <Redirect to="/" />
+ }
