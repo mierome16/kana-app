@@ -2,16 +2,16 @@
 
 
 --- add past orders to backend? link past orders by each user?
---- make sidebar functional
 --- on heart click, add to favorites list
 
---- fix login bug, must require to be logged in
 --- google map page before preferences
 --- saving preferences to each user??
 --- dashboard component: make an order, view past orders, edit account, view preferences history??
 --- progress bar for onboarding
 --- use semantic item for viewing past orders
 --- add a contact us page
+--- fixing card styling
+--- finishing about/onboarding page
 --- colors for circle progress bar #c8c0c0bf;
 
 --- background: linear-gradient(164deg, #00bcd4a8 23%, rgb(92, 240, 204) 53%, rgba(83, 220, 98, 0.72) 88%); 

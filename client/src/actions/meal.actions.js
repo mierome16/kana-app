@@ -121,36 +121,39 @@ export function addOrder(item) {
 }
 
 export function sendOrder(item){
-  // let reserve 
-  // axios.post('/api/add-order', {
-  //     user_id: item.user,
-  //     item_id: item.order.id,
-  //     confirm: item.confirm,
-  //     notes: item.notes,
-  //     quantity: item.quantity,
-  //     size: item.size,
-  //     timePlaced: item.timePlaced,
-  //     type: item.type,
-  //     reservation_date: item.date
+  axios.post('/api/add-order', {
+      user_id: item.user,
+      item_id: item.order.id,
+      confirm: item.confirm,
+      notes: item.notes,
+      quantity: item.quantity,
+      size: item.size,
+      timePlaced: item.timePlaced,
+      type: item.type,
+      reservation_date: item.date
 
-  // }).then(resp => {
-  //     console.log(item)
-    store.dispatch({ 
-      type: 'ADD_ORDER',
-      payload: item
-    })   
-  //})
+  }).then(resp => {
+      //console.log(item)
+  })
+  store.dispatch({ 
+    type: 'ADD_ORDER',
+    payload: item
+  })   
 }
 
-// export function getOrders(user) {
-//   axios.get('/api/get-orders', { user }).then(resp => {
-//     console.log(resp.data)
-//     store.dispatch({
-//       type: 'GET_PAST_ORDERS',
-//       payload: resp.data
-//     })
-//   })
-// }
+export function getPastOrders() {
+  const user = localStorage.getItem('id')
+  axios.get('/api/get-orders/' + user ).then(resp => {
+    // const data = resp.data
+    // data.map(item => (
+    //   let 
+    // ))
+    store.dispatch({
+      type: 'GET_PAST_ORDERS',
+      payload: resp.data
+    })
+  })
+}
 
 
 export function finishOrder() {

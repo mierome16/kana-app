@@ -1,23 +1,24 @@
-import React, { useState, uesEffect} from 'react'
+import React, { useState, useEffect }  from 'react'
 import moment from 'moment'
 import { useSelector } from 'react-redux'
 import { finishOrder } from '../actions/meal.actions'
 import { Redirect } from 'react-router-dom'
 import { Header, Container, Button } from 'semantic-ui-react'
 import MSidebar from './Sidebar';
+import { getPastOrders } from '../actions/meal.actions'
 
 export default props => {
   //const order = useSelector(appState => appState.mealReducer.orderedItem)
   //const resetItem = useSelector(appState => appState.mealReducer.orderedItem)
-  const order = useSelector(appState => appState.mealReducer.pastOrders[0])
+  const order = useSelector(appState => appState.mealReducer.pastOrders)
   //const user = useSelector(appState => appState.authReducer.users[0].id)
   const [viewOrders, setViewOrders] = useState(false)
   const [orderAgain, setOrderAgain] = useState(false)
-  console.log(order.confirm)
+  console.log(order[0])
 
-  // useEffect(() => {
-  //   getOrders(user)
-  // }, [])
+  useEffect(() => {
+    getPastOrders(localStorage.getItem('id'))
+  }, [])
 
   function endOrder(action) {
     finishOrder()
@@ -29,7 +30,7 @@ export default props => {
       viewOrders ? <Redirect to="/orders" /> : orderAgain ? <Redirect to="/profile" /> : (
       <MSidebar>
       <Container style={{padding: '1em'}}>
-          <Header as="h1">Success!</Header>
+          {/* <Header as="h1">Success!</Header>
           <Header as="h3">Confirmation Number: #{order.confirm}</Header>
           <p>{order.type === 'order' ? order.date : ''}</p>
           <p>Order Placed: {order.timePlaced}</p>
@@ -42,7 +43,7 @@ export default props => {
             <p>702-123-4567</p>
             <p>Mon - Fri: {order.order.open} AM - {order.order.close} PM</p> 
           </div>
-        </div>
+        </div> */}
         <div>
           <Button onClick={e => endOrder('view')}>View Orders</Button>
           <Button onClick={e => endOrder('another')}>Order Another Item</Button>

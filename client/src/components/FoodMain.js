@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Icon, Header } from 'semantic-ui-react'
-import Swipe from './Swipe'
 
-import NoResults from './NoResults';
-import {useSelector} from 'react-redux'
+import Swipe from './Swipe'
 import GifLoading from './GifLoading'
 
 export default props => {
@@ -16,17 +14,18 @@ export default props => {
     return (
         <div>
         {showLoading === true ?  <div className="foodmainpage">
-        <Header id="foodmainheader"as='h2'>
+        {/* <Header id="foodmainheader"as='h2'>
             <button className="ui basic button">
                 <i className="icon user"></i>
             </button>
             <Header.Content className="kananame">
-            Kana
+                Kana
             </Header.Content>
+
             <button className="ui basic button">
                 <Icon name="heart"/>
             </button>
-        </Header>
+        </Header> */}
             <Swipe />
     </div> : <GifLoading/>}
     </div>

@@ -12,6 +12,22 @@ html {box-sizing:border-box;}
   padding:3px;
 }
 
+#menuicon {
+  width: 50px;
+}
+
+#mobileTop {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+#favIcon {
+  font-size: 28px;
+  color: black
+}
+
 
 /**********EatOptions Styling*********/
 .EatOptions {
@@ -80,6 +96,7 @@ html {box-sizing:border-box;}
   margin: auto;
 }
 
+
 .foodmainpage {
     display: flex;
     flex-direction: column;
@@ -94,6 +111,7 @@ html {box-sizing:border-box;}
     background-size: contain;
     background-repeat: no-repeat;
 }
+
 #fooditem {
   margin: auto;
   margin-bottom: 25px;
@@ -118,7 +136,7 @@ html {box-sizing:border-box;}
 }
 
 .Profile h1, .Profile h2 {
-  color: rgb(208,208,208);
+  color: rgb(247, 243, 243);
 }
 .Profile h2 {
   font-size: 20px;
@@ -207,25 +225,28 @@ html {box-sizing:border-box;}
 
 .meals {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
-  align-content: space-around;
+  justify-content: space-around;
+  /* align-content: space-between; */
   margin: 5px;
 }
 
 .meal {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
   align-content: space-around;
-  width: 100%;
+  width: 180px;
+  margin-bottom: 5px;
+  
 }
 
 .ui.fluid.toggle.button {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  width: 88vw;
+  width: 180px;
   height: 100px;
   background: white;
   border: none;
@@ -233,6 +254,7 @@ html {box-sizing:border-box;}
   outline: none;
   padding: 0;
   margin: 3px;
+  border-radius: 15px;
 }
 
 .ui.fluid.toggle.button p {
@@ -318,7 +340,7 @@ html {box-sizing:border-box;}
 
 .mhlinks {
   position: relative;
-  top: 75px;
+  top: 94px;
   display: flex;
   flex-direction: column;
   width: 100vw;
@@ -377,7 +399,7 @@ html {box-sizing:border-box;}
   margin-left: 30px;
 }
 #formz {
-  background: rgb(100,100,100);
+  background: rgb(242, 236, 236);
   opacity: .7;
 }
 #lrheader {
@@ -413,13 +435,29 @@ html {box-sizing:border-box;}
 
 
 /***********//* NoResults Styling *//**********/
-.noresults {
+/* #endofdeck {
+  position: relative;
+  z-index: -1000
+} */
+
+#lastCard {
+  height: 505px;
+  background: white;
+  position: absolute;
+  top: 0;
+  border-radius: 10px;
+  /* z-index: 9; */
+  /* width: 100vw; */
+}
+
+.none {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-around;
   text-align: center;
-  border: solid 5px #E84940;;
-  height: 78vh;
+  height: 500px;
+  border-radius: 10px;
+  background-color: rgb(230, 230, 230, .8);
 }
 
 .joke {
@@ -462,12 +500,14 @@ html {box-sizing:border-box;}
 animation-name: fadeIn;
 }
 
+#none a {
+  font-size: 16px;
+}
 
 .textbox {
   background-color: #E84940;
   border-radius: 15px;
-  /* opacity: .8; */
-  color: antiquewhite;
+  color: rgb(250, 235, 215);
   width: 90%;
   margin-left: auto;
   margin-right: auto;
@@ -491,6 +531,7 @@ animation-name: fadeIn;
   width: 100vw;
   display: flex;
 }
+
 
 /********* mobile about page ******/
 .about-card {
@@ -528,6 +569,75 @@ animation-name: fadeIn;
   margin:auto;
 }
 
-/* .about-content{
-  width:100%;
-} */
+
+
+
+/******* Contact Us Form ********/
+.contactus {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  width: 100vw;
+  background:   linear-gradient(
+    rgba(0, 0, 0, 0.3), 
+    rgba(0, 0, 0, 0.3)
+  ),url('https://i.pinimg.com/564x/26/3d/53/263d53ed14ea33255b11d342a25c20d4.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  overflow: -moz-hidden-unscrollable;
+}
+
+.contactform {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+
+
+
+
+#title h1 {
+  color: white;
+  text-align: center;
+}
+
+#title {
+  height: 15;
+  margin-top: 10%;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 85%;
+  margin-top: 0px;
+  height: 70%
+}
+
+#inputs {
+  height:50px;
+}
+
+#inputs, #textarea {
+  margin-top: 20px;
+}
+
+#textarea {
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.contactus #save {
+  opacity: .8;
+}
+
+#modal {
+  width: 80%;
+  height: 100px;
+  background: rgb(228, 225, 225);
+  margin: auto;
+}
+

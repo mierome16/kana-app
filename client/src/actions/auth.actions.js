@@ -16,28 +16,31 @@ function setInterceptors(){
 }
 
 export function login(username, password){
-    console.log(username, password)
     axios.post('/api/login', {
       username: username,
       password: password}
-      ).then(resp => {
+    ).then(resp => {
         const token = resp.data.token
+        const user_id = resp.data.user.id
+        const username = resp.data.user.username
 
         localStorage.setItem('token', token)
+        localStorage.setItem('user', username)
+        localStorage.setItem('id', user_id)
 
-        setInterceptors(token)
-        console.log(resp.data.user[0].id)
-        const user_id = resp.data.user[0].id
-    store.dispatch({
-        type: 'LOGIN',
-        payload: {
-            username: username,
-            id: user_id
-        }
+        setInterceptors(token)        
+        console.log(username, user_id)
+        store.dispatch({
+            type: 'LOGIN',
+            payload: {
+                username: username,
+                id: user_id
+            }
+        })
+        
+    }).catch(e => {
+        console.log('error',e)
     })
-
-    })
-    
 }
 
 
@@ -63,6 +66,9 @@ export function register(username, password, first_name, last_name){
 
 export function logout() {
     localStorage.removeItem('token')
+    localStorage.removeItem('user')
+    localStorage.removeItem('id')
+    
     store.dispatch({
         type: 'LOGOUT'
     })

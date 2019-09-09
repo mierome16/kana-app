@@ -7,7 +7,7 @@ export default props => {
   const joke = jokes[Math.floor(Math.random()*jokes.length)]
 
   return (
-    <div className="noresults">
+    <div className="none">
       <div className='joke'>
         <p className='joke-q'>{joke.q}</p>
         <p className='joke-a fadeIn'>{joke.a}</p>

@@ -1,15 +1,15 @@
 const initialState= {
- users: []
+  user: {}
 }
 
 export default function(state = initialState, action) {
     switch(action.type) {
         case 'REGISTER': 
-            return {...state, users: [...state.users, action.payload]}
+            return {...state, user: action.payload} 
         case 'LOGIN':
-            return {...state, users: [...state.users, action.payload]}
+            return {...state, user: action.payload}
         case 'LOGOUT':
-            return {...state, users: ''}
+            return {...state, user: {}}
         default: return state
     }
 }
