@@ -16,6 +16,8 @@ export default props => {
     }
 
     return (
+
+        loggedIn ? <Redirect to="/dashboard" /> : (
         localStorage.getItem('token') ? <Redirect to="/profile" /> : (
         <div id="loginform">
             <Grid textAlign='center' style={{ height: '100vh', width:'100vw' }} verticalAlign='middle'>

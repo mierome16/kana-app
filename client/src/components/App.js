@@ -32,6 +32,8 @@ import RestaurantAccount from './RestaurantAccount'
 import RestaurantItem from '../styles/RestaurantItem'
 import RestaurantInventory from './RestaurantInventory'
 import ContactUs from './ContactUs'
+import MobileDashboard from './MobileDashboard'
+// import RestaurantStatTopbar from './RestaurantStatTopbar'
 import AuthRoute from './AuthRoute'
 import OrderRoute from './OrderRoute'
 import ConfirmRoute from './ConfirmRoute'
@@ -57,33 +59,26 @@ const [loading, setLoading] = useState(true)
             <Route exact path ="/restaurant-home" component={RestHome}/>
             <Route exact path ="/restaurant-register" component={RestRegister}/>
             <Route exact path="/restaurant-login" component={RestLogin}/>
-            <Route path = "/about-kana" component={HomepageLayout} />
-            <Route path ="/about" component={MobileAbout} />
-            <Route path ="/sidebar" component={MSidebar}/>
-            <Route path ="/notfound" component={NoResults} />
-            <Route path="/endofdeck" component={EndOfDeck} />
-
-            <LoginRoute path="/profile" component={Profile} />
-
-            <OrderRoute path="/order" component={OrderForm} />
-            <OrderRoute path="/reservation" component={ReservationForm} />
-            <OrderRoute path="/options" component={EatOptions} />
-
-            <ConfirmRoute path="/confirm" component={Confirmation} />
-            
-            <LoginRoute path="/swipe" component={FoodMain} />
-            <LoginRoute path="/map" component={DistanceMap}/>
-            <LoginRoute path="/meal" component={MealOptions} />
-            <LoginRoute exact path="/orders" component={PastOrders} />
-            <LoginRoute exact path="/orders/:singleOrder" component={SinglePastOrder} />
-            <LoginRoute path="/favorites" component={Favorites}/>
-
-         
+            <Route path="/contact" component={ContactUs} />
+            <Route exact path = "/about-kana" component={HomepageLayout} />
+            <Route exact path ="/about" component={MobileAbout} />
+            <Route exact path ="/notfound" component={NoResults} />
+            <Route exact path="/endofdeck" component={EndOfDeck} />
             <Route path="/restaurant-profile" component={RestaurantAccount}/>
             <Route path="/restaurant-additem" component={RestaurantItem}/>
             <Route path="/restaurant-inventory" component={RestaurantInventory}/>
-
-            <Route path="/contact" component={ContactUs} />
+            <LoginRoute exact path="/dashboard" component={MobileDashboard} />
+            <LoginRoute exact path="/profile" component={Profile} />
+            <LoginRoute exact path="/order" component={OrderForm} />
+            <LoginRoute exact path="/reservation" component={ReservationForm} />
+            <LoginRoute exact path="/options" component={EatOptions} />
+            <LoginRoute exact path="/confirm" component={Confirmation} />
+            <LoginRoute exact path="/swipe" component={FoodMain} />
+            <LoginRoute exact path="/map" component={DistanceMap}/>
+            <LoginRoute exact path="/meal" component={MealOptions} />
+            <LoginRoute exact path="/orders" component={PastOrders} />
+            <LoginRoute exact path="/orders/:singleOrder" component={SinglePastOrder} />
+            <LoginRoute path="/favorites" component={Favorites}/>
           </Switch>        
     
         </div>
