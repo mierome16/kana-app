@@ -16,7 +16,6 @@ export default props => {
     }
 
     return (
-
         loggedIn ? <Redirect to="/dashboard" /> : (
         localStorage.getItem('token') ? <Redirect to="/profile" /> : (
         <div id="loginform">
@@ -58,4 +57,4 @@ export default props => {
         </div>
         )
     )
-}
+    )}
