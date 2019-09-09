@@ -16,7 +16,7 @@ export default props => {
     }
 
     return (
-        loggedIn ? <Redirect to="/profile" /> : (
+        loggedIn ? <Redirect to="/dashboard" /> : (
         <div id="loginform">
             <Grid textAlign='center' style={{ height: '100vh', width:'100vw' }} verticalAlign='middle'>
                 <Grid.Column id="loginbox" style={{ maxWidth: '350px' }}>

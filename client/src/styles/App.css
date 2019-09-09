@@ -641,3 +641,64 @@ animation-name: fadeIn;
   margin: auto;
 }
 
+/***** mobile dashboard *****/
+.mobiledashpage {
+  height: 100vh;
+  width: 100vw;
+  display: block;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.5), 
+    rgba(0, 0, 0, 0.5)
+  ),url('https://i.pinimg.com/564x/26/3d/53/263d53ed14ea33255b11d342a25c20d4.jpg');
+  background-size: contain;
+}
+.mobiledashpage header {
+  height: 55px;
+  width: 100vw;
+  font-size: 29px;
+  padding-top: 13px;
+  background: rgba(0,0,0,.8);
+  color: white;
+  text-align: center;
+  font-family: "Rock Salt"
+}
+.dashcontainer{
+  width: 95vw;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  margin-top: 20%;
+}
+.myprofiledash, .startorderdash, .pastordersdash, .favdash {
+  height: 200px;
+  width: 43vw;
+  background: white;
+  margin: 7px;
+  border-radius: 10px;
+}
+.myprofiledash {
+  background: url(../dashimages/1.png);
+  background-size: cover;
+  background-position-y: center;
+}
+.startorderdash {
+  background: url(../dashimages/4.png);
+  background-size: cover;
+  background-position-y: center;
+}
+.pastordersdash {
+  background: url(../dashimages/5.png);
+  background-size: cover;
+  background-position-y: center;
+}
+.favdash {
+  background: url(../dashimages/6.png);
+  background-size: cover;
+  background-position-y: center;
+}
+.mobiledashpage h2 {
+  text-align: center;
+  font-size: 25px;
+  color: white;
+}
+

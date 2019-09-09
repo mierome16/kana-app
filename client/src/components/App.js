@@ -32,6 +32,8 @@ import RestaurantAccount from './RestaurantAccount'
 import RestaurantItem from '../styles/RestaurantItem'
 import RestaurantInventory from './RestaurantInventory'
 import ContactUs from './ContactUs'
+import MobileDashboard from './MobileDashboard'
+// import RestaurantStatTopbar from './RestaurantStatTopbar'
 
 
 export default props => {
@@ -60,7 +62,8 @@ const [loading, setLoading] = useState(true)
             <Route path="/restaurant-profile" component={RestaurantAccount}/>
             <Route path="/restaurant-additem" component={RestaurantItem}/>
             <Route path="/restaurant-inventory" component={RestaurantInventory}/>
-
+            {/* <Route path="/res-stat-topbar" component={RestaurantStatTopbar}/> */}
+            <LoginRoute exact path="/dashboard" component={MobileDashboard} />
             <LoginRoute exact path="/profile" component={Profile} />
             <LoginRoute exact path="/order" component={OrderForm} />
             <LoginRoute exact path="/reservation" component={ReservationForm} />
