@@ -1,19 +1,34 @@
---- phone #, "link" to websitest
 
 
---- add past orders to backend? link past orders by each user?
---- on heart click, add to favorites list
+--- dashboard/account view component??
+--- make a fake link to external restaurant page??
+--- add restaurant phone # to data and grab it in sql
 
---- google map page before preferences
---- saving preferences to each user??
---- dashboard component: make an order, view past orders, edit account, view preferences history??
---- progress bar for onboarding
---- use semantic item for viewing past orders
---- add a contact us page
---- fixing card styling
---- finishing about/onboarding page
+and** be able to remove from favorites list
+--- swipe through favorites list
+--- finishing about/onboarding component
+--- page if not found
+--- figure out how to go back to swipe and view the same items??
+--- start a new order/order from favorites/use previous preferences
+--- if no favorites, only show option to start a new order
+--- if you try to click to order from favorites, alert that you haven't any items to your favorite list yet
+--- swipe view and list view for favorites
+--- add time input and party size for reservation
+
+
+
+--- finish confirm page (add new function in reducer)
+--- make a route to check if order exists
+--- add back button
+--- make sure confirm page works and add styling
+--- make route to check for order, redirect if no order placed
+--- finish reservation styling
+--- finish card styling
+--- on heart click, add to favorites list 
+--- fix log in/register redirect if you are already logged in
+
+
 --- colors for circle progress bar #c8c0c0bf;
-
 --- background: linear-gradient(164deg, #00bcd4a8 23%, rgb(92, 240, 204) 53%, rgba(83, 220, 98, 0.72) 88%); 
 --- navbar on profile rgba(68, 11, 11, 0.57)
 --- continue button color on profile #3e3838

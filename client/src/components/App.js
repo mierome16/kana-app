@@ -34,6 +34,10 @@ import RestaurantInventory from './RestaurantInventory'
 import ContactUs from './ContactUs'
 import MobileDashboard from './MobileDashboard'
 // import RestaurantStatTopbar from './RestaurantStatTopbar'
+import AuthRoute from './AuthRoute'
+import OrderRoute from './OrderRoute'
+import ConfirmRoute from './ConfirmRoute'
+import Favorites from './Favorites'
 
 
 export default props => {
@@ -49,20 +53,20 @@ const [loading, setLoading] = useState(true)
 
           <Switch>
             <Route exact path="/" component={MobileHome}/>
-            <Route exact path ="/login" component={Login} />
-            <Route exact path="/register" component={Registration}/>
+            <AuthRoute path ="/login" component={Login} />
+            <AuthRoute path="/register" component={Registration}/>
+
             <Route exact path ="/restaurant-home" component={RestHome}/>
             <Route exact path ="/restaurant-register" component={RestRegister}/>
             <Route exact path="/restaurant-login" component={RestLogin}/>
+            <Route path="/contact" component={ContactUs} />
             <Route exact path = "/about-kana" component={HomepageLayout} />
             <Route exact path ="/about" component={MobileAbout} />
-            <Route exact path ="/sidebar" component={MSidebar}/>
             <Route exact path ="/notfound" component={NoResults} />
             <Route exact path="/endofdeck" component={EndOfDeck} />
             <Route path="/restaurant-profile" component={RestaurantAccount}/>
             <Route path="/restaurant-additem" component={RestaurantItem}/>
             <Route path="/restaurant-inventory" component={RestaurantInventory}/>
-            {/* <Route path="/res-stat-topbar" component={RestaurantStatTopbar}/> */}
             <LoginRoute exact path="/dashboard" component={MobileDashboard} />
             <LoginRoute exact path="/profile" component={Profile} />
             <LoginRoute exact path="/order" component={OrderForm} />
@@ -74,13 +78,7 @@ const [loading, setLoading] = useState(true)
             <LoginRoute exact path="/meal" component={MealOptions} />
             <LoginRoute exact path="/orders" component={PastOrders} />
             <LoginRoute exact path="/orders/:singleOrder" component={SinglePastOrder} />
-
-            
-
-            <Route path ="/sidebar" component={MSidebar}/>
-            <Route path ="/notfound" component={NoResults} />
-            <Route path="/endofdeck" component={EndOfDeck} />
-            <Route path="/contact" component={ContactUs} />
+            <LoginRoute path="/favorites" component={Favorites}/>
           </Switch>        
     
         </div>

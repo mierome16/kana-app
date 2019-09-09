@@ -10,17 +10,21 @@ html {box-sizing:border-box;}
 #sidebarTop {
   background: rgba(255, 249, 249, 0.51);
   padding:3px;
+  width:100%;
+}
+
+#sidebar-menu {
+  position: absolute;
+  right:10px;
+  width: 150px;
+  display: flex;
+  justify-content: space-evenly;
+  text-transform: uppercase;
+  align-content: center;
 }
 
 #menuicon {
   width: 50px;
-}
-
-#mobileTop {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 100%;
 }
 
 #favIcon {
@@ -37,7 +41,13 @@ html {box-sizing:border-box;}
   align-items: center;
   height: 100vh;
   margin: auto;
-  background-color: rgb(203,203,203);
+  /* background-color: rgb(203,203,203); */
+  background:   linear-gradient(
+      rgba(0, 0, 0, 0.8), 
+      rgba(0, 0, 0, 0.8)
+    ),url('https://i.pinimg.com/564x/26/3d/53/263d53ed14ea33255b11d342a25c20d4.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .EatOptions div {
@@ -46,7 +56,8 @@ html {box-sizing:border-box;}
 
 .EatOptions div h1 {
   font-weight: lighter;
-  color: black;
+  /* color: black; */
+  color: #fff;
 }
 
 .EatOptions button {
@@ -430,7 +441,8 @@ html {box-sizing:border-box;}
 
 
 #date-picker {
-  height:10px;
+  margin-bottom: 30px;
+  padding: 10px;
 }
 
 
@@ -641,6 +653,7 @@ animation-name: fadeIn;
   margin: auto;
 }
 
+
 /***** mobile dashboard *****/
 .mobiledashpage {
   height: 100vh;
@@ -700,5 +713,22 @@ animation-name: fadeIn;
   text-align: center;
   font-size: 25px;
   color: white;
+
+  
+  
+  
+.reserve-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+#reserve-form p, #confirm p {
+  font-size: 14px;
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.confirm-action {
+  margin-top: 20px;
 }
 
