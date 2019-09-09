@@ -724,14 +724,13 @@ animation-name: fadeIn;
   background-size: cover;
   background-position-y: center;
 }
+
 .mobiledashpage h2 {
   text-align: center;
   font-size: 25px;
   color: white;
+}
 
-  
-  
-  
 .reserve-item {
   display: flex;
   justify-content: space-between;
