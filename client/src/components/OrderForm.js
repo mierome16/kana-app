@@ -52,14 +52,14 @@ export default props => {
         <Header as='h4'>
           Item
         </Header>
-        <p>{order.name}</p>
+        <p>{order.name ? order.name : order.meal_name ? order.meal_name : ''}</p>
         <Header as='h4'>
           Restaurant Details
         </Header>
         <p>{order.restaurant}</p>
         <p>{order.address}</p>
         <p>702-123-4567</p>
-        <p>Mon - Fri: {(order.open)} AM - {order.close} PM</p>
+        <p>Mon - Fri: {order.open} AM - {order.close} PM</p>
         <Image bordered rounded size='small' src='https://www.google.com/maps/d/thumbnail?mid=1CoxrxicMw4uSYPjPb20L6eQisoI&hl=en_US' />
         <Form onSubmit={handleSubmit}>
             <Form.Group widths='equal'>

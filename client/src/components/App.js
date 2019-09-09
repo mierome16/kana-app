@@ -32,6 +32,7 @@ import ContactUs from './ContactUs'
 import AuthRoute from './AuthRoute'
 import OrderRoute from './OrderRoute'
 import ConfirmRoute from './ConfirmRoute'
+import Favorites from './Favorites'
 
 
 export default props => {
@@ -69,6 +70,7 @@ const [loading, setLoading] = useState(true)
             <LoginRoute path="/meal" component={MealOptions} />
             <LoginRoute exact path="/orders" component={PastOrders} />
             <LoginRoute exact path="/orders/:singleOrder" component={SinglePastOrder} />
+            <LoginRoute path="/favorites" component={Favorites}/>
 
             <Route path ="/notfound" component={NoResults} />
             <Route path="/endofdeck" component={EndOfDeck} />

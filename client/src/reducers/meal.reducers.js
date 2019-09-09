@@ -7,7 +7,8 @@ const initialState = {
   orderedItem: '',
   pastOrders: [],
   filteredItems: [],
-  confirm: ''
+  confirm: '',
+  favorites: []
   
 }
 
@@ -48,6 +49,9 @@ export default function(state = initialState, action) {
       
     case 'GET_PAST_ORDERS':
       return {...state, pastOrders: action.payload}
+
+    case 'GET_FAVORITES':
+      return {...state, favorites: action.payload}
     default: 
       return state
   }

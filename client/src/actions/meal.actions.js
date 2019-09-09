@@ -177,12 +177,18 @@ export function addToFav(item) {
   })
 }
 
-export function orderFromFav() {
-  const id = localStorage.get('id')
-  axios.get('/api/order/' + id).then(resp => {
+export function getFavorites() {
+  const id = localStorage.getItem('id')
+  axios.get('/api/getFav/' + id).then(resp => {
+    const data = resp.data
+    data.map(item => {
+      let pic = Object.assign({}, item)
+      item.image = `/pictures/${item.img}.jpg`
+      return pic
+    })
     store.dispatch({
       type: 'GET_FAVORITES',
-      payload: resp.data
+      payload: data
     })
   })
 }

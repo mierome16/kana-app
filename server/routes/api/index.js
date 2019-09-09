@@ -413,6 +413,37 @@ router.post('/add-to-favorites', (req, res, next) => {
 })
 
 
+router.get('/getFav/:id', (req, res, next) => {
+  const user_id = req.params.id
+  console.log(user_id)
+  const sql = `
+  SELECT m.name as meal_name, m.id, m.meal_type, m.description, m.diet, m.price, m.popular, r.name as restaurant, r.address, r.zipcode, r.city, r.state, r.opening_time as open, r.day_opened, p.id as img
+  FROM  users, menu_items m, restaurants r, pictures p, user_favorites f
+  WHERE users.id = ? AND f.user_id = ? AND f.item_id = m.id AND m.id = p.menu_items_id AND m.restaurant_id = r.id 
+  `
+ conn.query(sql, [user_id, user_id], (err, results, fields) => {
+   //console.log(results)
+   // Some array I got from async call
+   const favs = results.reduce((acc, current) => {
+    const x = acc.find(item => item.meal_name === current.meal_name);
+    if (!x) {
+      return acc.concat([current]);
+    } else {
+      return acc;
+    }
+  }, [])
+
+    if (err) {
+     res.json({
+       message: err
+     })
+   } else {
+     res.json(favs)
+   }
+ })
+})
+
+
 
 
 module.exports = router

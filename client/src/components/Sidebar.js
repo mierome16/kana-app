@@ -36,9 +36,9 @@ class MSidebar extends Component {
           <Link to="/about"><Menu.Item>About Us</Menu.Item></Link>
           <Link to="/profile"><Menu.Item>Start an Order</Menu.Item></Link>
           <Link to="/orders"><Menu.Item>Past Orders</Menu.Item></Link>
+          <Link to="/favorites"><Menu.Item>Past Orders</Menu.Item></Link>
           <Link to="/restaurant-home"><Menu.Item>Restaurant Inquiry</Menu.Item></Link>
           <Link to="/contact"><Menu.Item>Contact Us</Menu.Item></Link>
-          <Link to="/setting"><Menu.Item>Account Settings</Menu.Item></Link>
           <Link to="/sign-out"><Menu.Item onClick={logout}> Sign Out</Menu.Item></Link>
         </Sidebar>
 
@@ -63,7 +63,7 @@ class MSidebar extends Component {
                     </Link>
                   </Menu.Item>
                   <Menu.Item id="sidebar-menu" style={{color:'black'}} onClick={this.handleToggle}>
-                    Menu
+                    KANA
                     <Image style={{width:30, height:30}} src="https://cdn1.iconfinder.com/data/icons/restaurant-kitchen-utensils/100/Kitchenware_8-512.png" size="small" />
                   </Menu.Item>
                   {/* <h3 className='kananame'>Kana</h3> */}

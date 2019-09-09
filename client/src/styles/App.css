@@ -27,14 +27,6 @@ html {box-sizing:border-box;}
   width: 50px;
 }
 
-/* #mobileTop {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-} */
-
 #favIcon {
   font-size: 28px;
   color: black
