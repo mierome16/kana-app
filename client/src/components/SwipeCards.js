@@ -27,7 +27,7 @@ import { orderItem } from "../actions/meal.actions";
 		obj = document.getElementById('stacked-cards-block');
 		stackedCardsObj = obj.querySelector('.stackedcards-container');
 		listElNodesObj = stackedCardsObj.children;
-		console.log(listElNodesObj.length)
+		// console.log(listElNodesObj.length)
 		var deckLength = listElNodesObj.length
 		topObj = obj.querySelector('.stackedcards-overlay.top');
 		rightObj = obj.querySelector('.stackedcards-overlay.right');
@@ -259,12 +259,7 @@ import { orderItem } from "../actions/meal.actions";
 				transformUi(0, -1000, 0, topObj); //Move topOverlay
 				resetOverlays();
 			}
-			// counter +=0
-			// console.log(counter)
-			deckLength-=1
-			console.log(deckLength)
 			
-
 			updateUi();
 			currentElement();
 			setActiveHidden();
@@ -700,7 +695,7 @@ import { orderItem } from "../actions/meal.actions";
 		var buttonRight = document.querySelector('.right-action');
 
 		buttonLeft.addEventListener('click', onActionLeft, false);
-		//buttonTop.addEventListener('click', onActionTop, false);
+		buttonTop.addEventListener('click', onActionTop, false);
 		buttonRight.addEventListener('click', onActionRight, false);
 
 	

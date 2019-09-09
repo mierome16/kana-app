@@ -31,7 +31,7 @@ export default props => {
                 <FoodItem.Content>
                 <FoodItem.Header style={{ display:'flex', flexDirection:'column'}}>
                   {order.meal_name}
-                  <FoodItem.Meta>Placed at: {order.time_placed}</FoodItem.Meta>
+                  <FoodItem.Meta>{order.time_placed}</FoodItem.Meta>
                   <FoodItem.Meta>{order.type === 'reservation' ? ('Reservation Date: ' + moment(order.reserve_date).format('LLL')) : ('Order Total: $' + (order.price * order.quantity).toFixed(2))}</FoodItem.Meta>
                 </FoodItem.Header>
                 <FoodItem.Meta>

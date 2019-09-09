@@ -9,9 +9,6 @@ import NoResults from './NoResults'
 import EndOfDeck from "./EndOfDeck";
 import MSidebar from './Sidebar' 
 
-const endCard = {
-  name: 'Last Card'
-}
 
 export default props => {
   const foodItems = useSelector(appState => appState.mealReducer.allItems)
@@ -19,7 +16,6 @@ export default props => {
   const selectedDiets = useSelector(appState => appState.mealReducer.selectedDiets)
   const selectedMeals = useSelector(appState => appState.mealReducer.selectedMeals)
   const [redir, setRedir] = useState(false)
-  const [noFound, setNoFound] = useState(false)
   
   
    function mapRating(number) {
@@ -50,19 +46,6 @@ export default props => {
     }, [selectedDiets, selectedMeals ]) 
 
   console.log(foodItems.length)
-
-
-  // useEffect(() => {
-  //   if (foodItems.length === 0 ) {
-  //     setNoFound(!noFound)
-  //   } 
-  //   else if (order) {
-  //     setRedir(!redir)
-  //   } 
-  //   else { 
-  //     stackedCards(foodItems)
-  //   }
-  // }, [])
 
   
   useEffect(() => {
@@ -104,7 +87,7 @@ export default props => {
                     )}
                   </div>
                   <div id="lastCard" >
-                        <EndOfDeck />
+                    <EndOfDeck />
                   </div>
                   <div className="stackedcards--animatable stackedcards-overlay top">Favorite</div>
                   <div className="stackedcards--animatable stackedcards-overlay right">Yum</div>
@@ -113,7 +96,7 @@ export default props => {
 
                 <div className="global-actions">
                   <div className="left-action">Yuck</div>
-                    {/* <div className="top-action">Favorite</div> */}
+                  <div className="top-action">Favorite</div>
                   <div className="right-action">Yum</div>
                 </div> 
                
