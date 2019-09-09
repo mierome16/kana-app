@@ -1,4 +1,4 @@
-import { orderItem } from "../actions/meal.actions";
+import { orderItem, addToFav } from "../actions/meal.actions";
 
 // JavaScript Document
 
@@ -183,20 +183,21 @@ import { orderItem } from "../actions/meal.actions";
 		
 		//Functions to swipe top elements on logic external action.
 		function onActionTop() {
-			if(!(currentPosition >= maxElements)){
-				if(useOverlays) {
-					leftObj.classList.remove('no-transition');
-					rightObj.classList.remove('no-transition');
-					topObj.classList.remove('no-transition');
-					topObj.style.zIndex = '8';
-					transformUi(0, 0, 1, topObj);
-				}
+			addToFav(array[currentPosition-1])
+			// if(!(currentPosition >= maxElements)){
+			// 	if(useOverlays) {
+			// 		leftObj.classList.remove('no-transition');
+			// 		rightObj.classList.remove('no-transition');
+			// 		topObj.classList.remove('no-transition');
+			// 		topObj.style.zIndex = '8';
+			// 		transformUi(0, 0, 1, topObj);
+			// 	}
 				
-				setTimeout(function(){
-					onSwipeTop();
-					resetOverlays();
-				},300); //wait animations end
-			}
+				// setTimeout(function(){
+				// 	//onSwipeTop();
+				// 	//resetOverlays();
+				// },300); //wait animations end
+			//}
 		};
 		
 		//Swipe active card to left.

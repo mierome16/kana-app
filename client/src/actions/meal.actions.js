@@ -162,6 +162,25 @@ export function finishOrder() {
   })
 }
 
+export function addToFav(item) {
+  axios.post('/api/add-to-favorites', {
+    user_id: localStorage.getItem('id'),
+    item_id: item.id
+  }).then(resp => {
+    console.log(resp.data)
+  })
+}
+
+export function orderFromFav() {
+  const id = localStorage.get('id')
+  axios.get('/api/order/' + id).then(resp => {
+    store.dispatch({
+      type: 'GET_FAVORITES',
+      payload: resp.data
+    })
+  })
+}
+
 
 
 

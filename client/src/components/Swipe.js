@@ -36,6 +36,10 @@ export default props => {
         //console.log(allergies)
       return icons
     }
+
+    function addToFav() {
+
+    }
     
     console.log(foodItems)
     
