@@ -55,8 +55,23 @@ router.post('/register', (req, res, next) => {
  })
 })
 
+
+router.post('/rest-register', (req,res,next) => {
+  const name = res_name
+  const address= res_address
+  const city= res_city
+  const state= res_state
+  const zipcode= res_zip
+  const email= res_email
+  const phone= res_phone
+
+  conn.query( (err,results,fields) => {
+    
+  })
+})
+
 //******Diet Selection and Filtering*******//
-// router.get('/menu-items/:selectedDiets', (req,res,next) => {
+// router.get('/menu-items/:selectedDiets' ,(req,res,next) => {
 //   const diet = req.params.selectedDiets.split(',')
 //   const sql = `
 //   SELECT m.id, m.name as item_name, m.description, m.price, dr.name as diet_name, dr.disabled, mt.meal_name, mt.id AS meal_id, p.id as pic_id, r.name as res_name, r.address, r.zipcode, r.city, r.state, r.opening_time, r.closing_time, r.ratings

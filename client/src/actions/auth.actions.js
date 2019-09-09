@@ -40,9 +40,6 @@ export function login(username, password){
     
 }
 
-export function resLogin(res_email, res_password){
-    console.log(res_email, res_password)
-}
 
 export function register(username, password, first_name, last_name){
     console.log(username, password, first_name, last_name)
