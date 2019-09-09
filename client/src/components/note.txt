@@ -10,22 +10,10 @@ and** be able to remove from favorites list
 --- page if not found
 --- figure out how to go back to swipe and view the same items??
 --- start a new order/order from favorites/use previous preferences
---- if no favorites, only show option to start a new order
---- if you try to click to order from favorites, alert that you haven't any items to your favorite list yet
 --- swipe view and list view for favorites
 --- add time input and party size for reservation
+--- only see items that are open
 
-
-
---- finish confirm page (add new function in reducer)
---- make a route to check if order exists
---- add back button
---- make sure confirm page works and add styling
---- make route to check for order, redirect if no order placed
---- finish reservation styling
---- finish card styling
---- on heart click, add to favorites list 
---- fix log in/register redirect if you are already logged in
 
 
 --- colors for circle progress bar #c8c0c0bf;

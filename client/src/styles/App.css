@@ -574,11 +574,26 @@ animation-name: fadeIn;
   justify-content: center;
 }
 
+.about-progress i {
+  font-size: 12px;
+}
+
 .about-info {
   position: absolute;
   top: 120px;
   width:100%;
   margin:auto;
+  padding: 0 20px;
+}
+
+.about-info p {
+  font-size:18px;
+  margin-bottom: 5px;
+}
+
+.about-info .about-action {
+  margin-top: 45px;
+  margin-bottom: 15px;
 }
 
 
