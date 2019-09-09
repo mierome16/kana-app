@@ -199,20 +199,23 @@
 
     .card-content p {
         font-size: 14px;
+        width: 350px;
     }
 
   .card-item .card-header {
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
   }
 
   .card-item .card-content {
       padding: 10px;
   }
 
+
   .card-header .card-header-info {
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
   }
 
   /* .card-header-info {

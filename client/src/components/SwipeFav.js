@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from "react";
 import '../styles/SwipeStyles.css'
 import { Icon, Label } from "semantic-ui-react"
-import { getMenuItems } from '../actions/meal.actions'
+import { getFavorites } from '../actions/meal.actions'
 import { stackedCards } from './SwipeCards'
 import { useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom'
@@ -11,10 +11,8 @@ import MSidebar from './Sidebar'
 
 
 export default props => {
-  const foodItems = useSelector(appState => appState.mealReducer.allItems)
+  const foodItems = useSelector(appState => appState.mealReducer.favorites)
   const order = useSelector(appState => appState.mealReducer.orderedItem)
-  const selectedDiets = useSelector(appState => appState.mealReducer.selectedDiets)
-  const selectedMeals = useSelector(appState => appState.mealReducer.selectedMeals)
   const [redir, setRedir] = useState(false)
   
   
@@ -25,27 +23,13 @@ export default props => {
       }
       return arr
     }
-    // function mapAllergy(allergies) {
-    //   let labels = []
-    //   if (allergies.indexOf(' ') === -1 ) {
-    //     labels.push(<Label>{allergies}</Label>)
-    //   } else {
-    //     allergies.split(' ').map(item => {
-    //       labels.push(<Label>{item}</Label>)
-    //     })
-    //   }
-    //   console.log(labels)
-    //   return labels
-    // }
     
     console.log(foodItems)
     
     useEffect(() => {
-      const diets = selectedDiets.length === 0 ? 'none' : selectedDiets
-      const meals = selectedMeals.length === 0 ? 'none' : selectedMeals
-      getMenuItems(diets, meals)
-    }, [selectedDiets, selectedMeals ]) 
-
+      getFavorites()
+      
+    }, [])
   console.log(foodItems.length)
 
   

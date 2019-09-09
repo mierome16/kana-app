@@ -38,6 +38,7 @@ import AuthRoute from './AuthRoute'
 import OrderRoute from './OrderRoute'
 import ConfirmRoute from './ConfirmRoute'
 import Favorites from './Favorites'
+import SwipeFav from './SwipeFav'
 
 
 export default props => {
@@ -55,7 +56,6 @@ const [loading, setLoading] = useState(true)
             <Route exact path="/" component={MobileHome}/>
             <AuthRoute path ="/login" component={Login} />
             <AuthRoute path="/register" component={Registration}/>
-
             <Route exact path ="/restaurant-home" component={RestHome}/>
             <Route exact path ="/restaurant-register" component={RestRegister}/>
             <Route exact path="/restaurant-login" component={RestLogin}/>
@@ -78,6 +78,7 @@ const [loading, setLoading] = useState(true)
             <LoginRoute exact path="/meal" component={MealOptions} />
             <LoginRoute exact path="/orders" component={PastOrders} />
             <LoginRoute exact path="/orders/:singleOrder" component={SinglePastOrder} />
+            <LoginRoute exact path="/swipefav" component={SwipeFav} />
             <LoginRoute path="/favorites" component={Favorites}/>
           </Switch>        
     
