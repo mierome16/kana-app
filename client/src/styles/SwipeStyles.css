@@ -85,10 +85,11 @@
       opacity: 0;
       top: 0;
       height: 100%;
-      font-size: 24px; /* this style was added only for better preview */
+      font-size: 34px; /* this style was added only for better preview */
       text-transform: uppercase; /* this style was added only for better preview */
       font-weight: 500; /* this style was added only for better preview */
       color: #fff; /* this style was added only for better preview */
+      font-family: 'Roboto', sans-serif; 
   }
   
   .stackedcards-overlay.top {
@@ -164,12 +165,27 @@
       text-transform: uppercase;
       font-weight: 500;
       color: #fff;
+      font-family: 'Roboto', sans-serif; 
+      font-size: 14px;
   }
   
   .top-action {
-      background: rgb(216, 216, 214);
-      margin: 0 10px; 
+      /* background: rgb(216, 216, 214); */
+      margin: 0 5px;
+      color: #fff;
+      font-size: 30px;
+      width: fit-content;
   }
+
+ .save {
+      color: pink;
+  }
+
+  /* #top-replace {
+      display: none;
+  } */
+
+
   
   .right-action { background: rgb(34, 175, 6); }
   .left-action { background: rgb(187, 7, 7); }
@@ -181,12 +197,35 @@
       border: 5px solid #FFFFFF;
     }
 
+    .card-content p {
+        font-size: 14px;
+    }
+
   .card-item .card-header {
       display: flex;
       justify-content: space-between;
   }
 
+  .card-item .card-content {
+      padding: 10px;
+  }
+
   .card-header .card-header-info {
       display: flex;
       flex-direction: column;
+  }
+
+  /* .card-header-info {
+      width: 100vw;
+  } */
+
+  .card-header-info .rating {
+      margin-left: 10px;
+  }
+
+  .card-body .card-desc {
+    max-height: 40px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }

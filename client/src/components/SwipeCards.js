@@ -1,4 +1,4 @@
-import { orderItem } from "../actions/meal.actions";
+import { orderItem, addToFav } from "../actions/meal.actions";
 
 // JavaScript Document
 
@@ -27,7 +27,7 @@ import { orderItem } from "../actions/meal.actions";
 		obj = document.getElementById('stacked-cards-block');
 		stackedCardsObj = obj.querySelector('.stackedcards-container');
 		listElNodesObj = stackedCardsObj.children;
-		console.log(listElNodesObj.length)
+		// console.log(listElNodesObj.length)
 		var deckLength = listElNodesObj.length
 		topObj = obj.querySelector('.stackedcards-overlay.top');
 		rightObj = obj.querySelector('.stackedcards-overlay.right');
@@ -183,20 +183,8 @@ import { orderItem } from "../actions/meal.actions";
 		
 		//Functions to swipe top elements on logic external action.
 		function onActionTop() {
-			if(!(currentPosition >= maxElements)){
-				if(useOverlays) {
-					leftObj.classList.remove('no-transition');
-					rightObj.classList.remove('no-transition');
-					topObj.classList.remove('no-transition');
-					topObj.style.zIndex = '8';
-					transformUi(0, 0, 1, topObj);
-				}
-				
-				setTimeout(function(){
-					onSwipeTop();
-					resetOverlays();
-				},300); //wait animations end
-			}
+			addToFav(array[currentPosition])
+			buttonTop.classList.add('save')
 		};
 		
 		//Swipe active card to left.
@@ -211,6 +199,7 @@ import { orderItem } from "../actions/meal.actions";
 			//counter +=1
 			// console.log(counter)
 			currentPosition = currentPosition + 1;
+			buttonTop.classList.remove('save')
 			//console.log(array[currentPosition-1])
 			updateUi();
 			currentElement();
@@ -232,8 +221,7 @@ import { orderItem } from "../actions/meal.actions";
 			// console.log(counter)
 	
 			currentPosition = currentPosition + 1;
-			console.log(array[currentPosition-1])
-		//	orderItem(array[currentPosition-1]);
+			buttonTop.classList.remove('save')
 			updateUi();
 			currentElement();
 			setActiveHidden();
@@ -249,7 +237,7 @@ import { orderItem } from "../actions/meal.actions";
 
 		};
 		
-		//Swipe active card to top.
+		// Swipe active card to top.
 		function onSwipeTop() {
 			removeNoTransition();
 			transformUi(0, -1000, 0, currentElementObj);
@@ -259,12 +247,7 @@ import { orderItem } from "../actions/meal.actions";
 				transformUi(0, -1000, 0, topObj); //Move topOverlay
 				resetOverlays();
 			}
-			// counter +=0
-			// console.log(counter)
-			deckLength-=1
-			console.log(deckLength)
 			
-
 			updateUi();
 			currentElement();
 			setActiveHidden();
@@ -700,7 +683,7 @@ import { orderItem } from "../actions/meal.actions";
 		var buttonRight = document.querySelector('.right-action');
 
 		buttonLeft.addEventListener('click', onActionLeft, false);
-		//buttonTop.addEventListener('click', onActionTop, false);
+		buttonTop.addEventListener('click', onActionTop, false);
 		buttonRight.addEventListener('click', onActionRight, false);
 
 	
