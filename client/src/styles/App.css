@@ -10,17 +10,21 @@ html {box-sizing:border-box;}
 #sidebarTop {
   background: rgba(255, 249, 249, 0.51);
   padding:3px;
+  width:100%;
+}
+
+#sidebar-menu {
+  position: absolute;
+  right:10px;
+  width: 150px;
+  display: flex;
+  justify-content: space-evenly;
+  text-transform: uppercase;
+  align-content: center;
 }
 
 #menuicon {
   width: 50px;
-}
-
-#mobileTop {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 100%;
 }
 
 #favIcon {
@@ -37,7 +41,13 @@ html {box-sizing:border-box;}
   align-items: center;
   height: 100vh;
   margin: auto;
-  background-color: rgb(203,203,203);
+  /* background-color: rgb(203,203,203); */
+  background:   linear-gradient(
+      rgba(0, 0, 0, 0.8), 
+      rgba(0, 0, 0, 0.8)
+    ),url('https://i.pinimg.com/564x/26/3d/53/263d53ed14ea33255b11d342a25c20d4.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .EatOptions div {
@@ -46,7 +56,8 @@ html {box-sizing:border-box;}
 
 .EatOptions div h1 {
   font-weight: lighter;
-  color: black;
+  /* color: black; */
+  color: #fff;
 }
 
 .EatOptions button {
@@ -335,7 +346,7 @@ html {box-sizing:border-box;}
     border: 2px solid #8f0a03;
     border-radius: 50%;
     position: relative;
-    top: 75px;
+    top: 115px;
 }
 
 .mhlinks {
@@ -346,7 +357,7 @@ html {box-sizing:border-box;}
   width: 100vw;
   /* align-content: center; */
   align-items: center;
-  margin-top: 60px;
+  margin-top: 120px;
 }
 
 .mhbutton .ui.inverted.button {
@@ -430,7 +441,8 @@ html {box-sizing:border-box;}
 
 
 #date-picker {
-  height:10px;
+  margin-bottom: 30px;
+  padding: 10px;
 }
 
 
@@ -562,16 +574,29 @@ animation-name: fadeIn;
   justify-content: center;
 }
 
+.about-progress i {
+  font-size: 12px;
+}
+
 .about-info {
   position: absolute;
   top: 120px;
   width:100%;
   margin:auto;
+  padding: 0 20px;
 }
 
-/* .about-content{
-  width:100%;
-} */
+.about-info p {
+  font-size:18px;
+  margin-bottom: 5px;
+}
+
+.about-info .about-action {
+  margin-top: 45px;
+  margin-bottom: 15px;
+}
+
+
 
 
 /******* Contact Us Form ********/
@@ -642,3 +667,83 @@ animation-name: fadeIn;
   background: rgb(228, 225, 225);
   margin: auto;
 }
+
+
+/***** mobile dashboard *****/
+.mobiledashpage {
+  height: 100vh;
+  width: 100vw;
+  display: block;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.5), 
+    rgba(0, 0, 0, 0.5)
+  ),url('https://i.pinimg.com/564x/26/3d/53/263d53ed14ea33255b11d342a25c20d4.jpg');
+  background-size: contain;
+}
+.mobiledashpage header {
+  height: 55px;
+  width: 100vw;
+  font-size: 29px;
+  padding-top: 13px;
+  background: rgba(0,0,0,.8);
+  color: white;
+  text-align: center;
+  font-family: "Rock Salt"
+}
+.dashcontainer{
+  width: 95vw;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  margin-top: 20%;
+}
+.myprofiledash, .startorderdash, .pastordersdash, .favdash {
+  height: 200px;
+  width: 43vw;
+  background: white;
+  margin: 7px;
+  border-radius: 10px;
+}
+.myprofiledash {
+  background: url(../dashimages/1.png);
+  background-size: cover;
+  background-position-y: center;
+}
+.startorderdash {
+  background: url(../dashimages/4.png);
+  background-size: cover;
+  background-position-y: center;
+}
+.pastordersdash {
+  background: url(../dashimages/5.png);
+  background-size: cover;
+  background-position-y: center;
+}
+.favdash {
+  background: url(../dashimages/6.png);
+  background-size: cover;
+  background-position-y: center;
+}
+.mobiledashpage h2 {
+  text-align: center;
+  font-size: 25px;
+  color: white;
+
+  
+  
+  
+.reserve-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+#reserve-form p, #confirm p {
+  font-size: 14px;
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.confirm-action {
+  margin-top: 20px;
+}
+

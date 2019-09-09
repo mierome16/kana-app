@@ -19,19 +19,19 @@ export default props => {
     <MSidebar>
     <div style={{padding:25}}>
       <Header as="h1">Past Orders</Header>
-      {orders ? (orders.map(order => (
-        <div key={order.confirm}>
+      {orders ? (orders.map((order, i) => (
+        <div key={order.confirm + i}>
           <Link to={"/orders/" + order.confirm}>
           <FoodItem style={{marginBottom:20, width:'100vh', flexDirection:'row', alignItems: 'center', alignContent:'center'}}>
                 <div
-                    style={{background: `url(${order.url}) no-repeat center`, backgroundSize: 'cover',
+                    style={{background: `url(${order.image}) no-repeat center`, backgroundSize: 'cover',
                     width:100, height:100, marginLeft: 10
                     }} >
                 </div>
                 <FoodItem.Content>
                 <FoodItem.Header style={{ display:'flex', flexDirection:'column'}}>
                   {order.meal_name}
-                  <FoodItem.Meta>Placed at: {order.time_placed}</FoodItem.Meta>
+                  <FoodItem.Meta>{order.time_placed}</FoodItem.Meta>
                   <FoodItem.Meta>{order.type === 'reservation' ? ('Reservation Date: ' + moment(order.reserve_date).format('LLL')) : ('Order Total: $' + (order.price * order.quantity).toFixed(2))}</FoodItem.Meta>
                 </FoodItem.Header>
                 <FoodItem.Meta>
@@ -41,7 +41,7 @@ export default props => {
             </FoodItem>
             </Link>
         </div>
-      ))) : ''} 
+      ))) : <Header as="h3">No orders made yet, start a new order and you'll see your history here</Header>} 
       <div>
         <Link to="/"><Button>Back to Home</Button></Link>
         <Link to="/profile"><Button>Order Again</Button></Link>

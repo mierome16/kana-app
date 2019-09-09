@@ -43,9 +43,6 @@ export function login(username, password){
     })
 }
 
-export function resLogin(res_email, res_password){
-    console.log(res_email, res_password)
-}
 
 export function register(username, password, first_name, last_name){
     console.log(username, password, first_name, last_name)
@@ -56,14 +53,14 @@ export function register(username, password, first_name, last_name){
       last_name: last_name
     }).then(resp => {
       console.log(resp.data)
-      const user_id = resp.data.insertId
-    store.dispatch({
-        type: 'REGISTER',
-        payload: {
-            username: username,
-            id: user_id
-        }
-        })  
+      //const user_id = resp.data.insertId
+    // store.dispatch({
+    //     type: 'REGISTER',
+    //     payload: {
+    //         username: username,
+    //         id: user_id
+    //     }
+    //     })  
     })
 }
 

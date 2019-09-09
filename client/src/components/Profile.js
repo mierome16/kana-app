@@ -14,6 +14,7 @@ export default props => {
   const selectedMeals = useSelector(appState => appState.mealReducer.selectedMeals)
   const user = useSelector(appState => appState.authReducer.user)
   const diets = useSelector(appState => appState.mealReducer.diets)
+  
   console.log(user)
   useEffect(() => {
     getDiets()
@@ -25,7 +26,7 @@ export default props => {
     <div className="Profile">
       <MSidebar>
       <div className='top'>
-        <h1>Welcome {localStorage.getItem('user')}!</h1>
+        <h1 style={{textTransform: 'capitalize'}}>Welcome {localStorage.getItem('user')}!</h1>
         <h2>Let's set up your preferences..</h2>
       </div>
       
