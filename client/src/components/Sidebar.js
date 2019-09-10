@@ -58,7 +58,7 @@ class MSidebar extends Component {
               secondary
               size='large'>
                   <Menu.Item onClick={this.handleBack}>
-                    <Link to="/profile">
+                    <Link to="/dashboard">
                       <MaterialIcon color='black' icon="arrow_back_ios" />
                     </Link>
                   </Menu.Item>

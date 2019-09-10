@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import {Link} from "react-router-dom"
 import {useSelector} from 'react-redux'
-import { Button } from 'semantic-ui-react'
+import { Button, Input } from 'semantic-ui-react'
 import DietButton from './DietButton'
 import { getDiets } from '../actions/meal.actions'
 import { getMenuItems } from '../actions/meal.actions'
@@ -26,14 +26,13 @@ export default props => {
     <div className="Profile">
       <MSidebar>
       <div className='top'>
-        <h1 style={{textTransform: 'capitalize'}}>Welcome {localStorage.getItem('user')}!</h1>
+        <h1 style={{textTransform: 'capitalize'}}>Welcome {localStorage.getItem('username')}!</h1>
         <h2>Let's set up your preferences..</h2>
       </div>
       
-      {/* <div className='location'>
-        <label>Set your Home location</label>
-        <Input icon='search' type='text' placeholder='enter either address, city or zipcode' style={{'marginTop':'10px','width':'90%'}}></Input>
-      </div> */}
+      <div className='location'>
+        <Input icon='search' type='text' placeholder='enter either address, city or zipcode' style={{'marginTop':'5px','width':'95%'}}></Input>
+      </div>
 
       <div className='diet'>
         {diets.map((diet, i) => (

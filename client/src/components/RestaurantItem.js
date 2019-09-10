@@ -36,7 +36,6 @@ export default props => {
           <Radio label="Spicy"/>
         </Form.Group>
         <Form.Group>
-<<<<<<< HEAD
           <Label content="Meal Type"></Label>
           <Radio label="Coffee"/>
           <Radio label="Breakfast"/>
@@ -45,8 +44,6 @@ export default props => {
           <Radio label="Dinner"/>
         </Form.Group>
         <Form.Group>
-=======
->>>>>>> 4b5c0cebd5af1c27b74116704f52fc053b5513bd
           <Input labelPosition='right' type='text' placeholder='Amount'>
             <Label basic>$</Label>
             <input placeholder="Menu Item Price"/>
