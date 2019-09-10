@@ -313,7 +313,7 @@ html {box-sizing:border-box;}
     rgba(0, 0, 0, 0.3), 
     rgba(0, 0, 0, 0.3)
   ),url('https://i.pinimg.com/564x/26/3d/53/263d53ed14ea33255b11d342a25c20d4.jpg');
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 .mhheader {
@@ -405,8 +405,11 @@ html {box-sizing:border-box;}
     rgba(0, 0, 0, 0.3), 
     rgba(0, 0, 0, 0.3)
   ),url('https://i.pinimg.com/564x/26/3d/53/263d53ed14ea33255b11d342a25c20d4.jpg');
-  background-size: contain;
-  background-repeat: no-repeat
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+#loginform {
+  padding-top: 10px
 }
 #lr {
   margin-top: 48px;
@@ -419,7 +422,7 @@ html {box-sizing:border-box;}
   background: rgb(242, 236, 236);
   opacity: .7;
 }
-#lrheader {
+/* #lrheader {
   display: flex;
   justify-content: flex-end;
   height: 9vh;
@@ -443,7 +446,7 @@ html {box-sizing:border-box;}
   font-weight: bold;
   color: white;
   border-radius: 5px;
-}
+} */
 
 
 #date-picker {
@@ -703,7 +706,7 @@ animation-name: fadeIn;
     rgba(0, 0, 0, 0.5), 
     rgba(0, 0, 0, 0.5)
   ),url('https://i.pinimg.com/564x/26/3d/53/263d53ed14ea33255b11d342a25c20d4.jpg');
-  background-size: contain;
+  background-size: cover;
 }
 .mobiledashpage header {
   height: 55px;

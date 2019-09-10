@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from "react";
 import '../styles/SwipeStyles.css'
 import { Icon, Label } from "semantic-ui-react"
-import { getMenuItems } from '../actions/meal.actions'
+import { getMenuItems, finishOrder } from '../actions/meal.actions'
 import { stackedCards } from './SwipeCards'
 import { useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom'
@@ -28,6 +28,7 @@ export default props => {
     
     
     useEffect(() => {
+      finishOrder()
       const diets = selectedDiets.length === 0 ? 'none' : selectedDiets
       const meals = selectedMeals.length === 0 ? 'none' : selectedMeals
       getMenuItems(diets, meals)
