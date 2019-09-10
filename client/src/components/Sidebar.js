@@ -66,7 +66,6 @@ class MSidebar extends Component {
                     KANA
                     <Image style={{width:30, height:30}} src="https://cdn1.iconfinder.com/data/icons/restaurant-kitchen-utensils/100/Kitchenware_8-512.png" size="small" />
                   </Menu.Item>
-                  {/* <h3 className='kananame'>Kana</h3> */}
               </Menu>
             </Container>
           </Segment>

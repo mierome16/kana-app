@@ -9,7 +9,6 @@ import MSidebar from './Sidebar'
  
 export default props => { 
   const order = useSelector(appState => appState.mealReducer.orderedItem)
-  // const user = useSelector(appState => appState.authReducer.user.id)
   console.log(order)
   const [submit, setSubmit] = useState(false)
   const [values, setValues] = useState({
@@ -36,7 +35,6 @@ export default props => {
     console.log(values)
     sendOrder(values)
     confirmOrder(values)
-    //addOrder(values)
     setSubmit(!submit)
     
   }

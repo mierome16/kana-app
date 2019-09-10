@@ -15,10 +15,8 @@ export default props => {
   const user = useSelector(appState => appState.authReducer.user)
   const diets = useSelector(appState => appState.mealReducer.diets)
   
-  console.log(user)
   useEffect(() => {
     getDiets()
-    // getMenuItems(selectedDiets, selectedMeals)
   }, [])
 
 

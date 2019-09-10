@@ -1,10 +1,7 @@
 import React from 'react' 
 import { Form, Icon, Button, Header } from 'semantic-ui-react'
 import MSidebar from './Sidebar'
-//probably use a card
 export default props => {
-  //submit changes
-  //on click show message that changes have been saved
   return (
     <MSidebar>
       <div style={{margin:'auto', textAlign:'center'}}>

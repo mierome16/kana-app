@@ -65,16 +65,15 @@ export default props => {
             <Route exact path="/user" component={UserProfile} />
             <LoginRoute exact path="/dashboard" component={MobileDashboard} />
             <LoginRoute exact path="/profile" component={Profile} />
-            <ConfirmRoute exact path="/order" component={OrderForm} />
-            <ConfirmRoute exact path="/reservation" component={ReservationForm} />
-            <ConfirmRoute exact path="/options" component={EatOptions} />
-            <ConfirmRoute exact path="/confirm" component={Confirmation} />
+            <LoginRoute exact path="/order" component={OrderForm} />
+            <LoginRoute exact path="/reservation" component={ReservationForm} />
+            <LoginRoute exact path="/options" component={EatOptions} />
+            <LoginRoute exact path="/confirm" component={Confirmation} />
             <LoginRoute exact path="/swipe" component={FoodMain} />
             <LoginRoute exact path="/map" component={DistanceMap}/>
             <LoginRoute exact path="/meal" component={MealOptions} />
             <LoginRoute exact path="/orders" component={PastOrders} />
             <LoginRoute exact path="/orders/:singleOrder" component={SinglePastOrder} />
-
             <LoginRoute exact path="/swipefav" component={SwipeFav} />
             <Route path ="/sidebar" component={MSidebar}/>
             <Route path ="/notfound" component={NoResults} />

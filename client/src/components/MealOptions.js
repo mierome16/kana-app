@@ -14,7 +14,6 @@ export default props => {
   
   useEffect(() => {
     getMeals()
-    // getMenuItems(selectedDiets, selectedMeals)
   }, [])
 
   return (

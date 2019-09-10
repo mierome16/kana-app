@@ -25,13 +25,11 @@ export default props => {
       return arr
     }
     
-    console.log(foodItems)
     
     useEffect(() => {
       getFavorites()
       
     }, [])
-  console.log(foodItems.length)
 
   
   useEffect(() => {
@@ -53,9 +51,6 @@ export default props => {
             <MSidebar>
               <div id="cardsContainer">
                 <div id="stacked-cards-block" className="stackedcards stackedcards--animatable init">
-                  {/* <div id="endofdeck">
-                    <EndOfDeck />
-                  </div> */}
                   <div className="stackedcards-container">
                     {favs.length === 0 ? <NoResults /> : ( 
                       favs.map(item => (        
@@ -99,7 +94,6 @@ export default props => {
                 <div className="global-actions">
                   <div className="left-action">Yuck</div>
                   <div className="top-action hide"><Icon  name="heart" size="large"/></div>
-                  {/* <Icon id="top-replace" name="heart" size="large"/> */}
                   <div className="right-action">Yum</div>
                 </div> 
                
@@ -108,6 +102,5 @@ export default props => {
               </MSidebar>
               </div>
           ))
-      // )
       
   }

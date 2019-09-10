@@ -11,7 +11,6 @@ export default props => {
     const [loggedIn, setLoggedIn] = useState(false)
 
     function handleSubmit(e){
-        //e.preventDefault()
         login(username, password)
     }
 

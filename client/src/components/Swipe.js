@@ -26,7 +26,6 @@ export default props => {
       return arr
     }
     
-    console.log(foodItems)
     
     useEffect(() => {
       const diets = selectedDiets.length === 0 ? 'none' : selectedDiets
@@ -34,7 +33,6 @@ export default props => {
       getMenuItems(diets, meals)
     }, [selectedDiets, selectedMeals ]) 
 
-  console.log(foodItems.length)
 
   
   useEffect(() => {

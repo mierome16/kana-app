@@ -9,7 +9,6 @@ import { getPastOrders } from '../actions/meal.actions'
 
 export default props => {
   const orders = useSelector(appState => appState.mealReducer.pastOrders)
-  console.log(orders)
 
   useEffect(() => {
     getPastOrders(localStorage.getItem('id'))
@@ -21,7 +20,7 @@ export default props => {
       <Header as="h1">Past Orders</Header>
       <p style={{fontSize: 14}}>Click an item to view order details</p>
       <div style={{paddingBottom:25}}>
-        <Link to="/"><Button>Back to Home</Button></Link>
+        <Link to="/dashboard"><Button>Back to Home</Button></Link>
         <Link to="/profile"><Button primary>Order Again</Button></Link>
       </div>
       {orders ? (orders.map((order, i) => (

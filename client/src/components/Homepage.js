@@ -269,9 +269,6 @@ const HomepageLayout = () => (
         </Grid.Row>
 
         <Grid.Row>
-          {/* <Grid.Column textAlign='center'>
-            <Button size='medium'>Check Them Out</Button>
-          </Grid.Column> */}
         </Grid.Row>
       </Grid>
     </Segment>

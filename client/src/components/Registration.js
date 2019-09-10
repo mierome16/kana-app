@@ -48,7 +48,6 @@ export default props => {
           <Grid.Column style={{ maxWidth: 350 }}>
             
             <Header as='h2' style={{color: 'white'}} textAlign='center'>
-                {/* <Image src='/logo.png' />  */}
                 Sign up for an account
             </Header>
             <Form size='large' onSubmit={handleSubmit}>
