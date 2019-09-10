@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import MSidebar from './Sidebar';
 import { Button } from 'semantic-ui-react'
 
 export default props => {

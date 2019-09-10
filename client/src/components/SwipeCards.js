@@ -422,16 +422,6 @@ import { orderItem, addToFav } from "../actions/meal.actions";
 				listElNodesObj[currentPosition].style.zIndex = zIndex;
 			}		 
 		};
-	
-    // Remove element from the DOM after swipe. To use this method you need to call this function in onSwipeLeft, onSwipeRight and onSwipeTop and put the method just above the variable 'currentPosition = currentPosition + 1'. 
-    //On the actions onSwipeLeft, onSwipeRight and onSwipeTop you need to remove the currentPosition variable (currentPosition = currentPosition + 1) and the function setActiveHidden
-
-		function removeElement() {
-      currentElementObj.remove();
-      if(!(currentPosition >= maxElements)){
-				listElNodesObj[currentPosition].classList.add('stackedcards-active');
-			}		
-		};
 		
 		//Add translate X and Y to active card for each frame.
 		function transformUi(moveX,moveY,opacity,elementObj) {

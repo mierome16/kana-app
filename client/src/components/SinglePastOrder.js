@@ -33,7 +33,7 @@ export default props => {
               {singleItem.meal_name}
               <FoodItem.Meta>Confirmation: {singleItem.confirm}</FoodItem.Meta>
               <FoodItem.Meta>Placed at: {moment(singleItem.time_placed).format('l LT')}</FoodItem.Meta>
-              <FoodItem.Meta>{singleItem.type === 'reservation' ? ('Reservation ' + moment(singleItem.reserve_date).format('l LT')) : ('Order Total: $' + (singleItem.price * singleItem.quantity).toFixed(2))}</FoodItem.Meta>
+              <FoodItem.Meta>{singleItem.type === 'reservation' ? ('Reservation ' + singleItem.reserve_date) : ('Order Total: $' + (singleItem.price * singleItem.quantity).toFixed(2))}</FoodItem.Meta>
             </FoodItem.Header>
             <FoodItem.Meta>
                 {singleItem.restaurant}

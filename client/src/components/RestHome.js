@@ -41,7 +41,6 @@ const HomepageHeading = ({ mobile }) => (
       style={{
         fontSize: mobile ? '2em' : '6em',
         fontFamily: 'Rock Salt',
-        fontWeight: 'normal',
         marginBottom: 0,
         marginTop: mobile ? '1.5em' : '1.5em',
         // color: '#8f0a03',

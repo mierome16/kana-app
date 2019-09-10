@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Form, Grid, Header, Image, Message } from 'semantic-ui-react'
+import { Form, Grid, Header, Message } from 'semantic-ui-react'
 import { resRegister } from '../actions/restaurant.actions';
 import { Link } from 'react-router-dom'
 import '../styles/resthome.css'

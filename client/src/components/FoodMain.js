@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { Icon, Header } from 'semantic-ui-react'
 
 import Swipe from './Swipe'
 import GifLoading from './GifLoading'

@@ -1,18 +1,24 @@
 import store from '../store'
 import axios from 'axios'
-import { func } from 'prop-types';
 
 //**** SHUFFLE MENU ITEMS ****/
 export function shuffle(a) {
-        var j, x, i;
-        for (i = a.length - 1; i > 0; i--) {
-            j = Math.floor(Math.random() * (i + 1));
-            x = a[i];
-            a[i] = a[j];
-            a[j] = x;
-        }
-        return a;
-      }
+  var j, x, i;
+  for (i = a.length - 1; i > 0; i--) {
+      j = Math.floor(Math.random() * (i + 1));
+      x = a[i];
+      a[i] = a[j];
+      a[j] = x;
+  }
+  return a;
+}
+
+export function formatTime(str) {
+  console.log(str)
+  let time
+  str.slice(0, 2) > 12 ? time = str.slice(0, 2) - 12 + ':00 PM' : str.length > 6 ? time = (str.slice(0, (str.length-3)) + ' AM') : time = str + ' AM'
+  return time
+} 
 
 //**** CALL TO GET ALL MENU ITEMS FILTERED BY DIETARY RESTRICTIONS ****/
 export function getMenuItems(selectedDiets, selectedMeals){

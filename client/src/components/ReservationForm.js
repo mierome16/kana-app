@@ -3,26 +3,28 @@ import { Button, Container, Header, Divider, Image } from 'semantic-ui-react'
 import moment from 'moment'
 import { useSelector } from 'react-redux'
 import shortid from 'shortid'
-import { sendOrder, confirmOrder } from '../actions/meal.actions'
+import { sendOrder, confirmOrder, formatTime } from '../actions/meal.actions'
 import { Redirect } from "react-router-dom"
 import DatePicker from 'react-date-picker'
+import TimePicker from 'react-time-picker'
 import MSidebar from './Sidebar';
 
 
 export default props => { 
   const order = useSelector(appState => appState.mealReducer.orderedItem)
-  const user = useSelector(appState => appState.authReducer.user.id)
-  const [date, setDate] = useState(new Date())  
+  const [date, setDate] = useState(new Date())
+  const [time, setTime] = useState('10:00')
+  console.log(order)
   const [submit, setSubmit] = useState(false)
   const values = {
     user: localStorage.getItem('id'),
     order: order,
-    date: date,
+    date: moment(date).format('l') + " " + formatTime(time),
     confirm: shortid.generate(),
     type: 'reservation',
     timePlaced: moment().format('LLL')
   }
-
+  console.log(values.date)
   function handleSubmit(e) {
     e.preventDefault()
     setSubmit(!submit)
@@ -59,7 +61,7 @@ export default props => {
         <p>{order.restaurant}</p>
         <p>{order.address}</p>
         <p>702-123-4567</p>
-        <p>Mon - Fri: {order.open} AM - {order.close} PM</p>
+        <p>Mon - Fri: {formatTime(order.open)} - {formatTime(order.close)}</p>
         <Image bordered rounded size='small' src='https://www.google.com/maps/d/thumbnail?mid=1CoxrxicMw4uSYPjPb20L6eQisoI&hl=en_US' />
         <Header as='h4'>
           Choose your date and time:
@@ -68,6 +70,10 @@ export default props => {
           value={date}
           onChange={date => setDate(date)}
           id="date-picker"
+        />
+        <TimePicker
+          onChange={time => setTime(time)}
+          value={time}
         />
         <Button style={{'marginTop': 30}} inverted color="orange" onClick={handleSubmit}>Confirm Reservation</Button>
       </Container>

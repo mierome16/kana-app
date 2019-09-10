@@ -1,7 +1,6 @@
-import React, { useState, useEffect }  from 'react'
-import moment from 'moment'
+import React, { useState }  from 'react'
 import { useSelector } from 'react-redux'
-import { finishOrder } from '../actions/meal.actions'
+import { finishOrder, formatTime } from '../actions/meal.actions'
 import { Redirect } from 'react-router-dom'
 import { Header, Container, Button } from 'semantic-ui-react'
 import MSidebar from './Sidebar';
@@ -12,7 +11,6 @@ export default props => {
   const [viewOrders, setViewOrders] = useState(false)
   const [orderAgain, setOrderAgain] = useState(false)
   console.log(order)
-
 
   function endOrder(action) {
     finishOrder()
@@ -34,7 +32,7 @@ export default props => {
             <Header style={{'marginTop':20, 'marginBottom':5}} as='h4'>{order.order.restaurant}</Header>
             <p>{order.order.address}</p>
             <p>702-123-4567</p>
-            <p>Mon - Fri: {order.order.open} AM - {order.order.close} PM</p> 
+            <p>Mon - Fri: {formatTime(order.order.open)} - {formatTime(order.order.close)}</p> 
           </div>
         </div>
         <div className='confirm-action'>

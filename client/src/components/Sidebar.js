@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Responsive, Sidebar, Menu, Segment, Container, Image, Button, Header } from 'semantic-ui-react'
+import { Responsive, Sidebar, Menu, Segment, Container, Image } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import { logout } from '../actions/auth.actions';
 import MaterialIcon from 'material-icons-react'

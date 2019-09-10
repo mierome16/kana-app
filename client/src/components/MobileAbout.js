@@ -16,7 +16,7 @@ export default props => {
               </Link>
             </div>
             <div className="about-info">
-              <img src="https://placehold.it/250" alt="welcome-picture"/>
+              <img src="https://placehold.it/250" alt="welcome"/>
               <h1>Discover Kana</h1>
               <p>Finding what to eat is now easy as 1, 2, 3.</p> 
               <p>Swipe to see how it works</p> 
@@ -39,7 +39,7 @@ export default props => {
               </Link>
             </div>
             <div className="about-info">
-              <img src="https://placehold.it/250" alt="welcome-picture"/>
+              <img src="https://placehold.it/250" alt="welcome"/>
               <h1>1. Choose your location</h1>
               <p>Set where you're looking to eat and we'll gather data from restaurants nearby</p>
             </div>
@@ -61,7 +61,7 @@ export default props => {
               </Link>
             </div>
             <div className="about-info">
-              <img src="https://placehold.it/250" alt="welcome-picture"/>
+              <img src="https://placehold.it/250" alt="welcome"/>
               <h1>2. Choose your preferences</h1>
               <p>Let us know what you're craving or what your dietary restrictions are</p>
             </div>
@@ -83,7 +83,7 @@ export default props => {
               </Link>
             </div>
             <div className="about-info">
-              <img src="https://placehold.it/250" alt="welcome-picture"/>
+              <img src="https://placehold.it/250" alt="welcome"/>
               <h1>3. Swipe and order</h1>
               <p>Like what you see? Swipe right to order or make a reservation. Swipe left if you don't.</p>
               <p>Winner winner chicken dinner.</p>
@@ -106,7 +106,7 @@ export default props => {
               </Link>
             </div>
             <div className="about-info">
-              <img src="https://placehold.it/250" alt="welcome-picture"/>
+              <img src="https://placehold.it/250" alt="welcome"/>
               <p className="about-action">It's never been easier to find your next meal</p>
               <Link to="/register">
               <Button size="big" primary>

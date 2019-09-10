@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Form, Container, Header, Divider, Image } from 'semantic-ui-react'
 import { useSelector } from 'react-redux'
 import shortid from 'shortid'
-import { sendOrder, confirmOrder } from '../actions/meal.actions'
+import { sendOrder, confirmOrder, formatTime } from '../actions/meal.actions'
 import { Redirect } from "react-router-dom"
 import moment from 'moment'
 import MSidebar from './Sidebar'
@@ -57,7 +57,7 @@ export default props => {
         <p>{order.restaurant}</p>
         <p>{order.address}</p>
         <p>702-123-4567</p>
-        <p>Mon - Fri: {order.open} AM - {order.close} PM</p>
+        <p>Mon - Fri: {formatTime(order.open)} - {formatTime(order.close)}</p>
         <Image bordered rounded size='small' src='https://www.google.com/maps/d/thumbnail?mid=1CoxrxicMw4uSYPjPb20L6eQisoI&hl=en_US' />
         <Form onSubmit={handleSubmit}>
             <Form.Group widths='equal'>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from "react";
 import '../styles/SwipeStyles.css'
 import { Icon, Label } from "semantic-ui-react"
-import { getMenuItems } from '../actions/meal.actions'
+import { getMenuItems, finishOrder } from '../actions/meal.actions'
 import { stackedCards } from './SwipeCards'
 import { useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom'
@@ -15,7 +15,6 @@ export default props => {
   const order = useSelector(appState => appState.mealReducer.orderedItem)
   const selectedDiets = useSelector(appState => appState.mealReducer.selectedDiets)
   const selectedMeals = useSelector(appState => appState.mealReducer.selectedMeals)
-  const [redir, setRedir] = useState(false)
   
   
    function mapRating(number) {
@@ -28,6 +27,7 @@ export default props => {
     
     
     useEffect(() => {
+      finishOrder()
       const diets = selectedDiets.length === 0 ? 'none' : selectedDiets
       const meals = selectedMeals.length === 0 ? 'none' : selectedMeals
       getMenuItems(diets, meals)
@@ -36,7 +36,9 @@ export default props => {
 
   
   useEffect(() => {
-    order ? setRedir(!redir) : stackedCards(foodItems)
+    if (!order) {
+      stackedCards(foodItems)
+    }
   })
 
       return (

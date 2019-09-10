@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import 'normalize.css/normalize.css'
 import '../styles/App.css'
 import { Provider } from 'react-redux'
@@ -38,7 +38,6 @@ import Favorites from './Favorites'
 import SwipeFav from './SwipeFav'
 import UserProfile from './UserProfile'
 import MSidebar from './Sidebar'
-import { Sidebar } from 'semantic-ui-react'
 
 
 

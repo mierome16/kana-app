@@ -4,15 +4,11 @@ import {useSelector} from 'react-redux'
 import { Button, Input } from 'semantic-ui-react'
 import DietButton from './DietButton'
 import { getDiets } from '../actions/meal.actions'
-import { getMenuItems } from '../actions/meal.actions'
 import MSidebar from './Sidebar'
 
 
 export default props => {
-  const allItems = useSelector(appState => appState.mealReducer.allItems)
   const selectedDiets = useSelector(appState => appState.mealReducer.selectedDiets)
-  const selectedMeals = useSelector(appState => appState.mealReducer.selectedMeals)
-  const user = useSelector(appState => appState.authReducer.user)
   const diets = useSelector(appState => appState.mealReducer.diets)
   
   useEffect(() => {

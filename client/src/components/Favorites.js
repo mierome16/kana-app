@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react' 
+import React, { useEffect } from 'react' 
 import { useSelector } from 'react-redux'
 import moment from 'moment'
 import { Card as FoodItem, Button, Header, Label } from "semantic-ui-react"
@@ -6,14 +6,6 @@ import { Link } from 'react-router-dom'
 import MSidebar from './Sidebar';
 import { getFavorites, orderItem, finishOrder } from '../actions/meal.actions'
 
-const views = [
-  { key: 'view-default', value: 'default', text: 'List View' },
-  { key: 'view-swipe', value: 'swipe', text: 'Swipe View' },
-]
-const filters = [
-  { key: 'filter-default', value: 'default', text: 'All Items' },
-  { key: 'filter-open', value: 'open', text: 'Open Now' },
-]
 export default props => {
   const favs = useSelector(appState => appState.mealReducer.favorites)
 
