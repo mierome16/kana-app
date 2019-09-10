@@ -24,11 +24,12 @@ import NoResults  from './NoResults'
 import EndOfDeck from './EndOfDeck';
 import FoodMain from './FoodMain'
 import MobileAbout from './MobileAbout';
+import ContactUs from './ContactUs';
+import Charts from './Charts'
 import RestLogin from './RestLogin'
 import RestaurantAccount from './RestaurantAccount'
-import RestaurantItem from '../styles/RestaurantItem'
+import RestaurantItem from './RestaurantItem'
 import RestaurantInventory from './RestaurantInventory'
-import ContactUs from './ContactUs'
 import MobileDashboard from './MobileDashboard'
 // import RestaurantStatTopbar from './RestaurantStatTopbar'
 import AuthRoute from './AuthRoute'
@@ -37,6 +38,7 @@ import ConfirmRoute from './ConfirmRoute'
 import Favorites from './Favorites'
 import SwipeFav from './SwipeFav'
 import UserProfile from './UserProfile'
+
 
 
 export default props => {
@@ -77,7 +79,13 @@ const [loading, setLoading] = useState(true)
             <LoginRoute exact path="/meal" component={MealOptions} />
             <LoginRoute exact path="/orders" component={PastOrders} />
             <LoginRoute exact path="/orders/:singleOrder" component={SinglePastOrder} />
+
             <LoginRoute exact path="/swipefav" component={SwipeFav} />
+            <Route path ="/sidebar" component={MSidebar}/>
+            <Route path ="/notfound" component={NoResults} />
+            <Route path="/endofdeck" component={EndOfDeck} />
+            <Route path="/contact" component={ContactUs} />
+            <Route path='/charts' component={Charts} />
             <LoginRoute path="/favorites" component={Favorites}/>
           </Switch>        
     
