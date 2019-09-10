@@ -36,6 +36,14 @@ export default props => {
           <Radio label="Spicy"/>
         </Form.Group>
         <Form.Group>
+          <Label content="Meal Type"></Label>
+          <Radio label="Coffee"/>
+          <Radio label="Breakfast"/>
+          <Radio label="Brunch"/>
+          <Radio label="Lunch"/>
+          <Radio label="Dinner"/>
+        </Form.Group>
+        <Form.Group>
           <Input labelPosition='right' type='text' placeholder='Amount'>
             <Label basic>$</Label>
             <input placeholder="Menu Item Price"/>
