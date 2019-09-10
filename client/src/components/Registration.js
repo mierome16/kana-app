@@ -40,11 +40,7 @@ export default props => {
   return (
     <div id="registerpage">
       {(error === true) ? <div>{errorMessage}</div> : ''}
-      <header id="lrheader">
-                <Link to="/login"><button>Log in</button></Link>
-                <Link to="/register"><button>Sign up</button></Link>
-            </header>
-      <Grid id="lr"textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+      <Grid id="lr"textAlign='center' style={{ height: '100vh', marginTop: '0px' }} verticalAlign='middle'>
           <Grid.Column style={{ maxWidth: 350 }}>
             
             <Header as='h2' style={{color: 'white'}} textAlign='center'>

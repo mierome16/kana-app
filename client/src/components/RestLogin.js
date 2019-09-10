@@ -8,11 +8,6 @@ export default props => {
 const [res_email, setRes_email] = useState('')
 const [res_password, setRes_password] = useState('')
 
-
-// useEffect(() => {
-//     console.log(res_email, res_password)
-// }, [])
-
     function handleSubmit() {
         console.log(res_email, res_password)
         resLogin(res_email, res_password)
