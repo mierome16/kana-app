@@ -92,13 +92,11 @@ export default props => {
                 <div className="global-actions">
                   <div className="left-action">Yuck</div>
                   <div className="top-action"><Icon  name="favorite" size="large"/></div>
-                  {/* <Icon id="top-replace" name="heart" size="large"/> */}
                   <div className="right-action">Yum</div>
                 </div> 
                
               </div>
               </MSidebar>
           ))
-      // )
       
   }

@@ -6,7 +6,7 @@ import { stackedCards } from './SwipeCards'
 import { useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import NoResults from './NoResults'
-import EndOfDeck from "./EndOfDeck";
+import LastCard from "./LastCard";
 import MSidebar from './Sidebar' 
 
 
@@ -89,7 +89,7 @@ export default props => {
                     )}
                   </div>
                   <div id="lastCard" >
-                    <EndOfDeck />
+                    <LastCard />
                   </div>
                   <div className="stackedcards--animatable stackedcards-overlay top">Favorite</div>
                   <div className="stackedcards--animatable stackedcards-overlay right">Yum</div>

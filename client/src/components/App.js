@@ -31,27 +31,22 @@ import RestaurantAccount from './RestaurantAccount'
 import RestaurantItem from './RestaurantItem'
 import RestaurantInventory from './RestaurantInventory'
 import MobileDashboard from './MobileDashboard'
-// import RestaurantStatTopbar from './RestaurantStatTopbar'
 import AuthRoute from './AuthRoute'
 import OrderRoute from './OrderRoute'
 import ConfirmRoute from './ConfirmRoute'
 import Favorites from './Favorites'
 import SwipeFav from './SwipeFav'
 import UserProfile from './UserProfile'
+import MSidebar from './Sidebar'
+import { Sidebar } from 'semantic-ui-react'
 
 
 
 export default props => {
-const [loading, setLoading] = useState(true)
-// const LoadingPage = lazy(() => import('../loadingkana.gif'))
-
   return (
     <Provider store={store}>
       <Router>
         <div id="app-container">
-
-        
-
           <Switch>
             <Route exact path="/" component={MobileHome}/>
             <AuthRoute path ="/login" component={Login} />
