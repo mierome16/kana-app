@@ -17,7 +17,7 @@ export default props => {
 
     return (
         loggedIn ? <Redirect to="/dashboard" /> : (
-        localStorage.getItem('token') ? <Redirect to="/profile" /> : (
+        localStorage.getItem('token') ? <Redirect to="/dashboard" /> : (
         <div id="loginform">
             <Grid textAlign='center' style={{ height: '100vh', width:'100vw' }} verticalAlign='middle'>
                 <Grid.Column id="loginbox" style={{ maxWidth: '350px' }}>
@@ -39,7 +39,7 @@ export default props => {
                         placeholder='Password'
                         type='password'
                     />
-                   <Link to="/profile">
+                   <Link to="/dashboard">
                    <Button onClick={handleSubmit} style={{background: '#8f0a03',
     color: 'white'}} fluid size='large'>
                       Login
