@@ -5,9 +5,9 @@
 # http://www.sequelpro.com/
 # https://github.com/sequelpro/sequelpro
 #
-# Host: localhost (MySQL 5.7.27)
-# Database: Kana
-# Generation Time: 2019-09-04 17:28:35 +0000
+# Host: localhost (MySQL 5.7.25)
+# Database: kana
+# Generation Time: 2019-09-10 17:18:31 +0000
 # ************************************************************
 
 
@@ -497,6 +497,56 @@ VALUES
 UNLOCK TABLES;
 
 
+# Dump of table orders
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `orders`;
+
+CREATE TABLE `orders` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `confirm` varchar(255) DEFAULT NULL,
+  `quantity` int(11) DEFAULT NULL,
+  `notes` varchar(255) DEFAULT NULL,
+  `time_placed` varchar(255) DEFAULT NULL,
+  `reserve_date` varchar(255) DEFAULT NULL,
+  `item_id` int(11) DEFAULT NULL,
+  `type` varchar(255) DEFAULT NULL,
+  `size` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+
+LOCK TABLES `orders` WRITE;
+/*!40000 ALTER TABLE `orders` DISABLE KEYS */;
+
+INSERT INTO `orders` (`id`, `user_id`, `confirm`, `quantity`, `notes`, `time_placed`, `reserve_date`, `item_id`, `type`, `size`)
+VALUES
+	(1,4,'Nax5a1Fen',1,'','September 9, 2019 1:08 AM',NULL,1,'order',''),
+	(2,4,'4RAuZx6Fe',NULL,NULL,'September 9, 2019 1:18 AM','2019-09-09T08:18:31.624Z',2,'reservation',NULL),
+	(3,4,'tS0KQe5Zf',NULL,NULL,'September 9, 2019 4:47 AM','2019-09-10T07:00:00.000Z',29,'reservation',NULL),
+	(4,4,'tpCPRnP8X',NULL,NULL,'September 9, 2019 5:04 AM','2019-09-09T12:04:48.577Z',100,'reservation',NULL),
+	(5,4,'ZWCHpgooj',NULL,NULL,'September 9, 2019 5:06 AM','2019-09-09T12:06:01.014Z',88,'reservation',NULL),
+	(6,4,'S2UhUue4x',1,'','September 9, 2019 5:07 AM',NULL,69,'order',''),
+	(7,4,'Fqv8DUePE',1,'','September 9, 2019 5:11 AM',NULL,NULL,'order',''),
+	(8,4,'nf4zB7Uno',1,'','September 9, 2019 5:14 AM',NULL,81,'order',''),
+	(9,4,'zh0cSYEbX',NULL,NULL,'September 9, 2019 5:15 AM','2019-09-09T12:15:58.927Z',30,'reservation',NULL),
+	(10,4,'zQz7MRW53',NULL,NULL,'September 9, 2019 5:17 AM','2019-09-09T12:17:34.488Z',99,'reservation',NULL),
+	(11,4,'QoLB191W_',1,'','September 9, 2019 5:20 AM',NULL,100,'order',''),
+	(12,4,'bFLhaQIBS',1,'','September 9, 2019 5:54 AM',NULL,59,'order',''),
+	(13,4,'lArjuVhwj',1,'','September 9, 2019 7:30 AM',NULL,NULL,'order',''),
+	(14,4,'4UE9F5k7f',2,'','September 9, 2019 7:32 AM',NULL,1,'order',''),
+	(15,4,'sWx1qbFAg',1,'','September 9, 2019 7:36 AM',NULL,25,'order',''),
+	(16,4,'MQRdPdPz-',1,'','September 9, 2019 7:36 AM',NULL,NULL,'order',''),
+	(17,4,'Cb5wL79aq',NULL,NULL,'September 9, 2019 7:37 AM','2019-09-09T14:37:02.852Z',8,'reservation',NULL),
+	(18,12,'D2P-Z8J_2',1,'','September 9, 2019 7:44 AM',NULL,93,'order',''),
+	(19,4,'EnLNxjiUJ',NULL,NULL,'September 9, 2019 9:42 AM','2019-09-09T16:42:37.991Z',2,'reservation',NULL),
+	(20,4,'N5zvjqNj1',1,'','September 9, 2019 3:57 PM',NULL,13,'order',''),
+	(21,4,'xAmuYgd78',NULL,NULL,'September 10, 2019 1:45 AM','2019-09-10T08:45:06.874Z',63,'reservation',NULL);
+
+/*!40000 ALTER TABLE `orders` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
 # Dump of table pictures
 # ------------------------------------------------------------
 
@@ -662,6 +712,78 @@ VALUES
 UNLOCK TABLES;
 
 
+# Dump of table user_favorites
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `user_favorites`;
+
+CREATE TABLE `user_favorites` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `item_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8;
+
+LOCK TABLES `user_favorites` WRITE;
+/*!40000 ALTER TABLE `user_favorites` DISABLE KEYS */;
+
+INSERT INTO `user_favorites` (`id`, `user_id`, `item_id`)
+VALUES
+	(1,4,81),
+	(2,NULL,NULL),
+	(3,NULL,79),
+	(4,NULL,62),
+	(5,NULL,18),
+	(6,4,92),
+	(7,4,55),
+	(8,4,13),
+	(9,4,13),
+	(10,4,42),
+	(11,4,8),
+	(12,4,46),
+	(13,4,44),
+	(14,4,1),
+	(15,4,2),
+	(16,4,36),
+	(17,4,13),
+	(18,4,1),
+	(19,4,1),
+	(20,4,1),
+	(21,4,1),
+	(22,4,1),
+	(23,4,1),
+	(24,4,59),
+	(25,4,59),
+	(26,4,19),
+	(27,4,97),
+	(28,4,97),
+	(29,4,97),
+	(30,4,17),
+	(31,4,72),
+	(32,12,97),
+	(33,12,93),
+	(34,4,39),
+	(35,4,70),
+	(36,4,76),
+	(37,4,3),
+	(38,4,100),
+	(39,4,94),
+	(40,4,63),
+	(41,4,73),
+	(42,4,65),
+	(43,4,58),
+	(44,4,91),
+	(45,4,58),
+	(46,4,66),
+	(47,4,32),
+	(48,4,32),
+	(49,4,45),
+	(50,4,65);
+
+/*!40000 ALTER TABLE `user_favorites` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
 # Dump of table users
 # ------------------------------------------------------------
 
@@ -675,7 +797,7 @@ CREATE TABLE `users` (
   `last_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
@@ -684,7 +806,15 @@ INSERT INTO `users` (`id`, `username`, `password`, `first_name`, `last_name`)
 VALUES
 	(1,'mierome16','d222eb077e6f06da89b8b4323d2ad8b8f381eff47fc95dc3faacce64fd31fdaa2bc9366875f026a8aad537da177c5a2643defe800a25bd054f78918ea43e214e','Malina','Ierome'),
 	(2,'test','64a9f33391e600ed6eda97c8e943cd431f046f65b74275bdf0e175d1c05acba20c38ac3cdec7180fadddd2f4eeb1f7eaba9f85372b2d8706d2210bb762fe966d','test','test'),
-	(3,'asdfasdf','c6cadf5f6fe931734830455f6e50c90cbed422015135c5b905335ec79181300a0f5a5b590b99d1237d4864707299fadcf011f48ba464b5b0d83ca6b697f8cdbd','sdfas','df');
+	(3,'asdfasdf','c6cadf5f6fe931734830455f6e50c90cbed422015135c5b905335ec79181300a0f5a5b590b99d1237d4864707299fadcf011f48ba464b5b0d83ca6b697f8cdbd','sdfas','df'),
+	(4,'talei','5a4a5bcd2f4583536ae6c25da7f46f045c78cc274f679c03c27db4ed6c6e700a4fc745a5663cf8c97867d36534300fbc0a4dac3fe179dc412d5ebccf198bdf9d','talei','talei'),
+	(5,'asd','75ef2372b4a950c1d300b6a0c38a173f04b6c17129ea2019c4a2f76a777a60c9d78909413d62c8d37dffec7ba40339117e4fa957f576146577c942bfb2ef6a9e','asd','asd'),
+	(7,'lol','6af7356185fa52f68aa7f8b228bca6553ebd37084374dbf4edf98f8fd25031aafc919522df4193b66a403963004c2d3d6666978be967077a95227fde29adff2c','lol','lol'),
+	(8,'hi','e89db5e1287a48918586ce69b79f81efa06032ccaecee18d8702d66cd9f0efa77adcebbc451449821d89938129b91ebdd36289a8804df07d56cbcb76a22f4580','hi','hi'),
+	(9,'A','482a5a841d0205e269a38bb80485ec9eef592d1c1ad4ea526ecd2dc62638722cecaf41344258575d9bc5476776515e9d93ac0ba718fda2bc3b266f6756985ae9','A','A'),
+	(10,'blah','e6963259d9f30bed17e73a4fa691fe603528a313fd979b8f65c0cd406927b67cc79e1de88616040d4dbba9192a102b83c2add96fe1a776130f0092ffdc71cb92','blah','blah'),
+	(11,'b','7c6f30ce2251d6180efc74bf230eb02ff83c4045cff1cb7753fb13e4bef8a295265a23354f30d4721dec4f364be24692e3d1256d59ed5b6595414205270cbb63','b','b'),
+	(12,'c','506cba8b93bff54de8f76786c4a6abba6f51f18bc83218351d71e50ff30f193b498280d453a3ad21841c4cc9f7992c6d5e80ca4e0020ba1233cafd12f62cfdc7','c','c');
 
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
