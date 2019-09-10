@@ -185,6 +185,14 @@ import { orderItem, addToFav } from "../actions/meal.actions";
 		function onActionTop() {
 			addToFav(array[currentPosition])
 			buttonTop.classList.add('save')
+			topObj.classList.remove('no-transition');
+			topObj.style.zIndex = '8';
+			transformUi(0, 0, 1, topObj);
+
+			setTimeout(function(){
+				resetOverlays();
+				// redirect to options page
+			},300);
 		};
 		
 		//Swipe active card to left.
@@ -237,10 +245,13 @@ import { orderItem, addToFav } from "../actions/meal.actions";
 
 		};
 		
-		// Swipe active card to top.
+		//Swipe active card to top.
 		function onSwipeTop() {
 			removeNoTransition();
 			transformUi(0, -1000, 0, currentElementObj);
+			addToFav(array[currentPosition])
+			buttonTop.classList.add('save')
+			backToMiddle()
 			if(useOverlays){
 				transformUi(0, -1000, 0, leftObj); //Move leftOverlay
 				transformUi(0, -1000, 0, rightObj); //Move rightOverlay
@@ -248,9 +259,9 @@ import { orderItem, addToFav } from "../actions/meal.actions";
 				resetOverlays();
 			}
 			
-			updateUi();
-			currentElement();
-			setActiveHidden();
+			//updateUi();
+			//currentElement();
+			//setActiveHidden();
 		};
 		
 		//Remove transitions from all elements to be moved in each swipe movement to improve perfomance of stacked cards.
@@ -647,7 +658,7 @@ import { orderItem, addToFav } from "../actions/meal.actions";
 				if(translateY < (elementHeight * -1) && translateX > ((listElNodesWidth / 2) * -1) && translateX < (listElNodesWidth / 2)){  //is Top?
 	
 					if(translateY < (elementHeight * -1) || (Math.abs(translateY) / timeTaken > velocity)){ // Did It Move To Top?
-						onSwipeTop();
+						onSwipeTop()
 					} else {
 						backToMiddle();
 					}

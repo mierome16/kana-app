@@ -9,7 +9,7 @@ import { getPastOrders } from '../actions/meal.actions'
 
 export default props => {
   const orders = useSelector(appState => appState.mealReducer.pastOrders)
-  console.log(orders[0])
+  console.log(orders)
 
   useEffect(() => {
     getPastOrders(localStorage.getItem('id'))
@@ -19,6 +19,11 @@ export default props => {
     <MSidebar>
     <div style={{padding:25}}>
       <Header as="h1">Past Orders</Header>
+      <p style={{fontSize: 14}}>Click an item to view order details</p>
+      <div style={{paddingBottom:25}}>
+        <Link to="/"><Button>Back to Home</Button></Link>
+        <Link to="/profile"><Button primary>Order Again</Button></Link>
+      </div>
       {orders ? (orders.map((order, i) => (
         <div key={order.confirm + i}>
           <Link to={"/orders/" + order.confirm}>
@@ -31,8 +36,8 @@ export default props => {
                 <FoodItem.Content>
                 <FoodItem.Header style={{ display:'flex', flexDirection:'column'}}>
                   {order.meal_name}
-                  <FoodItem.Meta>{order.time_placed}</FoodItem.Meta>
-                  <FoodItem.Meta>{order.type === 'reservation' ? ('Reservation Date: ' + moment(order.reserve_date).format('LLL')) : ('Order Total: $' + (order.price * order.quantity).toFixed(2))}</FoodItem.Meta>
+                  <FoodItem.Meta>Placed: {moment(order.time_placed).format('l LT')}</FoodItem.Meta>
+                  <FoodItem.Meta>{order.type === 'reservation' ? ('Reservation: ' + moment(order.reserve_date).format('l LT')) : ('Order Total: $' + (order.price * order.quantity).toFixed(2))}</FoodItem.Meta>
                 </FoodItem.Header>
                 <FoodItem.Meta>
                     {order.restaurant}
@@ -42,10 +47,6 @@ export default props => {
             </Link>
         </div>
       ))) : <Header as="h3">No orders made yet, start a new order and you'll see your history here</Header>} 
-      <div>
-        <Link to="/"><Button>Back to Home</Button></Link>
-        <Link to="/profile"><Button>Order Again</Button></Link>
-      </div>
     </div>
     </MSidebar>
   )

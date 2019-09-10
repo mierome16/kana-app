@@ -39,7 +39,7 @@ export default props => {
                         placeholder='Password'
                         type='password'
                     />
-                   <Link to="/profile">
+                   <Link to="/dashboard">
                    <Button onClick={handleSubmit} style={{background: '#8f0a03',
     color: 'white'}} fluid size='large'>
                       Login
