@@ -16,7 +16,7 @@ html {box-sizing:border-box;}
 #sidebar-menu {
   position: absolute;
   right:10px;
-  width: 150px;
+  width: 80px;
   display: flex;
   justify-content: space-evenly;
   text-transform: uppercase;
@@ -98,15 +98,21 @@ html {box-sizing:border-box;}
     margin-bottom: 0;
 }
 
-.kananame {
+.kananame, #kananame {
+  font-size: 29px;
   color: white;
-  font-size: 30px;
-  letter-spacing: 4px;
-  font-weight: lighter;
-  font-family: 'Rock Salt', cursive;
-  margin: auto;
+  text-align: center;
+  font-family: "Rock Salt";
+  margin-right: 55px;
+  text-align: center;
+  
 }
 
+#mobileTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
 .foodmainpage {
     display: flex;
@@ -557,6 +563,16 @@ animation-name: fadeIn;
 
 
 /********* mobile about page ******/
+#about-mpage {
+  height: 100vh;
+  width: 100vw;
+  text-align: center;
+}
+
+/* #about-swipeable {
+  overflow-y: hidden;
+} */
+
 .about-card {
   height: 100vh;
   width: 100vw;
@@ -579,7 +595,7 @@ animation-name: fadeIn;
 
 .about-progress {
   position: absolute;
-  bottom: 75px;
+  bottom: 50px;
   display: flex;
   width: 100%;
   justify-content: center;
@@ -591,10 +607,15 @@ animation-name: fadeIn;
 
 .about-info {
   position: absolute;
-  top: 120px;
+  top: 100px;
   width:100%;
+  height: 85vh;
   margin:auto;
   padding: 0 20px;
+}
+
+.about-info img {
+  height: 350px;
 }
 
 .about-info p {
@@ -631,10 +652,6 @@ animation-name: fadeIn;
   flex-direction: column;
   justify-content: space-around;
 }
-
-
-
-
 
 #title h1 {
   color: white;
@@ -768,4 +785,51 @@ animation-name: fadeIn;
 
 #user .ui.form .fields {
   padding: 30px;
+}
+
+#charts {
+  height: 200px;
+}
+
+/*///////Resposiveness larger screens /about */
+@media only screen and (min-width: 1000px) {
+
+  #about-mpage {
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .about-info {
+    top: 100px;
+    height: 110vh;
+    overflow: hidden;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .about-info div {
+    margin-top: 300px;
+  }
+
+  .about-info img {
+    height: 600px; 
+    width: auto;
+  }
+  
+  .about-info h1 {
+    font-size:46px;
+  }
+
+  .about-info p {
+    font-size:36px;
+    margin-bottom: 5px;
+  }
+  
+  .skip {
+    display: none;
+  }
 }
