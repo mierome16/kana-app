@@ -15,7 +15,7 @@ export default props => {
       <Link to='/swipe' style={{color: 'white', fontWeight: 'lighter'}}>
         <div className='textbox'>
           <h1>You've seen it all!</h1>
-          <h3>Click to start over and don't be so picky this time, ok?</h3>
+          <h3>Click the back button to start over and don't be so picky this time, ok?</h3>
         </div>
       </Link>
     </div>

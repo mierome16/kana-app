@@ -23,7 +23,7 @@ import RestRegister from './RestRegister';
 import SinglePastOrder from './SinglePastOrder'
 import MSidebar from './Sidebar';
 import NoResults  from './NoResults'
-import EndOfDeck from './EndOfDeck';
+import LastCard from './LastCard.js';
 import FoodMain from './FoodMain'
 import MobileAbout from './MobileAbout';
 import ContactUs from './ContactUs';
@@ -65,7 +65,7 @@ const [loading, setLoading] = useState(true)
             <Route exact path = "/about-kana" component={HomepageLayout} />
             <Route exact path ="/about" component={MobileAbout} />
             <Route exact path ="/notfound" component={NoResults} />
-            <Route exact path="/endofdeck" component={EndOfDeck} />
+            <Route exact path="/LastCard" component={LastCard} />
             <Route path="/restaurant-profile" component={RestaurantAccount}/>
             <Route path="/restaurant-additem" component={RestaurantItem}/>
             <Route path="/restaurant-inventory" component={RestaurantInventory}/>
@@ -82,7 +82,7 @@ const [loading, setLoading] = useState(true)
             <LoginRoute exact path="/orders/:singleOrder" component={SinglePastOrder} />
             <Route path ="/sidebar" component={MSidebar}/>
             <Route path ="/notfound" component={NoResults} />
-            <Route path="/endofdeck" component={EndOfDeck} />
+            <Route path="/LastCard" component={LastCard} />
             <Route path="/contact" component={ContactUs} />
             <Route path='/charts' component={Charts} />
             <LoginRoute path="/favorites" component={Favorites}/>

@@ -446,11 +446,7 @@ html {box-sizing:border-box;}
 }
 
 
-/***********//* NoResults Styling *//**********/
-/* #endofdeck {
-  position: relative;
-  z-index: -1000
-} */
+/***********//* NoResults + Last Card Styling *//***********/
 
 #lastCard {
   height: 505px;
@@ -472,10 +468,21 @@ html {box-sizing:border-box;}
   background-color: rgb(230, 230, 230, .8);
 }
 
+#none {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  height: 500px;
+  border-radius: 10px;
+  background-color: rgb(211, 209, 209);
+}
+
 .joke {
   font-size: 20px;
   color: #E84940;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin-top: 20px;
 }
 
 .joke-q {
@@ -514,6 +521,7 @@ animation-name: fadeIn;
 
 #none a {
   font-size: 16px;
+  margin-bottom: 20px;
 }
 
 .textbox {
