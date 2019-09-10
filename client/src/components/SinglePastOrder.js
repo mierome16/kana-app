@@ -33,8 +33,8 @@ export default props => {
             <FoodItem.Header style={{ display:'flex', flexDirection:'column'}}>
               {singleItem.meal_name}
               <FoodItem.Meta>Confirmation: {singleItem.confirm}</FoodItem.Meta>
-              <FoodItem.Meta>Order placed at: {singleItem.time_placed}</FoodItem.Meta>
-              <FoodItem.Meta>{singleItem.type === 'reservation' ? ('Reservation Date: ' + moment(singleItem.reserve_date).format('LLL')) : ('Order Total: $' + (singleItem.price * singleItem.quantity).toFixed(2))}</FoodItem.Meta>
+              <FoodItem.Meta>Placed at: {moment(singleItem.time_placed).format('l LT')}</FoodItem.Meta>
+              <FoodItem.Meta>{singleItem.type === 'reservation' ? ('Reservation ' + moment(singleItem.reserve_date).format('l LT')) : ('Order Total: $' + (singleItem.price * singleItem.quantity).toFixed(2))}</FoodItem.Meta>
             </FoodItem.Header>
             <FoodItem.Meta>
                 {singleItem.restaurant}

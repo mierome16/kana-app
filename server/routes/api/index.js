@@ -393,7 +393,7 @@ router.get('/get-orders/:user', (req, res, next) => {
   SELECT o.confirm, o.quantity, o.notes, o.time_placed, o.reserve_date, o.item_id, o.type, o.size, m.name as meal_name, m.meal_type, m.description, m.diet, m.price, m.popular, r.name as restaurant, r.address, r.zipcode, r.city, r.state, r.opening_time, r.day_opened, p.id as img
   FROM orders o, users, menu_items m, restaurants r, pictures p 
   WHERE o.user_id = ? AND users.id = ? AND o.item_id = m.id AND m.id = p.menu_items_id AND m.restaurant_id = r.id 
-  ORDER BY time_placed DESC
+  ORDER BY time_placed ASC
   `
  conn.query(sql, [user_id, user_id], (err, results, fields) => {
    //console.log(results)
@@ -433,7 +433,7 @@ router.get('/getFav/:id', (req, res, next) => {
   const user_id = req.params.id
   console.log(user_id)
   const sql = `
-  SELECT m.name as meal_name, m.id, m.meal_type, m.description, m.diet, m.price, m.popular, r.name as restaurant, r.address, r.zipcode, r.city, r.state, r.opening_time as open, r.day_opened, p.id as img
+  SELECT m.name as meal_name, m.id, m.meal_type, m.description, m.diet, m.price, m.popular, r.ratings as rating, r.closing_time, r.name as restaurant, r.address, r.zipcode, r.city, r.state, r.opening_time as open, r.day_opened, p.id as img
   FROM  users, menu_items m, restaurants r, pictures p, user_favorites f
   WHERE users.id = ? AND f.user_id = ? AND f.item_id = m.id AND m.id = p.menu_items_id AND m.restaurant_id = r.id 
   `

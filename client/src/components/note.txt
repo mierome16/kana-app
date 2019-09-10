@@ -4,20 +4,6 @@
 --- make a fake link to external restaurant page??
 --- add restaurant phone # to data and grab it in sql
 
-and** be able to remove from favorites list
---- swipe through favorites list
---- finishing about/onboarding component
---- page if not found
---- figure out how to go back to swipe and view the same items??
---- start a new order/order from favorites/use previous preferences
---- swipe view and list view for favorites
 --- add time input and party size for reservation
 --- only see items that are open
-
-
-
---- colors for circle progress bar #c8c0c0bf;
---- background: linear-gradient(164deg, #00bcd4a8 23%, rgb(92, 240, 204) 53%, rgba(83, 220, 98, 0.72) 88%); 
---- navbar on profile rgba(68, 11, 11, 0.57)
---- continue button color on profile #3e3838
---- portfolio, change background, on hover change icons to #3F51B5 or #404d9b, update bio
+--- phone gap/ionic

@@ -25,18 +25,6 @@ export default props => {
       }
       return arr
     }
-    // function mapAllergy(allergies) {
-    //   let labels = []
-    //   if (allergies.indexOf(' ') === -1 ) {
-    //     labels.push(<Label>{allergies}</Label>)
-    //   } else {
-    //     allergies.split(' ').map(item => {
-    //       labels.push(<Label>{item}</Label>)
-    //     })
-    //   }
-    //   console.log(labels)
-    //   return labels
-    // }
     
     console.log(foodItems)
     
@@ -70,17 +58,21 @@ export default props => {
                           <div className="card-content">
                             <div className="card-header">
                               <div className="card-header-info">
-                                <h3>{item.name}</h3>
-                                <p>{item.restaurant} <span className="rating"> {item.rating ? mapRating(item.rating) : '' }</span></p>
+                                <div>
+                                  <h3>{item.name}</h3>
+                                </div>
+                                <div>
+                                  <h3>${item.price.toFixed(2)}</h3> 
+                                </div>
                               </div>
                               <div>
-                                <h3>${item.price.toFixed(2)}</h3> 
+                                <p>{item.restaurant} <span className="rating"> {item.rating ? mapRating(item.rating) : '' }</span></p>
                               </div>
                             </div>
                             <div className="card-body">
                               <div>
                                 <p className="card-desc">{item.description ? item.description.charAt(0).toUpperCase() + item.description.substr(1) : ''}</p>
-                                <p>Tags: {item.allergy ? <Label>{item.allergy}</Label> : 'None'}</p>
+                                <p>Tags: {item.allergy ? <Label>{item.allergy}</Label> : item.meal_type ? <Label>{item.meal_type}</Label> : 'None'} </p>
                               </div>
                             </div>
                           </div>
@@ -99,7 +91,7 @@ export default props => {
 
                 <div className="global-actions">
                   <div className="left-action">Yuck</div>
-                  <div className="top-action"><Icon  name="heart" size="large"/></div>
+                  <div className="top-action"><Icon  name="favorite" size="large"/></div>
                   {/* <Icon id="top-replace" name="heart" size="large"/> */}
                   <div className="right-action">Yum</div>
                 </div> 

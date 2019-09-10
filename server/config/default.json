@@ -1,8 +1,13 @@
 {
   "db": {
     "host": "localhost",
+<<<<<<< HEAD
     "user": "kana-admin",
     "password": "+V:=0g`k>rzY}9u",
+=======
+    "user": "kana",
+    "password": "/cI[(-].'8+#(2u",
+>>>>>>> 59fd2b3866fa3412dceb32f53f246dee548b0e98
     "database": "Kana"
   },
   "salt": "]*?l367=Eaag+{j",

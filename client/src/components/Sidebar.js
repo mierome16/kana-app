@@ -32,7 +32,7 @@ class MSidebar extends Component {
           vertical
           visible={sidebarOpened}
         >
-          <Link to="/"><Menu.Item>Home</Menu.Item></Link>
+          <Link to="/dashboard"><Menu.Item>Home</Menu.Item></Link>
           <Link to="/about"><Menu.Item>About Us</Menu.Item></Link>
           <Link to="/profile"><Menu.Item>Start an Order</Menu.Item></Link>
           <Link to="/orders"><Menu.Item>Past Orders</Menu.Item></Link>
