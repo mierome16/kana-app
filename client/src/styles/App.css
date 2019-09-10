@@ -746,3 +746,15 @@ animation-name: fadeIn;
   margin-top: 20px;
 }
 
+#fav{
+  background:   linear-gradient(
+    rgba(0, 0, 0, 0.8), 
+    rgba(0, 0, 0, 0.8)
+  ),url('https://i.pinimg.com/564x/26/3d/53/263d53ed14ea33255b11d342a25c20d4.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#user .ui.form .fields {
+  padding: 30px;
+}

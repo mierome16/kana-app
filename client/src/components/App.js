@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import 'normalize.css/normalize.css'
 import '../styles/App.css'
-//import '../styles/SwipeStyles.css'
 import { Provider } from 'react-redux'
 import store from '../store'
 import ReservationForm from './ReservationForm'
@@ -21,7 +20,6 @@ import MobileHome from './MobileHome';
 import RestHome from './RestHome'
 import RestRegister from './RestRegister';
 import SinglePastOrder from './SinglePastOrder'
-import MSidebar from './Sidebar';
 import NoResults  from './NoResults'
 import EndOfDeck from './EndOfDeck';
 import FoodMain from './FoodMain'
@@ -29,7 +27,6 @@ import MobileAbout from './MobileAbout';
 import ContactUs from './ContactUs';
 import Charts from './Charts'
 import RestLogin from './RestLogin'
-import GifLoading from './GifLoading'
 import RestaurantAccount from './RestaurantAccount'
 import RestaurantItem from './RestaurantItem'
 import RestaurantInventory from './RestaurantInventory'
@@ -39,6 +36,8 @@ import AuthRoute from './AuthRoute'
 import OrderRoute from './OrderRoute'
 import ConfirmRoute from './ConfirmRoute'
 import Favorites from './Favorites'
+import SwipeFav from './SwipeFav'
+import UserProfile from './UserProfile'
 
 
 
@@ -57,7 +56,6 @@ const [loading, setLoading] = useState(true)
             <Route exact path="/" component={MobileHome}/>
             <AuthRoute path ="/login" component={Login} />
             <AuthRoute path="/register" component={Registration}/>
-
             <Route exact path ="/restaurant-home" component={RestHome}/>
             <Route exact path ="/restaurant-register" component={RestRegister}/>
             <Route exact path="/restaurant-login" component={RestLogin}/>
@@ -69,17 +67,20 @@ const [loading, setLoading] = useState(true)
             <Route path="/restaurant-profile" component={RestaurantAccount}/>
             <Route path="/restaurant-additem" component={RestaurantItem}/>
             <Route path="/restaurant-inventory" component={RestaurantInventory}/>
+            <Route exact path="/user" component={UserProfile} />
             <LoginRoute exact path="/dashboard" component={MobileDashboard} />
             <LoginRoute exact path="/profile" component={Profile} />
-            <LoginRoute exact path="/order" component={OrderForm} />
-            <LoginRoute exact path="/reservation" component={ReservationForm} />
-            <LoginRoute exact path="/options" component={EatOptions} />
-            <LoginRoute exact path="/confirm" component={Confirmation} />
+            <ConfirmRoute exact path="/order" component={OrderForm} />
+            <ConfirmRoute exact path="/reservation" component={ReservationForm} />
+            <ConfirmRoute exact path="/options" component={EatOptions} />
+            <ConfirmRoute exact path="/confirm" component={Confirmation} />
             <LoginRoute exact path="/swipe" component={FoodMain} />
             <LoginRoute exact path="/map" component={DistanceMap}/>
             <LoginRoute exact path="/meal" component={MealOptions} />
             <LoginRoute exact path="/orders" component={PastOrders} />
             <LoginRoute exact path="/orders/:singleOrder" component={SinglePastOrder} />
+
+            <LoginRoute exact path="/swipefav" component={SwipeFav} />
             <Route path ="/sidebar" component={MSidebar}/>
             <Route path ="/notfound" component={NoResults} />
             <Route path="/endofdeck" component={EndOfDeck} />
