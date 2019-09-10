@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import '../styles/resthome.css'
+import Charts from './Charts'
 import {
   Button,
   Container,
@@ -50,10 +51,10 @@ const HomepageHeading = ({ mobile }) => (
       }}
     />
     <Header id="reshomedef" inverted>
-        <div>Fijian-English Dictionary</div>
-        <div>Type: verb, noun</div>
+        <div style={{fontWeight:'lighter'}}>Fijian :: 'Diner time!'</div>
+        {/* <div>Type: verb, noun</div>
         <li>meal</li>
-        <li>to eat</li>
+        <li>to eat</li> */}
       </Header>
       <div id="reslogodiv"><div id="reshomelogo"></div></div>
     <Button primary size='huge' style={{background: 'rgba(0, 0, 0, .9)'}}>
@@ -221,18 +222,16 @@ const HomepageLayout = () => (
         <Grid.Row>
           <Grid.Column width={8}>
             <Header as='h3' style={{ fontSize: '2em' }}>
-              We Help Restaurants and Companions
+              We Partner with Resaurants
             </Header>
             <p style={{ fontSize: '1.33em' }}>
-              We can give your company superpowers to do things that they never thought possible.
-              Let us delight your customers and empower your needs... through pure data analytics.
+              With our self on-boarding restaurant portal, you can register easily by adding your menu items and upload the photos. Everything is formated for you which makes the process seamless. 
             </p>
             <Header as='h3' style={{ fontSize: '2em' }}>
-              We Make Bananas That Can Dance
+              Join our Kana Restaurant network
             </Header>
             <p style={{ fontSize: '1.33em' }}>
-              Yes that's right, you thought it was the stuff of dreams, but even bananas can be
-              bioengineered.
+              We help you increase your market share and new customer acquision.
             </p>
           </Grid.Column>
           <Grid.Column floated='right' width={6}>
@@ -245,40 +244,37 @@ const HomepageLayout = () => (
           </Grid.Column>
           <Grid.Column width={8}>
             <Header as='h3' style={{ fontSize: '2em' }}>
-              We Help Restaurants and Companions
+              We put the focus on your delicious food
             </Header>
             <p style={{ fontSize: '1.33em' }}>
-              We can give your company superpowers to do things that they never thought possible.
-              Let us delight your customers and empower your needs... through pure data analytics.
+              By letting users swipe through the menu items deirectly, the emphasize is on what you offer. Nothing speaks better than a picture of delicious food for an hungry crowd. 
             </p>
             <Header as='h3' style={{ fontSize: '2em' }}>
-              We Make Bananas That Can Dance
+              We Offer Professional Photoshoot....for your food
             </Header>
             <p style={{ fontSize: '1.33em' }}>
-              Yes that's right, you thought it was the stuff of dreams, but even bananas can be
-              bioengineered.
+              Although, our on-boarding is very easy, you can opt for a professional photoshoot session for your food items to parade your yummy meals the best way possible. 
             </p>
           </Grid.Column>
         </Grid.Row>
         <Grid.Row>
           <Grid.Column width={8}>
             <Header as='h3' style={{ fontSize: '2em' }}>
-              We Help Restaurants and Companions
+              We Help Restaurants Grow Their Business
             </Header>
             <p style={{ fontSize: '1.33em' }}>
               We can give your company superpowers to do things that they never thought possible.
-              Let us delight your customers and empower your needs... through pure data analytics.
+              Let us delight your customers and empower your needs... through pure data analytics and BI reports.
             </p>
-            <Header as='h3' style={{ fontSize: '2em' }}>
+            {/* <Header as='h3' style={{ fontSize: '2em' }}>
               We Make Bananas That Can Dance
-            </Header>
+            </Header> */}
             <p style={{ fontSize: '1.33em' }}>
-              Yes that's right, you thought it was the stuff of dreams, but even bananas can be
-              bioengineered.
+              You will have access to your sales data and build a startegy that will grow your revenue considerably.
             </p>
           </Grid.Column>
           <Grid.Column floated='right' width={6}>
-            <Image bordered rounded size='large' src='https://img.pngio.com/cartoon-restaurant-cartoon-vector-restaurant-vector-commercial-street-png-and-vector-restaurant-png-650_651.png' />
+            <Image bordered rounded size='large' src='/charts.png' />
           </Grid.Column>
         </Grid.Row>
         <Grid.Row>
@@ -293,17 +289,17 @@ const HomepageLayout = () => (
         <Grid.Row textAlign='center'>
           <Grid.Column style={{ paddingBottom: '5em', paddingTop: '5em' }}>
             <Header as='h3' style={{ fontSize: '2em' }}>
-              "What a Company"
+              "Kana helped me increase my sales by 25%"
             </Header>
             <p style={{ fontSize: '1.33em' }}>That is what they all say about us</p>
           </Grid.Column>
           <Grid.Column style={{ paddingBottom: '5em', paddingTop: '5em' }}>
             <Header as='h3' style={{ fontSize: '2em' }}>
-              "I shouldn't have gone with their competitor."
+              "I usually find what to order within a minute."
             </Header>
             <p style={{ fontSize: '1.33em' }}>
-              <Image avatar src='/images/avatar/large/nan.jpg' />
-              <b>Nan</b> Chief Fun Officer Acme Toys
+              {/* <Image avatar src='/images/avatar/large/nan.jpg' /> */}
+              <b>Ryan Lee</b>, PunchCode 
             </p>
           </Grid.Column>
         </Grid.Row>
