@@ -7,16 +7,12 @@ export default props => {
   const foodItems = useSelector(appState => appState.dietReducer.allItems)
   const selectedDiets = useSelector(appState => appState.dietReducer.selectedDiets)
 
-  console.log(foodItems)
    useEffect(() => {
-      //stackedCards()
       if(selectedDiets.length === 0){
         getMenuItems('none')
-
       } else {
       getMenuItems(selectedDiets)
       }
-     
       }, [])
 
   return (

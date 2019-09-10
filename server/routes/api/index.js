@@ -16,8 +16,6 @@ router.post('/login', (req, res, next) => {
   conn.query(sql, [username, password], (err, results, fields) => {
     if (results.length > 0){
       const token = jwt.sign({username}, config.get('secret'))
- 
-      console.log(results[0])
 
       res.json({
         message: "User signed in",
@@ -41,7 +39,6 @@ router.post('/register', (req, res, next) => {
   const last_name = req.body.last_name
   const username = req.body.username
   const password = sha512(req.body.password + config.get('salt'))
-  console.log(username)
  const sql = `INSERT into users (username, password, first_name, last_name) VALUES (?, ?, ?, ?)`
  
  conn.query(sql, [username, password, first_name, last_name], (err, results, fields) => {
@@ -136,31 +133,7 @@ router.get('/menu-items/:selectedDiets/:selectedMeals', (req,res,next) => {
 
   conn.query(sql, ( err, results, fields ) => {
   const filteredResults = results.filter(item => diets.includes(item.diet_name) || diets == 'none').filter(item => meals.includes(item.meal_name) || meals == 'none'); 
-    // var filteredResults
-    // var filteredResults2
-    // if (diets == 'none') {
-    //   var map = new Map(results.map(o => [o.id,o]))
-    //   var newResults = [...map.values()]
-    //   res.json(newResults)
-    // } else {
-    // if (diets !== 'none'){
-      // const filteredResults = results.filter(item => {
-      //   if(diets.includes(item.diet_name)){
-      //     return true
-      //   } else {
-      //     return false
-      //   }
-      // })
-      // if (meals !== 'none') {
-        // const filteredResults2 = filteredResults.filter(item => {
-        //   if(meals.includes(item.meal_name)){
-        //     return true
-        //   } else {
-        //     return false
-        //   }
-        // }) 
-    //   }
-    // }
+
     var map = new Map(filteredResults.map(o => [o.id,o]))
     var unique = [...map.values()]
     res.json(unique)
@@ -194,132 +167,6 @@ router.get('/mealtypes', (req,res,next) => {
 })
 
 
-//****Type of Meal Selection & Filtering*****//
-// router.get('/menu-items/:selectedMeals', (req,res,next) => {
-//   const meal = req.params.selectedMeals.split(',')
-//   const sql = `
-//  SELECT m.id, m.name as item_name, m.description, m.price, dr.name as diet_name, mt.meal_name, mt.id, p.id as pic_id, r.name as res_name, r.address, r.zipcode, r.city, r.state, r.opening_time, r.closing_time, r.ratings
-//   FROM menu_items m
-//   LEFT JOIN diet_links dl
-//   ON m.id = dl.menu_item_id
-//   LEFT JOIN dietary_rest dr
-//   ON dl.dietary_rest_id = dr.id
-//   LEFT JOIN meal_Links ml
-//   on m.id = ml.menu_item_id
-//   LEFT JOIN meal_types mt
-//   ON ml.mealtype_id = mt.id
-//   LEFT JOIN pictures p
-//   ON p.menu_items_id = m.id
-//   LEFT JOIN restaurants r
-//   ON m.restaurant_id = r.id
-//   `
-//   console.log(selectedMeals)
-//   conn.query(sql, ( err, results, fields ) => {
-
-//     if(meal == 'none'){
-//       var map = new Map(results.map(o => [o.id,o]))
-//       var newMealResults = [...map.values()]
-//       res.json(newMealResults)
-//     } else {
-//      const filteredMeals = results.filter(item => {
-//       if(diet.includes(item.meal_name)){
-//         return true
-//       } else {
-//         return false
-//       }
-//     })
-//     var map = new Map(filteredMeals.map(o => [o.id,o]))
-//     var unique = [...map.values()]
-//     res.json(unique)
-//     }
-//   })
-// })
-
-
-
-
-// router.get('/menu-items/:selectedDiets', (req, res, next) => {
-//   const diet = req.params.selectedDiets
-//   const newDiet = diet.split(',')
-//   if(diet === 'none'){
-//   const sql = `
-//   SELECT m.id, m.name as meal_name, m.meal_type, m.description, m.diet, m.price, r.name as res_name, r.address, r.zipcode, r.city, r.state, r.opening_time, r.closing_time, r.day_opened, r.ratings, p.url
-//   FROM menu_items m
-//   LEFT JOIN Restaurants r
-//   ON m.restaurant_id = r.id
-//   LEFT JOIN pictures p
-//   ON p.menu_items_id = m.id
-// `
-//   conn.query(sql, (err, results,fields) => {
-//     res.json(results)
-//   })
-// }else{
-//   const sql = `
-//   SELECT m.id, m.name as meal_name, m.meal_type, m.description, m.diet, m.price, r.name as res_name, r.address, r.zipcode, r.city, r.state, r.opening_time, r.closing_time, r.day_opened, r.ratings, p.url
-//   FROM menu_items m
-//   LEFT JOIN Restaurants r
-//   ON m.restaurant_id = r.id
-//   LEFT JOIN pictures p
-//   ON p.menu_items_id = m.id
-// `
-//   conn.query(sql, (err, results,fields) => {
-//     const newResults = []
-//       newDiet.forEach(diet => {
-//          results.filter(item => {
-//             // if(item.diet !== null){
-//             // const dietArr = item.diet.split(' ')
-//             // if(dietArr.includes(diet)){
-//               if(item.diet === diet){
-//                 newResults.push(item)
-//             }
-//           // }
-//       })
-      
-//           })
-//           console.log(newResults)
-//       res.json(newResults)
-//       })
-//     }
-//   })
-    
-
-
-//  router.post('/filtered-items', (req,res,next) => {
-//     const diet = req.params.diet
-//     console.log(diet)
-//     let all = []
-//     if (diet.length === 0) {
-//       const sql = `SELECT m.id, m.name as meal_name, m.meal_type, m.description, m.diet, m.price, r.name as res_name, r.address, r.zipcode, r.city, r.state, r.opening_time, r.closing_time, r.day_opened, r.ratings, p.url
-//       FROM menu_items m
-//       LEFT JOIN Restaurants r
-//       ON m.restaurant_id = r.id
-//       LEFT JOIN pictures p
-//       ON p.menu_items_id = m.id
-//       `
-//       conn.query(sql, [item], (err,results,fields) => {
-//         console.log(results)
-//         res.json(results)
-//       })
-
-//     } else {
-//     diet.forEach(item => {
-//       let diet = '%' + item + '%'
-//       const sql = `SELECT m.id, m.name as meal_name, m.meal_type, m.description, m.diet, m.price, r.name as res_name, r.address, r.zipcode, r.city, r.state, r.opening_time, r.closing_time, r.day_opened, r.ratings, p.url
-//       FROM menu_items m
-//       LEFT JOIN Restaurants r
-//       ON m.restaurant_id = r.id
-//       LEFT JOIN pictures p
-//       ON p.menu_items_id = m.id
-//       HAVING m.diet LIKE ?
-//       `
-//       conn.query(sql, [diet], (err,results,fields) => {
-//         all.push(results)
-//         console.log(results)
-//       })
-//       res.json(all)
-//     })
-//  }
-// })
 
 /*******Google map api ************/
  router.get('/locations', (req,res,next) => {
@@ -345,7 +192,6 @@ router.post('/rest-register', (req,res,next) => {
   VALUES(?,?,?,?,?)
   `
   conn.query(sql, [name, address, city, state, zipcode],(err,results,fields) => {
-    console.log(err)
     if (err) {
       res.json({
         message: "Restaurant already exists"
@@ -387,8 +233,7 @@ router.post('/rest-register', (req,res,next) => {
 
 router.get('/get-orders/:user', (req, res, next) => {
   const user_id = req.params.user
-  //console.log(user_id)
-  //const reserve_date = req.body.reserve_date
+
   const sql = `
   SELECT o.confirm, o.quantity, o.notes, o.time_placed, o.reserve_date, o.item_id, o.type, o.size, m.name as meal_name, m.meal_type, m.description, m.diet, m.price, m.popular, r.name as restaurant, r.address, r.zipcode, r.city, r.state, r.opening_time, r.day_opened, p.id as img
   FROM orders o, users, menu_items m, restaurants r, pictures p 
@@ -396,7 +241,6 @@ router.get('/get-orders/:user', (req, res, next) => {
   ORDER BY time_placed ASC
   `
  conn.query(sql, [user_id, user_id], (err, results, fields) => {
-   //console.log(results)
     if (err) {
      res.json({
        message: err
@@ -411,13 +255,10 @@ router.get('/get-orders/:user', (req, res, next) => {
 router.post('/add-to-favorites', (req, res, next) => {
   const user_id = req.body.user_id
   const item_id = req.body.item_id.id
-  console.log(user_id)
-  //const reserve_date = req.body.reserve_date
   const sql = `
   INSERT INTO user_favorites (user_id, item_id) VALUES (?, ?)
   `
  conn.query(sql, [user_id, item_id], (err, results, fields) => {
-   console.log(results)
     if (err) {
      res.json({
        message: err
@@ -431,15 +272,12 @@ router.post('/add-to-favorites', (req, res, next) => {
 
 router.get('/getFav/:id', (req, res, next) => {
   const user_id = req.params.id
-  console.log(user_id)
   const sql = `
   SELECT m.name as meal_name, m.id, m.meal_type, m.description, m.diet, m.price, m.popular, r.ratings as rating, r.closing_time, r.name as restaurant, r.address, r.zipcode, r.city, r.state, r.opening_time as open, r.day_opened, p.id as img
   FROM  users, menu_items m, restaurants r, pictures p, user_favorites f
   WHERE users.id = ? AND f.user_id = ? AND f.item_id = m.id AND m.id = p.menu_items_id AND m.restaurant_id = r.id 
   `
  conn.query(sql, [user_id, user_id], (err, results, fields) => {
-   //console.log(results)
-   // Some array I got from async call
    const favs = results.reduce((acc, current) => {
     const x = acc.find(item => item.meal_name === current.meal_name);
     if (!x) {

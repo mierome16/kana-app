@@ -17,8 +17,6 @@ const filters = [
 export default props => {
   const favs = useSelector(appState => appState.mealReducer.favorites)
 
-  console.log(favs)
-
   useEffect(() => {
     finishOrder()
     getFavorites()
@@ -26,7 +24,6 @@ export default props => {
 
   function handleClick(item) {
     finishOrder()
-    console.log(item)
     orderItem(item)
   }
 
@@ -36,7 +33,7 @@ export default props => {
       <Header as="h1">Favorites</Header>
       <p style={{fontSize: 14}}>Click an item to place a new order, or swipe through list of favorites</p>
       <div style={{paddingBottom:25}}>
-        <Link to="/profile"><Button>Back to Home</Button></Link>
+        <Link to="/dashboard"><Button>Back to Home</Button></Link>
         <Link to="/swipefav"><Button primary>Swipe Favorites</Button></Link>
       </div>
       {favs ? (favs.map((item, i) => (

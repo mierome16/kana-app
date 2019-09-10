@@ -16,7 +16,6 @@ export default props => {
       finishOrder()
       orderItem(singleItem)
      } else  { orderItem(singleItem) }
-    // orderitem(singleItem) ? check if current item to order exists already
   }
   return (
     <MSidebar>

@@ -26,11 +26,9 @@ export default props => {
   function handleSubmit(e) {
     e.preventDefault()
     setSubmit(!submit)
-    console.log(values)
     sendOrder(values)
     confirmOrder(values)
   }
-  //console.log(date)
 
 
     return (
@@ -71,9 +69,6 @@ export default props => {
           onChange={date => setDate(date)}
           id="date-picker"
         />
-        {/* <Header as='h4'>
-          Size of Party
-        </Header> */}
         <Button style={{'marginTop': 30}} inverted color="orange" onClick={handleSubmit}>Confirm Reservation</Button>
       </Container>
       </MSidebar>

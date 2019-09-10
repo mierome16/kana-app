@@ -38,23 +38,6 @@ import { getLocations } from '../actions/distance.actions';
                     onClick={e => setSelectedLocation(e.target.value)}
                     />
                 ))}
-
-                {/* {selectedLocation && (
-                    <InfoWindow
-                    onCloseClick={() => {
-                        setSelectedLocation(null);
-                    }}
-                    position={{
-                        lat: rest.latitude,
-                        lng: rest.longitude
-                    }}
-                    >
-                    <div>
-                        <h2>{rest.name}</h2>
-                        <h4>{`${rest.address} ${rest.city}, ${rest.state} ${rest.zipcode}`}</h4>
-                    </div>
-                    </InfoWindow>
-                )} */}
             </GoogleMap>
         </div>
     )

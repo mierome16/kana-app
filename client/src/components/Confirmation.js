@@ -5,7 +5,7 @@ import { finishOrder } from '../actions/meal.actions'
 import { Redirect } from 'react-router-dom'
 import { Header, Container, Button } from 'semantic-ui-react'
 import MSidebar from './Sidebar';
-import { getPastOrders } from '../actions/meal.actions'
+
 
 export default props => {
   const order = useSelector(appState => appState.mealReducer.confirm)
