@@ -79,7 +79,7 @@ export default props => {
             <Route path ="/notfound" component={NoResults} />
             <Route path="/LastCard" component={LastCard} />
             <Route path="/contact" component={ContactUs} />
-            <Route path='/charts' component={Charts} />
+            <Route path='/restaurant-stats' component={Charts} />
             <LoginRoute path="/favorites" component={Favorites}/>
           </Switch>        
     

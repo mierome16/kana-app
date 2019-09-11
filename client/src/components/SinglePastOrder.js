@@ -45,7 +45,7 @@ export default props => {
             </FoodItem>
         </div>
       <div>
-        <Link to="/"><Button>Back to Home</Button></Link>
+        <Link to="/dashboard"><Button>Back to Home</Button></Link>
         <Link to="/options"><Button onClick={reorder}>Order Again</Button></Link>
       </div>
     </div>
