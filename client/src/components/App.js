@@ -67,7 +67,7 @@ export default props => {
             <LoginRoute exact path="/orders/:singleOrder" component={SinglePastOrder} />
             <LoginRoute exact path="/swipefav" component={SwipeFav} />
             <Route path="/contact" component={ContactUs} />
-            <Route path='/charts' component={Charts} />
+            <Route path='/restaurant-stats' component={Charts} />
             <LoginRoute path="/favorites" component={Favorites}/>
           </Switch>        
     
