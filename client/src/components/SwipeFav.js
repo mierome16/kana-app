@@ -31,9 +31,9 @@ export default props => {
     
     
     useEffect(() => {
-     
-      getFavorites()
       finishOrder()
+      getFavorites()
+      
     }, [])
 
   
