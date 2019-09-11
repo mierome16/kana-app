@@ -73,7 +73,8 @@ export default props => {
   }
 
   return (
-    <div style={{height: '700px', width: '700px'}}>
+    <div style={{height: '100vh', width: '100vw'}}>
+    <div style={{height: '700px', width: '700px', margin: 'auto'}}>
       <div style={{marginTop: '20px', marginLeft: '25%', width: '400px', height: '1px', background: 'black'}}></div>
       <div>
         <h1 style={{textAlign:'center'}}>Your market share in a 5 miles radius</h1>
@@ -91,6 +92,7 @@ export default props => {
           options={optionsbar}/>
       </div>
       <div style={{marginTop: '20px', marginLeft: '25%', width: '400px', height: '1px', background: 'black'}}></div>
+    </div>
     </div>
   )
 }
