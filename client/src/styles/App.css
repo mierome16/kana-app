@@ -149,7 +149,12 @@ html {box-sizing:border-box;}
   flex-direction: column;
   justify-content: flex-start;
   height: 100vh;
-  background: #8f0a03;
+  background:   linear-gradient(
+    rgba(0, 0, 0, 0.8), 
+    rgba(0, 0, 0, 0.8)
+  ),url('https://i.pinimg.com/564x/26/3d/53/263d53ed14ea33255b11d342a25c20d4.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .Profile h1, .Profile h2 {
@@ -157,10 +162,15 @@ html {box-sizing:border-box;}
 }
 .Profile h2 {
   font-size: 20px;
+  width:100%;
 }
 
 .top, .location {
   margin: 20px;
+}
+
+.top {
+  text-align: center;
 }
 
 .location label {
@@ -202,9 +212,6 @@ html {box-sizing:border-box;}
   width: 70px;
   margin: auto;
 }
-#diet-button:active {
-  background: #6b6565
-}
 
 .Profile .save {
   width: 100%;
@@ -232,12 +239,19 @@ html {box-sizing:border-box;}
   flex-direction: column;
   justify-content: flex-start;
   height: 100vh;
-  background: #8f0a03;
+  /* background: #8f0a03; */
+  background:   linear-gradient(
+    rgba(0, 0, 0, 0.8), 
+    rgba(0, 0, 0, 0.8)
+  ),url('https://i.pinimg.com/564x/26/3d/53/263d53ed14ea33255b11d342a25c20d4.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
   position: relative;
 }
 
 .MealOptions h2 {
   color: rgb(208,208,208);
+  padding:10px 0;
 }
 
 .meals {
@@ -261,7 +275,7 @@ html {box-sizing:border-box;}
 
 .ui.fluid.toggle.button {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   width: 180px;
   height: 100px;
@@ -276,6 +290,7 @@ html {box-sizing:border-box;}
 
 .ui.fluid.toggle.button p {
   margin: auto;
+  font-size:18px;
 }
 
 .ui.toggle.button img {
@@ -296,7 +311,7 @@ html {box-sizing:border-box;}
 #save {
   width: 100%;
   height: 60px;
-  background: #6b6565;
+  background: #8f0a03;
   color: white;
   font-size: 20px;
   font-weight: 300;
@@ -787,7 +802,45 @@ animation-name: fadeIn;
   padding: 30px;
 }
 
-#charts {
+#user-pic {
+  background:   linear-gradient(
+    rgba(0, 0, 0, 0.8), 
+    rgba(0, 0, 0, 0.8)
+  ),url('https://i.pinimg.com/564x/26/3d/53/263d53ed14ea33255b11d342a25c20d4.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: auto;
+  text-align:vcenter; 
+  padding: 15px;
+}
+
+#user-pic .profile-pic {
+  background: url('https:www.freevector.com/uploads/vector/preview/30752/Summer-Food-Icons.jpg');
+  width: 150px;
+  height: 150px;
+  background-size: contain;
+  background-position: center;
+  border-radius: 50%;
+  margin: auto;
+}
+
+.submit-form {
+  width: 100%;
+  height: 60px;
+  background: #8f0a03;
+  color: white;
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top:15px;
+  position: absolute;
+  bottom: 0;
+
+  #charts {
   height: 200px;
 }
 

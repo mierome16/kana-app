@@ -8,14 +8,14 @@ import { Redirect } from 'react-router-dom'
 export default props => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-    const [loggedIn, setLoggedIn] = useState(false)
+    // const [loggedIn, setLoggedIn] = useState(false)
 
     function handleSubmit(e){
         login(username, password)
     }
 
     return (
-        loggedIn ? <Redirect to="/dashboard" /> : (
+        // loggedIn ? <Redirect to="/dashboard" /> : (
         localStorage.getItem('token') ? <Redirect to="/dashboard" /> : (
         <div id="loginform">
             <Grid textAlign='center' style={{ height: '100vh', width:'100vw' }} verticalAlign='middle'>
@@ -54,6 +54,6 @@ export default props => {
                 </Grid.Column>
             </Grid>
         </div>
-        )
+        
     )
     )}

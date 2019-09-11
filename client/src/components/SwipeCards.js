@@ -1,6 +1,6 @@
 import { orderItem, addToFav } from "../actions/meal.actions";
 
-	export function stackedCards(array) {
+	export function stackedCards(array, type) {
 
 		var stackedOptions = 'Top'; //Change stacked cards view from 'Bottom', 'Top' or 'None'.
 		var rotate = true; //Activate the elements' rotation for each move on stacked cards.
@@ -25,10 +25,10 @@ import { orderItem, addToFav } from "../actions/meal.actions";
 		obj = document.getElementById('stacked-cards-block');
 		stackedCardsObj = obj.querySelector('.stackedcards-container');
 		listElNodesObj = stackedCardsObj.children;
-		var deckLength = listElNodesObj.length
 		topObj = obj.querySelector('.stackedcards-overlay.top');
 		rightObj = obj.querySelector('.stackedcards-overlay.right');
 		leftObj = obj.querySelector('.stackedcards-overlay.left');
+
 		
 		countElements();
 		currentElement();
@@ -201,16 +201,12 @@ import { orderItem, addToFav } from "../actions/meal.actions";
 				transformUi(-1000, 0, 0, topObj); //Move topOverlay
 				resetOverlayLeft();
 			}
-			//counter +=1
-			// console.log(counter)
+
 			currentPosition = currentPosition + 1;
 			buttonTop.classList.remove('save')
-			//console.log(array[currentPosition-1])
 			updateUi();
 			currentElement();
 			setActiveHidden();
-			deckLength-=1
-			console.log(deckLength)
 		};
 		
 		//Swipe active card to right.
@@ -222,17 +218,13 @@ import { orderItem, addToFav } from "../actions/meal.actions";
 				transformUi(1000, 0, 0, topObj); //Move topOverlay
 				resetOverlayRight();
 			}
-			// counter +=1
-			// console.log(counter)
+
 	
 			currentPosition = currentPosition + 1;
 			buttonTop.classList.remove('save')
 			updateUi();
 			currentElement();
 			setActiveHidden();
-			deckLength-=1
-			console.log(deckLength)
-
 		//	orderItem(array[currentPosition-1])
 			setTimeout(function(){
 				orderItem(array[currentPosition-1])
@@ -421,16 +413,6 @@ import { orderItem, addToFav } from "../actions/meal.actions";
 			if(listElNodesObj[currentPosition]){
 				listElNodesObj[currentPosition].style.zIndex = zIndex;
 			}		 
-		};
-	
-    // Remove element from the DOM after swipe. To use this method you need to call this function in onSwipeLeft, onSwipeRight and onSwipeTop and put the method just above the variable 'currentPosition = currentPosition + 1'. 
-    //On the actions onSwipeLeft, onSwipeRight and onSwipeTop you need to remove the currentPosition variable (currentPosition = currentPosition + 1) and the function setActiveHidden
-
-		function removeElement() {
-      currentElementObj.remove();
-      if(!(currentPosition >= maxElements)){
-				listElNodesObj[currentPosition].classList.add('stackedcards-active');
-			}		
 		};
 		
 		//Add translate X and Y to active card for each frame.

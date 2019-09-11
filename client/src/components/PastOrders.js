@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react' 
 import { useSelector } from 'react-redux'
-import moment from 'moment'
 import { Card as FoodItem, Button, Header } from "semantic-ui-react"
 import { Link } from 'react-router-dom'
 import MSidebar from './Sidebar';
@@ -9,7 +8,6 @@ import { getPastOrders } from '../actions/meal.actions'
 
 export default props => {
   const orders = useSelector(appState => appState.mealReducer.pastOrders)
-
   useEffect(() => {
     getPastOrders(localStorage.getItem('id'))
     
@@ -21,9 +19,9 @@ export default props => {
       <p style={{fontSize: 14}}>Click an item to view order details</p>
       <div style={{paddingBottom:25}}>
         <Link to="/dashboard"><Button>Back to Home</Button></Link>
-        <Link to="/profile"><Button primary>Order Again</Button></Link>
+        <Link to="/profile"><Button style={{background: '#8f0a03', color: '#fff'}}>Order Again</Button></Link>
       </div>
-      {orders ? (orders.map((order, i) => (
+      {orders.length > 0 ? (orders.map((order, i) => (
         <div key={order.confirm + i}>
           <Link to={"/orders/" + order.confirm}>
           <FoodItem style={{marginBottom:20, width:'100vh', flexDirection:'row', alignItems: 'center', alignContent:'center'}}>
@@ -35,8 +33,8 @@ export default props => {
                 <FoodItem.Content>
                 <FoodItem.Header style={{ display:'flex', flexDirection:'column'}}>
                   {order.meal_name}
-                  <FoodItem.Meta>Placed: {moment(order.time_placed).format('l LT')}</FoodItem.Meta>
-                  <FoodItem.Meta>{order.type === 'reservation' ? ('Reservation: ' + moment(order.reserve_date).format('l LT')) : ('Order Total: $' + (order.price * order.quantity).toFixed(2))}</FoodItem.Meta>
+                  <FoodItem.Meta style={{fontSize:'0.9em'}}>Placed: {order.time_placed}</FoodItem.Meta>
+                  <FoodItem.Meta style={{fontSize:'0.9em'}}> {order.type === 'reservation' ? ('Reservation: ' + order.reserve_date) : ('Order Total: $' + (order.price * order.quantity).toFixed(2))}</FoodItem.Meta>
                 </FoodItem.Header>
                 <FoodItem.Meta>
                     {order.restaurant}

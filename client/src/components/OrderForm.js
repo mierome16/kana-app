@@ -2,14 +2,13 @@ import React, { useState } from 'react'
 import { Form, Container, Header, Divider, Image } from 'semantic-ui-react'
 import { useSelector } from 'react-redux'
 import shortid from 'shortid'
-import { sendOrder, confirmOrder } from '../actions/meal.actions'
+import { sendOrder, confirmOrder, formatTime } from '../actions/meal.actions'
 import { Redirect } from "react-router-dom"
 import moment from 'moment'
 import MSidebar from './Sidebar'
  
 export default props => { 
   const order = useSelector(appState => appState.mealReducer.orderedItem)
-  console.log(order)
   const [submit, setSubmit] = useState(false)
   const [values, setValues] = useState({
     user: localStorage.getItem('id'),
@@ -19,9 +18,8 @@ export default props => {
     order: order,
     confirm: shortid.generate(),
     type: 'order',
-    timePlaced: moment().format('LLL')
+    timePlaced: moment().format('l LT')
   })
-  console.log(values)
 
   function handleChange(e) {
     setValues({
@@ -32,7 +30,6 @@ export default props => {
 
   function handleSubmit(e) {
     e.preventDefault()
-    console.log(values)
     sendOrder(values)
     confirmOrder(values)
     setSubmit(!submit)
@@ -57,7 +54,7 @@ export default props => {
         <p>{order.restaurant}</p>
         <p>{order.address}</p>
         <p>702-123-4567</p>
-        <p>Mon - Fri: {order.open} AM - {order.close} PM</p>
+        <p>Mon - Fri: {formatTime(order.open)} - {formatTime(order.close)}</p>
         <Image bordered rounded size='small' src='https://www.google.com/maps/d/thumbnail?mid=1CoxrxicMw4uSYPjPb20L6eQisoI&hl=en_US' />
         <Form onSubmit={handleSubmit}>
             <Form.Group widths='equal'>
@@ -75,9 +72,9 @@ export default props => {
             <Header>
             Total: ${(order.price * values.quantity).toFixed(2)}
             </Header>
-            <Form.Button type="submit" onClick={handleSubmit} inverted color="orange">Place Order</Form.Button> 
         </Form>
       </Container>
+      <div className="submit-form" onClick={handleSubmit}>Place Order</div> 
       </MSidebar>
       )
     )

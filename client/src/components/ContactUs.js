@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, Button, Modal, Header } from 'semantic-ui-react'
+import { Input, Button, Modal } from 'semantic-ui-react'
 import MSidebar from './Sidebar'
 
 

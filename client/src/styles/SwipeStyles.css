@@ -178,7 +178,7 @@
   }
 
  .save {
-      color: pink;
+      color: #E38568;
   }
 
   /* #top-replace {
@@ -228,6 +228,13 @@
   }
 
   .card-body .card-desc {
+    max-height: 40px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  #card-desc {
     max-height: 40px;
     overflow: hidden;
     white-space: nowrap;

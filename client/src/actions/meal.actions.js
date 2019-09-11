@@ -1,24 +1,27 @@
 import store from '../store'
 import axios from 'axios'
-import { func } from 'prop-types';
 
 //**** SHUFFLE MENU ITEMS ****/
 export function shuffle(a) {
-        var j, x, i;
-        for (i = a.length - 1; i > 0; i--) {
-            j = Math.floor(Math.random() * (i + 1));
-            x = a[i];
-            a[i] = a[j];
-            a[j] = x;
-        }
-        return a;
-      }
+  var j, x, i;
+  for (i = a.length - 1; i > 0; i--) {
+      j = Math.floor(Math.random() * (i + 1));
+      x = a[i];
+      a[i] = a[j];
+      a[j] = x;
+  }
+  return a;
+}
+
+export function formatTime(str) {
+  let time
+  str.slice(0, 2) > 12 ? time = str.slice(0, 2) - 12 + ':00 PM' : str.length > 6 ? time = (str.slice(0, (str.length-3)) + ' AM') : time = str + ' AM'
+  return time
+} 
 
 //**** CALL TO GET ALL MENU ITEMS FILTERED BY DIETARY RESTRICTIONS ****/
 export function getMenuItems(selectedDiets, selectedMeals){
  axios.get('/api/menu-items/'+ selectedDiets + '/' + selectedMeals).then(resp => {
-   //console.log(resp.data)
-   // probably can remote this data variable, we receive an object anyway?
     const data = resp.data.map(item => {
       let items = {
       id: item.id,
@@ -41,7 +44,6 @@ export function getMenuItems(selectedDiets, selectedMeals){
      type:'GET_ALL_ITEMS',
      payload: shuffle(data)
    })
-  //  console.log(data)
  })
 }
 
@@ -76,10 +78,10 @@ export function toggleDiet(diet) {
 export function getMeals() {
   axios.get('/api/mealtypes/').then(resp => {
     const meals = []
-
     resp.data.forEach(meal => {
       meals.push({
         name: meal.meal_name,
+        disabled: meal.disabled ? true : false,
         img: `/icons/m${meal.id}.png`
       })
     })
@@ -114,7 +116,6 @@ export function orderItem(item) {
 }
 
 export function sendOrder(item){
-  console.log(item)
   axios.post('/api/add-order', {
       user_id: item.user,
       item_id: item.order.id,
@@ -127,13 +128,7 @@ export function sendOrder(item){
       reservation_date: item.date
 
   }).then(resp => {
-      //console.log(item)
   })
-  console.log(item)
-  // store.dispatch({ 
-  //   type: 'CONFRIM_ORDER',
-  //   payload: item
-  // })   
 }
 
 export function confirmOrder(item) {
@@ -173,7 +168,6 @@ export function addToFav(item) {
     user_id: id,
     item_id: item
   }).then(resp => {
-    console.log(resp.data)
   })
 }
 

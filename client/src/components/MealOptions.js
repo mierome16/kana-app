@@ -10,8 +10,6 @@ import MealButton from './MealButton'
 export default props => {
   const meals = useSelector(appState => appState.mealReducer.meals)
   const selectedMeals = useSelector(appState => appState.mealReducer.selectedMeals)
-  const selectedDiets = useSelector(appState => appState.mealReducer.selectedDiets)
-  
   useEffect(() => {
     getMeals()
   }, [])
@@ -27,7 +25,7 @@ export default props => {
       <div className='meals'>
         {meals.map((meal, i) => (
           <div key={'meal' + i} id={meal.name} className='meal'>
-          <MealButton meal={meal.name} img={meal.img} active={selectedMeals.find(selectedMeal => selectedMeal === meal.name) !== undefined} />
+          <MealButton meal={meal.name} img={meal.img} disabled={meal.disabled} active={selectedMeals.find(selectedMeal => selectedMeal === meal.name) !== undefined} />
           </div>
           ))}
       </div> 

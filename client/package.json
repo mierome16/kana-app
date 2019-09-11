@@ -24,6 +24,7 @@
     "react-scripts": "3.0.1",
     "react-swipeable-views": "^0.13.3",
     "react-textarea-autosize": "^7.1.0",
+    "react-time-picker": "^3.7.1",
     "redux": "^4.0.4",
     "redux-form": "^8.2.6",
     "semantic-ui-css": "^2.4.1",

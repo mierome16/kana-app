@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
+import React, { useState } from 'react'
+import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import { resLogin } from '../actions/restaurant.actions'
 import '../styles/resthome.css'
@@ -8,8 +8,8 @@ export default props => {
 const [res_email, setRes_email] = useState('')
 const [res_password, setRes_password] = useState('')
 
+
     function handleSubmit() {
-        console.log(res_email, res_password)
         resLogin(res_email, res_password)
     }
     return (
@@ -45,7 +45,7 @@ const [res_password, setRes_password] = useState('')
         </Segment>
       </Form>
       <Message>
-        New to us? <Link to="/restaurant-register"><a href='#'>Sign Up</a></Link>
+        New to us? <Link to="/restaurant-register"><a href='/'>Sign Up</a></Link>
       </Message>
     </Grid.Column>
   </Grid>

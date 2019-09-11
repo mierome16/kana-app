@@ -42,7 +42,6 @@ const HomepageHeading = ({ mobile }) => (
       style={{
         fontSize: mobile ? '2em' : '6em',
         fontFamily: 'Rock Salt',
-        fontWeight: 'normal',
         marginBottom: 0,
         marginTop: mobile ? '1.5em' : '1.5em',
         // color: '#8f0a03',
@@ -324,7 +323,7 @@ const HomepageLayout = () => (
           horizontal
           style={{ margin: '3em 0em', textTransform: 'uppercase' }}
         >
-          <a href='#'>Case Studies</a>
+          <a href='/'>Case Studies</a>
         </Divider>
         <Header as='h3' style={{ fontSize: '2em' }}>
           Did We Tell You About Our Bananas?
