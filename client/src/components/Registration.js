@@ -76,7 +76,7 @@ export default props => {
                     placeholder='Confirm Password'
                     type='password'
                 />
-                <Link to="/dashboard">
+                <Link to="/login">
                 <Button onClick={handleSubmit} color='#8f0a03' fluid size='large' style={{background: '#8f0a03',
     color: 'white'}}>
                   Sign Up

@@ -35,7 +35,6 @@ export default function(state = initialState, action) {
       }
 
     case 'CONFIRM_ORDER':
-      console.log(state.confirm)
       return {...state, confirm: action.payload}
 
     case 'GET_ALL_ITEMS':
@@ -45,7 +44,7 @@ export default function(state = initialState, action) {
         return {...state, orderedItem: action.payload}
 
     case 'END_ORDER':
-      return {...state, orderedItem: '', confirmation: ''}
+      return {...state, orderedItem: '', confirm: ''}
       
     case 'GET_PAST_ORDERS':
       return {...state, pastOrders: action.payload}

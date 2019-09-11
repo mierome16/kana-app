@@ -9,7 +9,6 @@ import MSidebar from './Sidebar'
  
 export default props => { 
   const order = useSelector(appState => appState.mealReducer.orderedItem)
-  console.log(order)
   const [submit, setSubmit] = useState(false)
   const [values, setValues] = useState({
     user: localStorage.getItem('id'),
@@ -19,9 +18,8 @@ export default props => {
     order: order,
     confirm: shortid.generate(),
     type: 'order',
-    timePlaced: moment().format('LLL')
+    timePlaced: moment().format('l LT')
   })
-  console.log(values)
 
   function handleChange(e) {
     setValues({
@@ -32,7 +30,6 @@ export default props => {
 
   function handleSubmit(e) {
     e.preventDefault()
-    console.log(values)
     sendOrder(values)
     confirmOrder(values)
     setSubmit(!submit)
@@ -75,9 +72,9 @@ export default props => {
             <Header>
             Total: ${(order.price * values.quantity).toFixed(2)}
             </Header>
-            <Form.Button type="submit" onClick={handleSubmit} inverted color="orange">Place Order</Form.Button> 
         </Form>
       </Container>
+      <div className="submit-form" onClick={handleSubmit}>Place Order</div> 
       </MSidebar>
       )
     )

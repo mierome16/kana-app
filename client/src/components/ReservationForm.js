@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Container, Header, Divider, Image } from 'semantic-ui-react'
+import { Container, Header, Divider, Image } from 'semantic-ui-react'
 import moment from 'moment'
 import { useSelector } from 'react-redux'
 import shortid from 'shortid'
@@ -14,7 +14,6 @@ export default props => {
   const order = useSelector(appState => appState.mealReducer.orderedItem)
   const [date, setDate] = useState(new Date())
   const [time, setTime] = useState('10:00')
-  console.log(order)
   const [submit, setSubmit] = useState(false)
   const values = {
     user: localStorage.getItem('id'),
@@ -22,9 +21,8 @@ export default props => {
     date: moment(date).format('l') + " " + formatTime(time),
     confirm: shortid.generate(),
     type: 'reservation',
-    timePlaced: moment().format('LLL')
+    timePlaced: moment().format('LT')
   }
-  console.log(values.date)
   function handleSubmit(e) {
     e.preventDefault()
     setSubmit(!submit)
@@ -75,8 +73,8 @@ export default props => {
           onChange={time => setTime(time)}
           value={time}
         />
-        <Button style={{'marginTop': 30}} inverted color="orange" onClick={handleSubmit}>Confirm Reservation</Button>
       </Container>
+      <div className="submit-form" onClick={handleSubmit}>Confirm Reservation</div>
       </MSidebar>
       )
     )

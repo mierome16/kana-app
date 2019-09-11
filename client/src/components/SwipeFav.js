@@ -14,7 +14,6 @@ export default props => {
   const foodItems = useSelector(appState => appState.mealReducer.favorites)
   const favs = shuffle(foodItems)
   const order = useSelector(appState => appState.mealReducer.orderedItem)
-  console.log(order)
   
    function mapRating(number) {
       let arr = []
@@ -23,18 +22,24 @@ export default props => {
       }
       return arr
     }
+
+    function mapLabels(item) {
+      let labels = []
+      item.indexOf(" ") === -1 ? labels.push(<Label>{item}</Label>) : labels = item.split(" ").map(i => <Label>{i}</Label>)
+      return labels
+    }
     
     
     useEffect(() => {
-      finishOrder()
+     
       getFavorites()
-      
+      finishOrder()
     }, [])
 
   
   useEffect(() => {
     if (!order) {
-      stackedCards(foodItems)
+      stackedCards(favs, 'favorite')
     }
   })
 
@@ -48,7 +53,7 @@ export default props => {
                   {favs.length === 0 ? <NoResults /> : ( 
                     favs.map(item => (        
                       <div key={item.meal_name} className="card-item">
-                        <div style={{background: `url(${item.image}) no-repeat center`, backgroundSize: 'cover', width: '100%', height: '325px', borderTopRightRadius: '10px', borderTopLeftRadius: '10px'}}>
+                        <div style={{background: `url(${item.image}) no-repeat center`, backgroundSize: 'contain', width: '100%', height: '325px', borderTopRightRadius: '10px', borderTopLeftRadius: '10px'}}>
                         </div>
                         <div className="card-content">
                           <div className="card-header">
@@ -67,7 +72,7 @@ export default props => {
                           <div className="card-body">
                             <div>
                               <p className="card-desc">{item.description ? item.description.charAt(0).toUpperCase() + item.description.substr(1) : ''}</p>
-                              <p>Tags: {item.allergy ? <Label>{item.allergy}</Label> : item.meal_type ? <Label>{item.meal_type}</Label> : 'None'} </p>
+                              <p>Tags: {item.allergy ? mapLabels(item.allergy) : ''} {item.meal_type ? mapLabels(item.meal_type) : ''} </p>
                             </div>
                           </div>
                         </div>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useEffect} from "react";
 import '../styles/SwipeStyles.css'
 import { Icon, Label } from "semantic-ui-react"
 import { getMenuItems, finishOrder } from '../actions/meal.actions'
@@ -16,15 +16,19 @@ export default props => {
   const selectedDiets = useSelector(appState => appState.mealReducer.selectedDiets)
   const selectedMeals = useSelector(appState => appState.mealReducer.selectedMeals)
   
-  
    function mapRating(number) {
       let arr = []
       for(let i = 0; i<number; i++) {
-        arr.push(<Icon name="star" />)
+        arr.push(<Icon name="star" key={i} />)
       }
       return arr
     }
-    
+
+    function mapLabels(item) {
+      let labels = []
+      item.indexOf(" ") === -1 ? labels.push(<Label>{item}</Label>) : labels = item.split(" ").map(i => <Label>{i}</Label>)
+      return labels
+    }
     
     useEffect(() => {
       finishOrder()
@@ -37,7 +41,7 @@ export default props => {
   
   useEffect(() => {
     if (!order) {
-      stackedCards(foodItems)
+      stackedCards(foodItems, 'default')
     }
   })
 
@@ -72,7 +76,7 @@ export default props => {
                             <div className="card-body">
                               <div>
                                 <p className="card-desc">{item.description ? item.description.charAt(0).toUpperCase() + item.description.substr(1) : ''}</p>
-                                <p>Tags: {item.allergy ? <Label>{item.allergy}</Label> : item.meal_type ? <Label>{item.meal_type}</Label> : 'None'} </p>
+                                <p>Tags: {item.allergy ? mapLabels(item.allergy) : ''} {item.meal_type ? mapLabels(item.meal_type) : ''} </p>
                               </div>
                             </div>
                           </div>

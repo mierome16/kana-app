@@ -10,7 +10,6 @@ const [res_password, setRes_password] = useState('')
 
 
     function handleSubmit() {
-        console.log(res_email, res_password)
         resLogin(res_email, res_password)
     }
     return (
@@ -46,7 +45,7 @@ const [res_password, setRes_password] = useState('')
         </Segment>
       </Form>
       <Message>
-        New to us? <Link to="/restaurant-register"><a href='#'>Sign Up</a></Link>
+        New to us? <Link to="/restaurant-register"><a href='/'>Sign Up</a></Link>
       </Message>
     </Grid.Column>
   </Grid>

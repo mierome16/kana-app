@@ -16,7 +16,6 @@ export default props => {
 
     function handleSubmit(){
         resRegister(res_name, res_address, res_city, res_state, res_zip)
-        console.log(res_name, res_address, res_city, res_state, res_zip)
     }
 
 
@@ -46,7 +45,7 @@ export default props => {
         <Form.Button style={{background: '#8f0a03', color: 'white'}}>Submit</Form.Button>
       </Form>
       <Message>
-        Already a Restaurant User? <Link to="/restaurant-login"><a href='#'>Log in</a></Link>
+        Already a Restaurant User? <Link to="/restaurant-login"><a href='/'>Log in</a></Link>
       </Message>
     </Grid.Column>
   </Grid>

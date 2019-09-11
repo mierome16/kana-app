@@ -17,9 +17,7 @@ import { getLocations } from '../actions/distance.actions';
 
     useEffect((e) => {
         getLocations()
-        // if(e.key === "Escape"){
-        //     setSelectedLocation(null)
-        // }
+       
     }, [])
     return (
         <div>

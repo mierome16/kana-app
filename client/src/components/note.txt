@@ -1,9 +1,0 @@
-
-
---- dashboard/account view component??
---- make a fake link to external restaurant page??
---- add restaurant phone # to data and grab it in sql
-
---- add time input and party size for reservation
---- only see items that are open
---- phone gap/ionic

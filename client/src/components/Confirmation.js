@@ -10,7 +10,6 @@ export default props => {
   const order = useSelector(appState => appState.mealReducer.confirm)
   const [viewOrders, setViewOrders] = useState(false)
   const [orderAgain, setOrderAgain] = useState(false)
-  console.log(order)
 
   function endOrder(action) {
     finishOrder()
@@ -37,7 +36,7 @@ export default props => {
         </div>
         <div className='confirm-action'>
           <Button onClick={e => endOrder('view')}>View Orders</Button>
-          <Button onClick={e => endOrder('another')}>Order Another Item</Button>
+          <Button style={{background: '#8f0a03', color: '#fff'}} onClick={e => endOrder('another')}>Order Another Item</Button>
         </div>
       </Container>
       </MSidebar>
