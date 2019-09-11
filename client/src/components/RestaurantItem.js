@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import { Radio, Input, Form, Label, TextArea, Button, Confirm, Grid } from 'semantic-ui-react'
+import { Redirect } from 'react-router-dom'
 
 export default props => {
   const [confirm, setConfirm] = useState({open: false})
@@ -9,12 +10,14 @@ export default props => {
   }
   function close(){
     setConfirm({ open: false })
+    
   }
 
   function handleSubmit(e){
     e.preventDefault()
   }
   return (
+    confirm.open ? <Redirect to="/restaurant-profile" /> : (
     <div id="additempage" style={{paddingTop: '3%'}}>
       <h1 style={{color: '#8f0a03'}}>Add a Menu Item</h1>
       <Form onSubmit={handleSubmit} style={{width: '700px', height: '600px',}}>
@@ -72,6 +75,7 @@ export default props => {
       </Form>
       
     </div>
+    )
   )
 }
 
