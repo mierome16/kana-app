@@ -31,7 +31,7 @@
     "semantic-ui-react": "^0.88.1",
     "shortid": "^2.2.14",
     "socket.io": "^2.2.0",
-    "validator": "^11.1.0"
+    "validator": "^13.7.0"
   },
   "scripts": {
     "start": "react-scripts start",
